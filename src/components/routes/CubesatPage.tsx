@@ -1,5 +1,4 @@
 import { TextHoverEffect } from "../ui/text-hover-effect"
-import SloshingVideo from "/sloshing-video.mp4"
 import { ShootingStars } from "../ui/shooting-stars"
 
 const CubesatPage = () => {
