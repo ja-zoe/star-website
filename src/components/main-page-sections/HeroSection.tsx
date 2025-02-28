@@ -15,16 +15,21 @@ const HeroPage = () => {
             <FlipWords words={words} className='text-white'/>
           </span>
         </p>
-        <div className='flex items-center gap-4 text-sm md:text-xl'>
+        <div className='flex items-center gap-4 text-sm md:text-xl z-10'>
           <HoverBorderGradient
           containerClassName="rounded-full"
           as="a"
-          className="bg-black flex items-center space-x-2 cursor-pointer"
+          className="bg-transparent flex items-center space-x-2 cursor-pointer"
           >
             <a href='#AboutUsPage'>Learn More</a>
           </HoverBorderGradient>
 
-          <Cover className="rounded-4xl"><a className='cursor-pointer' href='#JoinUsPage'>Join Us</a></Cover>
+          <a 
+          href='#JoinUsPage' 
+          className='bg-white text-black radius rounded-full px-2 py-1 duration-500
+          transition-colors hover:cursor-pointer hover:bg-transparent hover:text-white'>
+            Join Us
+          </a>
         </div>
       </div>
       <ShootingStars/>

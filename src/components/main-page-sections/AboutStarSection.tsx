@@ -3,6 +3,7 @@ import { TextHoverEffect } from "../ui/text-hover-effect";
 import { Globe } from "../magicui/globe"
 import StarStat from "../StarStat";
 import SponsorCards from "../SponsorCards";
+import { Wrench, UsersRound, BookCopy } from 'lucide-react';
 
 const AboutStarPage = () => {
     
@@ -18,9 +19,9 @@ const AboutStarPage = () => {
             <div className="mt-10">
                 <p className="mb-8">Here's a little bit about us</p>
                 <div className="w-full flex flex-col gap-10 md:gap-8 sm:flex-row items-center justify-center">
-                    <StarStat stat={"3"} headline="Projects" className="shadow-2xl shadow-red-200"/>
-                    <StarStat stat="90+" headline="Active Members" className="shadow-2xl shadow-blue-200"/>
-                    <StarStat stat="10+" headline="Majors Represented" className="shadow-2xl shadow-red-200"/>
+                    <StarStat stat={"3"} headline="Projects" Icon={Wrench} className="bg-radial from-red-400/20 to-transparent"/>
+                    <StarStat stat="90+" headline="Active Members" Icon={UsersRound} className="bg-radial from-blue-400/20 to-transparent"/>
+                    <StarStat stat="10+" headline="Majors Represented" Icon={BookCopy} className="bg-radial from-red-400/20 to-transparent"/>
                 </div>
                 <p className="mt-14 md:px-10">
                     Our mission is to inspire and equip students to push the boundaries of innovation. 

@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({icon, title, colors, href}: ProjectCardProps) => {
   return (
-    <a href={href} className="w-full hover:cursor-pointer">
+    <a href={href} className="w-full max-w-[375px] hover:cursor-pointer">
       <Card title={title} icon={icon}>
           <CanvasRevealEffect 
               animationSpeed={5.1}
@@ -59,7 +59,7 @@ const Card = ({
           <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
             <img src={icon} className="w-[66px] h-[66px] invert"/>
           </div>
-          <h2 className="dark:text-white text-xl text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+          <h2 className="dark:text-white text-3xl text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
             {title}
           </h2>
         </div>        

@@ -78,7 +78,7 @@ const SponsorCards = () => {
                     <Tooltip>
                         <TooltipTrigger>
                             <a
-                            className={cn("drop p-2 transition-all", hovered !== null && hovered !== ind && "blur-sm", (ind === 4 || ind === 5) && "invert")}
+                            className={cn("drop p-2 transition-all duration-500", hovered !== null && hovered !== ind && "blur-sm", (ind === 4 || ind === 5) && "invert")}
                             onMouseEnter={()=>setHovered(ind)}
                             onMouseLeave={()=>setHovered(null)}
                             href={sponsor.link}
