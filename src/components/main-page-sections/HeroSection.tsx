@@ -1,5 +1,4 @@
 import { HoverBorderGradient } from '../ui/hover-border-gradient';
-import { Cover } from '../ui/cover';
 import { FlipWords } from '../ui/flip-words';
 import { ShootingStars } from "../ui/shooting-stars";
 
