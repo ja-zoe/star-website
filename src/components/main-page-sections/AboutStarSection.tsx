@@ -4,12 +4,19 @@ import { Globe } from "../magicui/globe"
 import StarStat from "../StarStat";
 import SponsorCards from "../SponsorCards";
 import { Wrench, UsersRound, BookCopy } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const AboutStarPage = () => {
     
   return (
-    <div id="AboutStarPage" className="w-screen flex flex-col gap-0 justify-center items-center relative pt-20">
-        <TextHoverEffect text="WELCOME"/>
+    <div id="AboutStarPage" className="w-screen flex flex-col gap-4 justify-center items-center relative pt-20">
+        
+        <div className="w-full relative flex flex-col items-center">
+            <TextHoverEffect text="WELCOME"/>
+            <a href="#AboutStarPage" className="cursor-default">
+                <ChevronDown className="absolute z-40 -bottom-3 sm:bottom-0 md:bottom-1 base:bottom-4 lg:bottom-6 xl:bottom-8 animate-pulse h-auto"/>
+            </a>
+        </div>
         <div className="relative w-full flex flex-col gap-5 justify-center items-center px-5 text-center z-10">
             <p className="md:px-10">
                 STAR (Space Technology Association of Rutgers) is a student-led chapter of SEDS 
