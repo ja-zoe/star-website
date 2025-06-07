@@ -72,7 +72,6 @@ const SponsorCards = () => {
   return (
     <div className="flex justify-center flex-wrap gap-16 items-center px-10">
         {sponsors.map((sponsor, ind) => {
-            console.log(sponsor.sponsorName)
             return (
                 <TooltipProvider key={ind}>
                     <Tooltip>
