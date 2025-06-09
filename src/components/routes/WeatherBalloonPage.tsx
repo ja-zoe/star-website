@@ -1,11 +1,9 @@
-import { TextHoverEffect } from "../ui/text-hover-effect"
-
 const WeatherBalloonPage = () => {
   return (
-    <div className="w-screen min-h-screen flex flex-col items-center bg-black pt-12">
-      <TextHoverEffect text="WEATHER BALLOON" isWb/>
-      <div>
-        
+    <div className="min-h-screen grid grid-cols-2 bg-black pt-15">
+      
+      <div className='flex flex-row text-3xl inter'>
+        <h1>About the Weather Balloon Team</h1>
       </div>
     </div>
   )
