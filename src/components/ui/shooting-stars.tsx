@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "../../lib/utils";
 import React, { useEffect, useState, useRef } from "react";
 
@@ -117,7 +116,7 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
   return (
     <svg
       ref={svgRef}
-      className={cn("w-full h-full absolute inset-0 pointer-events-none", className)}
+      className={cn("fixed top-0 left-0 w-screen h-screen pointer-events-none z-50", className)}
     >
       {star && (
         <rect

@@ -1,7 +1,5 @@
 import { Wrench, ThermometerSun, Antenna, Zap, Blocks, Binary, Compass, FlaskConical } from "lucide-react"
-import { useMeetingTimes } from "../contexts/MeetingTimes"
-import React, { useState } from "react"
-import { cn } from "../lib/utils"
+// import { useMeetingTimes } from "../contexts/MeetingTimes"
 import {
     Dialog,
     DialogContent,
@@ -97,13 +95,12 @@ const subteams: SubteamInfo[] = [
 ]
 
 const CubesatSubteams = () => {
-    const meetingTimes = useMeetingTimes()
   return (
     <div className="w-full flex flex-wrap justify-center gap-5">
-        {subteams.map((subteam, ind) => {
+        {subteams.map((subteam) => {
             const Icon = subteam.icon
             return (
-                <Dialog>
+                <Dialog key={subteam.name}>
                     <DialogTrigger>
                         <div className="w-72 flex flex-col items-center justify-center gap-5 rounded-2xl p-5 border-2 border-white/30"> 
                             <div>

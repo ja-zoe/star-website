@@ -2,9 +2,68 @@ import { ShootingStars } from "../ui/shooting-stars";
 import { TextHoverEffect } from "../ui/text-hover-effect";
 import { Globe } from "../magicui/globe"
 import StarStat from "../StarStat";
-import SponsorCards from "../SponsorCards";
 import { Wrench, UsersRound, BookCopy } from 'lucide-react';
 import { ChevronDown } from 'lucide-react';
+import AnsysLogo from "/ansys-logo.png"
+import NasaLogo from "/nasa-logo.png"
+import EGCLogo from "/egc-logo-w-trans.png"
+import RutgersLogo from "/rutgers-logo.png"
+import SedsLogo from "/seds-logo.png"
+import UNPLogo from "/unp-logo.png"
+import DassaultLogo from "/dassault-systemes-logo.png"
+import HoverBlurCards from "../HoverBlurCards";
+
+const sponsors = [
+    {
+        itemName: "Ansys",
+        alt: "Ansys Logo",
+        logo: AnsysLogo,
+        tooltipContent: "The creators of STK software",
+        link: "https://www.ansys.com/"
+    },
+    {
+        itemName: "Rutgers Engineering Governing Council",
+        alt: "Rutgers EGC Logo",
+        logo: EGCLogo,
+        tooltipContent: "The student ran governing council of The Rutgers School of Engineering",
+        link: "https://egc.rutgers.edu/"
+    },
+    {
+        itemName: "NASA",
+        alt: "NASA Logo",
+        logo: NasaLogo,
+        tooltipContent: "We all know Nasa",
+        link: "https://www.nasa.gov/"
+    },
+    {
+        itemName: "Rutgers University",
+        alt: "Rutgers University Logo",
+        logo: RutgersLogo,
+        tooltipContent: "The State University of New Jersey",
+        link: "https://www.rutgers.edu/"
+    },
+    {
+        itemName: "Students for the Exploration and Development of Space",
+        alt: "SEDS Logo",
+        logo: SedsLogo,
+        tooltipContent: "A student-run organization empowering the next generation of space explorers through projects, education, and advocacy.",
+        link: "https://seds.org/space-for-all/"
+    },
+    {
+        itemName: "University Nanosatellite Program",
+        alt: "UNP Logo",
+        logo: UNPLogo,
+        tooltipContent: `A competitive U.S. Air Force and Space Force program supporting student teams in designing and building small satellites for space missions.`,
+        link: "https://universitynanosat.org/"
+    },
+    {
+        itemName: "Dassault Systèmes",
+        alt: "Dassault Systèmes Logo",
+        logo: DassaultLogo,
+        tooltipContent: "The creators of SOLIDWORKS CAD software",
+        link: "https://www.3ds.com/"
+    },
+]
 
 const AboutStarPage = () => {
     
@@ -61,7 +120,7 @@ const AboutStarPage = () => {
 
             <div className="flex flex-col gap-5">
                 <p>Did You Know STAR is Sponsored by 7 Different Organizations?</p>
-                <SponsorCards />
+                <HoverBlurCards items={sponsors}/>
             </div>
 
         </div>
