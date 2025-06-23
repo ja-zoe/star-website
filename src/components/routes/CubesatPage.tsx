@@ -65,14 +65,17 @@ const CubesatPage = () => {
         <WavyBackground colors={["#999999", "#9D2626"]} className="grid place-items-center px-10">
           <p className="text-6xl font-bold">Cube Satellite</p>
           <p className="text-lg font-semibold max-w-4xl">Fuel slosh. Orbital control. Rutgers’ first student satellite — engineered for microgravity experimentation.</p>
-          <p className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer">About the Project</p>
+          <a className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer" href="#about">About the Project</a>
         </WavyBackground>
       </div>
 
-      <div className="flex flex-col gap-10 text-center">
-        <div className="flex flex-col gap-4 px-10">
-          <p>The CubeSat project is developing SPICEsat, Rutgers University’s first student-built satellite. This mission is part of the prestigious University Nanosatellite Program, under mentorship from faculty and guidance from industry professionals. The satellite’s primary scientific objective is to investigate fluid sloshing dynamics in microgravity, a critical problem in spacecraft fuel management. By characterizing slosh behavior and testing active control stabilization algorithms in orbit, SPICEsat aims to advance the state of onboard fuel modeling and control strategies beyond what passive systems allow.</p>
-          <p>Students on the team are directly involved in the complete satellite lifecycle—from mission conceptualization and payload integration to subsystem testing and full-system validation. SPICEsat uses a combination of COTS components and custom hardware, offering students exposure to real-world spacecraft design and interdisciplinary systems engineering. With an engineering model already in testing, the mission is rapidly progressing toward flight readiness and serves as a launchpad for the next generation of space systems engineers.</p>
+      <div className="flex flex-col gap-16 text-center">
+        <div className="flex flex-col gap-5 px-10">
+          <p className="text-2xl scroll-mt-28" id="about">About the Cubesat Project</p>
+          <div className="flex flex-col gap-4 px-10">
+            <p>The CubeSat project is developing SPICEsat, Rutgers University’s first student-built satellite. This mission is part of the prestigious University Nanosatellite Program, under mentorship from faculty and guidance from industry professionals. The satellite’s primary scientific objective is to investigate fluid sloshing dynamics in microgravity, a critical problem in spacecraft fuel management. By characterizing slosh behavior and testing active control stabilization algorithms in orbit, SPICEsat aims to advance the state of onboard fuel modeling and control strategies beyond what passive systems allow.</p>
+            <p>Students on the team are directly involved in the complete satellite lifecycle—from mission conceptualization and payload integration to subsystem testing and full-system validation. SPICEsat uses a combination of COTS components and custom hardware, offering students exposure to real-world spacecraft design and interdisciplinary systems engineering. With an engineering model already in testing, the mission is rapidly progressing toward flight readiness and serves as a launchpad for the next generation of space systems engineers.</p>
+          </div>
         </div>
 
         
@@ -113,7 +116,7 @@ const CubesatPage = () => {
 
         <div className="flex flex-col gap-2 px-10">
           <p className="text-2xl">Meeting times and locations</p>
-          <p>Since the weather balloon project only consists of two subteams, software and structures, meetings are held jointly in the cage at [enter time here]</p>
+          <p>To be filled out</p>
         </div>
 
         <div className="flex flex-col gap-5 px-10">
