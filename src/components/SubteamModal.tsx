@@ -2,7 +2,6 @@ import StarStat from "./StarStat";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
