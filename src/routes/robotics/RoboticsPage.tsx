@@ -2,8 +2,6 @@ import { ShootingStars } from "../../components/ui/shooting-stars";
 import { WavyBackground } from "../../components/ui/wavy-background";
 import HoverBlurCards from "../../components/HoverBlurCards";
 import { ItemType } from "../../components/HoverBlurCards";
-import { Binary, Boxes, Zap } from "lucide-react";
-import StarStat from "../../components/StarStat";
 import { User } from "lucide-react";
 import Mechanical from "./Mechanical";
 import Software from "./Software";
