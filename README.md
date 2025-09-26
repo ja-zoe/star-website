@@ -1,51 +1,50 @@
-# React + TypeScript + Vite
+# Space Technology Association at Rutgers (STAR)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the open-source repository for the **Space Technology Association at Rutgers**, commonly known as **STAR**. This organization unites engineers, scientists, and enthusiasts around conceiving, developing, and deploying space-relevant technology.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Mission & Vision
 
-## Expanding the ESLint configuration
+**Mission.** To cultivate an interdisciplinary environment in which Rutgers students design, prototype, and iterate spacecraft subsystems, payloads, and mission concepts — thereby bridging academic theory and real-world space engineering.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Vision.** To transform Rutgers into a recognized hub for student-driven space initiatives, contributing to small satellite missions, high-altitude campaigns, and broader aerospace research.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Project Website
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The STAR website is implemented using **Vite + React**. It showcases our initiatives, team roster, events, technical portfolio, and contact channels.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Key Technical Details
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# star-website
+| Aspect | Specification |
+|---|---|
+| Framework | React |
+| Bundler / Dev Tool | Vite |
+| Language | TypeScript / JavaScript (as applicable) |
+| Styling | Tailwind / ShadCN / Aceternity UI / Styled Components (adjust as your project does) |
+| Deployment | Can be deployed to any host as long as they support react apps |
+| Architecture | Component-based, responsive design, client-side routing |
+
+**How to run locally (example):**
+
+```bash
+# clone the repo
+git clone https://github.com/<your-org>/star-website.git
+cd star-website
+
+# install dependencies
+npm install
+# or
+yarn install
+
+# run dev server
+npm run dev
+# or
+yarn dev
+
+# build for production
+npm run build
+# or
+yarn build
