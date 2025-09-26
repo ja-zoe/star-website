@@ -1,6 +1,6 @@
 # Space Technology Association at Rutgers (STAR)
 
-Welcome to the open-source repository for the **Space Technology Association at Rutgers**, commonly known as **STAR**. This organization unites engineers, scientists, and enthusiasts around conceiving, developing, and deploying space-relevant technology.
+Welcome to the open-source repository for the website of **Space Technology Association at Rutgers**, commonly known as **STAR**. This organization unites engineers, scientists, and enthusiasts around conceiving, developing, and deploying space-relevant technology.
 
 ---
 
