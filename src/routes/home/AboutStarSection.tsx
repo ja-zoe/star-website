@@ -67,15 +67,15 @@ const sponsors = [
   },
 ];
 
-const AboutStarPage = () => {
+const AboutStarSection = () => {
   return (
     <div
-      id="AboutStarPage"
+      id="AboutStarSection"
       className="w-screen flex flex-col gap-4 justify-center items-center relative pt-20"
     >
       <div className="w-full relative flex flex-col items-center">
         <TextHoverEffect text="WELCOME" />
-        <a href="#AboutStarPage" className="cursor-default">
+        <a href="#AboutStarSection" className="cursor-default">
           <ChevronDown className="absolute z-40 -bottom-3 sm:bottom-0 md:bottom-1 base:bottom-4 lg:bottom-6 xl:bottom-8 animate-pulse h-auto" />
         </a>
       </div>
@@ -117,7 +117,7 @@ const AboutStarPage = () => {
         </div>
 
         <a
-          href="#JoinUsPage"
+          href="#JoinUsSection"
           className="mt-8 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
         >
           Become a Member
@@ -152,4 +152,4 @@ const AboutStarPage = () => {
   );
 };
 
-export default AboutStarPage;
+export default AboutStarSection;

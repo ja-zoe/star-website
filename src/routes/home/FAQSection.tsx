@@ -7,9 +7,9 @@ import {
   AccordionTrigger,
 } from "../../components/ui/accordion";
 
-const FAQPage = () => {
+const FAQSection = () => {
   return (
-    <div id="FAQPage" className="flex flex-col relative w-full py-10">
+    <div id="FAQSection" className="flex flex-col relative w-full py-10">
       <TextHoverEffect text="FAQ" />
       <div className="flex justify-center items-center px-20">
         <Accordion type="single" collapsible className="w-full z-20">
@@ -115,4 +115,4 @@ const FAQPage = () => {
     </div>
   );
 };
-export default FAQPage;
+export default FAQSection;

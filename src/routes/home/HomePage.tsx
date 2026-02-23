@@ -3,6 +3,7 @@ import ProjectsSection from "./ProjectsSection";
 import AboutStarSection from "./AboutStarSection";
 import FAQSection from "./FAQSection";
 import JoinUsSection from "./JoinUsSection";
+import EboardSection from "./EboardSection";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       <ProjectsSection />
       <FAQSection />
       <JoinUsSection />
+      <EboardSection />
     </div>
   );
 };

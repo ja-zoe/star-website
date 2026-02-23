@@ -5,10 +5,10 @@ import satelliteIcon from "/satellite-icon.png";
 import weatherBalloonIcon from "/weather-balloon-icon.png";
 import { TextHoverEffect } from "../../components/ui/text-hover-effect";
 
-const ProjectsPage = () => {
+const ProjectsSection = () => {
   return (
     <div
-      id="ProjectsPage"
+      id="ProjectsSection"
       className="w-screen flex flex-col gap-0 justify-center items-center relative pb-20 pt-10"
     >
       <TextHoverEffect text="OUR PROJECTS" />
@@ -36,4 +36,4 @@ const ProjectsPage = () => {
     </div>
   );
 };
-export default ProjectsPage;
+export default ProjectsSection;

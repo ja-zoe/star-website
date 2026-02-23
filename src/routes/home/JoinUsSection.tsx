@@ -3,7 +3,7 @@ import { TextHoverEffect } from "../../components/ui/text-hover-effect";
 import { ShootingStars } from "../../components/ui/shooting-stars";
 import DiscordLogo from "/discord-icon.png";
 
-const JoinUsPage = () => {
+const JoinUsSection = () => {
   const movingItemRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const JoinUsPage = () => {
   }, [movingItemRef.current]);
 
   return (
-    <div id="JoinUsPage" className="flex flex-col w-full pt-10 pb-20">
+    <div id="JoinUsSection" className="flex flex-col w-full pt-10 pb-20">
       <TextHoverEffect text="JOIN STAR" />
       <div className="flex flex-col gap-10 items-center px-10">
         <p className="text-center">
@@ -38,7 +38,7 @@ const JoinUsPage = () => {
         </p>
         <div className="w-68 h-92 border border-white/20 relative move-div z-40">
           <div ref={movingItemRef} className="w-20 h-20 rounded-lg moveJawn">
-            <a href="https://discord.gg/2YpM8yTWNq" target="_blank">
+            <a href="https://discord.gg/vHa52wx9VK" target="_blank">
               <img src={DiscordLogo} className="invert transition-all jawn" />
             </a>
           </div>
@@ -49,4 +49,4 @@ const JoinUsPage = () => {
   );
 };
 
-export default JoinUsPage;
+export default JoinUsSection;

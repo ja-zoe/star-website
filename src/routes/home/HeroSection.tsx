@@ -14,7 +14,7 @@ const HeroPage = () => {
   return (
     <div id="HeroPage" className="h-[60vh] pt-40 flex items-center relative">
       <div className="flex flex-col gap-6 items-center">
-        <p className="text-sm sm:text-lg lg:text-xl max-w-[600px] text-center px-5">
+        <p className="text-sm sm:text-xl lg:text-2xl max-w-[600px] text-center px-5">
           Rutgers' premier club for space and technology&nbsp;
           <span className="inline-flex grow w-[100px]">
             <FlipWords words={words} className="text-white" />
@@ -30,7 +30,7 @@ const HeroPage = () => {
           </HoverBorderGradient>
 
           <a
-            href="#JoinUsPage"
+            href="#JoinUsSection"
             className="bg-white text-black radius rounded-full px-2 py-1 duration-500
           transition-colors hover:cursor-pointer hover:bg-transparent hover:text-white"
           >
