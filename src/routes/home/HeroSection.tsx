@@ -26,7 +26,7 @@ const HeroPage = () => {
             as="a"
             className="bg-transparent flex items-center space-x-2 cursor-pointer"
           >
-            <a href="#AboutUsPage">Learn More</a>
+            <a href="#AboutStarSection">Learn More</a>
           </HoverBorderGradient>
 
           <a

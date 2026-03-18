@@ -6,7 +6,7 @@ const FlightSoftware = () => {
   const starStatProps: StarStatProps = {
     stat: "Flight Software",
     Icon: Binary,
-    headline: "Lead: name",
+    headline: "Lead: Adil Hydari",
     className: "bg-radial from-purple-500/20 to-transparent",
   };
 

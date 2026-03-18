@@ -1,62 +1,8 @@
 import { ShootingStars } from "../../components/ui/shooting-stars";
 import { WavyBackground } from "../../components/ui/wavy-background";
-import HoverBlurCards from "../../components/HoverBlurCards";
-import { ItemType } from "../../components/HoverBlurCards";
-import { User } from "lucide-react";
 import Mechanical from "./Mechanical";
 import Software from "./Software";
 import Electrical from "./Electrical";
-
-const members: ItemType[] = [
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-];
 
 const RoboticsPage = () => {
   return (
@@ -78,29 +24,24 @@ const RoboticsPage = () => {
       </div>
 
       <div className="flex flex-col gap-10 text-center">
-        <div className="flex flex-col gap-4 px-10">
+        <div className="flex flex-col gap-4 px-10 lg:px-36">
           <p>
-            The Robotics project is designing and building a fully autonomous
-            lunar rover as part of NASA’s annual Lunabotics Challenge. This
-            national competition challenges university teams to simulate real
-            lunar surface operations by constructing a robot capable of
-            excavating and transporting regolith—moon-like soil—within a
-            constrained arena that mimics the lunar environment, all while
-            avoiding arbitrarily placed obstacles in the arena.
-          </p>
-          <p>
-            The team’s rover is developed entirely in-house, with student-led
-            subsystems spanning mechanical design, embedded systems, autonomy,
-            perception, and control. It features terrain-adaptive locomotion,
-            regolith excavation tools, and autonomous navigation algorithms to
-            optimize excavation throughput and energy efficiency. By adhering to
-            stringent NASA competition rules and engineering for the unique
-            challenges of lunar conditions, students gain hands-on experience in
-            planetary robotics, systems integration, and mission-driven problem
-            solving. The project embodies real lunar mission
-            constraints—resource limitation, autonomous decision-making, and
-            dust mitigation—preparing members for careers in aerospace,
-            robotics, and beyond.
+            TThe Robotics project is designing and building a fully autonomous
+            lunar rover for NASA's annual Lunabotics Challenge, a national
+            competition where university teams simulate real lunar surface
+            operations by constructing a robot capable of excavating and
+            transporting regolith — moon-like soil — while navigating a
+            competition arena that mimics the lunar environment. The team's
+            rover is developed entirely in-house, with student-led subsystems
+            spanning mechanical design, embedded systems, autonomy, perception,
+            and control, featuring terrain-adaptive locomotion, regolith
+            excavation tools, and autonomous navigation algorithms optimized for
+            excavation throughput and energy efficiency. By engineering under
+            stringent NASA competition rules and real lunar mission constraints
+            — resource limitation, autonomous decision-making, and dust
+            mitigation — members gain hands-on experience in planetary robotics,
+            systems integration, and mission-driven problem solving, preparing
+            them for careers in aerospace, robotics, and beyond.
           </p>
         </div>
 
@@ -113,15 +54,15 @@ const RoboticsPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-8 px-10">
+        <div className="flex flex-col gap-8 px-10 lg:px-36">
           <p className="text-5xl font-bold">Meeting times and locations</p>
           <p>Meeting time tbd during the school year.</p>
         </div>
 
-        <div className="flex flex-col gap-5 px-10">
+        {/* <div className="flex flex-col gap-5 px-10">
           <p className="text-5xl font-bold">Leads and Members</p>
           <HoverBlurCards items={members} imgType="icon" circled />
-        </div>
+        </div> */}
       </div>
       <ShootingStars />
     </div>

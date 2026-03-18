@@ -6,7 +6,7 @@ const Communications = () => {
   const starStatProps: StarStatProps = {
     stat: "Communications",
     Icon: RadioTower,
-    headline: "Lead: name",
+    headline: "Lead: Miguel Pagador",
     className: "bg-radial from-yellow-500/20 to-transparent",
   };
 

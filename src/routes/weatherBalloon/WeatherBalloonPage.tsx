@@ -1,61 +1,7 @@
 import { ShootingStars } from "../../components/ui/shooting-stars";
 import { WavyBackground } from "../../components/ui/wavy-background";
-import HoverBlurCards from "../../components/HoverBlurCards";
-import { ItemType } from "../../components/HoverBlurCards";
-import { User } from "lucide-react";
 import Software from "./Software";
 import Structures from "./Structures";
-
-const members: ItemType[] = [
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-];
 
 const WeatherBalloonPage = () => {
   return (
@@ -77,7 +23,7 @@ const WeatherBalloonPage = () => {
       </div>
 
       <div className="flex flex-col gap-10 text-center">
-        <div className="flex flex-col gap-2 px-10">
+        <div className="flex flex-col gap-2 px-10 lg:px-36">
           <p>
             The Weather Balloon Team designs, fabricates, and launches
             high-altitude experimental payloads each academic semester. These
@@ -96,7 +42,7 @@ const WeatherBalloonPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-8 px-10">
+        <div className="flex flex-col gap-8 px-10 lg:px-36">
           <p className="text-5xl font-bold">Meeting times and locations</p>
           <p>
             Since the weather balloon project only consists of two subteams,
@@ -105,10 +51,10 @@ const WeatherBalloonPage = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-5 px-10">
+        {/* <div className="flex flex-col gap-5 px-10">
           <p className="text-5xl font-bold">Leads and Members</p>
           <HoverBlurCards items={members} imgType="icon" circled />
-        </div>
+        </div> */}
       </div>
       <ShootingStars />
     </div>

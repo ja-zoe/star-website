@@ -6,7 +6,7 @@ const SystemsIntegration = () => {
   const starStatProps: StarStatProps = {
     stat: "Sys Integration",
     Icon: Layers,
-    headline: "Lead: name",
+    headline: "Leads: Amrik Krishnakumar & Parth Patel",
     className: "bg-radial from-purple-500/20 to-transparent",
   };
 

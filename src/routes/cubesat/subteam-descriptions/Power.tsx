@@ -6,7 +6,7 @@ const Power = () => {
   const starStatProps: StarStatProps = {
     stat: "Power",
     Icon: Zap,
-    headline: "Lead: name",
+    headline: "Lead: Ahmadh Hassan",
     className: "bg-radial from-yellow-500/20 to-transparent",
   };
 

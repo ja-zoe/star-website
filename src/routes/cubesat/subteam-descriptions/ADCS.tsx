@@ -6,7 +6,7 @@ const ADCS = () => {
   const starStatProps: StarStatProps = {
     stat: "ADCS",
     Icon: Compass,
-    headline: "Lead: name",
+    headline: "Lead: Julian Vilfort",
     className: "bg-radial from-white/20 to-transparent",
   };
 

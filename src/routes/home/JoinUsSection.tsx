@@ -33,10 +33,11 @@ const JoinUsSection = () => {
       <TextHoverEffect text="JOIN STAR" />
       <div className="flex flex-col gap-10 items-center px-10">
         <p className="text-center">
-          Catch the Discord logo to join Star... Or scroll down and click the
-          one in the footer
+          Catch the Discord logo to join the Star Discord (our main
+          communications channel) and stay updated... Or scroll down and click
+          the one in the footer
         </p>
-        <div className="w-68 h-92 border border-white/20 relative move-div z-40">
+        <div className="w-68 h-92 border-4 border-white/20 relative move-div z-40">
           <div ref={movingItemRef} className="w-20 h-20 rounded-lg moveJawn">
             <a href="https://discord.gg/vHa52wx9VK" target="_blank">
               <img src={DiscordLogo} className="invert transition-all jawn" />

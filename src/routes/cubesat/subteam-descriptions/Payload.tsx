@@ -6,7 +6,7 @@ const Payload = () => {
   const starStatProps: StarStatProps = {
     stat: "Payload",
     Icon: FlaskConical,
-    headline: "Lead: name",
+    headline: "Lead: Daniel Jedrzejczyk",
     className: "bg-radial from-white/20 to-transparent",
   };
 

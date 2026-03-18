@@ -1,9 +1,6 @@
 // import CubesatSubteams from "../CubesatSubteams"
 import { ShootingStars } from "../../components/ui/shooting-stars";
 import { WavyBackground } from "../../components/ui/wavy-background";
-import HoverBlurCards from "../../components/HoverBlurCards";
-import { ItemType } from "../../components/HoverBlurCards";
-import { User } from "lucide-react";
 import Structures from "./subteam-descriptions/Structures";
 import ADCS from "./subteam-descriptions/ADCS";
 import Communications from "./subteam-descriptions/Communications";
@@ -12,57 +9,6 @@ import Payload from "./subteam-descriptions/Payload";
 import SystemsIntegration from "./subteam-descriptions/SystemsIntegration";
 import Thermal from "./subteam-descriptions/Thermal";
 import Power from "./subteam-descriptions/Power";
-
-const members: ItemType[] = [
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "Jane Doe",
-    alt: "Jane Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-  {
-    itemName: "John Doe",
-    alt: "John Doe",
-    logo: User,
-    tooltipContent: "Member Name | Fun fact",
-  },
-];
 
 const CubesatPage = () => {
   return (
@@ -84,7 +30,7 @@ const CubesatPage = () => {
       </div>
 
       <div className="flex flex-col gap-10 text-center">
-        <div className="flex flex-col gap-4 px-10">
+        <div className="flex flex-col gap-4 px-10 lg:px-36">
           <p>
             The CubeSat project is developing SPICEsat, Rutgers University’s
             first student-built satellite. This mission is part of the
@@ -130,7 +76,7 @@ const CubesatPage = () => {
               <p>Payload</p>
             </div>
           </div>
-          <div className="w-full flex flex-col gap-10 md:gap-8 sm:flex-row items-center justify-center flex-wrap">
+          <div className="w-full flex flex-col gap-10 md:gap-8 sm:flex-row items-stretch justify-center flex-wrap">
             <Structures />
             <Thermal />
             <Power />
@@ -142,15 +88,15 @@ const CubesatPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-8 px-10">
+        <div className="flex flex-col gap-8 px-10 lg:px-36">
           <p className="text-5xl font-bold">Meeting times and locations</p>
           <p>Meeting time tbd during the school year.</p>
         </div>
 
-        <div className="flex flex-col gap-5 px-10">
+        {/* <div className="flex flex-col gap-5 px-10">
           <p className="text-5xl font-bold">Leads and Members</p>
           <HoverBlurCards items={members} imgType="icon" circled />
-        </div>
+        </div> */}
       </div>
       <ShootingStars />
     </div>

@@ -6,7 +6,7 @@ const Thermal = () => {
   const starStatProps: StarStatProps = {
     stat: "Thermal",
     Icon: ThermometerSun,
-    headline: "Lead: name",
+    headline: "Lead: Timothy Wilburn",
     className: "bg-radial from-starblue/20 to-transparent",
   };
 

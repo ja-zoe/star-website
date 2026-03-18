@@ -28,9 +28,9 @@ const StarStat = ({ headline, stat, className, Icon }: StarStatProps) => {
         <div className="rounded-full p-3 border-white/30 border">
           <Icon className="w-10 h-auto" />
         </div>
-        <div>
+        <div className="px-3">
           <p className="text-3xl">{stat}</p>
-          <p>{headline}</p>
+          <p className="text-white/70">{headline}</p>
         </div>
       </div>
     </Tilt>

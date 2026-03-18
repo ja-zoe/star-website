@@ -3,14 +3,11 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router";
 import "./index.css";
 import App from "./App.tsx";
-import MeetingTimesProvider from "./contexts/MeetingTimes";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <StrictMode>
-      <MeetingTimesProvider>
-        <App />
-      </MeetingTimesProvider>
+      <App />
     </StrictMode>
-  </BrowserRouter>
+  </BrowserRouter>,
 );

@@ -6,7 +6,7 @@ const Structures = () => {
   const starStatProps: StarStatProps = {
     stat: "Structures",
     Icon: Boxes,
-    headline: "Lead: name",
+    headline: "Lead: Aidan McLendon",
     className: "bg-radial from-starblue/20 to-transparent",
   };
 

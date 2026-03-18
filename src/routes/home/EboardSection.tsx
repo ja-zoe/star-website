@@ -115,7 +115,7 @@ const EboardSection = () => {
 
               <div className="text-center space-y-1">
                 <p className="text-2xl font-bold">{member.name}</p>
-                <p>{member.position}</p>
+                <p className="text-white/70">{member.position}</p>
               </div>
             </div>
           ))}

@@ -14,9 +14,10 @@ export interface SubteamModalProps {
 }
 
 const SubteamModal = ({ starStatProps, children }: SubteamModalProps) => {
+  starStatProps.className = starStatProps.className + " h-60";
   return (
     <Dialog>
-      <DialogTrigger className="cursor-pointer">
+      <DialogTrigger className="cursor-pointer h-full">
         <StarStat {...starStatProps} />
       </DialogTrigger>
       <DialogContent className="bg-black text-white overflow-y-auto">

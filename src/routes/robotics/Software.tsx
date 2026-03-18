@@ -6,7 +6,7 @@ const Software = () => {
   const starStatProps: StarStatProps = {
     stat: "Software",
     Icon: Binary,
-    headline: "Lead: name",
+    headline: "Lead: Taha Touil",
     className: "bg-radial from-purple-500/20 to-transparent",
   };
 
