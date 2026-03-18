@@ -45,9 +45,7 @@ const WeatherBalloonPage = () => {
         <div className="flex flex-col gap-8 px-10 lg:px-36">
           <p className="text-5xl font-bold">Meeting times and locations</p>
           <p>
-            Since the weather balloon project only consists of two subteams,
-            software and structures, meetings are held jointly in the cage.
-            Meeting time tbd during the school year.
+            Meeting times will be added to website soon. Check Discord for now.
           </p>
         </div>
 

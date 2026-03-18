@@ -90,7 +90,9 @@ const CubesatPage = () => {
 
         <div className="flex flex-col gap-8 px-10 lg:px-36">
           <p className="text-5xl font-bold">Meeting times and locations</p>
-          <p>Meeting time tbd during the school year.</p>
+          <p>
+            Meeting times will be added to website soon. Check Discord for now.
+          </p>
         </div>
 
         {/* <div className="flex flex-col gap-5 px-10">
