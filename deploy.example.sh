@@ -21,6 +21,8 @@ fi
 # Get just the folder name (e.g. "dist" from "./dist")
 DIR_NAME=$(basename "$BUILD_DIR")
 
+pnpm build
+
 echo "Copying ${DIR_NAME} to remote..."
 scp -r "$BUILD_DIR" "$REMOTE_USER_HOST:$REMOTE_DIR/"
 
