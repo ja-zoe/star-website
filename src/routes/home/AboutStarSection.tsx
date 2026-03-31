@@ -1,4 +1,3 @@
-import { ShootingStars } from "../../components/ui/shooting-stars";
 import { TextHoverEffect } from "../../components/ui/text-hover-effect";
 import { Globe } from "../../components/magicui/globe";
 import StarStat from "../../components/StarStat";
@@ -147,7 +146,6 @@ const AboutStarSection = () => {
           <HoverBlurCards items={sponsors} />
         </div>
       </div>
-      <ShootingStars />
     </div>
   );
 };

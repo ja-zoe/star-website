@@ -1,6 +1,5 @@
 import { HoverBorderGradient } from "../../components/ui/hover-border-gradient";
 import { FlipWords } from "../../components/ui/flip-words";
-import { ShootingStars } from "../../components/ui/shooting-stars";
 
 const HeroPage = () => {
   const words = [
@@ -38,7 +37,6 @@ const HeroPage = () => {
           </a>
         </div>
       </div>
-      <ShootingStars />
     </div>
   );
 };

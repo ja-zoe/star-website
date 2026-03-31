@@ -1,4 +1,3 @@
-import { ShootingStars } from "../../components/ui/shooting-stars";
 import { WavyBackground } from "../../components/ui/wavy-background";
 import Mechanical from "./Mechanical";
 import Software from "./Software";
@@ -66,7 +65,6 @@ const RoboticsPage = () => {
           <HoverBlurCards items={members} imgType="icon" circled />
         </div> */}
       </div>
-      <ShootingStars />
     </div>
   );
 };

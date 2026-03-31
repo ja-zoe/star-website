@@ -1,4 +1,3 @@
-import { ShootingStars } from "../../components/ui/shooting-stars";
 import { WavyBackground } from "../../components/ui/wavy-background";
 import Software from "./Software";
 import Structures from "./Structures";
@@ -54,7 +53,6 @@ const WeatherBalloonPage = () => {
           <HoverBlurCards items={members} imgType="icon" circled />
         </div> */}
       </div>
-      <ShootingStars />
     </div>
   );
 };

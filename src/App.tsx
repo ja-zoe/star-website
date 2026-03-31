@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import RoboticsPage from "./routes/robotics/RoboticsPage";
 import WeatherBalloonPage from "./routes/weatherBalloon/WeatherBalloonPage";
 import CubesatPage from "./routes/cubesat/CubesatPage";
+import { ShootingStars } from "./components/ui/shooting-stars";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
       {/* Global Footer and shooting star background */}
       <Footer />
       <StarsBackground />
+      <ShootingStars />
+      <ShootingStars />
     </div>
   );
 }

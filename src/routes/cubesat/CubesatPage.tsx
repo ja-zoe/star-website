@@ -1,5 +1,4 @@
 // import CubesatSubteams from "../CubesatSubteams"
-import { ShootingStars } from "../../components/ui/shooting-stars";
 import { WavyBackground } from "../../components/ui/wavy-background";
 import Structures from "./subteam-descriptions/Structures";
 import ADCS from "./subteam-descriptions/ADCS";
@@ -100,7 +99,6 @@ const CubesatPage = () => {
           <HoverBlurCards items={members} imgType="icon" circled />
         </div> */}
       </div>
-      <ShootingStars />
     </div>
   );
 };

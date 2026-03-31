@@ -1,5 +1,4 @@
 import { TextHoverEffect } from "../../components/ui/text-hover-effect";
-import { ShootingStars } from "../../components/ui/shooting-stars";
 import {
   Accordion,
   AccordionContent,
@@ -111,7 +110,6 @@ const FAQSection = () => {
           </AccordionItem>
         </Accordion>
       </div>
-      <ShootingStars />
     </div>
   );
 };

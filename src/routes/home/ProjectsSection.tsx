@@ -1,4 +1,3 @@
-import { ShootingStars } from "../../components/ui/shooting-stars";
 import ProjectCard from "../../components/ProjectCard";
 import roverIcon from "/rover-icon.png";
 import satelliteIcon from "/satellite-icon.png";
@@ -32,7 +31,6 @@ const ProjectsSection = () => {
           colors={[[0, 0, 0]]}
         />
       </div>
-      <ShootingStars />
     </div>
   );
 };

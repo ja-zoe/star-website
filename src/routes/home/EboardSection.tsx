@@ -1,5 +1,4 @@
 import { TextHoverEffect } from "../../components/ui/text-hover-effect";
-import { ShootingStars } from "../../components/ui/shooting-stars";
 import julian from "/julian.jpg";
 import sandhya from "/sandhya.jpg";
 import shilpi from "/shilpi.jpg";
@@ -121,7 +120,6 @@ const EboardSection = () => {
           ))}
         </div>
       </div>
-      <ShootingStars />
     </div>
   );
 };

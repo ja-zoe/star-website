@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { TextHoverEffect } from "../../components/ui/text-hover-effect";
-import { ShootingStars } from "../../components/ui/shooting-stars";
 import DiscordLogo from "/discord-icon.png";
 
 const JoinUsSection = () => {
@@ -45,7 +44,6 @@ const JoinUsSection = () => {
           </div>
         </div>
       </div>
-      <ShootingStars />
     </div>
   );
 };
