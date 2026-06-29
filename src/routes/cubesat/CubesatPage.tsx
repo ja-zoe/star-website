@@ -8,10 +8,16 @@ import Payload from "./subteam-descriptions/Payload";
 import SystemsIntegration from "./subteam-descriptions/SystemsIntegration";
 import Thermal from "./subteam-descriptions/Thermal";
 import Power from "./subteam-descriptions/Power";
+import Seo from "../../components/Seo";
 
 const CubesatPage = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col pb-10">
+      <Seo
+        title="CubeSat — STAR"
+        description="STAR's CubeSat team is engineering Rutgers' first student-built satellite — tackling fuel slosh, attitude control, and microgravity experimentation across eight technical subteams."
+        path="/cubesat"
+      />
       <div className="text-center relative">
         <WavyBackground
           colors={["#999999", "#9D2626"]}

@@ -1,10 +1,16 @@
 import { WavyBackground } from "../../components/ui/wavy-background";
 import Software from "./Software";
 import Structures from "./Structures";
+import Seo from "../../components/Seo";
 
 const WeatherBalloonPage = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col pb-10">
+      <Seo
+        title="Weather Balloon — STAR"
+        description="STAR's Weather Balloon team designs and launches high-altitude payloads every semester, capturing near-space data and imagery on the edge of the atmosphere."
+        path="/weather-balloon"
+      />
       <div className="text-center relative">
         <WavyBackground
           colors={["#0091ff", "#9D2626"]}

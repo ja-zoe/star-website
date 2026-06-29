@@ -1,9 +1,12 @@
 # Enable Rewrite Engine
-
 RewriteEngine On
 
-# Redirect all error responses to index.html
+# SPA fallback — serve index.html for any route that isn't a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
 
+# Error pages
 ErrorDocument 400 /index.html
 ErrorDocument 401 /index.html
 ErrorDocument 403 /index.html

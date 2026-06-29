@@ -10,7 +10,7 @@ without alt on home, empty footer mail link, 3 console DOM errors.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [ ] R1.1 — SEO & document metadata — per-route title/description, OG/Twitter, favicon MIME, landmarks
+- [t] R1.1 — SEO & document metadata — per-route title/description, OG/Twitter, favicon MIME, landmarks
 - [ ] R1.2 — Accessibility & DOM correctness — alt text, mailto, aria-labels, key prop, fix div-in-p & a-in-a
 - [ ] R1.3 — Content & copy fixes — typos/grammar (aficionados, student-run, FAQ casing, sponsor tooltip)
 - [ ] R1.4 — prefers-reduced-motion support — gate stars/shooting-stars/sparkles/globe/flip-words/shimmer
