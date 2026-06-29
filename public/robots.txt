@@ -1,0 +1,7 @@
+# STAR — Space Technology Association of Rutgers
+# Allow all crawlers full access (public recruiting site).
+User-agent: *
+Allow: /
+
+# Sitemap: add an absolute Sitemap URL here once the production domain is fixed,
+# e.g. Sitemap: https://<your-domain>/sitemap.xml
