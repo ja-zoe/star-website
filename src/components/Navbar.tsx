@@ -37,13 +37,16 @@ const Navbar = () => {
     };
   }, []);
 
+  // Solid blurred underlay applied to the nav controls only (the links cluster +
+  // the mobile menu button) — NOT the whole header, so the logo and empty space
+  // stay transparent (design/components.md › Navigation bar).
+  const underlay = cn(
+    "transition-colors duration-300 border border-transparent",
+    scrolled && "bg-black/80 backdrop-blur-md border-white/10",
+  );
+
   return (
-    <header
-      className={cn(
-        "fixed top-0 flex justify-between sm:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20 transition-colors duration-300",
-        scrolled && "bg-black/80 backdrop-blur-md border-b border-white/10",
-      )}
-    >
+    <header className="fixed top-0 flex justify-between sm:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20">
       {/* Star logo */}
       <a
         href="/"
@@ -66,7 +69,7 @@ const Navbar = () => {
             <button
               type="button"
               aria-label="Open navigation menu"
-              className="text-white cursor-pointer"
+              className={cn("text-white cursor-pointer rounded-lg p-1", underlay)}
             >
               <Menu size={40} />
             </button>
@@ -158,7 +161,7 @@ const Navbar = () => {
 
       {/* Desktop Navigation Menu */}
       <NavigationMenu className="text-white hidden sm:inline">
-        <NavigationMenuList>
+        <NavigationMenuList className={cn("rounded-full px-3 py-1.5", underlay)}>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
               <a href="/#AboutStarSection">About STAR</a>
