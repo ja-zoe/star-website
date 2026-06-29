@@ -99,7 +99,7 @@ const EboardSection = () => {
       <div className="flex flex-col gap-10 items-center px-10">
         <div className="flex flex-wrap gap-24 justify-center">
           {eboard.map((member) => (
-            <div className="space-y-5">
+            <div key={member.name} className="space-y-5">
               <div className="rounded-full overflow-hidden w-60 h-60 border-3 border-red-400 box-shado box-shadow-red-400">
                 <img
                   className={cn(

@@ -20,6 +20,8 @@ export function HoverBorderGradient({
     className?: string;
     duration?: number;
     clockwise?: boolean;
+    /** Forwarded to the rendered tag when used as an anchor (as="a"). */
+    href?: string;
   } & React.HTMLAttributes<HTMLElement>
 >) {
   const [hovered, setHovered] = useState<boolean>(false);
