@@ -64,6 +64,7 @@ export const TextHoverEffect = ({
           id={revealMaskId}
           gradientUnits="userSpaceOnUse"
           r="20%"
+          initial={{ cx: "50%", cy: "50%" }}
           animate={maskPosition}
           transition={{ duration: duration ?? 0, ease: "easeOut" }}
         >
