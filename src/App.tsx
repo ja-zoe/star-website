@@ -15,6 +15,7 @@ const RoboticsPage = lazy(() => import("./routes/robotics/RoboticsPage"));
 const WeatherBalloonPage = lazy(
   () => import("./routes/weatherBalloon/WeatherBalloonPage"),
 );
+const NotFound = lazy(() => import("./routes/NotFound"));
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="cubesat" element={<CubesatPage />} />
             <Route path="robotics" element={<RoboticsPage />} />
             <Route path="weather-balloon" element={<WeatherBalloonPage />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>
