@@ -13,7 +13,7 @@ Fresh audit (2026-06-29, after sets 1–5):
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [ ] R6.1 — Heading semantics — h1 per page + h2 section titles (no visual change)
+- [t] R6.1 — Heading semantics — h1 per page + h2 section titles (no visual change)
 - [ ] R6.2 — Lazy-mount globe — IntersectionObserver: init cobe only when scrolled near viewport
 
 ## Open questions / decisions before implementing

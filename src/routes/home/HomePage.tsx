@@ -14,6 +14,11 @@ const HomePage = () => {
         description="Rutgers' premier space & technology club: CubeSats, NASA Lunabotics robotics, and high-altitude weather balloons. Open to all majors — no experience required."
         path="/"
       />
+      {/* Accessible/SEO top heading — the visible section titles are decorative
+          SVG (TextHoverEffect), so the page's h1 is provided here, sr-only. */}
+      <h1 className="sr-only">
+        Space Technology Association of Rutgers (STAR)
+      </h1>
       <HeroSection />
       <AboutStarSection />
       <ProjectsSection />
