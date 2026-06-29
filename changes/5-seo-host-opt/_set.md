@@ -16,7 +16,7 @@ All wins here are **domain-independent and static-host-safe** (no runtime).
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [x] R5.1 — .htaccess caching + compression — long-cache hashed assets, no-cache HTML, gzip/brotli (IfModule-guarded)
 - [x] R5.2 — JSON-LD Organization structured data — Organization/CollegeOrganization in index.html
-- [t] R5.3 — robots.txt + web app manifest — explicit crawl-allow + installable manifest with icons/theme
+- [x] R5.3 — robots.txt + web app manifest — explicit crawl-allow + installable manifest with icons/theme
 
 ## Open questions / decisions before implementing
 None. Deploy domain unknown → no hardcoded absolute URLs (no sitemap, no absolute canonical);
