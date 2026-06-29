@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 deploy.sh
+# Browser-automation + agent tooling artifacts (not project source)
+.playwright-cli/
+.claude/skills/
