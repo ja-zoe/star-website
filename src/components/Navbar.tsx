@@ -29,6 +29,9 @@ const Navbar = () => {
         <img
           src="/star-image.png"
           alt="STAR — Space Technology Association of Rutgers"
+          width={96}
+          height={96}
+          fetchPriority="high"
           className="object-cover"
         />
       </a>
