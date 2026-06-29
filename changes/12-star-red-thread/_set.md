@@ -11,7 +11,7 @@ updated first (design-brand re-resolve: red promoted to an explicit `--brand` th
 pages). Implement autonomously — no questions.
 
 ## Status
-- [t] R12.1 — STAR red brand thread — hero eyebrow STAR mark + red strand in hero wave + "A STAR Project" brand tie
+- [x] R12.1 — STAR red brand thread — hero eyebrow STAR mark + red strand in hero wave + "A STAR Project" brand tie
 
 ## Open questions / decisions
 None — implement autonomously per the user's instruction. All design calls recorded in R12.1.
@@ -21,3 +21,4 @@ None.
 
 ## Log
 - 2026-06-29 — Set 12 scaffolded off main; design spec re-resolved (red brand thread).
+- 2026-06-29 — R12.1 implemented, tested, merged into feat/set12-star-red-thread. Set 12 COMPLETE.
