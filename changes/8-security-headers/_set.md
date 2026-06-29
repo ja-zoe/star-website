@@ -11,7 +11,7 @@ careful per-source tuning.)
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [t] R8.1 — Security headers — nosniff, X-Frame-Options, Referrer-Policy, Permissions-Policy (IfModule-guarded)
+- [x] R8.1 — Security headers — nosniff, X-Frame-Options, Referrer-Policy, Permissions-Policy (IfModule-guarded)
 
 ## Open questions / decisions before implementing
 None. CSP deferred (documented in the .htaccess + feature notes) to avoid breaking inline
@@ -22,3 +22,5 @@ None.
 
 ## Log
 - 2026-06-29 — Set 8 scaffolded. Stacked on set 7.
+- 2026-06-29 — R8.1 implemented, tested, merged into feat/set8-security-headers. Set 8 COMPLETE
+  (green). Added 4 safe hardening headers (CSP deferred). Build clean. NOT merged to main.
