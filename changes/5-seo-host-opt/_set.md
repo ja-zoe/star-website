@@ -27,3 +27,8 @@ None.
 
 ## Log
 - 2026-06-29 — Set 5 scaffolded. Stacked on set 4.
+- 2026-06-29 — R5.1–R5.3 implemented, tested, merged into feat/set5-seo-host-opt. Set 5 COMPLETE
+  (green). Outcomes: .htaccess now gzip-compresses + caches hashed assets 1yr immutable / HTML
+  no-cache (IfModule-guarded); Organization JSON-LD added; robots.txt + installable
+  site.webmanifest added. Final build clean. NOT merged to main. (Sitemap intentionally deferred
+  until the deploy domain is known.)
