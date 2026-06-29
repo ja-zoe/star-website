@@ -15,7 +15,7 @@ missing on custom controls.
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [x] R3.1 — Establish design/ system — config + tokens/brand/components/accessibility (auto-detected baseline)
-- [t] R3.2 — Fix TextHoverEffect radialGradient console errors — 10 errors/load → 0
+- [x] R3.2 — Fix TextHoverEffect radialGradient console errors — 10 errors/load → 0
 - [ ] R3.3 — Visible focus states — keyboard focus rings on nav/links/buttons, resolved vs accessibility.md
 
 ## Open questions / decisions before implementing
