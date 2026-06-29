@@ -14,7 +14,7 @@ This set is **planned only** (specs below) — no code until the user approves.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [t] R11.1 — Home project-card accent theming — cards reflect per-project accent on hover
+- [x] R11.1 — Home project-card accent theming — cards reflect per-project accent on hover
 - [ ] R11.2 — Subteam modal redesign + copy rewrite — designed layout + de-AI'd, tightened copy
 
 ## Open questions / decisions before implementing
