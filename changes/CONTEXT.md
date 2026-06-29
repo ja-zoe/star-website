@@ -31,6 +31,13 @@ Loaded once per session. Holds invariants NOT obvious from the code.
   `src/App.tsx`, outside `<Routes>`.
 - Static assets in `public/` are referenced by absolute path (`/foo.png`) or imported.
 
+## Branching convention (autonomous session)
+- `main` is FROZEN — never merged into during this session; the user merges main on return.
+- Because main stays frozen, **sets stack**: each set branch (`feat/setN-<slug>`) is cut from
+  the *previous* set's tip, not from main. So the latest set branch holds all prior work
+  cumulatively (set2 ⊃ set1, …). Features still branch off their own set branch
+  (`feat/setN/RN.M-slug`) and merge back with `--no-ff`.
+
 ## Design system
 - Tokens/components are being formalized under `design/` (tokens.md, components.md). Once
   present, resolve color/type/spacing/motion against them rather than ad-hoc Tailwind values.
