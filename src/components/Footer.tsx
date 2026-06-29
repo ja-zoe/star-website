@@ -12,7 +12,15 @@ const Footer = () => {
         rel="noopener noreferrer"
         aria-label="Join the STAR Discord"
       >
-        <img src={DiscordLogo} alt="STAR Discord" className="w-10 h-10 invert" />
+        <img
+          src={DiscordLogo}
+          alt="STAR Discord"
+          width={40}
+          height={40}
+          loading="lazy"
+          decoding="async"
+          className="w-10 h-10 invert"
+        />
       </a>
       <a
         href="https://www.instagram.com/ruspacetech/?hl=en"
@@ -23,6 +31,10 @@ const Footer = () => {
         <img
           src={InstagramLogo}
           alt="STAR Instagram"
+          width={32}
+          height={32}
+          loading="lazy"
+          decoding="async"
           className="w-8 h-8 invert"
         />
       </a>
@@ -32,7 +44,15 @@ const Footer = () => {
         rel="noopener noreferrer"
         aria-label="STAR on LinkedIn"
       >
-        <img src={LinkedinLogo} alt="STAR LinkedIn" className="w-8 h-8 invert" />
+        <img
+          src={LinkedinLogo}
+          alt="STAR LinkedIn"
+          width={32}
+          height={32}
+          loading="lazy"
+          decoding="async"
+          className="w-8 h-8 invert"
+        />
       </a>
       <a href="mailto:rutgersstar@gmail.com" aria-label="Email STAR">
         <Mail className="w-10 h-10" aria-hidden="true" />

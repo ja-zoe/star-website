@@ -40,14 +40,14 @@ const HoverBlurCards = ({items, imgType = "img", circled = false}: HoverBlurCard
                                 href={sponsor.link}
                                 target="_blank"
                                 >
-                                    <img src={Logo} alt={sponsor.alt} className={cn("invert w-32", ind === 6 && "w-24", ind === 1 && "w-28")}/>
+                                    <img src={Logo} alt={sponsor.alt} loading="lazy" decoding="async" className={cn("invert w-32", ind === 6 && "w-24", ind === 1 && "w-28")}/>
                                 </a>
                                 : <div
                                 className={cn("drop p-2 transition-all duration-500", hovered !== null && hovered !== ind && "blur-sm")}
                                 onMouseEnter={()=>setHovered(ind)}
                                 onMouseLeave={()=>setHovered(null)}
                                 >
-                                    {imgType === "img" ? <img src={Logo} alt={sponsor.alt} className={cn("invert w-32", ind === 6 && "w-24", ind === 1 && "w-28")}/>
+                                    {imgType === "img" ? <img src={Logo} alt={sponsor.alt} loading="lazy" decoding="async" className={cn("invert w-32", ind === 6 && "w-24", ind === 1 && "w-28")}/>
                                         : <Logo size="100"/>
                                     }
                                 </div>

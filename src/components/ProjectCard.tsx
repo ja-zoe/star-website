@@ -69,6 +69,10 @@ const Card = ({
             <img
               src={icon}
               alt={`${title} project icon`}
+              width={66}
+              height={66}
+              loading="lazy"
+              decoding="async"
               className="w-[66px] h-[66px] invert"
             />
           </div>

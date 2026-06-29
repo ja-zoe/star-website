@@ -14,7 +14,7 @@ space-chassis 204 KB, starLogo 140 KB, egc-logo 48 KB, star-pointer 4 KB (~13.6 
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [x] R2.1 — Eboard image optimization — resize + WebP the 8 portraits (~47 MB → <1 MB)
 - [x] R2.2 — Code splitting — lazy-load routes + defer three.js (CanvasRevealEffect) off initial chunk
-- [ ] R2.3 — Image loading discipline — loading/decoding/dimensions on portraits + sponsor logos
+- [t] R2.3 — Image loading discipline — loading/decoding/dimensions on portraits + sponsor logos
 
 ## Open questions / decisions before implementing
 None. Decisions recorded per feature.
