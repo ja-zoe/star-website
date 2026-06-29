@@ -26,3 +26,8 @@ None.
 
 ## Log
 - 2026-06-29 — Set 6 scaffolded. Stacked on set 5.
+- 2026-06-29 — R6.1–R6.2 implemented, tested, merged into feat/set6-semantics-perf. Set 6
+  COMPLETE (green). Outcomes: every route now has exactly one <h1> + h2 section structure
+  (project pages went from 0 headings to a full outline); the home globe defers WebGL init until
+  scrolled near (IntersectionObserver). Build clean; all routes + 404 boot with correct titles
+  and single h1. NOT merged to main.
