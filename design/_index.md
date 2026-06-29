@@ -43,3 +43,7 @@ tokens.md.
   mark, a red strand in every hero wave, an "A STAR Project" brand tie) — so the three pages read
   as one branded family while `--accent` keeps each one's identity. tokens.md + components.md
   updated; per-project accents unchanged.
+- 2026-06-29 — Re-resolve `components` (set 13), provenance → **config** (user-directed). Added
+  the scroll-aware **navigation bar** pattern to components.md: transparent at the top, a solid
+  blurred underlay fades in once scrolled — keeps the transparent look while fixing legibility
+  clashes. No token changes.
