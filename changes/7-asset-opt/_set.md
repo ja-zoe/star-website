@@ -26,3 +26,6 @@ None.
 
 ## Log
 - 2026-06-29 — Set 7 scaffolded. Stacked on set 6.
+- 2026-06-29 — R7.1–R7.2 implemented, tested, merged into feat/set7-asset-opt. Set 7 COMPLETE
+  (green). Outcomes: per-visit favicon 192 KB → 1.5 KB (+192/512 PWA icons); proper 1200×630
+  on-brand OG/Twitter share card. Build clean. NOT merged to main.
