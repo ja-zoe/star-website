@@ -8,27 +8,36 @@ import Payload from "./subteam-descriptions/Payload";
 import SystemsIntegration from "./subteam-descriptions/SystemsIntegration";
 import Thermal from "./subteam-descriptions/Thermal";
 import Power from "./subteam-descriptions/Power";
+import Seo from "../../components/Seo";
 
 const CubesatPage = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col pb-10">
+      <Seo
+        title="CubeSat — STAR"
+        description="STAR's CubeSat team is engineering Rutgers' first student-built satellite — tackling fuel slosh, attitude control, and microgravity experimentation across eight technical subteams."
+        path="/cubesat"
+      />
       <div className="text-center relative">
         <WavyBackground
           colors={["#999999", "#9D2626"]}
           className="grid place-items-center px-10"
         >
-          <p className="text-6xl font-bold">Cube Satellite</p>
+          <h1 className="text-6xl font-bold">Cube Satellite</h1>
           <p className="text-lg font-semibold max-w-4xl">
             Fuel slosh. Orbital control. Rutgers’ first student satellite —
             engineered for microgravity experimentation.
           </p>
-          <p className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer">
+          <a
+            href="#about"
+            className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer"
+          >
             About the Project
-          </p>
+          </a>
         </WavyBackground>
       </div>
 
-      <div className="flex flex-col gap-10 text-center">
+      <div id="about" className="flex flex-col gap-10 text-center">
         <div className="flex flex-col gap-4 px-10 lg:px-36">
           <p>
             The CubeSat project is developing SPICEsat, Rutgers University’s
@@ -56,7 +65,7 @@ const CubesatPage = () => {
         </div>
 
         <div className="flex flex-col gap-5 px-10">
-          <p className="text-5xl font-bold">Subteams</p>
+          <h2 className="text-5xl font-bold">Subteams</h2>
           <div className="flex justify-center gap-5">
             <div className="flex items-center gap-2">
               <div className="rounded-full bg-starblue/40 w-3 h-3" />
@@ -88,7 +97,7 @@ const CubesatPage = () => {
         </div>
 
         <div className="flex flex-col gap-8 px-10 lg:px-36">
-          <p className="text-5xl font-bold">Meeting times and locations</p>
+          <h2 className="text-5xl font-bold">Meeting times and locations</h2>
           <p>
             Meeting times will be added to website soon. Check Discord for now.
           </p>

@@ -2,12 +2,59 @@
 <html lang="en" class="bg-black scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/star-logo-transparent.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="STAR — the Space Technology Association of Rutgers — is Rutgers' premier space & technology club, building CubeSats, NASA Lunabotics rovers, and high-altitude weather balloons. Open to all majors, no experience required."
+    />
+    <!-- Open Graph (og:url is set per-route at runtime from the live origin) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="STAR" />
+    <meta property="og:title" content="STAR — Space Technology Association of Rutgers" />
+    <meta
+      property="og:description"
+      content="Rutgers' premier space & technology club: CubeSats, NASA Lunabotics robotics, and high-altitude weather balloons. Open to all majors — no experience required."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="STAR — Space Technology Association of Rutgers" />
+    <meta
+      name="twitter:description"
+      content="Rutgers' premier space & technology club: CubeSats, NASA Lunabotics robotics, and high-altitude weather balloons. Open to all majors — no experience required."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Star</title>
+    <title>STAR — Space Technology Association of Rutgers</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "STAR — Space Technology Association of Rutgers",
+        "alternateName": "STAR",
+        "description": "Rutgers' premier space & technology club: CubeSats, NASA Lunabotics robotics, and high-altitude weather balloons. Open to all majors, no experience required.",
+        "logo": "/star-logo-transparent.png",
+        "email": "rutgersstar@gmail.com",
+        "parentOrganization": [
+          { "@type": "CollegeOrUniversity", "name": "Rutgers University" },
+          { "@type": "Organization", "name": "Students for the Exploration and Development of Space (SEDS)" }
+        ],
+        "sameAs": [
+          "https://discord.gg/vHa52wx9VK",
+          "https://www.instagram.com/ruspacetech/",
+          "https://www.linkedin.com/company/spacetechru/"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

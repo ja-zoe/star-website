@@ -1,9 +1,12 @@
 # Enable Rewrite Engine
-
 RewriteEngine On
 
-# Redirect all error responses to index.html
+# SPA fallback — serve index.html for any route that isn't a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
 
+# Error pages
 ErrorDocument 400 /index.html
 ErrorDocument 401 /index.html
 ErrorDocument 403 /index.html
@@ -12,3 +15,56 @@ ErrorDocument 500 /index.html
 ErrorDocument 502 /index.html
 ErrorDocument 503 /index.html
 ErrorDocument 504 /index.html
+
+# --- Compression (skipped if mod_deflate isn't enabled) ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml application/manifest+json
+</IfModule>
+
+# --- Caching ---
+# Vite emits content-hashed asset filenames, so they can be cached for a year.
+# index.html must always revalidate so new deploys are picked up.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Long-lived, immutable cache for content-hashed assets.
+  <FilesMatch "\.(?:css|js|mjs|woff2|webp|png|jpe?g|gif|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # The HTML entry document must never be cached so deploys propagate.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# --- Security / hardening headers (skipped if mod_headers isn't enabled) ---
+<IfModule mod_headers.c>
+  # Stop MIME-type sniffing.
+  Header set X-Content-Type-Options "nosniff"
+  # Block this site from being framed (clickjacking protection).
+  Header set X-Frame-Options "SAMEORIGIN"
+  # Reasonable referrer privacy default.
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # Disable powerful features the site doesn't use + opt out of FLoC.
+  Header set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()"
+
+  # Content-Security-Policy is intentionally NOT enabled: the app ships
+  # Vite/framer-motion inline styles and loads Google Fonts, so a strict policy
+  # needs per-source tuning to avoid breaking rendering. Starting point to refine
+  # once sources are enumerated (test before enabling):
+  # Header set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'"
+</IfModule>

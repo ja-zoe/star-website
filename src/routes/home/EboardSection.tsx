@@ -1,12 +1,12 @@
 import { TextHoverEffect } from "../../components/ui/text-hover-effect";
-import julian from "/julian.jpg";
-import sandhya from "/sandhya.jpg";
-import shilpi from "/shilpi.jpg";
-import saarim from "/saarim.jpg";
-import praneeth from "/praneeth.jpg";
-import aayushi from "/aayushi.jpg";
-import nila from "/nila.jpg";
-import kanika from "/kanika.jpg";
+import julian from "/eboard/julian.webp";
+import sandhya from "/eboard/sandhya.webp";
+import shilpi from "/eboard/shilpi.webp";
+import saarim from "/eboard/saarim.webp";
+import praneeth from "/eboard/praneeth.webp";
+import aayushi from "/eboard/aayushi.webp";
+import nila from "/eboard/nila.webp";
+import kanika from "/eboard/kanika.webp";
 import { cn } from "../../lib/utils";
 
 interface EboardMember {
@@ -99,7 +99,7 @@ const EboardSection = () => {
       <div className="flex flex-col gap-10 items-center px-10">
         <div className="flex flex-wrap gap-24 justify-center">
           {eboard.map((member) => (
-            <div className="space-y-5">
+            <div key={member.name} className="space-y-5">
               <div className="rounded-full overflow-hidden w-60 h-60 border-3 border-red-400 box-shado box-shadow-red-400">
                 <img
                   className={cn(
@@ -109,6 +109,10 @@ const EboardSection = () => {
                   style={member.styleAdjustments}
                   src={member.picture}
                   alt={member.name + "'s Picture"}
+                  width={964}
+                  height={640}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 

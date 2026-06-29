@@ -19,19 +19,33 @@ const Navbar = () => {
   const [projectsOpen, setProjectsOpen] = useState(false);
 
   return (
-    <div className="fixed top-0 flex justify-between sm:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20">
+    <header className="fixed top-0 flex justify-between sm:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20">
       {/* Star logo */}
       <a
-        href="/#"
+        href="/"
+        aria-label="STAR home"
         className="w-24 sm:absolute sm:left-[2%] lg:left-28 col-start-1"
       >
-        <img src="/star-image.png" alt="" className="object-cover" />
+        <img
+          src="/star-image.png"
+          alt="STAR — Space Technology Association of Rutgers"
+          width={96}
+          height={96}
+          fetchPriority="high"
+          className="object-cover"
+        />
       </a>
 
       <div className="sm:hidden">
         <Sheet>
           <SheetTrigger asChild>
-            <Menu size={40} className="text-white cursor-pointer" />
+            <button
+              type="button"
+              aria-label="Open navigation menu"
+              className="text-white cursor-pointer"
+            >
+              <Menu size={40} />
+            </button>
           </SheetTrigger>
           <SheetContent
             side="top"
@@ -167,7 +181,7 @@ const Navbar = () => {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-    </div>
+    </header>
   );
 };
 

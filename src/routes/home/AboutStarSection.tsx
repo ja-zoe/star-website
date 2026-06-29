@@ -25,14 +25,14 @@ const sponsors = [
     alt: "Rutgers EGC Logo",
     logo: EGCLogo,
     tooltipContent:
-      "The student ran governing council of The Rutgers School of Engineering",
+      "The student-run governing council of the Rutgers School of Engineering",
     link: "https://egc.rutgers.edu/",
   },
   {
     itemName: "NASA",
     alt: "NASA Logo",
     logo: NasaLogo,
-    tooltipContent: "We all know Nasa",
+    tooltipContent: "The U.S. National Aeronautics and Space Administration.",
     link: "https://www.nasa.gov/",
   },
   {

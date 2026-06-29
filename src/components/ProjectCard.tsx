@@ -1,6 +1,13 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CanvasRevealEffect } from "./ui/canvas-reveal-effect";
+
+// three.js + @react-three/fiber (~600 kB) live behind this lazy boundary so they
+// load as a separate chunk only on first card hover, off the critical path.
+const CanvasRevealEffect = lazy(() =>
+  import("./ui/canvas-reveal-effect").then((m) => ({
+    default: m.CanvasRevealEffect,
+  })),
+);
 interface ProjectCardProps {
     icon: string,
     title: string,
@@ -12,11 +19,13 @@ const ProjectCard = ({icon, title, colors, href}: ProjectCardProps) => {
   return (
     <a href={href} className="w-full max-w-[375px] hover:cursor-pointer">
       <Card title={title} icon={icon}>
-          <CanvasRevealEffect 
-              animationSpeed={5.1}
-              containerClassName="bg-[#9D2626]"
-              colors={colors}
+        <Suspense fallback={null}>
+          <CanvasRevealEffect
+            animationSpeed={5.1}
+            containerClassName="bg-[#9D2626]"
+            colors={colors}
           />
+        </Suspense>
       </Card>
     </a>
   )
@@ -57,7 +66,15 @@ const Card = ({
    
         <div className="relative z-20">
           <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
-            <img src={icon} className="w-[66px] h-[66px] invert"/>
+            <img
+              src={icon}
+              alt={`${title} project icon`}
+              width={66}
+              height={66}
+              loading="lazy"
+              decoding="async"
+              className="w-[66px] h-[66px] invert"
+            />
           </div>
           <h2 className="dark:text-white text-3xl text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
             {title}

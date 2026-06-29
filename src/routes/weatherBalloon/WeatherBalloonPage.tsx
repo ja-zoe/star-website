@@ -1,27 +1,36 @@
 import { WavyBackground } from "../../components/ui/wavy-background";
 import Software from "./Software";
 import Structures from "./Structures";
+import Seo from "../../components/Seo";
 
 const WeatherBalloonPage = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col pb-10">
+      <Seo
+        title="Weather Balloon — STAR"
+        description="STAR's Weather Balloon team designs and launches high-altitude payloads every semester, capturing near-space data and imagery on the edge of the atmosphere."
+        path="/weather-balloon"
+      />
       <div className="text-center relative">
         <WavyBackground
           colors={["#0091ff", "#9D2626"]}
           className="grid place-items-center px-10"
         >
-          <p className="text-6xl font-bold">Weather Balloon</p>
+          <h1 className="text-6xl font-bold">Weather Balloon</h1>
           <p className="text-lg font-semibold max-w-4xl">
             High-altitude payloads. Near-space data. Engineered and launched
             every semester.
           </p>
-          <p className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer">
+          <a
+            href="#about"
+            className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer"
+          >
             About the Project
-          </p>
+          </a>
         </WavyBackground>
       </div>
 
-      <div className="flex flex-col gap-10 text-center">
+      <div id="about" className="flex flex-col gap-10 text-center">
         <div className="flex flex-col gap-2 px-10 lg:px-36">
           <p>
             The Weather Balloon Team designs, fabricates, and launches
@@ -34,7 +43,7 @@ const WeatherBalloonPage = () => {
         </div>
 
         <div className="flex flex-col gap-5 px-10">
-          <p className="text-5xl font-bold">Subteams</p>
+          <h2 className="text-5xl font-bold">Subteams</h2>
           <div className="w-full flex flex-col gap-10 md:gap-8 sm:flex-row items-center justify-center">
             <Software />
             <Structures />
@@ -42,7 +51,7 @@ const WeatherBalloonPage = () => {
         </div>
 
         <div className="flex flex-col gap-8 px-10 lg:px-36">
-          <p className="text-5xl font-bold">Meeting times and locations</p>
+          <h2 className="text-5xl font-bold">Meeting times and locations</h2>
           <p>
             Meeting times will be added to website soon. Check Discord for now.
           </p>
