@@ -16,6 +16,11 @@ export interface ProjectConfig {
   tagline: string;
   /** Signature accent (design/tokens.md › Project signature accents). */
   accent: string;
+  /** Accent as RGB for the home ProjectCard CanvasRevealEffect dots. */
+  accentRgb: [number, number, number];
+  /** Tailwind bg class for the home card's hover reveal backdrop — a deep tint
+   *  of the accent so the bright accent dots pop (not full-bright). */
+  cardRevealBg: string;
   /** Faint backdrop motif (lucide). */
   motifIcon: LucideIcon;
   /** At-a-glance stat band — verifiable facts only. */
@@ -40,6 +45,8 @@ export const cubesatConfig: ProjectConfig = {
   tagline:
     "SPICEsat — Rutgers' first student-built satellite, engineered to study fuel slosh in microgravity.",
   accent: "#F5A524",
+  accentRgb: [245, 165, 36],
+  cardRevealBg: "bg-[#2b1d02]",
   motifIcon: Satellite,
   stats: [
     { value: "8", label: "Subteams" },
@@ -64,6 +71,8 @@ export const roboticsConfig: ProjectConfig = {
   tagline:
     "An autonomous excavation rover engineered for NASA's Lunabotics challenge.",
   accent: "#34D399",
+  accentRgb: [52, 211, 153],
+  cardRevealBg: "bg-[#06291f]",
   motifIcon: Bot,
   stats: [
     { value: "3", label: "Subteams" },
@@ -87,6 +96,8 @@ export const weatherBalloonConfig: ProjectConfig = {
   tagline:
     "High-altitude payloads carrying experiments to the edge of space — launched every semester.",
   accent: "#38BDF8",
+  accentRgb: [56, 189, 248],
+  cardRevealBg: "bg-[#06222e]",
   motifIcon: Wind,
   stats: [
     { value: "80,000+ ft", label: "Peak altitude" },

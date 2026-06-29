@@ -12,17 +12,19 @@ interface ProjectCardProps {
     icon: string,
     title: string,
     colors?: number[][],
-    href: string
+    href: string,
+    /** Tailwind bg class for the hover reveal backdrop (per-project accent tint). */
+    revealBg?: string,
 }
 
-const ProjectCard = ({icon, title, colors, href}: ProjectCardProps) => {
+const ProjectCard = ({icon, title, colors, href, revealBg = "bg-[#9D2626]"}: ProjectCardProps) => {
   return (
     <a href={href} className="w-full max-w-[375px] hover:cursor-pointer">
       <Card title={title} icon={icon}>
         <Suspense fallback={null}>
           <CanvasRevealEffect
             animationSpeed={5.1}
-            containerClassName="bg-[#9D2626]"
+            containerClassName={revealBg}
             colors={colors}
           />
         </Suspense>

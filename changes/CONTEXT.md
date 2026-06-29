@@ -31,16 +31,20 @@ Loaded once per session. Holds invariants NOT obvious from the code.
   `src/App.tsx`, outside `<Routes>`.
 - Static assets in `public/` are referenced by absolute path (`/foo.png`) or imported.
 
-## Branching convention (autonomous session)
-- `main` is FROZEN — never merged into during this session; the user merges main on return.
-- Because main stays frozen, **sets stack**: each set branch (`feat/setN-<slug>`) is cut from
-  the *previous* set's tip, not from main. So the latest set branch holds all prior work
-  cumulatively (set2 ⊃ set1, …). Features still branch off their own set branch
-  (`feat/setN/RN.M-slug`) and merge back with `--no-ff`.
+## Branching convention
+- `main` is the integration branch and is live on origin (sets 1–10 are merged). Branch each set
+  off `main` (`feat/setN-<slug>`); features off their set branch (`feat/setN/RN.M-slug`), merged
+  back `--no-ff`. Merge the set branch into `main` + push only when the user approves.
+- (Historical: during the 2026-06-29 overnight autonomous run main was frozen and sets 1–9 were
+  stacked; the user has since reviewed and merged everything to main, so the normal off-main flow
+  is back in effect.)
 
 ## Design system
-- Tokens/components are being formalized under `design/` (tokens.md, components.md). Once
-  present, resolve color/type/spacing/motion against them rather than ad-hoc Tailwind values.
+- `design/` is established (tokens.md, components.md, brand.md, accessibility.md, _index.md).
+  Resolve color/type/spacing/motion against it, not ad-hoc Tailwind values. Per-project signature
+  accents (CubeSat amber `#F5A524`, Robotics emerald `#34D399`, Weather Balloon sky `#38BDF8`)
+  live in tokens.md; the shared "Project page kit" + `src/components/project/` are the
+  source of truth for project-page structure. STAR red `#9D2626` is the global brand thread.
 
 ## Known constraints / gotchas
 - `public/` images are large & unoptimized (~62 MB; eboard JPGs 5–6.6 MB). Optimization must

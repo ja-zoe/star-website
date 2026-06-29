@@ -1,63 +1,22 @@
-import SubteamModal from "../../components/SubteamModal";
-import { StarStatProps } from "../../components/StarStat";
+import SubteamModal, { type Subteam } from "../../components/SubteamModal";
 import { Boxes } from "lucide-react";
 
-const Mechanical = () => {
-  const starStatProps: StarStatProps = {
-    stat: "Mechanical",
-    Icon: Boxes,
-    headline: "Leads: Matt Leighton, Thomas Kamyszek, & Kanika Syal",
-    className: "accent-wash",
-  };
-
-  return (
-    <SubteamModal starStatProps={starStatProps}>
-      <div>
-        <p className="mb-1">
-          The Mechanical team is responsible for the rover’s chassis, mobility,
-          and excavation systems—balancing strength, mass, and dust mitigation
-          for regolith operations. Their scope generally covers:
-        </p>
-        <ul className="list-disc list-inside mb-1">
-          <li>
-            <span className="font-bold">Chassis & Structural Design:</span>{" "}
-            Creating a stiff, serviceable frame that protects subsystems and
-            endures shock, vibration, and digging loads.
-          </li>
-          <li>
-            <span className="font-bold">Mobility & Suspension:</span> Selecting
-            drivetrains, wheels/tracks, and suspensions for traction on loose
-            simulant and obstacle negotiation.
-          </li>
-          <li>
-            <span className="font-bold">Excavation & Handling:</span>{" "}
-            Engineering buckets, scoops, or augers; load paths; and hoppers for
-            efficient cut, carry, and dump cycles with minimal sinkage.
-          </li>
-          <li>
-            <span className="font-bold">Thermal & Dust Hardening:</span>{" "}
-            Incorporating seals, shields, and material finishes to resist
-            abrasive dust; managing heat from motors, electronics, and sun
-            exposure.
-          </li>
-          <li>
-            <span className="font-bold">Manufacturability & Service:</span>{" "}
-            Designing for rapid iteration, field repair, and modular swaps of
-            actuators, wheels, and buckets.
-          </li>
-          <li>
-            <span className="font-bold">Verification & Field Trials:</span>{" "}
-            Conducting structural FEA, endurance digs, and transport tests to
-            validate durability and performance under competition constraints.
-          </li>
-        </ul>
-        <p>
-          In essence, the Mechanical Team delivers a robust, maintainable
-          platform that digs effectively and keeps moving when the terrain
-          conspires against it.
-        </p>
-      </div>
-    </SubteamModal>
-  );
+const subteam: Subteam = {
+  name: "Mechanical",
+  lead: "Matt Leighton, Thomas Kamyszek & Kanika Syal",
+  leadLabel: "Leads",
+  icon: Boxes,
+  summary:
+    "Mechanical builds the rover that digs — a chassis, drivetrain, and excavation system tuned for lunar regolith.",
+  responsibilities: [
+    { title: "Chassis & structure", body: "Build a stiff, serviceable frame that takes shock, vibration, and digging loads." },
+    { title: "Mobility & suspension", body: "Pick drivetrains, wheels, and suspension for traction on loose simulant and obstacles." },
+    { title: "Excavation & handling", body: "Engineer buckets, augers, and hoppers for efficient cut-carry-dump cycles." },
+    { title: "Dust & thermal hardening", body: "Seal and shield against abrasive dust and manage motor and sun heat." },
+    { title: "Manufacturability", body: "Design for fast iteration and field swaps of actuators, wheels, and buckets." },
+    { title: "Field trials", body: "Run FEA, endurance digs, and transport tests against competition limits." },
+  ],
 };
+
+const Mechanical = () => <SubteamModal subteam={subteam} />;
 export default Mechanical;

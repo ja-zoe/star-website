@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { WavyBackground } from "../ui/wavy-background";
 import SectionLabel from "./SectionLabel";
 import type { ProjectConfig } from "./projectConfig";
+import { AccentContext } from "./accentContext";
 
 /**
  * Shared editorial "mission dossier" layout for the three project pages
@@ -38,6 +39,7 @@ const ProjectShell = ({
     "inline-flex items-center justify-center rounded-full border border-[var(--accent)] px-6 py-2.5 font-medium text-[var(--accent)] transition-colors hover:bg-[var(--accent)] hover:text-black";
 
   return (
+    <AccentContext.Provider value={accent}>
     <div
       className="min-h-screen bg-black flex flex-col pb-10"
       style={{ "--accent": accent } as CSSProperties}
@@ -122,6 +124,7 @@ const ProjectShell = ({
         </a>
       </section>
     </div>
+    </AccentContext.Provider>
   );
 };
 
