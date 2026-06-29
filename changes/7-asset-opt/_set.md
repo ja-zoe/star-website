@@ -14,7 +14,7 @@ Both fixable build-time via the existing `sharp` tooling (devDep) → committed 
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [t] R7.1 — Optimized favicons — generate small favicon-32/192/512 from the logo; repoint icon links + manifest
+- [x] R7.1 — Optimized favicons — generate small favicon-32/192/512 from the logo; repoint icon links + manifest
 - [ ] R7.2 — Social share image — generate 1200×630 og-image.png (logo on black); repoint OG/Twitter image meta
 
 ## Open questions / decisions before implementing
