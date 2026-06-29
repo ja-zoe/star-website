@@ -11,7 +11,7 @@ underlay once scrolled — which is exactly when content slides under the bar. I
 autonomously (no questions, per the user).
 
 ## Status
-- [t] R13.1 — Scroll-aware navbar — transparent at top, solid blurred underlay fades in on scroll
+- [x] R13.1 — Scroll-aware navbar — transparent at top, solid blurred underlay fades in on scroll
 
 ## Open questions / decisions
 None — implemented autonomously. Alternatives considered (per-pixel detection, always-on gradient
@@ -22,3 +22,4 @@ None.
 
 ## Log
 - 2026-06-29 — Set 13 scaffolded off main; design spec re-resolved (scroll-aware navbar).
+- 2026-06-29 — R13.1 implemented, tested, merged into feat/set13-navbar-scroll. Set 13 COMPLETE.
