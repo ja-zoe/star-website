@@ -109,7 +109,7 @@ const EboardSection = () => {
                   style={member.styleAdjustments}
                   src={member.picture}
                   alt={member.name + "'s Picture"}
-                  width={640}
+                  width={964}
                   height={640}
                   loading="lazy"
                   decoding="async"

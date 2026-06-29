@@ -91,8 +91,12 @@ async function main() {
     const dest = join(outDir, `${name}.webp`);
     const inSize = (await stat(src)).size;
 
+    // Downscale preserving the source aspect ratio (no crop). The EboardSection
+    // CSS (object-cover + per-member objectPosition + scale-125 in a fixed 240px
+    // circle) is what frames the photo — pre-cropping here would fight it and
+    // throw off the centering. We only shrink the file.
     await sharp(src)
-      .resize(SIZE, SIZE, { fit: "cover", position: "attention" })
+      .resize({ height: SIZE, withoutEnlargement: true })
       .webp({ quality: QUALITY })
       .toFile(dest);
 
