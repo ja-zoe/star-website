@@ -14,7 +14,7 @@ All wins here are **domain-independent and static-host-safe** (no runtime).
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [ ] R5.1 — .htaccess caching + compression — long-cache hashed assets, no-cache HTML, gzip/brotli (IfModule-guarded)
+- [t] R5.1 — .htaccess caching + compression — long-cache hashed assets, no-cache HTML, gzip/brotli (IfModule-guarded)
 - [ ] R5.2 — JSON-LD Organization structured data — Organization/CollegeOrganization in index.html
 - [ ] R5.3 — robots.txt + web app manifest — explicit crawl-allow + installable manifest with icons/theme
 
