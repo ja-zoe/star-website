@@ -14,7 +14,7 @@ space-chassis 204 KB, starLogo 140 KB, egc-logo 48 KB, star-pointer 4 KB (~13.6 
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [x] R2.1 — Eboard image optimization — resize + WebP the 8 portraits (~47 MB → <1 MB)
 - [x] R2.2 — Code splitting — lazy-load routes + defer three.js (CanvasRevealEffect) off initial chunk
-- [t] R2.3 — Image loading discipline — loading/decoding/dimensions on portraits + sponsor logos
+- [x] R2.3 — Image loading discipline — loading/decoding/dimensions on portraits + sponsor logos
 
 ## Open questions / decisions before implementing
 None. Decisions recorded per feature.
@@ -27,3 +27,8 @@ None.
 
 ## Log
 - 2026-06-29 — Set 2 scaffolded. Stacked on set 1.
+- 2026-06-29 — R2.1–R2.3 implemented, tested, merged into feat/set2-performance. Set 2 COMPLETE
+  (green). Outcomes: home-page image payload 47 MB → 441 KB; initial JS 1,448 kB → 309 kB (gzip
+  423→99); three.js (846 kB) deferred to hover; dist 63 MB → 17 MB; all imgs lazy + CLS-safe.
+  NOT merged to main. Remaining dist weight is the orphaned (unloaded) assets — left for the
+  maintainer (see Open questions).
