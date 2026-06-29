@@ -38,8 +38,17 @@ const JoinUsSection = () => {
         </p>
         <div className="w-68 h-92 border-4 border-white/20 relative move-div z-40">
           <div ref={movingItemRef} className="w-20 h-20 rounded-lg moveJawn">
-            <a href="https://discord.gg/vHa52wx9VK" target="_blank">
-              <img src={DiscordLogo} className="invert transition-all jawn" />
+            <a
+              href="https://discord.gg/vHa52wx9VK"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Join the STAR Discord"
+            >
+              <img
+                src={DiscordLogo}
+                alt="STAR Discord logo"
+                className="invert transition-all jawn"
+              />
             </a>
           </div>
         </div>
