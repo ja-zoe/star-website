@@ -2,10 +2,16 @@ import { WavyBackground } from "../../components/ui/wavy-background";
 import Mechanical from "./Mechanical";
 import Software from "./Software";
 import Electrical from "./Electrical";
+import Seo from "../../components/Seo";
 
 const RoboticsPage = () => {
   return (
     <div className="min-h-screen bg-black flex flex-col pb-10">
+      <Seo
+        title="Robotics — STAR"
+        description="STAR's Robotics team builds an autonomous excavation rover for NASA's Lunabotics challenge, spanning mechanical, electrical, and software subteams."
+        path="/robotics"
+      />
       <div className="text-center relative">
         <WavyBackground
           colors={["#03d011", "#9D2626", "#9D2626"]}

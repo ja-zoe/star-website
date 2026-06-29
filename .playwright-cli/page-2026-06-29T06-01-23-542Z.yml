@@ -1,0 +1,103 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - link [ref=e5] [cursor=pointer]:
+      - /url: /#
+    - navigation "Main" [ref=e6]:
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - link "About STAR" [ref=e10] [cursor=pointer]:
+            - /url: /#AboutStarSection
+        - listitem [ref=e11]:
+          - button "Projects" [ref=e12]:
+            - text: Projects
+            - img [ref=e13]
+        - listitem [ref=e15]:
+          - link "FAQ" [ref=e16] [cursor=pointer]:
+            - /url: /#FAQSection
+        - listitem [ref=e17]:
+          - link "Join Us" [ref=e18] [cursor=pointer]:
+            - /url: /#JoinUsSection
+        - listitem [ref=e19]:
+          - link "Eboard" [ref=e20] [cursor=pointer]:
+            - /url: /#EboardSection
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: Cube Satellite
+        - paragraph [ref=e28]: Fuel slosh. Orbital control. Rutgers’ first student satellite — engineered for microgravity experimentation.
+        - paragraph [ref=e29] [cursor=pointer]: About the Project
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: The CubeSat project is developing SPICEsat, Rutgers University’s first student-built satellite. This mission is part of the prestigious University Nanosatellite Program, under mentorship from faculty and guidance from industry professionals. The satellite’s primary scientific objective is to investigate fluid sloshing dynamics in microgravity, a critical problem in spacecraft fuel management. By characterizing slosh behavior and testing active control stabilization algorithms in orbit, SPICEsat aims to advance the state of onboard fuel modeling and control strategies beyond what passive systems allow.
+          - paragraph [ref=e33]: Students on the team are directly involved in the complete satellite lifecycle—from mission conceptualization and payload integration to subsystem testing and full-system validation. SPICEsat uses a combination of COTS components and custom hardware, offering students exposure to real-world spacecraft design and interdisciplinary systems engineering. With an engineering model already in testing, the mission is rapidly progressing toward flight readiness and serves as a launchpad for the next generation of space systems engineers.
+        - generic [ref=e34]:
+          - paragraph [ref=e35]: Subteams
+          - generic [ref=e36]:
+            - paragraph [ref=e39]: Mechanical
+            - paragraph [ref=e42]: Electrical
+            - paragraph [ref=e45]: Software
+            - paragraph [ref=e48]: Payload
+          - generic [ref=e49]:
+            - 'button "Structures Lead: Aidan McLendon" [ref=e50] [cursor=pointer]':
+              - generic [ref=e52]:
+                - img [ref=e54]
+                - generic [ref=e64]:
+                  - paragraph [ref=e65]: Structures
+                  - paragraph [ref=e66]: "Lead: Aidan McLendon"
+            - 'button "Thermal Lead: Timothy Wilburn" [ref=e67] [cursor=pointer]':
+              - generic [ref=e69]:
+                - img [ref=e71]
+                - generic [ref=e76]:
+                  - paragraph [ref=e77]: Thermal
+                  - paragraph [ref=e78]: "Lead: Timothy Wilburn"
+            - 'button "Power Lead: Ahmadh Hassan" [ref=e79] [cursor=pointer]':
+              - generic [ref=e81]:
+                - img [ref=e83]
+                - generic [ref=e85]:
+                  - paragraph [ref=e86]: Power
+                  - paragraph [ref=e87]: "Lead: Ahmadh Hassan"
+            - 'button "Communications Lead: Miguel Pagador" [ref=e88] [cursor=pointer]':
+              - generic [ref=e90]:
+                - img [ref=e92]
+                - generic [ref=e99]:
+                  - paragraph [ref=e100]: Communications
+                  - paragraph [ref=e101]: "Lead: Miguel Pagador"
+            - 'button "Sys Integration Leads: Amrik Krishnakumar & Parth Patel" [ref=e102] [cursor=pointer]':
+              - generic [ref=e104]:
+                - img [ref=e106]
+                - generic [ref=e110]:
+                  - paragraph [ref=e111]: Sys Integration
+                  - paragraph [ref=e112]: "Leads: Amrik Krishnakumar & Parth Patel"
+            - 'button "Flight Software Lead: Adil Hydari" [ref=e113] [cursor=pointer]':
+              - generic [ref=e115]:
+                - img [ref=e117]
+                - generic [ref=e122]:
+                  - paragraph [ref=e123]: Flight Software
+                  - paragraph [ref=e124]: "Lead: Adil Hydari"
+            - 'button "Payload Lead: Daniel Jedrzejczyk" [ref=e125] [cursor=pointer]':
+              - generic [ref=e127]:
+                - img [ref=e129]
+                - generic [ref=e131]:
+                  - paragraph [ref=e132]: Payload
+                  - paragraph [ref=e133]: "Lead: Daniel Jedrzejczyk"
+            - 'button "ADCS Lead: Julian Vilfort" [ref=e134] [cursor=pointer]':
+              - generic [ref=e136]:
+                - img [ref=e138]
+                - generic [ref=e141]:
+                  - paragraph [ref=e142]: ADCS
+                  - paragraph [ref=e143]: "Lead: Julian Vilfort"
+        - generic [ref=e144]:
+          - paragraph [ref=e145]: Meeting times and locations
+          - paragraph [ref=e146]: Meeting times will be added to website soon. Check Discord for now.
+  - generic [ref=e147]:
+    - link [ref=e148] [cursor=pointer]:
+      - /url: https://discord.gg/vHa52wx9VK
+    - link [ref=e149] [cursor=pointer]:
+      - /url: https://www.instagram.com/ruspacetech/?hl=en
+    - link [ref=e150] [cursor=pointer]:
+      - /url: https://www.linkedin.com/company/spacetechru/
+    - link [ref=e151] [cursor=pointer]:
+      - /url: ""
+      - img [ref=e152]
+  - img
+  - img

@@ -1,0 +1,257 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - link [ref=e5] [cursor=pointer]:
+      - /url: /#
+    - navigation "Main" [ref=e6]:
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - link "About STAR" [ref=e10] [cursor=pointer]:
+            - /url: /#AboutStarSection
+        - listitem [ref=e11]:
+          - button "Projects" [ref=e12]:
+            - text: Projects
+            - img [ref=e13]
+        - listitem [ref=e15]:
+          - link "FAQ" [ref=e16] [cursor=pointer]:
+            - /url: /#FAQSection
+        - listitem [ref=e17]:
+          - link "Join Us" [ref=e18] [cursor=pointer]:
+            - /url: /#JoinUsSection
+        - listitem [ref=e19]:
+          - link "Eboard" [ref=e20] [cursor=pointer]:
+            - /url: /#EboardSection
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e24]:
+        - paragraph [ref=e25]:
+          - text: Rutgers' premier club for space and technology
+          - generic [ref=e28]:
+            - generic [ref=e29]: e
+            - generic [ref=e30]: "n"
+            - generic [ref=e31]: t
+            - generic [ref=e32]: h
+            - generic [ref=e33]: u
+            - generic [ref=e34]: s
+            - generic [ref=e35]: i
+            - generic [ref=e36]: a
+            - generic [ref=e37]: s
+            - generic [ref=e38]: t
+            - generic [ref=e39]: s
+        - generic [ref=e41]:
+          - link "Learn More" [ref=e44] [cursor=pointer]:
+            - /url: "#AboutStarSection"
+          - link "Join Us" [ref=e47] [cursor=pointer]:
+            - /url: "#JoinUsSection"
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - img [ref=e50]:
+            - generic [ref=e51]: WELCOME
+            - generic [ref=e52]: WELCOME
+            - generic [ref=e53]: WELCOME
+          - link:
+            - /url: "#AboutStarSection"
+            - img [ref=e54]
+        - generic [ref=e56]:
+          - paragraph [ref=e57]: STAR (Space Technology Association of Rutgers) is a student-led chapter of SEDS (Students for the Exploration and Development of Space).
+          - generic [ref=e58]:
+            - paragraph [ref=e59]: Here's a little bit about us
+            - generic [ref=e60]:
+              - generic [ref=e62]:
+                - img [ref=e64]
+                - generic [ref=e66]:
+                  - paragraph [ref=e67]: "3"
+                  - paragraph [ref=e68]: Projects
+              - generic [ref=e70]:
+                - img [ref=e72]
+                - generic [ref=e76]:
+                  - paragraph [ref=e77]: 90+
+                  - paragraph [ref=e78]: Active Members
+              - generic [ref=e80]:
+                - img [ref=e82]
+                - generic [ref=e86]:
+                  - paragraph [ref=e87]: 10+
+                  - paragraph [ref=e88]: Majors Represented
+            - paragraph [ref=e89]: Our mission is to inspire and equip students to push the boundaries of innovation. Through hands-on projects, industry connections, and a driven community, we turn curiosity into capability and ideas into impact.
+          - link "Become a Member" [ref=e90] [cursor=pointer]:
+            - /url: "#JoinUsSection"
+          - paragraph [ref=e92]: Oh, and we plan on orbiting Earth
+          - generic [ref=e95]:
+            - paragraph [ref=e96]: Why STAR?
+            - paragraph [ref=e97]: Because space is not just the final frontier—it is the next, and we are leading the way. At STAR, we are engineers, innovators, and problem-solvers committed to advancing space exploration. From launching weather balloons to designing CubeSats, we transform vision into reality. If you look to the stars and see opportunity, you belong here. Let’s build the future of space—together.
+          - generic [ref=e98]:
+            - paragraph [ref=e99]: Did You Know STAR is Sponsored by 7 Different Organizations?
+            - generic [ref=e100]:
+              - button "Ansys Logo" [ref=e101]:
+                - link "Ansys Logo" [ref=e103] [cursor=pointer]:
+                  - /url: https://www.ansys.com/
+                  - img "Ansys Logo" [ref=e104]
+              - button "Rutgers EGC Logo" [ref=e105]:
+                - link "Rutgers EGC Logo" [ref=e107] [cursor=pointer]:
+                  - /url: https://egc.rutgers.edu/
+                  - img "Rutgers EGC Logo" [ref=e108]
+              - button "NASA Logo" [ref=e109]:
+                - link "NASA Logo" [ref=e111] [cursor=pointer]:
+                  - /url: https://www.nasa.gov/
+                  - img "NASA Logo" [ref=e112]
+              - button "Rutgers University Logo" [ref=e113]:
+                - link "Rutgers University Logo" [ref=e115] [cursor=pointer]:
+                  - /url: https://www.rutgers.edu/
+                  - img "Rutgers University Logo" [ref=e116]
+              - button "SEDS Logo" [ref=e117]:
+                - link "SEDS Logo" [ref=e119] [cursor=pointer]:
+                  - /url: https://seds.org/space-for-all/
+                  - img "SEDS Logo" [ref=e120]
+              - button "UNP Logo" [ref=e121]:
+                - link "UNP Logo" [ref=e123] [cursor=pointer]:
+                  - /url: https://universitynanosat.org/
+                  - img "UNP Logo" [ref=e124]
+              - button "Dassault Systèmes Logo" [ref=e125]:
+                - link "Dassault Systèmes Logo" [ref=e127] [cursor=pointer]:
+                  - /url: https://www.3ds.com/
+                  - img "Dassault Systèmes Logo" [ref=e128]
+      - generic [ref=e129]:
+        - img [ref=e130]:
+          - generic [ref=e131]: OUR PROJECTS
+          - generic [ref=e132]: OUR PROJECTS
+          - generic [ref=e133]: OUR PROJECTS
+        - generic [ref=e134]:
+          - link "Robotics" [ref=e135] [cursor=pointer]:
+            - /url: robotics
+            - generic [ref=e136]:
+              - img [ref=e137]
+              - img [ref=e139]
+              - img [ref=e141]
+              - img [ref=e143]
+              - generic [ref=e145]:
+                - img [ref=e147]
+                - heading "Robotics" [level=2] [ref=e148]
+          - link "Weather Balloon" [ref=e149] [cursor=pointer]:
+            - /url: weather-balloon
+            - generic [ref=e150]:
+              - img [ref=e151]
+              - img [ref=e153]
+              - img [ref=e155]
+              - img [ref=e157]
+              - generic [ref=e159]:
+                - img [ref=e161]
+                - heading "Weather Balloon" [level=2] [ref=e162]
+          - link "Cubesat" [ref=e163] [cursor=pointer]:
+            - /url: cubesat
+            - generic [ref=e164]:
+              - img [ref=e165]
+              - img [ref=e167]
+              - img [ref=e169]
+              - img [ref=e171]
+              - generic [ref=e173]:
+                - img [ref=e175]
+                - heading "Cubesat" [level=2] [ref=e176]
+      - generic [ref=e177]:
+        - img [ref=e178]:
+          - generic [ref=e179]: FAQ
+          - generic [ref=e180]: FAQ
+          - generic [ref=e181]: FAQ
+        - generic [ref=e183]:
+          - heading "What is STAR?" [level=3] [ref=e185]:
+            - button "What is STAR?" [ref=e186]:
+              - text: What is STAR?
+              - img
+          - heading "Who can join STAR?" [level=3] [ref=e188]:
+            - button "Who can join STAR?" [ref=e189]:
+              - text: Who can join STAR?
+              - img
+          - heading "Do I need any experience to join STAR?" [level=3] [ref=e191]:
+            - button "Do I need any experience to join STAR?" [ref=e192]:
+              - text: Do I need any experience to join STAR?
+              - img
+          - heading "What projects does STAR work on?" [level=3] [ref=e194]:
+            - button "What projects does STAR work on?" [ref=e195]:
+              - text: What projects does STAR work on?
+              - img
+          - heading "How do i join a project team?" [level=3] [ref=e197]:
+            - button "How do i join a project team?" [ref=e198]:
+              - text: How do i join a project team?
+              - img
+          - heading "Am I limited to what project teams i can join?" [level=3] [ref=e200]:
+            - button "Am I limited to what project teams i can join?" [ref=e201]:
+              - text: Am I limited to what project teams i can join?
+              - img
+          - heading "When and where does STAR meet?" [level=3] [ref=e203]:
+            - button "When and where does STAR meet?" [ref=e204]:
+              - text: When and where does STAR meet?
+              - img
+          - heading "How can I get involved with STAR?" [level=3] [ref=e206]:
+            - button "How can I get involved with STAR?" [ref=e207]:
+              - text: How can I get involved with STAR?
+              - img
+          - heading "How does STAR help with career development?" [level=3] [ref=e209]:
+            - button "How does STAR help with career development?" [ref=e210]:
+              - text: How does STAR help with career development?
+              - img
+      - generic [ref=e211]:
+        - img [ref=e212]:
+          - generic [ref=e213]: JOIN STAR
+          - generic [ref=e214]: JOIN STAR
+          - generic [ref=e215]: JOIN STAR
+        - generic [ref=e216]:
+          - paragraph [ref=e217]: Catch the Discord logo to join the Star Discord (our main communications channel) and stay updated... Or scroll down and click the one in the footer
+          - link [ref=e220] [cursor=pointer]:
+            - /url: https://discord.gg/vHa52wx9VK
+            - img [ref=e221]
+      - generic [ref=e222]:
+        - img [ref=e223]:
+          - generic [ref=e224]: MEET E-BOARD
+          - generic [ref=e225]: MEET E-BOARD
+          - generic [ref=e226]: MEET E-BOARD
+        - generic [ref=e228]:
+          - generic [ref=e229]:
+            - img "Julian Vilfort's Picture" [ref=e231]
+            - generic [ref=e232]:
+              - paragraph [ref=e233]: Julian Vilfort
+              - paragraph [ref=e234]: Webmaster
+          - generic [ref=e235]:
+            - img "Sandhya Ganesh's Picture" [ref=e237]
+            - generic [ref=e238]:
+              - paragraph [ref=e239]: Sandhya Ganesh
+              - paragraph [ref=e240]: Treasurer
+          - generic [ref=e241]:
+            - img "Shilpi Shah's Picture" [ref=e243]
+            - generic [ref=e244]:
+              - paragraph [ref=e245]: Shilpi Shah
+              - paragraph [ref=e246]: President
+          - generic [ref=e247]:
+            - img "Saarim Syed's Picture" [ref=e249]
+            - generic [ref=e250]:
+              - paragraph [ref=e251]: Saarim Syed
+              - paragraph [ref=e252]: EGC Representative
+          - generic [ref=e253]:
+            - img "Praneeth Damarla's Picture" [ref=e255]
+            - generic [ref=e256]:
+              - paragraph [ref=e257]: Praneeth Damarla
+              - paragraph [ref=e258]: SEDS Representative
+          - generic [ref=e259]:
+            - img "Nila Anbumani's Picture" [ref=e261]
+            - generic [ref=e262]:
+              - paragraph [ref=e263]: Nila Anbumani
+              - paragraph [ref=e264]: Outreach Coordinator
+          - generic [ref=e265]:
+            - img "Aayushi Mallik's Picture" [ref=e267]
+            - generic [ref=e268]:
+              - paragraph [ref=e269]: Aayushi Mallik
+              - paragraph [ref=e270]: Social Media Coordinator
+          - generic [ref=e271]:
+            - img "Kanika Syal's Picture" [ref=e273]
+            - generic [ref=e274]:
+              - paragraph [ref=e275]: Kanika Syal
+              - paragraph [ref=e276]: Vice President
+  - generic [ref=e277]:
+    - link [ref=e278] [cursor=pointer]:
+      - /url: https://discord.gg/vHa52wx9VK
+    - link [ref=e279] [cursor=pointer]:
+      - /url: https://www.instagram.com/ruspacetech/?hl=en
+    - link [ref=e280] [cursor=pointer]:
+      - /url: https://www.linkedin.com/company/spacetechru/
+    - link [ref=e281] [cursor=pointer]:
+      - /url: ""
+      - img [ref=e282]
+  - img
+  - img

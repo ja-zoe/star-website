@@ -15,12 +15,14 @@ function App() {
       {/* Global Navbar */}
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="cubesat" element={<CubesatPage />} />
-        <Route path="robotics" element={<RoboticsPage />} />
-        <Route path="weather-balloon" element={<WeatherBalloonPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="cubesat" element={<CubesatPage />} />
+          <Route path="robotics" element={<RoboticsPage />} />
+          <Route path="weather-balloon" element={<WeatherBalloonPage />} />
+        </Routes>
+      </main>
 
       {/* Global Footer and shooting star background */}
       <Footer />
