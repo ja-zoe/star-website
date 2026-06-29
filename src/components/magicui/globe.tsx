@@ -5,6 +5,7 @@ import { useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef } from "react";
 
 import { cn } from "../../lib/utils";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 const MOVEMENT_DAMPING = 1400;
 
@@ -39,6 +40,8 @@ export function Globe({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
+
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const r = useMotionValue(0);
   const rs = useSpring(r, {
@@ -77,7 +80,8 @@ export function Globe({
       width: width * 2,
       height: width * 2,
       onRender: (state) => {
-        if (!pointerInteracting.current) phi += 0.005;
+        // Auto-rotate only when motion is allowed; drag still works either way.
+        if (!pointerInteracting.current && !prefersReducedMotion) phi += 0.005;
         state.phi = phi + rs.get();
         state.width = width * 2;
         state.height = width * 2;
@@ -89,7 +93,7 @@ export function Globe({
       globe.destroy();
       window.removeEventListener("resize", onResize);
     };
-  }, [rs, config]);
+  }, [rs, config, prefersReducedMotion]);
 
   return (
     <div

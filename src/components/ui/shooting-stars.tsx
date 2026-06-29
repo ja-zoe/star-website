@@ -1,5 +1,6 @@
 import { cn } from "../../lib/utils";
 import React, { useEffect, useState, useRef } from "react";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 interface ShootingStar {
   id: number;
@@ -53,8 +54,15 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
 }) => {
   const [star, setStar] = useState<ShootingStar | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    // No continuous shooting stars when the user prefers reduced motion.
+    if (prefersReducedMotion) {
+      setStar(null);
+      return;
+    }
+    let timeoutId: ReturnType<typeof setTimeout>;
     const createStar = () => {
       const { x, y, angle } = getRandomStartPoint();
       const newStar: ShootingStar = {
@@ -69,13 +77,13 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
       setStar(newStar);
 
       const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
-      setTimeout(createStar, randomDelay);
+      timeoutId = setTimeout(createStar, randomDelay);
     };
 
     createStar();
 
-    return () => {};
-  }, [minSpeed, maxSpeed, minDelay, maxDelay]);
+    return () => clearTimeout(timeoutId);
+  }, [minSpeed, maxSpeed, minDelay, maxDelay, prefersReducedMotion]);
 
   useEffect(() => {
     const moveStar = () => {

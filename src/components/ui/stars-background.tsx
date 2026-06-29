@@ -7,6 +7,7 @@ import React, {
   RefObject,
   useCallback,
 } from "react";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 interface StarProps {
   x: number;
@@ -36,6 +37,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
   const [stars, setStars] = useState<StarProps[]>([]);
   const canvasRef: RefObject<HTMLCanvasElement | null> =
     useRef<HTMLCanvasElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const generateStars = useCallback(
     (width: number, height: number): StarProps[] => {
@@ -109,14 +111,25 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
 
     let animationFrameId: number;
 
-    const render = () => {
+    const paintStars = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach((star) => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
         ctx.fill();
+      });
+    };
 
+    // Reduced motion: paint a static starfield once, no twinkle RAF loop.
+    if (prefersReducedMotion) {
+      paintStars();
+      return;
+    }
+
+    const render = () => {
+      paintStars();
+      stars.forEach((star) => {
         if (star.twinkleSpeed !== null) {
           star.opacity =
             0.5 +
@@ -132,7 +145,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [stars]);
+  }, [stars, prefersReducedMotion]);
 
   return (
     <canvas
