@@ -61,6 +61,26 @@ async function generateIcons() {
   }
 }
 
+// Generate a 1200×630 social-share card: the logo centered on a black canvas.
+async function generateOgImage() {
+  const dest = join(publicDir, "og-image.png");
+  const W = 1200;
+  const H = 630;
+  const logo = await sharp(LOGO)
+    .resize(520, 520, {
+      fit: "contain",
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    })
+    .toBuffer();
+  await sharp({
+    create: { width: W, height: H, channels: 4, background: "#000000" },
+  })
+    .composite([{ input: logo, gravity: "center" }])
+    .png({ compressionLevel: 9 })
+    .toFile(dest);
+  console.log(`\nog-image.png (${W}x${H}) -> ${fmt((await stat(dest)).size)}`);
+}
+
 async function main() {
   await mkdir(outDir, { recursive: true });
   let totalIn = 0;
@@ -92,6 +112,7 @@ async function main() {
   }
 
   await generateIcons();
+  await generateOgImage();
 }
 
 main().catch((err) => {
