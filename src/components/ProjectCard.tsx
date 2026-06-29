@@ -1,6 +1,13 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CanvasRevealEffect } from "./ui/canvas-reveal-effect";
+
+// three.js + @react-three/fiber (~600 kB) live behind this lazy boundary so they
+// load as a separate chunk only on first card hover, off the critical path.
+const CanvasRevealEffect = lazy(() =>
+  import("./ui/canvas-reveal-effect").then((m) => ({
+    default: m.CanvasRevealEffect,
+  })),
+);
 interface ProjectCardProps {
     icon: string,
     title: string,
@@ -12,11 +19,13 @@ const ProjectCard = ({icon, title, colors, href}: ProjectCardProps) => {
   return (
     <a href={href} className="w-full max-w-[375px] hover:cursor-pointer">
       <Card title={title} icon={icon}>
-          <CanvasRevealEffect 
-              animationSpeed={5.1}
-              containerClassName="bg-[#9D2626]"
-              colors={colors}
+        <Suspense fallback={null}>
+          <CanvasRevealEffect
+            animationSpeed={5.1}
+            containerClassName="bg-[#9D2626]"
+            colors={colors}
           />
+        </Suspense>
       </Card>
     </a>
   )
