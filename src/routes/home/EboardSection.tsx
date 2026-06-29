@@ -1,12 +1,12 @@
 import { TextHoverEffect } from "../../components/ui/text-hover-effect";
-import julian from "/julian.jpg";
-import sandhya from "/sandhya.jpg";
-import shilpi from "/shilpi.jpg";
-import saarim from "/saarim.jpg";
-import praneeth from "/praneeth.jpg";
-import aayushi from "/aayushi.jpg";
-import nila from "/nila.jpg";
-import kanika from "/kanika.jpg";
+import julian from "/eboard/julian.webp";
+import sandhya from "/eboard/sandhya.webp";
+import shilpi from "/eboard/shilpi.webp";
+import saarim from "/eboard/saarim.webp";
+import praneeth from "/eboard/praneeth.webp";
+import aayushi from "/eboard/aayushi.webp";
+import nila from "/eboard/nila.webp";
+import kanika from "/eboard/kanika.webp";
 import { cn } from "../../lib/utils";
 
 interface EboardMember {
