@@ -15,7 +15,10 @@ import { mkdir, readdir, stat } from "node:fs/promises";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const srcDir = join(__dirname, "source-images");
-const outDir = join(__dirname, "..", "public", "eboard");
+const publicDir = join(__dirname, "..", "public");
+const outDir = join(publicDir, "eboard");
+const iconsDir = join(publicDir, "icons");
+const LOGO = join(publicDir, "star-logo-transparent.png");
 
 // Source portrait basenames (without extension) in public/.
 const PORTRAITS = [
@@ -34,6 +37,28 @@ const QUALITY = 78;
 
 function fmt(bytes) {
   return `${(bytes / 1024).toFixed(0)} KB`;
+}
+
+// Generate small, optimized favicon/PWA icons from the (oversized) source logo.
+async function generateIcons() {
+  await mkdir(iconsDir, { recursive: true });
+  const sizes = [
+    ["favicon-32.png", 32],
+    ["icon-192.png", 192],
+    ["icon-512.png", 512],
+  ];
+  console.log("\nIcons:");
+  for (const [name, size] of sizes) {
+    const dest = join(iconsDir, name);
+    await sharp(LOGO)
+      .resize(size, size, {
+        fit: "contain",
+        background: { r: 0, g: 0, b: 0, alpha: 0 },
+      })
+      .png({ compressionLevel: 9 })
+      .toFile(dest);
+    console.log(`  ${name.padEnd(16)} -> ${fmt((await stat(dest)).size)}`);
+  }
 }
 
 async function main() {
@@ -65,6 +90,8 @@ async function main() {
   if (written.length !== PORTRAITS.length) {
     console.warn(`Expected ${PORTRAITS.length} webp files, found ${written.length}`);
   }
+
+  await generateIcons();
 }
 
 main().catch((err) => {
