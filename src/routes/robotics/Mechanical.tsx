@@ -7,7 +7,7 @@ const Mechanical = () => {
     stat: "Mechanical",
     Icon: Boxes,
     headline: "Leads: Matt Leighton, Thomas Kamyszek, & Kanika Syal",
-    className: "bg-radial from-starblue/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (

@@ -7,7 +7,7 @@ const ADCS = () => {
     stat: "ADCS",
     Icon: Compass,
     headline: "Lead: Julian Vilfort",
-    className: "bg-radial from-white/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (

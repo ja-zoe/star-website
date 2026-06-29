@@ -7,7 +7,7 @@ const FlightSoftware = () => {
     stat: "Flight Software",
     Icon: Binary,
     headline: "Lead: Adil Hydari",
-    className: "bg-radial from-purple-500/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (

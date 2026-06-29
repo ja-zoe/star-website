@@ -7,7 +7,7 @@ const Software = () => {
     stat: "Software",
     Icon: Binary,
     headline: "Lead: Taha Touil",
-    className: "bg-radial from-purple-500/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (

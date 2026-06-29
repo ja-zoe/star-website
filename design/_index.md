@@ -31,3 +31,9 @@ tokens.md.
 - 2026-06-29 — Initial resolution (tier: system). Auto-detected the established dark space
   identity from index.html + src/App.css + components and formalized it as the baseline. No app
   code changed by this resolution (R3.1 is docs-only); R3.2/R3.3 in this set resolve against it.
+- 2026-06-29 — Re-resolve `color-palette` + `components` for the project-page redesign (set 10),
+  provenance → **config** (user-directed via design-brand questionnaire). Added a curated
+  per-project signature accent triad (CubeSat amber `#F5A524`, Robotics emerald `#34D399`,
+  Weather Balloon sky `#38BDF8`) to tokens.md, superseding the old per-project hero colors;
+  STAR red stays the global brand thread. Added the shared "Project page kit" (editorial
+  mission-dossier, typographic/graphic-only — no photos) to components.md. Other slots untouched.

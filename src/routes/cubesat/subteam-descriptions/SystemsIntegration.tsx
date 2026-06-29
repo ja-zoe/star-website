@@ -7,7 +7,7 @@ const SystemsIntegration = () => {
     stat: "Sys Integration",
     Icon: Layers,
     headline: "Leads: Amrik Krishnakumar & Parth Patel",
-    className: "bg-radial from-purple-500/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (

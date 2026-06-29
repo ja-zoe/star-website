@@ -20,6 +20,22 @@ Brand accents:
 - `--color-wb` / `--color-starblue` = `#0091ff`  (weather-balloon blue)
 - robotics green               = `#03d011`  (RoboticsPage WavyBackground / ProjectCard reveal)
 
+### Project signature accents (curated 2026-06-29 — supersede the old per-project colors)
+
+Each project page sets a single `--accent` CSS variable on its root; every accent usage on the
+page (section labels, stat numbers, hero glow, dividers, subteam-card hover ring, CTA) reads
+from `--accent`. The shared dark starfield shell + STAR red brand thread keep the three pages
+cohesive; the accent is what makes each curated to its project. All three clear ≥7:1 on black.
+
+| Project         | `--accent` | `--accent-soft` (glow/wash) | rationale            |
+|-----------------|-----------|------------------------------|----------------------|
+| CubeSat         | `#F5A524` | `rgba(245,165,36,…)`         | orbital / solar gold |
+| Robotics        | `#34D399` | `rgba(52,211,153,…)`         | refined Lunabotics green |
+| Weather Balloon | `#38BDF8` | `rgba(56,189,248,…)`         | atmosphere / near-space sky |
+
+These replace the previous ad-hoc per-project hero colors (`#9D2626`+gray, `#03d011`, `#0091ff`).
+STAR red `#9D2626` stays the *global* brand accent (shell/footer/eboard/logo), NOT a project accent.
+
 TextHoverEffect rainbow (one-off heading hover only): yellow `#f59e0b`, red `#ef4444`,
 blue `#3b82f6`, cyan `#06b6d4`, violet `#8b5cf6` (the `--*-500` vars in App.css `@theme`).
 

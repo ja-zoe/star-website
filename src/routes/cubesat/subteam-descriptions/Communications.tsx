@@ -7,7 +7,7 @@ const Communications = () => {
     stat: "Communications",
     Icon: RadioTower,
     headline: "Lead: Miguel Pagador",
-    className: "bg-radial from-yellow-500/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (

@@ -7,7 +7,7 @@ const Electrical = () => {
     stat: "Electrical",
     Icon: Zap,
     headline: "Lead: Bhanavi Senthil",
-    className: "bg-radial from-yellow-500/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (
