@@ -8,3 +8,27 @@
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* Skip-to-content link (design/accessibility.md — WCAG 2.4.1 Bypass Blocks).
+   Present in the DOM/tab order at all times (not display:none), hidden off-screen
+   via transform until focused, then slides into the top-left over the dark theme.
+   The global prefers-reduced-motion block in App.css zeroes the transition. */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transform: translateY(-150%);
+  background: #ffffff;
+  color: #000000;
+  padding: 8px 16px;
+  border-radius: 0 0 6px 0;
+  font-weight: 700;
+  transition: transform 150ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}

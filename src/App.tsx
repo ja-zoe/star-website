@@ -20,10 +20,15 @@ const NotFound = lazy(() => import("./routes/NotFound"));
 function App() {
   return (
     <div className="flex flex-col relative space-mono text-white overflow-hidden">
+      {/* Skip link — first focusable element, lets keyboard/AT users bypass the nav */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       {/* Global Navbar */}
       <Navbar />
 
-      <main>
+      <main id="main-content">
         {/* Fallback is null: the global StarsBackground + Footer stay mounted
             below, so the screen keeps its black/stars look during chunk fetch
             (no white flash, no spinner noise). */}
