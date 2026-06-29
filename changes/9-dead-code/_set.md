@@ -13,7 +13,7 @@ all KEPT.) node_modules ~532 MB before.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [ ] R9.1 — Remove dead sparkles.tsx + unused deps — delete file, drop 6 deps, build must pass
+- [t] R9.1 — Remove dead sparkles.tsx + unused deps — delete file, drop 6 deps, build must pass
 
 ## Open questions / decisions before implementing
 None. Only removals with verified 0 imports; the `pnpm build` (tsc + vite) is the safety net.
