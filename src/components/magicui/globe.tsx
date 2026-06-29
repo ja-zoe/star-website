@@ -2,7 +2,7 @@
 
 import createGlobe, { COBEOptions } from "cobe";
 import { useMotionValue, useSpring } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "../../lib/utils";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
@@ -38,10 +38,33 @@ export function Globe({
   let phi = 0;
   let width = 0;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
 
   const prefersReducedMotion = usePrefersReducedMotion();
+  // Defer the WebGL globe until it's near the viewport — it sits far below the
+  // fold, so there's no reason to init/run it on first paint.
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setInView(true); // graceful fallback: just mount it
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const r = useMotionValue(0);
   const rs = useSpring(r, {
@@ -66,6 +89,8 @@ export function Globe({
   };
 
   useEffect(() => {
+    if (!inView) return; // not near viewport yet — don't init WebGL
+
     const onResize = () => {
       if (canvasRef.current) {
         width = canvasRef.current.offsetWidth;
@@ -88,15 +113,18 @@ export function Globe({
       },
     });
 
-    setTimeout(() => (canvasRef.current!.style.opacity = "1"), 0);
+    setTimeout(() => {
+      if (canvasRef.current) canvasRef.current.style.opacity = "1";
+    }, 0);
     return () => {
       globe.destroy();
       window.removeEventListener("resize", onResize);
     };
-  }, [rs, config, prefersReducedMotion]);
+  }, [rs, config, prefersReducedMotion, inView]);
 
   return (
     <div
+      ref={containerRef}
       className={cn(
         "absolute inset-0 mx-auto aspect-[1/1] w-full max-w-[600px]",
         className,
