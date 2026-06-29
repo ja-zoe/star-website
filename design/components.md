@@ -26,6 +26,19 @@ No form inputs on the site (no backend). The only interactive primitives are the
 Accordion (FAQ), Sheet (mobile nav), NavigationMenu, and Tooltip — all shadcn, all keep their
 built-in focus rings.
 
+## Navigation bar (set 13)
+The global `Navbar` (fixed, `z-30`) is **scroll-aware** to stay legible without losing the
+transparent look:
+- **At the top** (scrollY ≤ ~24px, over the hero): fully transparent — the established look.
+- **Once scrolled**: a solid blurred underlay fades in — `bg-black/80 backdrop-blur-md` + a
+  bottom hairline `border-b border-white/10`, via `transition-colors duration-300`. This is when
+  page content slides under the bar, so the underlay guarantees contrast everywhere.
+State lives in the `Navbar` (`scrolled` boolean) from a passive, rAF-throttled scroll listener.
+Reduced-motion: the global media query (set 1 R1.4) zeroes the transition, so it snaps instead of
+fading — fine. Rejected: true per-pixel clash detection (sampling rendered pixels — incl. the
+WebGL/canvas layers — every scroll frame) as fragile + expensive; the scroll-state underlay solves
+the same problem robustly.
+
 ## Cards / Surfaces
 ProjectCard: bordered black panel (`border-white/30`), corner ticks, line icon → title on hover,
 with a lazy three.js CanvasRevealEffect (loads on hover; set 2 R2.2). E-board: circular
