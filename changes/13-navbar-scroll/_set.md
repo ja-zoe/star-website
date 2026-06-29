@@ -12,6 +12,7 @@ autonomously (no questions, per the user).
 
 ## Status
 - [x] R13.1 — Scroll-aware navbar — transparent at top, solid blurred underlay fades in on scroll
+- [x] R13.2 — Scope underlay to nav controls — links pill + mobile chip only, not the whole header
 
 ## Open questions / decisions
 None — implemented autonomously. Alternatives considered (per-pixel detection, always-on gradient

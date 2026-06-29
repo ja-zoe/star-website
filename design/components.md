@@ -31,13 +31,16 @@ The global `Navbar` (fixed, `z-30`) is **scroll-aware** to stay legible without 
 transparent look:
 - **At the top** (scrollY ≤ ~24px, over the hero): fully transparent — the established look.
 - **Once scrolled**: a solid blurred underlay fades in — `bg-black/80 backdrop-blur-md` + a
-  bottom hairline `border-b border-white/10`, via `transition-colors duration-300`. This is when
-  page content slides under the bar, so the underlay guarantees contrast everywhere.
-State lives in the `Navbar` (`scrolled` boolean) from a passive, rAF-throttled scroll listener.
-Reduced-motion: the global media query (set 1 R1.4) zeroes the transition, so it snaps instead of
-fading — fine. Rejected: true per-pixel clash detection (sampling rendered pixels — incl. the
-WebGL/canvas layers — every scroll frame) as fragile + expensive; the scroll-state underlay solves
-the same problem robustly.
+  `border-white/10` hairline, via `transition-colors duration-300` — when page content slides
+  under the bar, so the nav stays legible.
+The underlay is applied to the **nav controls only**, NOT the whole header (set 13 R13.2): the
+desktop link cluster (`NavigationMenuList`, a `rounded-full` pill) and the mobile menu button
+(a `rounded-lg` chip). The header stays a transparent full-width container, and the **logo stays
+transparent**. Border is `border border-transparent` at the top → coloured on scroll, so there's
+no layout shift. State lives in `Navbar` (`scrolled` boolean) from a passive, rAF-throttled scroll
+listener. Reduced-motion: the global media query (set 1 R1.4) zeroes the transition (snaps).
+Rejected: true per-pixel clash detection (sampling rendered pixels — incl. the WebGL/canvas layers
+— every scroll frame) as fragile + expensive; the scroll-state underlay solves it robustly.
 
 ## Cards / Surfaces
 ProjectCard: bordered black panel (`border-white/30`), corner ticks, line icon → title on hover,
