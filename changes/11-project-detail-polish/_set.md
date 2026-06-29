@@ -15,7 +15,7 @@ This set is **planned only** (specs below) — no code until the user approves.
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [x] R11.1 — Home project-card accent theming — cards reflect per-project accent on hover
-- [t] R11.2 — Subteam modal redesign + copy rewrite — designed layout + de-AI'd, tightened copy
+- [x] R11.2 — Subteam modal redesign + copy rewrite — designed layout + de-AI'd, tightened copy
 
 ## Open questions / decisions before implementing
 RESOLVED 2026-06-29 — User: de-AI the voice now using current factual scope (no invented
@@ -27,3 +27,5 @@ None (static site).
 
 ## Log
 - 2026-06-29 — Set 11 scaffolded (plan only) off main. Awaiting approval to implement.
+- 2026-06-29 — R11.1 + R11.2 implemented, tested, merged into feat/set11-project-detail-polish.
+  Set 11 COMPLETE (green). Awaiting user review of screenshots before merge to main.
