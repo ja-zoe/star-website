@@ -34,7 +34,16 @@ cohesive; the accent is what makes each curated to its project. All three clear 
 | Weather Balloon | `#38BDF8` | `rgba(56,189,248,…)`         | atmosphere / near-space sky |
 
 These replace the previous ad-hoc per-project hero colors (`#9D2626`+gray, `#03d011`, `#0091ff`).
-STAR red `#9D2626` stays the *global* brand accent (shell/footer/eboard/logo), NOT a project accent.
+
+**STAR red `#9D2626` is the brand thread (`--brand`)** — woven through the *shared* chrome on
+every project page so the three read as one family, while `--accent` carries each project's
+identity. Two-layer rule for project pages (set 12):
+- **`--brand` (#9D2626 / STAR red)** — the cross-page constants: the STAR mark in the hero
+  eyebrow, a red strand blended into every hero `WavyBackground`, and the "A STAR project" brand
+  tie at the foot of each page. Identical on all three → the unifying thread.
+- **`--accent` (amber/emerald/sky)** — project-specific: section labels, stat numerals, mission
+  rule, subteam-card wash + modal, CTAs. What makes each page its own.
+Red still owns the global shell/footer/eboard/logo as before.
 
 TextHoverEffect rainbow (one-off heading hover only): yellow `#f59e0b`, red `#ef4444`,
 blue `#3b82f6`, cyan `#06b6d4`, violet `#8b5cf6` (the `--*-500` vars in App.css `@theme`).

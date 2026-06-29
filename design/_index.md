@@ -37,3 +37,9 @@ tokens.md.
   Weather Balloon sky `#38BDF8`) to tokens.md, superseding the old per-project hero colors;
   STAR red stays the global brand thread. Added the shared "Project page kit" (editorial
   mission-dossier, typographic/graphic-only — no photos) to components.md. Other slots untouched.
+- 2026-06-29 — Re-resolve `color-palette` + `components` (set 12), provenance → **config**
+  (user-directed). Promoted STAR red `#9D2626` from "not a project accent" to an explicit
+  **brand thread (`--brand`)** woven through the *shared* project-page chrome (hero eyebrow STAR
+  mark, a red strand in every hero wave, an "A STAR Project" brand tie) — so the three pages read
+  as one branded family while `--accent` keeps each one's identity. tokens.md + components.md
+  updated; per-project accents unchanged.

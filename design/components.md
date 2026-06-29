@@ -60,6 +60,20 @@ centered text. Reuse shared components (`SectionLabel`, `StatBand`, `ProjectHero
 `ProjectShell`) so all three pages are the same code parameterized by config — that is what
 guarantees cohesion. New shared components live in `src/components/project/`.
 
+**STAR red brand thread (added set 12 — tokens › Project signature accents).** Alongside the
+per-project `--accent`, every project page carries STAR red `#9D2626` on the *shared* chrome so
+the three read as one branded family. Applied identically on all three (constant, not from
+config):
+- **Hero eyebrow STAR mark** — a small filled red `Star` (lucide) leads the eyebrow before
+  "PROJECT 0X · NAME". The eyebrow text stays `--accent`; the star is the brand badge.
+- **Hero wave** — `WavyBackground` colors include a red strand: `[accent, "#9D2626", "#0a0a0a"]`,
+  so STAR red is literally woven into each project's signature wave.
+- **Brand tie** — a slim footer strip at the bottom of every project page (above the global
+  `<Footer>`): a red filled `Star` + "A STAR Project · Space Technology Association of Rutgers",
+  linking to `/`. Muted text, red star. The consistent sign-off that ties the set to the brand.
+Keep red to these shared elements only; do not red-wash the accent-owned, project-specific parts
+(labels, stats, mission rule, subteam wash/modal, CTAs stay `--accent`).
+
 ## Motion (see tokens › Motion)
 Animate: opacity + transform (framer), plus the canvas/SVG decorative loops. Never animate
 layout-affecting properties on scroll. Reduced-motion: stars paint statically, shooting stars /
