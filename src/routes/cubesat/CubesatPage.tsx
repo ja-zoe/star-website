@@ -28,13 +28,16 @@ const CubesatPage = () => {
             Fuel slosh. Orbital control. Rutgers’ first student satellite —
             engineered for microgravity experimentation.
           </p>
-          <p className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer">
+          <a
+            href="#about"
+            className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer"
+          >
             About the Project
-          </p>
+          </a>
         </WavyBackground>
       </div>
 
-      <div className="flex flex-col gap-10 text-center">
+      <div id="about" className="flex flex-col gap-10 text-center">
         <div className="flex flex-col gap-4 px-10 lg:px-36">
           <p>
             The CubeSat project is developing SPICEsat, Rutgers University’s

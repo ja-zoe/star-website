@@ -21,13 +21,16 @@ const WeatherBalloonPage = () => {
             High-altitude payloads. Near-space data. Engineered and launched
             every semester.
           </p>
-          <p className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer">
+          <a
+            href="#about"
+            className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer"
+          >
             About the Project
-          </p>
+          </a>
         </WavyBackground>
       </div>
 
-      <div className="flex flex-col gap-10 text-center">
+      <div id="about" className="flex flex-col gap-10 text-center">
         <div className="flex flex-col gap-2 px-10 lg:px-36">
           <p>
             The Weather Balloon Team designs, fabricates, and launches
