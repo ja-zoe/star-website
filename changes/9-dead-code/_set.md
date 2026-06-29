@@ -13,7 +13,7 @@ all KEPT.) node_modules ~532 MB before.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [t] R9.1 — Remove dead sparkles.tsx + unused deps — delete file, drop 6 deps, build must pass
+- [x] R9.1 — Remove dead sparkles.tsx + unused deps — delete file, drop 6 deps, build must pass
 
 ## Open questions / decisions before implementing
 None. Only removals with verified 0 imports; the `pnpm build` (tsc + vite) is the safety net.
@@ -23,3 +23,5 @@ None.
 
 ## Log
 - 2026-06-29 — Set 9 scaffolded. Stacked on set 8.
+- 2026-06-29 — R9.1 implemented, tested, merged into feat/set9-dead-code. Set 9 COMPLETE (green).
+  Removed 1 dead component + 6 unused deps; build clean, runtime green. NOT merged to main.
