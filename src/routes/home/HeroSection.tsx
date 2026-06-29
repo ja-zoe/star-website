@@ -6,7 +6,7 @@ const HeroPage = () => {
     "enthusiasts",
     "hobbyists",
     "researchers",
-    "afficionados",
+    "aficionados",
     "trailblazers",
   ];
 

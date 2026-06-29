@@ -57,7 +57,7 @@ const FAQSection = () => {
           </AccordionItem>
 
           <AccordionItem value="item-5">
-            <AccordionTrigger>How do i join a project team?</AccordionTrigger>
+            <AccordionTrigger>How do I join a project team?</AccordionTrigger>
             <AccordionContent>
               You can join a project team by attending our general meetings,
               reaching out to team leads, or joining our Discord server. No
@@ -67,11 +67,11 @@ const FAQSection = () => {
 
           <AccordionItem value="item-6">
             <AccordionTrigger>
-              Am I limited to what project teams i can join?
+              Am I limited to what project teams I can join?
             </AccordionTrigger>
             <AccordionContent>
-              No. You can join as many project teams and subteams within those
-              projects team as you want.
+              No. You can join as many project teams—and as many subteams within
+              those teams—as you want.
             </AccordionContent>
           </AccordionItem>
 
