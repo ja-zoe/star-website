@@ -50,3 +50,21 @@ ErrorDocument 504 /index.html
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 </IfModule>
+
+# --- Security / hardening headers (skipped if mod_headers isn't enabled) ---
+<IfModule mod_headers.c>
+  # Stop MIME-type sniffing.
+  Header set X-Content-Type-Options "nosniff"
+  # Block this site from being framed (clickjacking protection).
+  Header set X-Frame-Options "SAMEORIGIN"
+  # Reasonable referrer privacy default.
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # Disable powerful features the site doesn't use + opt out of FLoC.
+  Header set Permissions-Policy "geolocation=(), camera=(), microphone=(), interest-cohort=()"
+
+  # Content-Security-Policy is intentionally NOT enabled: the app ships
+  # Vite/framer-motion inline styles and loads Google Fonts, so a strict policy
+  # needs per-source tuning to avoid breaking rendering. Starting point to refine
+  # once sources are enumerated (test before enabling):
+  # Header set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'"
+</IfModule>

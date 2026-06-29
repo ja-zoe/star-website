@@ -11,7 +11,7 @@ careful per-source tuning.)
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [ ] R8.1 — Security headers — nosniff, X-Frame-Options, Referrer-Policy, Permissions-Policy (IfModule-guarded)
+- [t] R8.1 — Security headers — nosniff, X-Frame-Options, Referrer-Policy, Permissions-Policy (IfModule-guarded)
 
 ## Open questions / decisions before implementing
 None. CSP deferred (documented in the .htaccess + feature notes) to avoid breaking inline
