@@ -13,13 +13,37 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { cn } from "../lib/utils";
 
 const Navbar = () => {
   const [projectsOpen, setProjectsOpen] = useState(false);
+  // Scroll-aware underlay: transparent over the hero, solid blurred backdrop once
+  // page content scrolls under the bar (design/components.md › Navigation bar).
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => setScrolled(window.scrollY > 24));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
-    <header className="fixed top-0 flex justify-between sm:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20">
+    <header
+      className={cn(
+        "fixed top-0 flex justify-between sm:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20 transition-colors duration-300",
+        scrolled && "bg-black/80 backdrop-blur-md border-b border-white/10",
+      )}
+    >
       {/* Star logo */}
       <a
         href="/"
