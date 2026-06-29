@@ -417,3 +417,25 @@
 move-shadow {
   filter: drop-shadow(0 0 0.75rem rgb(254, 254, 254));
 }
+
+/* Respect the OS "reduce motion" setting (WCAG 2.3.3). Canvas/JS-driven loops
+   (stars twinkle, shooting stars, globe spin, flip-words) are gated separately
+   via usePrefersReducedMotion; this neutralizes the CSS animations + smooth
+   scroll so nothing continuously moves. The space/stars look is preserved. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .moveJawn,
+  .animate-shimmer,
+  .animate-pulse {
+    animation: none !important;
+  }
+}

@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "../../lib/utils";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 export const FlipWords = ({
   words,
@@ -14,6 +15,7 @@ export const FlipWords = ({
 }) => {
   const [currentWord, setCurrentWord] = useState(words[0]);
   const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   // thanks for the fix Julian - https://github.com/Julian-AT
   const startAnimation = useCallback(() => {
@@ -23,11 +25,27 @@ export const FlipWords = ({
   }, [currentWord, words]);
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     if (!isAnimating)
       setTimeout(() => {
         startAnimation();
       }, duration);
-  }, [isAnimating, duration, startAnimation]);
+  }, [isAnimating, duration, startAnimation, prefersReducedMotion]);
+
+  // Reduced motion: show the first word statically, no cycling or per-letter
+  // animation.
+  if (prefersReducedMotion) {
+    return (
+      <span
+        className={cn(
+          "z-10 inline-block relative text-left text-neutral-900 dark:text-neutral-100",
+          className,
+        )}
+      >
+        {words[0]}
+      </span>
+    );
+  }
 
   return (
     <AnimatePresence
