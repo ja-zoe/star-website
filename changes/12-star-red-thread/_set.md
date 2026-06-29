@@ -11,7 +11,7 @@ updated first (design-brand re-resolve: red promoted to an explicit `--brand` th
 pages). Implement autonomously — no questions.
 
 ## Status
-- [ ] R12.1 — STAR red brand thread — hero eyebrow STAR mark + red strand in hero wave + "A STAR Project" brand tie
+- [t] R12.1 — STAR red brand thread — hero eyebrow STAR mark + red strand in hero wave + "A STAR Project" brand tie
 
 ## Open questions / decisions
 None — implement autonomously per the user's instruction. All design calls recorded in R12.1.
