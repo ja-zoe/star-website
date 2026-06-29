@@ -16,7 +16,7 @@ Fresh audit (2026-06-29, after sets 1–3) found:
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [x] R4.1 — 404 NotFound route — catch-all route + on-brand NotFound page (Seo + link home)
 - [x] R4.2 — Skip-to-content link — visible-on-focus skip link to <main>
-- [ ] R4.3 — Functional project CTAs — make "About the Project" scroll to the description; fix "TThe"
+- [t] R4.3 — Functional project CTAs — make "About the Project" scroll to the description; fix "TThe"
 
 ## Open questions / decisions before implementing
 None. Decisions recorded per feature.
