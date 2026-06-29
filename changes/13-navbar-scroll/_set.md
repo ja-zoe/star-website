@@ -11,7 +11,7 @@ underlay once scrolled — which is exactly when content slides under the bar. I
 autonomously (no questions, per the user).
 
 ## Status
-- [ ] R13.1 — Scroll-aware navbar — transparent at top, solid blurred underlay fades in on scroll
+- [t] R13.1 — Scroll-aware navbar — transparent at top, solid blurred underlay fades in on scroll
 
 ## Open questions / decisions
 None — implemented autonomously. Alternatives considered (per-pixel detection, always-on gradient
