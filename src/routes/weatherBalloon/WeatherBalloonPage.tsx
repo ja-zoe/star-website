@@ -16,7 +16,7 @@ const WeatherBalloonPage = () => {
           colors={["#0091ff", "#9D2626"]}
           className="grid place-items-center px-10"
         >
-          <p className="text-6xl font-bold">Weather Balloon</p>
+          <h1 className="text-6xl font-bold">Weather Balloon</h1>
           <p className="text-lg font-semibold max-w-4xl">
             High-altitude payloads. Near-space data. Engineered and launched
             every semester.
@@ -43,7 +43,7 @@ const WeatherBalloonPage = () => {
         </div>
 
         <div className="flex flex-col gap-5 px-10">
-          <p className="text-5xl font-bold">Subteams</p>
+          <h2 className="text-5xl font-bold">Subteams</h2>
           <div className="w-full flex flex-col gap-10 md:gap-8 sm:flex-row items-center justify-center">
             <Software />
             <Structures />
@@ -51,7 +51,7 @@ const WeatherBalloonPage = () => {
         </div>
 
         <div className="flex flex-col gap-8 px-10 lg:px-36">
-          <p className="text-5xl font-bold">Meeting times and locations</p>
+          <h2 className="text-5xl font-bold">Meeting times and locations</h2>
           <p>
             Meeting times will be added to website soon. Check Discord for now.
           </p>
