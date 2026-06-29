@@ -1,58 +1,21 @@
-import SubteamModal from "../../components/SubteamModal";
-import { StarStatProps } from "../../components/StarStat";
+import SubteamModal, { type Subteam } from "../../components/SubteamModal";
 import { Boxes } from "lucide-react";
 
-const Structures = () => {
-  const starStatProps: StarStatProps = {
-    stat: "Structures",
-    Icon: Boxes,
-    headline: "Lead: Ihsan Balik",
-    className: "accent-wash",
-  };
-
-  return (
-    <SubteamModal starStatProps={starStatProps}>
-      <div>
-        <p className="mb-1">
-          The Structures team is responsible for designing and building the
-          physical framework of the weather balloon payload, ensuring that all
-          subsystems are securely housed and can withstand flight conditions.
-          Their scope generally covers:
-        </p>
-        <ul className="list-disc list-inside mb-1">
-          <li>
-            <span className="font-bold">Payload Enclosure:</span> Creating a
-            lightweight, durable structure to protect electronics, batteries,
-            and sensors during ascent and descent.
-          </li>
-          <li>
-            <span className="font-bold">Thermal Protection:</span> Designing
-            insulation and shielding to safeguard sensitive components from
-            extreme temperatures at high altitude.
-          </li>
-          <li>
-            <span className="font-bold">Mechanical Integration:</span> Providing
-            mounting solutions and internal layouts that accommodate wiring,
-            sensors, and communication hardware.
-          </li>
-          <li>
-            <span className="font-bold">Aerodynamic Considerations:</span>{" "}
-            Minimizing drag and ensuring stable flight dynamics through careful
-            enclosure design and mass distribution.
-          </li>
-          <li>
-            <span className="font-bold">Recovery Hardware:</span> Incorporating
-            features like parachute mounts and structural supports to ensure a
-            safe landing and intact payload recovery.
-          </li>
-        </ul>
-        <p>
-          In essence, the Structures Team provides the physical backbone of the
-          weather balloon payload, enabling all other subsystems to function
-          safely and reliably throughout the mission.
-        </p>
-      </div>
-    </SubteamModal>
-  );
+const subteam: Subteam = {
+  name: "Structures",
+  lead: "Ihsan Balik",
+  leadLabel: "Lead",
+  icon: Boxes,
+  summary:
+    "Structures builds the payload that comes home intact — housing the electronics through ascent, near-space, and landing.",
+  responsibilities: [
+    { title: "Payload enclosure", body: "Build a light, durable shell that protects electronics, batteries, and sensors." },
+    { title: "Thermal protection", body: "Insulate and shield sensitive parts from the cold at altitude." },
+    { title: "Mechanical integration", body: "Lay out mounts and routing for wiring, sensors, and comms hardware." },
+    { title: "Aerodynamics", body: "Trim drag and balance mass for stable flight." },
+    { title: "Recovery hardware", body: "Add parachute mounts and supports for a safe landing and intact recovery." },
+  ],
 };
+
+const Structures = () => <SubteamModal subteam={subteam} />;
 export default Structures;

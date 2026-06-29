@@ -1,62 +1,21 @@
-import SubteamModal from "../../../components/SubteamModal";
-import type { StarStatProps } from "../../../components/StarStat";
+import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { FlaskConical } from "lucide-react";
 
-const Payload = () => {
-  const starStatProps: StarStatProps = {
-    stat: "Payload",
-    Icon: FlaskConical,
-    headline: "Lead: Daniel Jedrzejczyk",
-    className: "accent-wash",
-  };
-
-  return (
-    <SubteamModal starStatProps={starStatProps}>
-      <div>
-        <p className="mb-1">
-          The Payload team is responsible for the core scientific or
-          technological instrument that defines the CubeSat’s mission. They
-          ensure that the payload is properly designed, integrated, and operated
-          so that the mission objectives can be achieved. Their scope generally
-          covers:
-        </p>
-        <ul className="list-disc list-inside mb-1">
-          <li>
-            <span className="font-bold">Payload Design & Development:</span>{" "}
-            Engineering or adapting the scientific instrument, sensor, or
-            technology demonstration that constitutes the heart of the mission.
-          </li>
-          <li>
-            <span className="font-bold">Environmental Compatibility:</span>{" "}
-            Ensuring the payload can survive the thermal, vibrational, and
-            radiation conditions of launch and orbit.
-          </li>
-          <li>
-            <span className="font-bold">
-              Mechanical & Electrical Interfaces:
-            </span>{" "}
-            Coordinating with the structures, power, and avionics teams to
-            ensure the payload fits within the spacecraft and connects
-            seamlessly to available power and data resources.
-          </li>
-          <li>
-            <span className="font-bold">Data Handling & Operations:</span>{" "}
-            Defining how the payload will collect, store, and transmit data to
-            the ground within the mission’s communication and power constraints.
-          </li>
-          <li>
-            <span className="font-bold">Testing & Calibration:</span> Conducting
-            functional tests, calibrations, and environmental verifications to
-            confirm that the payload will generate meaningful results in orbit.
-          </li>
-        </ul>
-        <p>
-          In essence, the Payload Team delivers the reason the CubeSat exists,
-          ensuring the mission produces valuable scientific data or demonstrates
-          breakthrough technology in space.
-        </p>
-      </div>
-    </SubteamModal>
-  );
+const subteam: Subteam = {
+  name: "Payload",
+  lead: "Daniel Jedrzejczyk",
+  leadLabel: "Lead",
+  icon: FlaskConical,
+  summary:
+    "Payload is the reason SPICEsat flies — the instrument that measures fuel slosh in microgravity.",
+  responsibilities: [
+    { title: "Design & development", body: "Engineer the instrument and slosh experiment at the heart of the mission." },
+    { title: "Environmental survival", body: "Make it take the thermal, vibration, and radiation of launch and orbit." },
+    { title: "Mechanical & electrical interfaces", body: "Fit it to the structure and tie it cleanly into power and data." },
+    { title: "Data & operations", body: "Define how it collects, stores, and downlinks results within power and comms limits." },
+    { title: "Test & calibrate", body: "Calibrate and verify so the data coming home actually means something." },
+  ],
 };
+
+const Payload = () => <SubteamModal subteam={subteam} />;
 export default Payload;
