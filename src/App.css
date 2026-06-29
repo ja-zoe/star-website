@@ -418,6 +418,17 @@ move-shadow {
   filter: drop-shadow(0 0 0.75rem rgb(254, 254, 254));
 }
 
+/* Subteam stat-card wash, themed from the project page's --accent (set on the
+   ProjectShell root). Falls back to white if --accent is unset (it isn't used
+   outside a themed project page). See design/components.md › Project page kit. */
+.accent-wash {
+  background: radial-gradient(
+    120% 120% at 50% -10%,
+    color-mix(in srgb, var(--accent, #ffffff) 22%, transparent),
+    transparent 65%
+  );
+}
+
 /* Respect the OS "reduce motion" setting (WCAG 2.3.3). Canvas/JS-driven loops
    (stars twinkle, shooting stars, globe spin, flip-words) are gated separately
    via usePrefersReducedMotion; this neutralizes the CSS animations + smooth

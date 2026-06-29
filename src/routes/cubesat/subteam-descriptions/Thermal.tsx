@@ -7,7 +7,7 @@ const Thermal = () => {
     stat: "Thermal",
     Icon: ThermometerSun,
     headline: "Lead: Timothy Wilburn",
-    className: "bg-radial from-starblue/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (

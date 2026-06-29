@@ -7,7 +7,7 @@ const Structures = () => {
     stat: "Structures",
     Icon: Boxes,
     headline: "Lead: Ihsan Balik",
-    className: "bg-radial from-starblue/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (

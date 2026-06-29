@@ -1,5 +1,3 @@
-// import CubesatSubteams from "../CubesatSubteams"
-import { WavyBackground } from "../../components/ui/wavy-background";
 import Structures from "./subteam-descriptions/Structures";
 import ADCS from "./subteam-descriptions/ADCS";
 import Communications from "./subteam-descriptions/Communications";
@@ -9,106 +7,28 @@ import SystemsIntegration from "./subteam-descriptions/SystemsIntegration";
 import Thermal from "./subteam-descriptions/Thermal";
 import Power from "./subteam-descriptions/Power";
 import Seo from "../../components/Seo";
+import ProjectShell from "../../components/project/ProjectShell";
+import { cubesatConfig } from "../../components/project/projectConfig";
 
 const CubesatPage = () => {
   return (
-    <div className="min-h-screen bg-black flex flex-col pb-10">
+    <>
       <Seo
         title="CubeSat — STAR"
         description="STAR's CubeSat team is engineering Rutgers' first student-built satellite — tackling fuel slosh, attitude control, and microgravity experimentation across eight technical subteams."
         path="/cubesat"
       />
-      <div className="text-center relative">
-        <WavyBackground
-          colors={["#999999", "#9D2626"]}
-          className="grid place-items-center px-10"
-        >
-          <h1 className="text-6xl font-bold">Cube Satellite</h1>
-          <p className="text-lg font-semibold max-w-4xl">
-            Fuel slosh. Orbital control. Rutgers’ first student satellite —
-            engineered for microgravity experimentation.
-          </p>
-          <a
-            href="#about"
-            className="px-3 py-1 w-fit mt-8 bg-white text-black rounded-xl text-xl cursor-pointer"
-          >
-            About the Project
-          </a>
-        </WavyBackground>
-      </div>
-
-      <div id="about" className="flex flex-col gap-10 text-center">
-        <div className="flex flex-col gap-4 px-10 lg:px-36">
-          <p>
-            The CubeSat project is developing SPICEsat, Rutgers University’s
-            first student-built satellite. This mission is part of the
-            prestigious University Nanosatellite Program, under mentorship from
-            faculty and guidance from industry professionals. The satellite’s
-            primary scientific objective is to investigate fluid sloshing
-            dynamics in microgravity, a critical problem in spacecraft fuel
-            management. By characterizing slosh behavior and testing active
-            control stabilization algorithms in orbit, SPICEsat aims to advance
-            the state of onboard fuel modeling and control strategies beyond
-            what passive systems allow.
-          </p>
-          <p>
-            Students on the team are directly involved in the complete satellite
-            lifecycle—from mission conceptualization and payload integration to
-            subsystem testing and full-system validation. SPICEsat uses a
-            combination of COTS components and custom hardware, offering
-            students exposure to real-world spacecraft design and
-            interdisciplinary systems engineering. With an engineering model
-            already in testing, the mission is rapidly progressing toward flight
-            readiness and serves as a launchpad for the next generation of space
-            systems engineers.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-5 px-10">
-          <h2 className="text-5xl font-bold">Subteams</h2>
-          <div className="flex justify-center gap-5">
-            <div className="flex items-center gap-2">
-              <div className="rounded-full bg-starblue/40 w-3 h-3" />
-              <p>Mechanical</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="rounded-full bg-yellow-500/40 w-3 h-3" />
-              <p>Electrical</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="rounded-full bg-purple-500/40 w-3 h-3" />
-              <p>Software</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="rounded-full bg-white/40 w-3 h-3" />
-              <p>Payload</p>
-            </div>
-          </div>
-          <div className="w-full flex flex-col gap-10 md:gap-8 sm:flex-row items-stretch justify-center flex-wrap">
-            <Structures />
-            <Thermal />
-            <Power />
-            <Communications />
-            <SystemsIntegration />
-            <FlightSoftware />
-            <Payload />
-            <ADCS />
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-8 px-10 lg:px-36">
-          <h2 className="text-5xl font-bold">Meeting times and locations</h2>
-          <p>
-            Meeting times will be added to website soon. Check Discord for now.
-          </p>
-        </div>
-
-        {/* <div className="flex flex-col gap-5 px-10">
-          <p className="text-5xl font-bold">Leads and Members</p>
-          <HoverBlurCards items={members} imgType="icon" circled />
-        </div> */}
-      </div>
-    </div>
+      <ProjectShell config={cubesatConfig}>
+        <Structures />
+        <Thermal />
+        <Power />
+        <Communications />
+        <SystemsIntegration />
+        <FlightSoftware />
+        <Payload />
+        <ADCS />
+      </ProjectShell>
+    </>
   );
 };
 export default CubesatPage;

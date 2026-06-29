@@ -7,7 +7,7 @@ const Power = () => {
     stat: "Power",
     Icon: Zap,
     headline: "Lead: Ahmadh Hassan",
-    className: "bg-radial from-yellow-500/20 to-transparent",
+    className: "accent-wash",
   };
 
   return (
