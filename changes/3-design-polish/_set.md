@@ -16,7 +16,7 @@ missing on custom controls.
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [x] R3.1 — Establish design/ system — config + tokens/brand/components/accessibility (auto-detected baseline)
 - [x] R3.2 — Fix TextHoverEffect radialGradient console errors — 10 errors/load → 0
-- [t] R3.3 — Visible focus states — keyboard focus rings on nav/links/buttons, resolved vs accessibility.md
+- [x] R3.3 — Visible focus states — keyboard focus rings on nav/links/buttons, resolved vs accessibility.md
 
 ## Open questions / decisions before implementing
 None. design-brand run in auto mode (config → autodetect → default); the detected dark/black +
@@ -28,3 +28,7 @@ None.
 
 ## Log
 - 2026-06-29 — Set 3 scaffolded. Stacked on set 2.
+- 2026-06-29 — R3.1–R3.3 implemented, tested, merged into feat/set3-design-polish. Set 3
+  COMPLETE (green). Outcomes: versioned design/ system established (6 files, autodetected
+  baseline); console errors 10 → 0 (site console now fully clean); global keyboard focus-visible
+  ring added. Final build clean; home boots with 0 console errors. NOT merged to main.
