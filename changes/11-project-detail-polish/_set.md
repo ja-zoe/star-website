@@ -14,15 +14,13 @@ This set is **planned only** (specs below) — no code until the user approves.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [ ] R11.1 — Home project-card accent theming — cards reflect per-project accent on hover
+- [~] R11.1 — Home project-card accent theming — cards reflect per-project accent on hover
 - [ ] R11.2 — Subteam modal redesign + copy rewrite — designed layout + de-AI'd, tightened copy
 
 ## Open questions / decisions before implementing
-1. **Subteam copy depth (R11.2):** The rewrite will de-AI the voice and tighten it, but it will
-   keep the *existing factual scope* (it won't invent specific tools, member tasks, or
-   this-semester specifics that need real club input). Recommendation: proceed with voice/clarity
-   rewrite now; you hand me real specifics later if you want them baked in. Confirm, or tell me
-   the specifics to include.
+RESOLVED 2026-06-29 — User: de-AI the voice now using current factual scope (no invented
+specifics; real per-subteam details can be folded in later). Implement R11.1 + R11.2 now,
+show screenshots before merging to main.
 
 ## DB changes in this set
 None (static site).
