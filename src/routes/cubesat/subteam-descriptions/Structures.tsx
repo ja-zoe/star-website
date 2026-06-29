@@ -1,61 +1,21 @@
-import SubteamModal from "../../../components/SubteamModal";
-import type { StarStatProps } from "../../../components/StarStat";
+import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { Boxes } from "lucide-react";
 
-const Structures = () => {
-  const starStatProps: StarStatProps = {
-    stat: "Structures",
-    Icon: Boxes,
-    headline: "Lead: Aidan McLendon",
-    className: "accent-wash",
-  };
-
-  return (
-    <SubteamModal starStatProps={starStatProps}>
-      <div>
-        <p className="mb-1">
-          The Structures team is responsible for the spacecraft’s physical
-          frame—the skeleton that holds everything together and ensures survival
-          in the harsh conditions of launch and orbit. Their scope generally
-          covers:
-        </p>
-        <ul className="list-disc list-inside mb-1">
-          <li>
-            <span className="font-bold">Mechanical Design & CAD Modeling:</span>{" "}
-            Developing the CubeSat’s chassis, brackets, and deployables (like
-            solar panels or antennas) to fit within CubeSat standards and
-            payload constraints.
-          </li>
-          <li>
-            <span className="font-bold">Material Selection:</span> Choosing
-            lightweight yet durable materials (often aluminum alloys or
-            composites) that can endure high launch loads, thermal cycling, and
-            radiation exposure.
-          </li>
-          <li>
-            <span className="font-bold">Integration & Interfaces:</span>{" "}
-            Designing mounting schemes for subsystems (avionics, payload, power,
-            comms) and ensuring accessibility for assembly and testing.
-          </li>
-          <li>
-            <span className="font-bold">Structural Analysis:</span> Using finite
-            element analysis (FEA) and other methods to validate that the
-            structure can withstand vibration, shock, and load conditions of
-            launch.
-          </li>
-          <li>
-            <span className="font-bold">Testing & Validation:</span> Conducting
-            vibration, thermal, and fit-check tests to verify that the CubeSat
-            will remain structurally sound through all mission phases.
-          </li>
-        </ul>
-        <p>
-          In essence, the Structures Team transforms the CubeSat from a
-          collection of boards and components into a robust spacecraft capable
-          of surviving the violence of launch and the vacuum of space.
-        </p>
-      </div>
-    </SubteamModal>
-  );
+const subteam: Subteam = {
+  name: "Structures",
+  lead: "Aidan McLendon",
+  leadLabel: "Lead",
+  icon: Boxes,
+  summary:
+    "Structures builds the frame that holds SPICEsat together and keeps it alive — through the violence of launch and years in vacuum.",
+  responsibilities: [
+    { title: "Chassis & CAD", body: "Model the chassis, brackets, and deployables to hit CubeSat form-factor limits and payload constraints." },
+    { title: "Material selection", body: "Pick lightweight alloys and composites that take launch loads, thermal cycling, and radiation." },
+    { title: "Integration & interfaces", body: "Lay out mounts for avionics, payload, power, and comms so the satellite assembles and services cleanly." },
+    { title: "Structural analysis", body: "Run FEA against vibration, shock, and load cases to prove the frame survives the ride up." },
+    { title: "Test & validate", body: "Vibe-test, thermal-test, and fit-check the build to confirm it holds through every mission phase." },
+  ],
 };
+
+const Structures = () => <SubteamModal subteam={subteam} />;
 export default Structures;
