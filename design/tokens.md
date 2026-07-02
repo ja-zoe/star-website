@@ -64,7 +64,9 @@ Weights: 400 / 700 (Space Mono ships 400 & 700). Line-height: body ~1.5, heading
 ## Spacing / Layout
 Base unit: 4px (Tailwind v4 default scale: 0,1,2,3,4,6,8,10,...). 
 Layout: full-bleed sections (`w-screen`), centered flex columns, generous vertical padding
-(`py-10`/`py-20`). No fixed max-width grid; content is centered with per-section `px-*`.
+(`py-10`/`py-20`). No fixed max-width grid; content is centered with per-section `px-*`,
+but continuous prose is capped at a reading measure: `max-w-3xl` for paragraphs,
+`max-w-4xl` for the FAQ accordion (set 15). Card/graphic rows stay full-width.
 Breakpoints: Tailwind defaults sm 640 / md 768 / lg 1024 / xl 1280, plus custom
 `--breakpoint-base: 56rem` (App.css `@theme`).
 

@@ -79,7 +79,7 @@ const AboutStarSection = () => {
         </a>
       </div>
       <div className="relative w-full flex flex-col gap-5 justify-center items-center px-5 text-center z-10">
-        <p className="md:px-10">
+        <p className="md:px-10 max-w-3xl">
           STAR (Space Technology Association of Rutgers) is a student-led
           chapter of SEDS (Students for the Exploration and Development of
           Space).
@@ -107,7 +107,7 @@ const AboutStarSection = () => {
               className="bg-radial from-red-400/20 to-transparent"
             />
           </div>
-          <p className="mt-14 md:px-10">
+          <p className="mt-14 md:px-10 max-w-3xl mx-auto">
             Our mission is to inspire and equip students to push the boundaries
             of innovation. Through hands-on projects, industry connections, and
             a driven community, we turn curiosity into capability and ideas into
@@ -131,7 +131,7 @@ const AboutStarSection = () => {
 
         <div className="w-full flex flex-col gap-4 justify-center items-center text-center px-10">
           <p className="text-2xl">Why STAR?</p>
-          <p className="leading-8">
+          <p className="leading-8 max-w-3xl">
             Because space is not just the final frontier—it is the next, and we
             are leading the way. At STAR, we are engineers, innovators, and
             problem-solvers committed to advancing space exploration. From
@@ -141,8 +141,10 @@ const AboutStarSection = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-5">
-          <p>Did You Know STAR is Sponsored by 7 Different Organizations?</p>
+        <div className="flex flex-col gap-5 items-center">
+          <p className="max-w-3xl">
+            Did You Know STAR is Sponsored by 7 Different Organizations?
+          </p>
           <HoverBlurCards items={sponsors} />
         </div>
       </div>
