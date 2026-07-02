@@ -3,7 +3,7 @@ import { FlaskConical } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Payload",
-  lead: "Daniel Jedrzejczyk",
+  lead: "Christian Metchenko",
   leadLabel: "Lead",
   icon: FlaskConical,
   summary:
