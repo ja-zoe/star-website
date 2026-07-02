@@ -10,8 +10,8 @@ usernames), and update two CubeSat subteam leads (FSW, Payload). Small content c
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [~] R14.1 — E-board roster — new positions/members, person-icon placeholder for photo-less members
-- [ ] R14.2 — CubeSat leads — FSW lead → Seth Caskey, Payload lead → Christian Metchenko
+- [x] R14.1 — E-board roster — new positions/members, person-icon placeholder for photo-less members
+- [~] R14.2 — CubeSat leads — FSW lead → Seth Caskey, Payload lead → Christian Metchenko
 
 ## Open questions / decisions before implementing
 None — roster and leads were given explicitly by the user; decisions (display order,
