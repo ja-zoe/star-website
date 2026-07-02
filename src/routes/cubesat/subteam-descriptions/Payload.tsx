@@ -7,13 +7,13 @@ const subteam: Subteam = {
   leadLabel: "Lead",
   icon: FlaskConical,
   summary:
-    "Payload is the reason SPICEsat flies — the instrument that measures fuel slosh in microgravity.",
+    "Payload runs SPICEsat's core experiment — measuring fuel slosh in microgravity and owning everything from the sensors to the control algorithms that fly it.",
   responsibilities: [
-    { title: "Design & development", body: "Engineer the instrument and slosh experiment at the heart of the mission." },
-    { title: "Environmental survival", body: "Make it take the thermal, vibration, and radiation of launch and orbit." },
-    { title: "Mechanical & electrical interfaces", body: "Fit it to the structure and tie it cleanly into power and data." },
-    { title: "Data & operations", body: "Define how it collects, stores, and downlinks results within power and comms limits." },
-    { title: "Test & calibrate", body: "Calibrate and verify so the data coming home actually means something." },
+    { title: "Experiment hardware", body: "Design, mount, cable, and flight-harden the tank, camera, LED illumination, and torque/pressure sensors around the Raspberry Pi payload computer." },
+    { title: "Payload flight software", body: "Run PFSW: talk to the OBC, convert ADCS commands into quaternions, and read out experiment parameters and commands to the control software." },
+    { title: "Ground software & imaging", body: "Build the data pipeline and computer vision that check sloshing on camera against what the sensors measured." },
+    { title: "Architecture & strategy", body: "Define reference frames (body, ECI, ECEF), model orbit and attitude in STK, and align sensor axes with the CAD model to set each run's initial conditions." },
+    { title: "One cohesive team", body: "Split into software and general sections, but tightly coupled — everyone builds toward the same experiment." },
   ],
 };
 
