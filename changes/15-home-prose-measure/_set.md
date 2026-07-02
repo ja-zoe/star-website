@@ -9,7 +9,7 @@ viewport at desktop widths. Cap prose blocks at a comfortable reading measure.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [~] R15.1 — Prose measure — max-width caps on About/FAQ/Join Us text blocks
+- [x] R15.1 — Prose measure — max-width caps on About/FAQ/Join Us text blocks
 
 ## Open questions / decisions before implementing
 None — verified the overflow in-browser at 1920px; widths resolved against
@@ -20,3 +20,5 @@ None.
 
 ## Log
 - 2026-07-02 — Set 15 scaffolded off main (`feat/set15-home-prose-measure`).
+- 2026-07-02 — R15.1 implemented, measured/verified in-browser at 1920px and 390px,
+  merged into the set branch. Set 15 COMPLETE — awaiting user approval to merge to main.
