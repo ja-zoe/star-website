@@ -30,7 +30,7 @@ const EboardSection = () => {
       styleAdjustments: { objectPosition: "55%" },
     },
     {
-      name: "Praneeth Sai Damarla",
+      name: "Praneeth Damarla",
       position: "Vice President",
       hometown: "",
       major: "Electrical and Computer Engineering",
