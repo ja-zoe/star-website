@@ -13,7 +13,7 @@ and satellite behavior.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [ ] R16.1 — Payload description rewrite — new summary + 5 responsibilities, experiment-ops framing
+- [~] R16.1 — Payload description rewrite — new summary + 5 responsibilities, experiment-ops framing
 
 ## Open questions / decisions before implementing
 None — user supplied the full scope breakdown (hardware, PFSW, ground software/imaging,
