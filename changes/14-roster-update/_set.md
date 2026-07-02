@@ -11,7 +11,7 @@ usernames), and update two CubeSat subteam leads (FSW, Payload). Small content c
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [x] R14.1 — E-board roster — new positions/members, person-icon placeholder for photo-less members
-- [~] R14.2 — CubeSat leads — FSW lead → Seth Caskey, Payload lead → Christian Metchenko
+- [x] R14.2 — CubeSat leads — FSW lead → Seth Caskey, Payload lead → Christian Metchenko
 
 ## Open questions / decisions before implementing
 None — roster and leads were given explicitly by the user; decisions (display order,
@@ -22,3 +22,5 @@ None.
 
 ## Log
 - 2026-07-02 — Set 14 scaffolded off main (`feat/set14-roster-update`).
+- 2026-07-02 — R14.1 + R14.2 implemented, verified in-browser, merged into the set
+  branch. Set 14 COMPLETE — awaiting user approval to merge to main.
