@@ -9,7 +9,7 @@ viewport at desktop widths. Cap prose blocks at a comfortable reading measure.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [ ] R15.1 — Prose measure — max-width caps on About/FAQ/Join Us text blocks
+- [~] R15.1 — Prose measure — max-width caps on About/FAQ/Join Us text blocks
 
 ## Open questions / decisions before implementing
 None — verified the overflow in-browser at 1920px; widths resolved against

@@ -11,7 +11,7 @@ const FAQSection = () => {
     <div id="FAQSection" className="flex flex-col relative w-full py-10">
       <TextHoverEffect text="FAQ" />
       <div className="flex justify-center items-center px-20">
-        <Accordion type="single" collapsible className="w-full z-20">
+        <Accordion type="single" collapsible className="w-full max-w-4xl z-20">
           <AccordionItem value="item-1">
             <AccordionTrigger>What is STAR?</AccordionTrigger>
             <AccordionContent>

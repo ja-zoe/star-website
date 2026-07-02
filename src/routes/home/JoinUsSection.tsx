@@ -31,7 +31,7 @@ const JoinUsSection = () => {
     <div id="JoinUsSection" className="flex flex-col w-full pt-10 pb-20">
       <TextHoverEffect text="JOIN STAR" />
       <div className="flex flex-col gap-10 items-center px-10">
-        <p className="text-center">
+        <p className="text-center max-w-3xl">
           Catch the Discord logo to join the Star Discord (our main
           communications channel) and stay updated... Or scroll down and click
           the one in the footer
