@@ -3,7 +3,7 @@
 ## Library
 Library: **shadcn (new-york style)** over Radix primitives. Owns: `components`, radius, shadow,
 and the neutral oklch chrome ramp (see tokens.md). Bespoke on top: **Aceternity / magicui**
-visual effects (StarsBackground, ShootingStars, WavyBackground, CanvasRevealEffect, FlipWords,
+visual effects (StarsBackground, ShootingStars, WavyBackground, FlipWords,
 TextHoverEffect, HoverBorderGradient, Globe). Effects are decorative layers — keep them behind
 `prefers-reduced-motion` and don't let them capture pointer/focus (they use `pointer-events-none`
 / are non-interactive).
@@ -46,8 +46,7 @@ Rejected: true per-pixel clash detection (sampling rendered pixels — incl. the
 ProjectCard: icon-led editorial panel with permanent title, short purpose, two facts, and CTA;
 project accent appears as a restrained top rule + atmospheric glow. Cards keep deliberate
 desktop height/negative space instead of compressing into dashboard summaries, while mobile is
-capped at 280px. The lazy three.js CanvasRevealEffect is optional fine-pointer hover enhancement
-only; it never replaces or obscures core content and is never requested on touch-only input.
+capped at 280px. Accent atmosphere is CSS-only; do not add WebGL or canvas effects to card hover.
 E-board: circular red-ringed photo + name + role. Sponsor logos: inverted PNGs with hover-blur
 siblings.
 
@@ -100,8 +99,10 @@ Keep red to these shared elements only; do not red-wash the accent-owned, projec
 (labels, stats, mission rule, subteam wash/modal, CTAs stay `--accent`).
 
 ## Motion (see tokens › Motion)
-Animate: opacity + transform (framer), plus the canvas/SVG decorative loops. Never animate
-layout-affecting properties on scroll. Reduced-motion: stars paint statically, shooting stars /
-globe spin / flip-words / shimmer all stop (set 1 R1.4) — the look is preserved, the
-continuous motion is removed. New project-page reveals (if any) must also gate on
-`usePrefersReducedMotion`.
+Animate: opacity + transform (framer), plus restrained canvas/SVG decorative loops. Never animate
+layout-affecting properties on scroll. Reduced-motion paints a static frame and stops shooting
+stars, globe spin, flip-words, and shimmer. Canvas/WebGL work must also stop when its section is
+offscreen or the page is hidden. Use responsive rendering budgets: 1x DPR and lower density on
+mobile, a maximum 1.5x DPR on larger screens, and a 30fps cap for ambient waves. Keep one global
+shooting-star layer. New decorative motion must use `usePrefersReducedMotion` and an explicit
+visibility lifecycle.

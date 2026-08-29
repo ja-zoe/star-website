@@ -1,15 +1,7 @@
-import { lazy, Suspense, useEffect, useState, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 import type { ProjectStat } from "./project/projectConfig";
-
-// three.js + @react-three/fiber (~600 kB) live behind this lazy boundary so they
-// stay off touch-only devices and load only after the first intentional hover.
-const CanvasRevealEffect = lazy(() =>
-  import("./ui/canvas-reveal-effect").then((module) => ({
-    default: module.CanvasRevealEffect,
-  })),
-);
 
 interface ProjectCardProps {
   icon: string;
@@ -18,9 +10,7 @@ interface ProjectCardProps {
   purpose: string;
   facts: ProjectStat[];
   accent: string;
-  colors?: number[][];
   href: string;
-  revealBg?: string;
 }
 
 const ProjectCard = ({
@@ -30,27 +20,12 @@ const ProjectCard = ({
   purpose,
   facts,
   accent,
-  colors,
   href,
-  revealBg = "bg-[#9D2626]",
 }: ProjectCardProps) => {
-  const [canHover, setCanHover] = useState(false);
-  const [hovered, setHovered] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const update = () => setCanHover(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-
   return (
     <Link
       to={href}
       className="group/card block h-[17.5rem] w-full max-w-[375px] md:h-[25rem]"
-      onMouseEnter={() => canHover && setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       <article
         className="relative flex h-full min-w-[250px] flex-col overflow-hidden border border-white/25 bg-black/80 p-5 transition-colors duration-300 group-hover/card:border-white/60 group-focus-visible/card:border-white md:p-8"
@@ -60,19 +35,6 @@ const ProjectCard = ({
         <CornerMark className="absolute -bottom-3 -left-3 h-6 w-6" />
         <CornerMark className="absolute -right-3 -top-3 h-6 w-6" />
         <CornerMark className="absolute -bottom-3 -right-3 h-6 w-6" />
-
-        {hovered && canHover && (
-          <Suspense fallback={null}>
-            <div className="absolute inset-0 z-0" aria-hidden="true">
-              <CanvasRevealEffect
-                animationSpeed={5.1}
-                containerClassName={revealBg}
-                colors={colors}
-              />
-              <div className="absolute inset-0 bg-black/65" />
-            </div>
-          </Suspense>
-        )}
 
         <div
           className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-[var(--card-accent)] opacity-20 blur-3xl transition-opacity duration-500 group-hover/card:opacity-35"
@@ -111,10 +73,10 @@ const ProjectCard = ({
               {facts.slice(0, 2).map((fact) => (
                 <li key={fact.label} className="min-w-0">
                   <span className="block text-xs font-bold text-white md:text-sm">
-                  {fact.value}
+                    {fact.value}
                   </span>
                   <span className="mt-1 block text-[0.52rem] uppercase leading-3 tracking-wider text-white/45 md:text-[0.58rem]">
-                  {fact.label}
+                    {fact.label}
                   </span>
                 </li>
               ))}

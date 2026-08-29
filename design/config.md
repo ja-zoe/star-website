@@ -25,7 +25,7 @@ project was resolved in `auto` mode, no questionnaire). Edit and re-run to updat
 - spacing-layout: auto  # Tailwind v4 default 4px scale
 - color-modes: dark-only   # app forces the dark space theme; shadcn light tokens exist but are unused
 - components: derived    # owned by components-library (shadcn-new-york)
-- motion: auto           # framer-motion + custom shimmer and canvas loops, all gated by prefers-reduced-motion (set 1 R1.4)
+- motion: auto           # framer-motion + decorative loops; reduced-motion is static and canvas/WebGL pause offscreen or hidden (set 19 R19.1)
 - accessibility: auto    # WCAG 2.2 AA target
 
 ## Registered skills
