@@ -27,7 +27,7 @@ const ProjectsSection = () => {
   return (
     <div
       id="ProjectsSection"
-      className="w-screen flex flex-col gap-0 justify-center items-center relative pb-20 pt-10"
+      className="relative flex w-screen scroll-mt-24 flex-col items-center justify-center gap-0 pb-20 pt-10"
     >
       <TextHoverEffect text="OUR PROJECTS" />
       <div className="w-full px-5 z-20 flex flex-wrap items-center justify-center gap-5">

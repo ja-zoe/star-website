@@ -88,7 +88,7 @@ const EboardSection = () => {
   ];
 
   return (
-    <div id="EboardSection" className="flex flex-col w-full pt-10 pb-20">
+    <div id="EboardSection" className="flex w-full scroll-mt-24 flex-col pb-20 pt-10">
       <TextHoverEffect text="MEET E-BOARD" />
       <div className="flex flex-col gap-10 items-center px-10">
         <div className="flex flex-wrap gap-24 justify-center">

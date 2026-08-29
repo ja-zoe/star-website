@@ -1,7 +1,7 @@
 import "./App.css";
 import { StarsBackground } from "./components/ui/stars-background";
-import { Routes, Route } from "react-router";
-import { lazy, Suspense } from "react";
+import { Routes, Route, useLocation } from "react-router";
+import { lazy, Suspense, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ShootingStars } from "./components/ui/shooting-stars";
@@ -16,6 +16,39 @@ const WeatherBalloonPage = lazy(
   () => import("./routes/weatherBalloon/WeatherBalloonPage"),
 );
 const NotFound = lazy(() => import("./routes/NotFound"));
+
+const HashScroll = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+
+    let frame = 0;
+    const targetId = decodeURIComponent(hash.slice(1));
+
+    const scrollToTarget = () => {
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ block: "start", behavior: "auto" });
+      }
+    };
+
+    frame = requestAnimationFrame(scrollToTarget);
+    // The home page contains lazy visual components that can increase document
+    // height after the target first mounts. Re-align briefly while layout settles
+    // so a deep target is not clamped to the page's earlier maximum scroll.
+    const settle = window.setInterval(scrollToTarget, 100);
+    const stop = window.setTimeout(() => window.clearInterval(settle), 1200);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.clearInterval(settle);
+      window.clearTimeout(stop);
+    };
+  }, [pathname, hash]);
+
+  return null;
+};
 
 function App() {
   return (
@@ -40,6 +73,7 @@ function App() {
             <Route path="weather-balloon" element={<WeatherBalloonPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <HashScroll />
         </Suspense>
       </main>
 
