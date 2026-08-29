@@ -27,3 +27,8 @@ None. (Static SPA.)
 
 ## Log
 - 2026-08-28 — Set 18 scaffolded from `main` on `feat/set18-p0-core-journeys`.
+- 2026-08-28 — Set 18 complete on the preview branch. All feature gates and the
+  final production build passed; ESLint is clean across every touched source
+  file. Repository-wide lint retains 12 errors and 7 warnings in untouched
+  legacy components. Screenshots are in `screenshots/`. Awaiting user review;
+  not merged to `main`.
