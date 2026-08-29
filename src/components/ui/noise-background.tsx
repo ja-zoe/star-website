@@ -168,6 +168,7 @@ export const NoiseBackground = ({
   return (
     <div
       ref={containerRef}
+      data-noise-animating={animating ? "true" : "false"}
       className={cn(
         "group relative overflow-hidden rounded-2xl bg-neutral-200 p-2 backdrop-blur-sm dark:bg-neutral-800",
         "shadow-[0px_0.5px_1px_0px_var(--color-neutral-400)_inset,0px_1px_0px_0px_var(--color-neutral-100)]",
@@ -217,8 +218,10 @@ export const NoiseBackground = ({
       {/* Static Noise Pattern */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <img
-          src="https://assets.aceternity.com/noise.webp"
+          src="/noise.webp"
           alt=""
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover opacity-[var(--noise-opacity)]"
           style={{ mixBlendMode: "overlay" }}
         />

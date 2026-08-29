@@ -62,7 +62,7 @@ const HoverBlurCards = ({
 
   return (
     <TooltipProvider>
-      <div className="grid grid-cols-2 items-center gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-12">
+      <div className="grid grid-cols-2 items-center justify-items-center gap-x-6 gap-y-12 sm:grid-cols-4 lg:gap-x-12">
         {items.map((item, index) => (
           <Tooltip key={item.itemName}>
             <TooltipTrigger asChild>

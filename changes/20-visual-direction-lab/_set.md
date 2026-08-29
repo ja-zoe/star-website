@@ -6,6 +6,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [t] R20.1 — Build an isolated Aceternity visual direction lab
 - [t] R20.2 — Apply the selected direction to the production homepage
+- [t] R20.3 — Refine selected production details after visual review
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,

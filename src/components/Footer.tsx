@@ -5,7 +5,7 @@ import { Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="z-30 flex w-full items-center justify-center gap-5 border-t border-white/20 bg-black px-5 py-5 sm:gap-8">
+    <footer className="relative z-20 flex w-full items-center justify-center gap-5 border-t border-white/20 bg-transparent px-5 py-5 sm:gap-8">
       <a
         href="https://discord.gg/vHa52wx9VK"
         target="_blank"

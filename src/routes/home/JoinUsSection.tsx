@@ -1,6 +1,6 @@
 import { ArrowUpRight, CalendarClock, Mail } from "lucide-react";
 import HomeSectionTitle from "../../components/HomeSectionTitle";
-import { MovingBorderButton } from "../../components/ui/moving-border";
+import { NoiseBackground } from "../../components/ui/noise-background";
 import { currentInfo } from "../../content/currentInfo";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import DiscordLogo from "/discord-icon.png";
@@ -32,20 +32,24 @@ const JoinUsSection = () => {
               Pick a project, meet the people, and start with something small.
             </p>
             <div className="mt-9">
-              <MovingBorderButton
-                as="a"
-                href={currentInfo.contact.discordHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                ariaLabel="Join the STAR Discord"
-                animate={!reducedMotion}
-                borderRadius="0px"
-                containerClassName="w-full max-w-sm"
-                className="justify-between px-6 font-bold"
+              <NoiseBackground
+                animating={!reducedMotion}
+                gradientColors={["#9D2626", "#38BDF8", "#F5A524"]}
+                noiseIntensity={0.38}
+                speed={0.08}
+                containerClassName="w-full max-w-sm rounded-none bg-transparent p-[2px]"
+                className="rounded-none"
               >
-                Join Discord
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </MovingBorderButton>
+                <a
+                  href={currentInfo.contact.discordHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-14 w-full items-center justify-between bg-black/95 px-6 text-sm font-bold text-white"
+                >
+                  Join Discord
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </NoiseBackground>
             </div>
           </div>
 

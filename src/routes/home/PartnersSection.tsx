@@ -10,6 +10,7 @@ import NasaLogo from "/nasa-logo.png";
 import RutgersLogo from "/rutgers-logo.png";
 import SedsLogo from "/seds-logo.png";
 import UNPLogo from "/unp-logo.png";
+import AirForceLogo from "/us-air-force-logo.png";
 
 const organizations: ItemType[] = [
   { itemName: "Rutgers University", alt: "Rutgers University", logo: RutgersLogo, relationship: "Home institution", tooltipContent: "STAR is a Rutgers student organization.", link: "https://www.rutgers.edu/" },
@@ -19,6 +20,7 @@ const organizations: ItemType[] = [
   { itemName: "Rutgers Engineering Governing Council", alt: "Rutgers Engineering Governing Council", logo: EGCLogo, relationship: "Student governance", tooltipContent: "Rutgers School of Engineering student governance.", link: "https://egc.rutgers.edu/" },
   { itemName: "Ansys", alt: "Ansys", logo: AnsysLogo, relationship: "Engineering software", tooltipContent: "Engineering simulation and analysis software ecosystem.", link: "https://www.ansys.com/" },
   { itemName: "Dassault Systèmes", alt: "Dassault Systèmes", logo: DassaultLogo, relationship: "CAD software", tooltipContent: "The company behind SOLIDWORKS CAD software.", link: "https://www.3ds.com/" },
+  { itemName: "United States Air Force", alt: "United States Air Force", logo: AirForceLogo, relationship: "UNP via AFRL", tooltipContent: "The Air Force Research Laboratory established and operates the University Nanosatellite Program.", link: "https://www.afrl.af.mil/News/Article-Display/Article/2762023/afrl-offers-university-satellite-program/" },
 ];
 
 const PartnersSection = () => {

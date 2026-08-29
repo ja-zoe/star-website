@@ -51,12 +51,12 @@ const Navbar = () => {
   );
 
   return (
-    <header className="fixed top-0 flex justify-between sm:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20">
+    <header className="fixed top-0 flex justify-between md:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20">
       {/* Star logo */}
       <Link
         to="/"
         aria-label="STAR home"
-        className="col-start-1 inline-flex min-h-11 w-24 items-center sm:absolute sm:left-[2%] lg:left-28"
+        className="col-start-1 inline-flex min-h-11 w-24 items-center md:absolute md:left-[2%] lg:left-28"
       >
         <img
           src="/star-image.png"
@@ -68,7 +68,7 @@ const Navbar = () => {
         />
       </Link>
 
-      <div className="sm:hidden">
+      <div className="md:hidden">
         <Sheet>
           <SheetTrigger asChild>
             <button
@@ -182,7 +182,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Navigation Menu */}
-      <NavigationMenu className="text-white hidden sm:inline">
+      <NavigationMenu className="text-white hidden md:inline">
         <NavigationMenuList className={cn("rounded-full px-3 py-1.5", underlay)}>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
@@ -228,21 +228,22 @@ const Navbar = () => {
               <Link className="inline-flex min-h-11 items-center" to="/#EboardSection">Eboard</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <button
-              type="button"
-              onClick={toggleMotion}
-              disabled={systemReduced}
-              aria-label={systemReduced ? "Motion reduced by system settings" : motionEnabled ? "Turn motion off" : "Turn motion on"}
-              aria-pressed={!motionEnabled}
-              title={systemReduced ? "Motion reduced by system settings" : motionEnabled ? "Turn motion off" : "Turn motion on"}
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-white/65 transition-colors hover:bg-white/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              {motionEnabled ? <Pause className="h-4 w-4" aria-hidden="true" /> : <Play className="h-4 w-4" aria-hidden="true" />}
-            </button>
-          </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+      <button
+        type="button"
+        onClick={toggleMotion}
+        disabled={systemReduced}
+        aria-label={systemReduced ? "Motion reduced by system settings" : motionEnabled ? "Turn motion off" : "Turn motion on"}
+        aria-pressed={!motionEnabled}
+        title={systemReduced ? "Motion reduced by system settings" : motionEnabled ? "Turn motion off" : "Turn motion on"}
+        className={cn(
+          "absolute right-[2%] hidden min-h-11 min-w-11 items-center justify-center rounded-full text-white/65 transition-colors hover:bg-white/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-40 md:inline-flex lg:right-28",
+          underlay,
+        )}
+      >
+        {motionEnabled ? <Pause className="h-4 w-4" aria-hidden="true" /> : <Play className="h-4 w-4" aria-hidden="true" />}
+      </button>
     </header>
   );
 };

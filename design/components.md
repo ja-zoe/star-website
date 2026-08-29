@@ -46,15 +46,19 @@ Rejected: true per-pixel clash detection (sampling rendered pixels — incl. the
 ## Cards / Surfaces
 ProjectCard: equal-size icon-led studio boards with a visual field above permanent title, short
 purpose, two facts, and CTA. The three cards always have equal rendered dimensions and prominence.
-Project accent is limited to labels and a pointer-responsive GlowingEffect border.
-E-board: equal rectangular WobbleCard portraits, grayscale-to-color hover, role, name, and major.
+The visual field restores the dot-matrix CanvasRevealEffect on pointer/focus while permanent card
+content remains visible. Three.js stays behind a lazy boundary and must not enter the initial home
+chunk. Project accent also appears in labels and a pointer-responsive GlowingEffect border.
+E-board: equal rectangular WobbleCard color portraits with role, name, and major.
 Sponsor/program logos: a border-y relationship rail with visible relationship labels and hover-blur
 siblings.
 
 Home Join flow: one open, full-width atmospheric composition, not a stack of nested cards. Use
 an editorial two-column composition, one short invitation, primary Discord + secondary email
-actions, and a single meeting-status line. Use the Discord mark directly, not a generic radio symbol. STAR red, hairline borders, mono labels, and generous negative space connect it to
-the project-page mission-dossier language.
+actions, and a single meeting-status line. Use the Discord mark directly, not a generic radio
+symbol. The Discord CTA uses NoiseBackground as a narrow textured edge, never as a large surface.
+STAR red, hairline borders, mono labels, and generous negative space connect it to the project-page
+mission-dossier language.
 
 ## Home hierarchy (set 19)
 The recruiting sequence is Hero → current status → Projects → proof/About → Join → current
@@ -74,7 +78,12 @@ confirmation paths. Never replace an unknown with an estimate.
 The home organization section is titled “Partners, programs & supporters,” not “Sponsors.” Each
 logo has a visible relationship label (institution, chapter network, program, competition
 organizer, governance, or software) and one tooltip-trigger anchor. Keep the sponsor inquiry CTA
-separate from the organization links.
+separate from the organization links. Network rows must remain centered; with eight organizations,
+use an even four-column desktop/two-column mobile grid. The Air Force relationship is labeled
+“UNP via AFRL,” not as direct STAR sponsorship.
+
+The global Footer is transparent over the one app-level StarsBackground. Do not add a separate
+footer starfield or an opaque footer fill.
 
 ## Project page kit (added 2026-06-29 — set 10)
 The three project pages (CubeSat, Robotics, Weather Balloon) share ONE editorial "mission

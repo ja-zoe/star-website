@@ -66,3 +66,7 @@ tokens.md.
   projects, Open Frequency Discord join, People First leadership, and Relationship Rail
   organizations. Registered production Aceternity patterns and a persistent Navbar motion
   preference that composes with the operating-system preference.
+- 2026-08-29 — Refined the selected Set 20 production direction after review: restored the
+  lazy CanvasRevealEffect, switched the Discord CTA to NoiseBackground, centered navigation and
+  the eight-item network, retained color portraits, and extended the global starfield through the
+  transparent footer.

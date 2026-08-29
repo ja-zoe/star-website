@@ -45,7 +45,7 @@ const AboutStarSection = () => (
         <div className="absolute inset-[18%] rounded-full border border-dashed border-red-300/20" aria-hidden="true" />
         <Globe className="max-w-[31rem]" />
         <p className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.6rem] font-bold uppercase tracking-[0.24em] text-white/40">
-          New Brunswick, New Jersey
+          Located in New Brunswick, New Jersey
         </p>
       </div>
     </div>

@@ -110,7 +110,7 @@ const EboardSection = () => {
                 {member.picture ? (
                   <img
                     className={cn(
-                      "h-full w-full scale-125 object-cover grayscale transition-[filter,transform] duration-500 group-hover:grayscale-0",
+                      "h-full w-full scale-125 object-cover transition-transform duration-500 group-hover:scale-[1.28]",
                       member.classAdjustments,
                     )}
                     style={member.styleAdjustments}
