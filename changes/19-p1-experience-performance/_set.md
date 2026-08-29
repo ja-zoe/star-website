@@ -9,7 +9,7 @@ UI/UX and feature audit. Set 19 starts from deployed P0 commit `a4d8ffe`.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [t] R19.1 — Stable, efficient runtime — eliminate route CLS and reduce continuous canvas/JS cost
+- [x] R19.1 — Stable, efficient runtime — eliminate route CLS and reduce continuous canvas/JS cost
 - [ ] R19.2 — Home information hierarchy — rebuild the recruiting sequence, semantic headings, and vertical rhythm
 - [ ] R19.3 — Interaction accessibility — repair focus semantics, touch targets, dialogs, and mobile navigation labels
 - [ ] R19.4 — Current information and partner credibility — add dated logistics fallbacks and relationship labels
@@ -33,3 +33,4 @@ None. (Static SPA; current information is a typed local content module.)
 - 2026-08-29 — R19.1 verification passed: production build, focused lint,
   CLS 0.00, single shooting-star layer, responsive canvas density, and static
   reduced-motion/offscreen behavior.
+- 2026-08-29 — R19.1 merged into the Set 19 integration branch.
