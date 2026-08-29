@@ -1,67 +1,100 @@
-import { useState } from "react"
-import { cn } from "../lib/utils"
+import { useState, type ComponentType } from "react";
+import { cn } from "../lib/utils";
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-  } from "./ui/tooltip"
-  
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
+
 export interface ItemType {
-    itemName: string,
-    alt: string,
-    logo: any,
-    tooltipContent: string,
-    link?: string
+  itemName: string;
+  alt: string;
+  logo: string | ComponentType<{ size?: string | number }>;
+  tooltipContent: string;
+  link?: string;
 }
 
 interface HoverBlurCardsProps {
-    items: ItemType[],
-    imgType?: "img" | "icon",
-    circled?: boolean
+  items: ItemType[];
+  imgType?: "img" | "icon";
+  circled?: boolean;
 }
 
-const HoverBlurCards = ({items, imgType = "img", circled = false}: HoverBlurCardsProps) => {
-    const [hovered, setHovered] = useState<number|null>(null)
+const HoverBlurCards = ({
+  items,
+  imgType = "img",
+  circled = false,
+}: HoverBlurCardsProps) => {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  const itemClassName = (index: number) =>
+    cn(
+      "drop inline-flex min-h-11 min-w-11 items-center justify-center p-2 transition-all duration-500",
+      circled && "rounded-full border",
+      hovered !== null && hovered !== index && "blur-sm",
+      (index === 4 || index === 5) && "invert",
+    );
+
+  const logo = (item: ItemType, index: number) => {
+    if (imgType === "icon" && typeof item.logo !== "string") {
+      const Logo = item.logo;
+      return <Logo size={100} />;
+    }
+
+    return (
+      <img
+        src={item.logo as string}
+        alt={item.alt}
+        loading="lazy"
+        decoding="async"
+        className={cn(
+          "w-32 invert",
+          index === 6 && "w-24",
+          index === 1 && "w-28",
+        )}
+      />
+    );
+  };
 
   return (
-    <div className="flex justify-center flex-wrap gap-16 items-center px-10">
-        {items.map((sponsor, ind) => {
-            const Logo = sponsor.logo
-            return (
-                <TooltipProvider key={ind}>
-                    <Tooltip>
-                        <TooltipTrigger>
-                            <div className={cn(circled && "p-2 border rounded-full")}>
-                                {sponsor.link ? <a
-                                className={cn("drop p-2 transition-all duration-500", hovered !== null && hovered !== ind && "blur-sm", (ind === 4 || ind === 5) && "invert")}
-                                onMouseEnter={()=>setHovered(ind)}
-                                onMouseLeave={()=>setHovered(null)}
-                                href={sponsor.link}
-                                target="_blank"
-                                >
-                                    <img src={Logo} alt={sponsor.alt} loading="lazy" decoding="async" className={cn("invert w-32", ind === 6 && "w-24", ind === 1 && "w-28")}/>
-                                </a>
-                                : <div
-                                className={cn("drop p-2 transition-all duration-500", hovered !== null && hovered !== ind && "blur-sm")}
-                                onMouseEnter={()=>setHovered(ind)}
-                                onMouseLeave={()=>setHovered(null)}
-                                >
-                                    {imgType === "img" ? <img src={Logo} alt={sponsor.alt} loading="lazy" decoding="async" className={cn("invert w-32", ind === 6 && "w-24", ind === 1 && "w-28")}/>
-                                        : <Logo size="100"/>
-                                    }
-                                </div>
-                                }
-                            </div>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                        <p className="text-base">{sponsor.tooltipContent}</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            )
-        })}
-    </div>
-  )
-}
-export default HoverBlurCards
+    <TooltipProvider>
+      <div className="flex flex-wrap items-center justify-center gap-10 px-5 md:gap-16 md:px-10">
+        {items.map((item, index) => (
+          <Tooltip key={item.itemName}>
+            <TooltipTrigger asChild>
+              {item.link ? (
+                <a
+                  className={itemClassName(index)}
+                  onMouseEnter={() => setHovered(index)}
+                  onMouseLeave={() => setHovered(null)}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${item.itemName} website`}
+                >
+                  {logo(item, index)}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className={itemClassName(index)}
+                  onMouseEnter={() => setHovered(index)}
+                  onMouseLeave={() => setHovered(null)}
+                  aria-label={item.itemName}
+                >
+                  {logo(item, index)}
+                </button>
+              )}
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className="text-base">{item.tooltipContent}</p>
+            </TooltipContent>
+          </Tooltip>
+        ))}
+      </div>
+    </TooltipProvider>
+  );
+};
+
+export default HoverBlurCards;
