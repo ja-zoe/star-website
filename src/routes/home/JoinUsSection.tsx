@@ -28,7 +28,7 @@ const JoinUsSection = () => {
   }, [movingItemRef.current]);
 
   return (
-    <div id="JoinUsSection" className="flex flex-col w-full pt-10 pb-20">
+    <div id="JoinUsSection" className="flex w-full scroll-mt-24 flex-col pb-20 pt-10">
       <TextHoverEffect text="JOIN STAR" />
       <div className="flex flex-col gap-10 items-center px-10">
         <p className="text-center max-w-3xl">

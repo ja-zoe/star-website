@@ -15,6 +15,7 @@ import {
 import { Menu, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [projectsOpen, setProjectsOpen] = useState(false);
@@ -48,8 +49,8 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 flex justify-between sm:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20">
       {/* Star logo */}
-      <a
-        href="/"
+      <Link
+        to="/"
         aria-label="STAR home"
         className="w-24 sm:absolute sm:left-[2%] lg:left-28 col-start-1"
       >
@@ -61,7 +62,7 @@ const Navbar = () => {
           fetchPriority="high"
           className="object-cover"
         />
-      </a>
+      </Link>
 
       <div className="sm:hidden">
         <Sheet>
@@ -80,12 +81,12 @@ const Navbar = () => {
           >
             <nav className="flex flex-col items-center gap-2 text-lg">
               <SheetClose asChild>
-                <a
-                  href="/#AboutStarSection"
+                <Link
+                  to="/#AboutStarSection"
                   className="w-full text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   About STAR
-                </a>
+                </Link>
               </SheetClose>
 
               <div className="flex flex-col items-center w-full">
@@ -102,57 +103,57 @@ const Navbar = () => {
                 {projectsOpen && (
                   <div className="flex flex-col items-center w-full mt-1 mb-1 gap-1">
                     <SheetClose asChild>
-                      <a
-                        href="/cubesat"
+                      <Link
+                        to="/cubesat"
                         className="w-full text-center text-neutral-400 px-6 py-2.5 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white text-base"
                       >
                         Cube Satellite
-                      </a>
+                      </Link>
                     </SheetClose>
                     <SheetClose asChild>
-                      <a
-                        href="/robotics"
+                      <Link
+                        to="/robotics"
                         className="w-full text-center text-neutral-400 px-6 py-2.5 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white text-base"
                       >
                         Robotics
-                      </a>
+                      </Link>
                     </SheetClose>
                     <SheetClose asChild>
-                      <a
-                        href="/weather-balloon"
+                      <Link
+                        to="/weather-balloon"
                         className="w-full text-center text-neutral-400 px-6 py-2.5 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white text-base"
                       >
                         Weather Balloon
-                      </a>
+                      </Link>
                     </SheetClose>
                   </div>
                 )}
               </div>
 
               <SheetClose asChild>
-                <a
-                  href="/#FAQSection"
+                <Link
+                  to="/#FAQSection"
                   className="w-full text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   FAQ
-                </a>
+                </Link>
               </SheetClose>
               <SheetClose asChild>
-                <a
-                  href="/#JoinUsSection"
+                <Link
+                  to="/#JoinUsSection"
                   className="w-full text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   Join Us
-                </a>
+                </Link>
               </SheetClose>
 
               <SheetClose asChild>
-                <a
-                  href="/#EboardSection"
+                <Link
+                  to="/#EboardSection"
                   className="w-full block text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   Eboard
-                </a>
+                </Link>
               </SheetClose>
             </nav>
           </SheetContent>
@@ -164,7 +165,7 @@ const Navbar = () => {
         <NavigationMenuList className={cn("rounded-full px-3 py-1.5", underlay)}>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <a href="/#AboutStarSection">About STAR</a>
+              <Link to="/#AboutStarSection">About STAR</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
@@ -174,18 +175,18 @@ const Navbar = () => {
             <NavigationMenuContent>
               <ul className="w-96">
                 <li>
-                  <NavigationMenuLink>
-                    <a href="/cubesat">Cube Satellite</a>
+                  <NavigationMenuLink asChild>
+                    <Link to="/cubesat">Cube Satellite</Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
-                  <NavigationMenuLink>
-                    <a href="/robotics">Robotics</a>
+                  <NavigationMenuLink asChild>
+                    <Link to="/robotics">Robotics</Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
-                  <NavigationMenuLink>
-                    <a href="/weather-balloon">Weather Balloon</a>
+                  <NavigationMenuLink asChild>
+                    <Link to="/weather-balloon">Weather Balloon</Link>
                   </NavigationMenuLink>
                 </li>
               </ul>
@@ -193,17 +194,17 @@ const Navbar = () => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <a href="/#FAQSection">FAQ</a>
+              <Link to="/#FAQSection">FAQ</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <a href="/#JoinUsSection">Join Us</a>
+              <Link to="/#JoinUsSection">Join Us</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <a href="/#EboardSection">Eboard</a>
+              <Link to="/#EboardSection">Eboard</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>

@@ -70,7 +70,7 @@ const AboutStarSection = () => {
   return (
     <div
       id="AboutStarSection"
-      className="w-screen flex flex-col gap-4 justify-center items-center relative pt-20"
+      className="relative flex w-screen scroll-mt-24 flex-col items-center justify-center gap-4 pt-20"
     >
       <div className="w-full relative flex flex-col items-center">
         <TextHoverEffect text="WELCOME" />

@@ -8,7 +8,7 @@ import {
 
 const FAQSection = () => {
   return (
-    <div id="FAQSection" className="flex flex-col relative w-full py-10">
+    <div id="FAQSection" className="relative flex w-full scroll-mt-24 flex-col py-10">
       <TextHoverEffect text="FAQ" />
       <div className="flex justify-center items-center px-20">
         <Accordion type="single" collapsible className="w-full max-w-4xl z-20">
