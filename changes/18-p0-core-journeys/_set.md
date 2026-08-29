@@ -13,7 +13,7 @@ next public push."
 - [x] R18.1 — Readable 404 — enforce the dark shell and explicit 404 contrast
 - [x] R18.2 — Always-readable project cards — expose identity, purpose, facts, and CTA without hover
 - [x] R18.3 — Reliable hash navigation — scroll after lazy route content mounts with navbar clearance
-- [ ] R18.4 — Direct join flow — replace the moving Discord target with an accessible three-step panel
+- [t] R18.4 — Direct join flow — replace the moving Discord target with an accessible three-step panel
 
 ## Open questions / decisions before implementing
 1. **Fall 2026 meeting logistics:** the audit requires a next meeting date, time,
