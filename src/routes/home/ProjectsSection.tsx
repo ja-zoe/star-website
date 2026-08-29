@@ -13,14 +13,14 @@ import {
 // so a card's hover reveal (dots = accentRgb, backdrop = cardRevealBg) matches
 // its page's signature accent. Order matches the existing visual layout.
 const cards = [
-  { href: "robotics", title: "Robotics", icon: roverIcon, config: roboticsConfig },
+  { href: "/robotics", title: "Robotics", icon: roverIcon, config: roboticsConfig },
   {
-    href: "weather-balloon",
+    href: "/weather-balloon",
     title: "Weather Balloon",
     icon: weatherBalloonIcon,
     config: weatherBalloonConfig,
   },
-  { href: "cubesat", title: "Cubesat", icon: satelliteIcon, config: cubesatConfig },
+  { href: "/cubesat", title: "CubeSat", icon: satelliteIcon, config: cubesatConfig },
 ];
 
 const ProjectsSection = () => {
@@ -37,6 +37,8 @@ const ProjectsSection = () => {
             href={href}
             title={title}
             icon={icon}
+            description={config.tagline}
+            facts={config.stats}
             colors={[config.accentRgb]}
             revealBg={config.cardRevealBg}
           />

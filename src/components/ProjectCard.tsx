@@ -1,105 +1,125 @@
-import React, { lazy, Suspense } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router";
+import type { ProjectStat } from "./project/projectConfig";
 
 // three.js + @react-three/fiber (~600 kB) live behind this lazy boundary so they
-// load as a separate chunk only on first card hover, off the critical path.
+// stay off touch-only devices and load only after the first intentional hover.
 const CanvasRevealEffect = lazy(() =>
-  import("./ui/canvas-reveal-effect").then((m) => ({
-    default: m.CanvasRevealEffect,
+  import("./ui/canvas-reveal-effect").then((module) => ({
+    default: module.CanvasRevealEffect,
   })),
 );
+
 interface ProjectCardProps {
-    icon: string,
-    title: string,
-    colors?: number[][],
-    href: string,
-    /** Tailwind bg class for the hover reveal backdrop (per-project accent tint). */
-    revealBg?: string,
+  icon: string;
+  title: string;
+  description: string;
+  facts: ProjectStat[];
+  colors?: number[][];
+  href: string;
+  revealBg?: string;
 }
 
-const ProjectCard = ({icon, title, colors, href, revealBg = "bg-[#9D2626]"}: ProjectCardProps) => {
+const ProjectCard = ({
+  icon,
+  title,
+  description,
+  facts,
+  colors,
+  href,
+  revealBg = "bg-[#9D2626]",
+}: ProjectCardProps) => {
+  const [canHover, setCanHover] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setCanHover(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
   return (
-    <a href={href} className="w-full max-w-[375px] hover:cursor-pointer">
-      <Card title={title} icon={icon}>
-        <Suspense fallback={null}>
-          <CanvasRevealEffect
-            animationSpeed={5.1}
-            containerClassName={revealBg}
-            colors={colors}
-          />
-        </Suspense>
-      </Card>
-    </a>
-  )
-}
+    <Link
+      to={href}
+      className="group/card block h-[17rem] w-full max-w-[375px] md:h-[22rem]"
+      onMouseEnter={() => canHover && setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <article className="relative flex h-full min-w-[250px] flex-col overflow-hidden border border-white/30 bg-black/80 p-5 transition-colors duration-200 group-hover/card:border-white/60 group-focus-visible/card:border-white md:p-7">
+        <CornerMark className="absolute -left-3 -top-3 h-6 w-6" />
+        <CornerMark className="absolute -bottom-3 -left-3 h-6 w-6" />
+        <CornerMark className="absolute -right-3 -top-3 h-6 w-6" />
+        <CornerMark className="absolute -bottom-3 -right-3 h-6 w-6" />
 
-const Card = ({
-    title,
-    icon,
-    children,
-  }: {
-    title: string;
-    icon: string;
-    children?: React.ReactNode;
-  }) => {
-    const [hovered, setHovered] = React.useState(false);    
-    return (
-      <div
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        className="border border-white/30 group/canvas-card flex items-center justify-center min-w-[250px] w-full max-w-[500px] p-4 relative h-[30rem]"
-      >
-        <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-        <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-        <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-        <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
-   
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="h-full w-full absolute inset-0"
-            >
-              {children}
-            </motion.div>
-          )}
-        </AnimatePresence>
-   
-        <div className="relative z-20">
-          <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
+        {hovered && canHover && (
+          <Suspense fallback={null}>
+            <div className="absolute inset-0 z-0" aria-hidden="true">
+              <CanvasRevealEffect
+                animationSpeed={5.1}
+                containerClassName={revealBg}
+                colors={colors}
+              />
+              <div className="absolute inset-0 bg-black/55" />
+            </div>
+          </Suspense>
+        )}
+
+        <div className="relative z-10 flex h-full flex-col">
+          <div className="flex items-center gap-4">
             <img
               src={icon}
-              alt={`${title} project icon`}
-              width={66}
-              height={66}
+              alt=""
+              width={52}
+              height={52}
               loading="lazy"
               decoding="async"
-              className="w-[66px] h-[66px] invert"
+              className="h-11 w-11 shrink-0 invert md:h-[52px] md:w-[52px]"
             />
+            <h2 className="text-2xl font-bold text-white md:text-3xl">{title}</h2>
           </div>
-          <h2 className="dark:text-white text-3xl text-center opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
-            {title}
-          </h2>
-        </div>        
-      </div>
-    );
-  };
 
-  export const Icon = ({ className, ...rest }: any) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth="1.5"
-        stroke="white"
-        className={className}
-        {...rest}
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-      </svg>
-    );
-  };
+          <p className="mt-4 text-sm leading-5 text-white/75 md:mt-5 md:text-base md:leading-6">
+            {description}
+          </p>
 
-export default ProjectCard
+          <ul className="mt-auto grid grid-cols-3 gap-2 border-y border-white/15 py-3">
+            {facts.slice(0, 3).map((fact) => (
+              <li key={fact.label} className="min-w-0 text-center">
+                <span className="block truncate text-xs font-bold text-white md:text-sm">
+                  {fact.value}
+                </span>
+                <span className="mt-1 block text-[0.55rem] uppercase leading-3 tracking-wider text-white/55 md:text-[0.6rem]">
+                  {fact.label}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <span className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-white">
+            Explore project
+            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+          </span>
+        </div>
+      </article>
+    </Link>
+  );
+};
+
+const CornerMark = ({ className }: { className: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="white"
+    className={className}
+    aria-hidden="true"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+  </svg>
+);
+
+export default ProjectCard;
