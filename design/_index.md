@@ -58,3 +58,7 @@ tokens.md.
   named Radix dialogs, disclosure state wiring, and single-control tooltip links.
 - 2026-08-29 — Re-resolve home content surfaces for Set 19 P1. Registered dated logistics
   fallbacks, current mission rows, and relationship-labeled organization presentation.
+- 2026-08-29 — Re-resolve vibe, voice, typography, component library, and motion from direct
+  Set 20 user feedback. Direction is a polished university organization plus experimental
+  creative studio, Space Mono, student-written voice, Aceternity visual components, and
+  noticeable motion with user/OS opt-out. Final component treatments remain pending lab review.

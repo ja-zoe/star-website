@@ -13,19 +13,19 @@ project was resolved in `auto` mode, no questionnaire). Edit and re-run to updat
 ## Slots
 
 ### Tier 1 — Brand
-- vibe: auto            # detected: dark, technical, space/cosmic, minimal-monospace
-- voice-tone: auto      # detected: confident, mission-driven, student-friendly
+- vibe: polished university organization + experimental creative studio
+- voice-tone: personal, student-written, technically credible
 - color-palette: auto   # detected: black surface + white text + STAR-red/blue/green accents
-- typography: auto      # detected: Space Mono everywhere
+- typography: Space Mono throughout
 - logo-imagery: auto    # detected: STAR star logo (red/white), team photos, line icons
 - iconography: lucide-react   # CONTEXT invariant — lucide only
 
 ### Tier 2 — System
-- components-library: shadcn-new-york   # over Radix; subsumes `components` + radius/shadow. Aceternity/magicui effects are bespoke on top.
+- components-library: shadcn-new-york primitives + Aceternity UI visual components
 - spacing-layout: auto  # Tailwind v4 default 4px scale
 - color-modes: dark-only   # app forces the dark space theme; shadcn light tokens exist but are unused
 - components: derived    # owned by components-library (shadcn-new-york)
-- motion: auto           # framer-motion + decorative loops; reduced-motion is static and canvas/WebGL pause offscreen or hidden (set 19 R19.1)
+- motion: noticeable interactive effects with persistent user opt-out and prefers-reduced-motion support
 - accessibility: auto    # WCAG 2.2 AA target
 
 ## Registered skills

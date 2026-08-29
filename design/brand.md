@@ -1,16 +1,20 @@
 # Brand
 
 ## Vibe
-Adjectives: cosmic, technical, minimal, energetic, student-built.
+Adjectives: cosmic, technical, polished, experimental, student-built.
 Direction: a dark "deep space" canvas (true-black with a live starfield + shooting stars and a
 rotating globe) overlaid with crisp monospace type and outline/ghost headings. The feel is an
-engineering club that ships real hardware — confident and a little playful, not corporate.
-Avoid: light backgrounds, rounded "friendly SaaS" gradients, decorative serif type, stock
-corporate photography, multiple competing icon styles.
+engineering club that ships real hardware crossed with a small creative studio — confident,
+curious, and visibly made by people. Use Aceternity UI for authored interactive effects rather
+than stripping the interface down to static utility surfaces.
+Avoid: light backgrounds, rounded "friendly SaaS" gradients, generic background grids, radial
+orbs behind navigation choices, repetitive eyebrow-heading-card formulas, stock corporate
+photography, and multiple competing icon styles.
 
 ## Voice & Tone
-Placement: confident & mission-driven, leaning warm/approachable (student recruiting), terse in
-UI. Do: lead with action and ambition ("we plan on orbiting Earth", "Join Us"); welcome all
+Placement: personal and student-written while remaining technically credible, terse in UI. Do:
+sound like members describing what they are building ("we plan on orbiting Earth", "most of us
+learned after joining"); welcome all
 majors/skill levels; be concrete about projects (CubeSat, NASA Lunabotics, weather balloons).
 Don't: jargon-dump, gatekeep ("no experience required" is core), or use filler placeholder copy
 (the audit found "We all know Nasa" — fixed in set 1). Casing: Title Case for nav/buttons,
