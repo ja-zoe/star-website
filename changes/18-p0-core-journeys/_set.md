@@ -14,7 +14,7 @@ next public push."
 - [x] R18.2 — Always-readable project cards — expose identity, purpose, facts, and CTA without hover
 - [x] R18.3 — Reliable hash navigation — scroll after lazy route content mounts with navbar clearance
 - [x] R18.4 — Direct join flow — replace the moving Discord target with an accessible three-step panel
-- [t] R18.5 — Visual rebalance — restore breathing room and bring the join flow back into the STAR visual language
+- [x] R18.5 — Visual rebalance — restore breathing room and bring the join flow back into the STAR visual language
 
 ## Open questions / decisions before implementing
 1. **Fall 2026 meeting logistics:** the audit requires a next meeting date, time,
@@ -34,3 +34,4 @@ None. (Static SPA.)
   legacy components. Screenshots are in `screenshots/`. Awaiting user review;
   not merged to `main`.
 - 2026-08-28 — User review reopened Set 18 for a visual-density amendment (R18.5).
+- 2026-08-28 — R18.5 verified and merged; Set 18 preview is ready for another user review.
