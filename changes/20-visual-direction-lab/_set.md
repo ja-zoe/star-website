@@ -5,6 +5,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
 - [t] R20.1 — Build an isolated Aceternity visual direction lab
+- [t] R20.2 — Apply the selected direction to the production homepage
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,
@@ -27,3 +28,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 - 2026-08-29 — Set 20 started from completed Set 19 integration branch.
 - 2026-08-29 — R20.1 implementation and desktop/mobile browser gates passed;
   awaiting user selection before production UI changes.
+- 2026-08-29 — Applied the selected concepts to production with equal project
+  prominence, personal student voice, Discord join, photo-led leadership, a
+  relationship rail, and persistent motion control. Current Missions was preserved.
+- 2026-08-29 — Lint, build, desktop/mobile visual, motion, overflow, console, and CLS gates passed.

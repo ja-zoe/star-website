@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 import type { ProjectStat } from "./project/projectConfig";
+import { GlowingEffect } from "./ui/glowing-effect";
 
 interface ProjectCardProps {
   icon: string;
@@ -21,89 +22,56 @@ const ProjectCard = ({
   facts,
   accent,
   href,
-}: ProjectCardProps) => {
-  return (
-    <Link
-      to={href}
-      className="group/card block h-[17.5rem] w-full md:h-[25rem]"
-    >
-      <article
-        className="relative flex h-full min-w-[250px] flex-col overflow-hidden border border-white/25 bg-black/80 p-5 transition-colors duration-300 group-hover/card:border-white/60 group-focus-visible/card:border-white md:p-8"
-        style={{ "--card-accent": accent } as CSSProperties}
-      >
-        <CornerMark className="absolute -left-3 -top-3 h-6 w-6" />
-        <CornerMark className="absolute -bottom-3 -left-3 h-6 w-6" />
-        <CornerMark className="absolute -right-3 -top-3 h-6 w-6" />
-        <CornerMark className="absolute -bottom-3 -right-3 h-6 w-6" />
-
-        <div
-          className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-[var(--card-accent)] opacity-20 blur-3xl transition-opacity duration-500 group-hover/card:opacity-35"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-x-0 top-0 h-px bg-[var(--card-accent)] opacity-80"
-          aria-hidden="true"
-        />
-
-        <div className="relative z-10 flex h-full flex-col">
-          <div className="flex items-start justify-between">
-            <span className="text-[0.62rem] font-bold uppercase tracking-[0.24em] text-white/50">
-              Project {index}
-            </span>
-            <img
-              src={icon}
-              alt=""
-              width={80}
-              height={80}
-              loading="lazy"
-              decoding="async"
-              className="h-14 w-14 shrink-0 invert opacity-90 md:h-20 md:w-20"
-            />
-          </div>
-
-          <h3 className="mt-3 text-2xl font-bold text-white md:mt-8 md:text-4xl">
-            {title}
-          </h3>
-          <p className="mt-2 max-w-xs text-sm leading-5 text-white/65 md:mt-3 md:text-base md:leading-6">
-            {purpose}
-          </p>
-
-          <div className="mt-auto flex items-end justify-between gap-4 border-t border-white/15 pt-3 md:pt-5">
-            <ul className="flex gap-5 md:gap-7">
-              {facts.slice(0, 2).map((fact) => (
-                <li key={fact.label} className="min-w-0">
-                  <span className="block text-xs font-bold text-white md:text-sm">
-                    {fact.value}
-                  </span>
-                  <span className="mt-1 block text-[0.52rem] uppercase leading-3 tracking-wider text-white/45 md:text-[0.58rem]">
-                    {fact.label}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <span className="inline-flex shrink-0 items-center gap-2 text-xs font-bold text-white md:text-sm">
-              Explore
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-            </span>
-          </div>
-        </div>
-      </article>
-    </Link>
-  );
-};
-
-const CornerMark = ({ className }: { className: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="1.5"
-    stroke="white"
-    className={className}
-    aria-hidden="true"
+}: ProjectCardProps) => (
+  <Link
+    to={href}
+    className="group/card block h-[22rem] w-full md:h-[25rem]"
+    style={{ "--card-accent": accent } as CSSProperties}
   >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-  </svg>
+    <article className="relative flex h-full flex-col overflow-hidden border border-white/15 bg-black transition-colors group-hover/card:border-white/35 group-focus-visible/card:border-white">
+      <GlowingEffect
+        disabled={false}
+        proximity={110}
+        spread={35}
+        borderWidth={1}
+        className="rounded-none"
+      />
+      <div className="relative flex h-[45%] items-center justify-center border-b border-white/10 bg-white/[0.018]">
+        <span className="absolute left-5 top-5 text-[0.6rem] font-bold uppercase tracking-[0.24em] text-[var(--card-accent)]">
+          Project {index}
+        </span>
+        <img
+          src={icon}
+          alt=""
+          width={96}
+          height={96}
+          loading="lazy"
+          decoding="async"
+          className="h-20 w-20 invert opacity-85 transition-transform duration-500 group-hover/card:scale-110 md:h-24 md:w-24"
+        />
+      </div>
+      <div className="relative flex flex-1 flex-col p-5 md:p-6">
+        <h3 className="text-2xl font-bold text-white md:text-3xl">{title}</h3>
+        <p className="mt-2 text-sm leading-6 text-white/55">{purpose}</p>
+        <div className="mt-auto flex items-end justify-between gap-4 border-t border-white/10 pt-4">
+          <ul className="flex gap-5">
+            {facts.slice(0, 2).map((fact) => (
+              <li key={fact.label}>
+                <span className="block text-xs font-bold text-white">{fact.value}</span>
+                <span className="mt-1 block text-[0.52rem] uppercase tracking-wider text-white/35">
+                  {fact.label}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <span className="inline-flex shrink-0 items-center gap-2 text-xs font-bold">
+            Mission brief
+            <ArrowUpRight className="h-4 w-4 text-[var(--card-accent)]" aria-hidden="true" />
+          </span>
+        </div>
+      </div>
+    </article>
+  </Link>
 );
 
 export default ProjectCard;

@@ -14,13 +14,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu, ChevronDown } from "lucide-react";
+import { Menu, ChevronDown, Pause, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Link } from "react-router";
+import { useMotionPreferenceControl } from "../hooks/usePrefersReducedMotion";
 
 const Navbar = () => {
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const { motionEnabled, systemReduced, toggleMotion } = useMotionPreferenceControl();
   // Scroll-aware underlay: transparent over the hero, solid blurred backdrop once
   // page content scrolls under the bar (design/components.md › Navigation bar).
   const [scrolled, setScrolled] = useState(false);
@@ -164,6 +166,16 @@ const Navbar = () => {
                   Eboard
                 </Link>
               </SheetClose>
+              <button
+                type="button"
+                onClick={toggleMotion}
+                disabled={systemReduced}
+                aria-pressed={!motionEnabled}
+                className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 border-t border-white/10 px-6 pt-5 text-sm text-neutral-300 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {motionEnabled ? <Pause className="h-4 w-4" aria-hidden="true" /> : <Play className="h-4 w-4" aria-hidden="true" />}
+                {systemReduced ? "Motion reduced by system" : motionEnabled ? "Turn motion off" : "Turn motion on"}
+              </button>
             </nav>
           </SheetContent>
         </Sheet>
@@ -215,6 +227,19 @@ const Navbar = () => {
             <NavigationMenuLink asChild>
               <Link className="inline-flex min-h-11 items-center" to="/#EboardSection">Eboard</Link>
             </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <button
+              type="button"
+              onClick={toggleMotion}
+              disabled={systemReduced}
+              aria-label={systemReduced ? "Motion reduced by system settings" : motionEnabled ? "Turn motion off" : "Turn motion on"}
+              aria-pressed={!motionEnabled}
+              title={systemReduced ? "Motion reduced by system settings" : motionEnabled ? "Turn motion off" : "Turn motion on"}
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-white/65 transition-colors hover:bg-white/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              {motionEnabled ? <Pause className="h-4 w-4" aria-hidden="true" /> : <Play className="h-4 w-4" aria-hidden="true" />}
+            </button>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

@@ -20,6 +20,9 @@ interface MovingBorderButtonProps {
   duration?: number;
   className?: string;
   animate?: boolean;
+  target?: "_blank" | "_self";
+  rel?: string;
+  ariaLabel?: string;
 }
 
 export function MovingBorderButton({
@@ -32,6 +35,9 @@ export function MovingBorderButton({
   duration,
   className,
   animate = true,
+  target,
+  rel,
+  ariaLabel,
 }: MovingBorderButtonProps) {
   const content = (
     <>
@@ -68,7 +74,14 @@ export function MovingBorderButton({
 
   if (as === "a") {
     return (
-      <a href={href} className={sharedClassName} style={sharedStyle}>
+      <a
+        href={href}
+        target={target}
+        rel={rel}
+        aria-label={ariaLabel}
+        className={sharedClassName}
+        style={sharedStyle}
+      >
         {content}
       </a>
     );

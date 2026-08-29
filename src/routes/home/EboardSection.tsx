@@ -1,4 +1,5 @@
-import SectionHeading from "../../components/SectionHeading";
+import HomeSectionTitle from "../../components/HomeSectionTitle";
+import { WobbleCard } from "../../components/ui/wobble-card";
 import { UserRound } from "lucide-react";
 import julian from "/eboard/julian.webp";
 import praneeth from "/eboard/praneeth.webp";
@@ -6,6 +7,7 @@ import aayushi from "/eboard/aayushi.webp";
 import nila from "/eboard/nila.webp";
 import kanika from "/eboard/kanika.webp";
 import { cn } from "../../lib/utils";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 interface EboardMember {
   name: string;
@@ -19,6 +21,7 @@ interface EboardMember {
 }
 
 const EboardSection = () => {
+  const reducedMotion = usePrefersReducedMotion();
   const eboard: EboardMember[] = [
     {
       name: "Kanika Syal",
@@ -90,23 +93,29 @@ const EboardSection = () => {
   return (
     <section id="EboardSection" className="w-full scroll-mt-24 px-5 py-20 md:px-10 md:py-28">
       <div className="mx-auto w-full max-w-7xl">
-        <SectionHeading
-          eyebrow="Leadership"
-          title="Meet the team behind the teams."
+        <HomeSectionTitle
+          title="Meet E-board"
+          display="MEET E-BOARD"
+          description="The students keeping projects moving, questions answered, and the Cage open."
         />
-        <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-14">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {eboard.map((member) => (
-            <article key={member.name} className="space-y-4">
-              <div className="mx-auto aspect-square w-full max-w-44 overflow-hidden rounded-full border-2 border-red-400 shadow-[0_0_35px_rgba(248,113,113,0.16)]">
+            <WobbleCard
+              key={member.name}
+              animate={!reducedMotion}
+              containerClassName="group h-full rounded-none border border-white/15 bg-black"
+              className="flex h-full flex-col rounded-none bg-black"
+            >
+              <div className="aspect-[4/5] w-full overflow-hidden border-b border-white/10 bg-white/[0.025]">
                 {member.picture ? (
                   <img
                     className={cn(
-                      "object-cover w-full h-full scale-125",
+                      "h-full w-full scale-125 object-cover grayscale transition-[filter,transform] duration-500 group-hover:grayscale-0",
                       member.classAdjustments,
                     )}
                     style={member.styleAdjustments}
                     src={member.picture}
-                    alt={member.name + "'s Picture"}
+                    alt={member.name + ", " + member.position}
                     width={964}
                     height={640}
                     loading="lazy"
@@ -114,19 +123,26 @@ const EboardSection = () => {
                   />
                 ) : (
                   <div
-                    className="flex items-center justify-center w-full h-full bg-white/5"
+                    className="flex h-full w-full items-center justify-center bg-white/[0.025]"
                     aria-hidden
                   >
-                    <UserRound className="h-20 w-20 text-white/30" />
+                    <UserRound className="h-16 w-16 text-white/20 sm:h-20 sm:w-20" />
                   </div>
                 )}
               </div>
 
-              <div className="text-center space-y-1">
-                <h3 className="text-base font-bold sm:text-lg">{member.name}</h3>
-                <p className="text-xs leading-5 text-white/60 sm:text-sm">{member.position}</p>
+              <div className="min-h-28 p-4 sm:p-5">
+                <p className="text-[0.52rem] font-bold uppercase tracking-[0.2em] text-red-300 sm:text-[0.58rem]">
+                  {member.position}
+                </p>
+                <h3 className="mt-2 text-base font-bold leading-tight sm:text-lg">{member.name}</h3>
+                {member.major && (
+                  <p className="mt-2 text-[0.65rem] leading-4 text-white/45 sm:text-xs">
+                    {member.major}
+                  </p>
+                )}
               </div>
-            </article>
+            </WobbleCard>
           ))}
         </div>
       </div>

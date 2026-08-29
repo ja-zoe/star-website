@@ -13,7 +13,7 @@ const AboutStarSection = () => (
         <SectionHeading
           eyebrow="Why STAR"
           title="Learn by building beyond the classroom."
-          description="STAR is Rutgers' student-led SEDS chapter. Members turn ideas into flight hardware through project work, peer mentorship, and an aerospace community open to every major."
+          description="You can just show up. Seriously. Most members learned the tools after joining. STAR is Rutgers' student-led SEDS chapter, and every major has a way into the work."
         />
         <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-5">
           <StarStat

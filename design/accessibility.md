@@ -24,7 +24,9 @@ text is acceptable for utility navigation. Disclosure buttons expose `aria-expan
 `aria-controls`; the controlled region owns the matching stable `id`.
 
 Motion: honor `prefers-reduced-motion` — drop all continuous/decorative animation, keep the
-static visual identity (set 1 R1.4). This is a standing requirement for any new motion.
+static visual identity (set 1 R1.4). The Navbar also provides a persistent 44px motion control;
+its local preference stops the same effects, while an OS reduced-motion preference always wins
+and disables the override control. This is a standing requirement for any new motion.
 
 Color independence: never signal with color alone — project accents (red/blue/green) are paired
 with labels/icons, not used as the sole differentiator.

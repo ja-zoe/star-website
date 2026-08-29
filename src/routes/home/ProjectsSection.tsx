@@ -1,5 +1,5 @@
+import HomeSectionTitle from "../../components/HomeSectionTitle";
 import ProjectCard from "../../components/ProjectCard";
-import SectionHeading from "../../components/SectionHeading";
 import {
   cubesatConfig,
   roboticsConfig,
@@ -42,12 +42,12 @@ const ProjectsSection = () => (
     className="relative w-full scroll-mt-24 border-b border-white/10 px-5 py-20 md:px-10 md:py-28"
   >
     <div className="mx-auto w-full max-w-7xl">
-      <SectionHeading
-        eyebrow="Choose a mission"
-        title="Three teams. Real hardware."
-        description="Start where your curiosity points. Each program has room for new builders across technical and non-technical roles."
+      <HomeSectionTitle
+        title="Our projects"
+        display="OUR PROJECTS"
+        description="Three teams with equal room to learn, contribute, and build something real."
       />
-      <div className="mt-12 grid gap-5 md:grid-cols-3 lg:gap-7">
+      <div className="mt-12 grid items-stretch gap-5 md:grid-cols-3 lg:gap-7">
         {cards.map(({ href, index, title, purpose, icon, config }) => (
           <ProjectCard
             key={href}

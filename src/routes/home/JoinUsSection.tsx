@@ -1,61 +1,82 @@
-import { ArrowUpRight, CalendarClock, Mail, Radio } from "lucide-react";
-import SectionHeading from "../../components/SectionHeading";
+import { ArrowUpRight, CalendarClock, Mail } from "lucide-react";
+import HomeSectionTitle from "../../components/HomeSectionTitle";
+import { MovingBorderButton } from "../../components/ui/moving-border";
 import { currentInfo } from "../../content/currentInfo";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
+import DiscordLogo from "/discord-icon.png";
 
-const JoinUsSection = () => (
-  <section
-    id="JoinUsSection"
-    className="relative w-full scroll-mt-24 overflow-hidden border-b border-white/10 px-5 py-20 md:px-10 md:py-28"
-  >
-    <div
-      className="pointer-events-none absolute -right-32 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-red-900/20 blur-3xl"
-      aria-hidden="true"
-    />
-    <div className="relative mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-      <SectionHeading
-        eyebrow="Open channel"
-        title="Your first mission starts here."
-        description="Join the conversation, choose a team, and take on a first task. No application or prior experience required."
-      />
+const JoinUsSection = () => {
+  const reducedMotion = usePrefersReducedMotion();
 
-      <div className="border-y border-white/20">
-        <div className="flex items-center gap-5 border-b border-white/15 px-5 py-6 sm:px-7">
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-red-300/40 text-red-300 shadow-[0_0_35px_rgba(157,38,38,0.35)]">
-            <Radio className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <div>
-            <p className="font-bold">Membership channel is open</p>
-            <p className="mt-1 text-sm text-white/50">{currentInfo.recruitment.eligibility}.</p>
+  return (
+    <section
+      id="JoinUsSection"
+      className="relative w-full scroll-mt-24 overflow-hidden border-b border-white/10 px-5 py-20 md:px-10 md:py-28"
+    >
+      <div className="mx-auto w-full max-w-7xl">
+        <HomeSectionTitle title="Join STAR" display="JOIN STAR" />
+        <div className="mt-8 grid border-y border-white/20 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="flex flex-col border-b border-white/15 px-6 py-10 lg:border-b-0 lg:border-r lg:px-10 lg:py-14">
+            <img
+              src={DiscordLogo}
+              alt=""
+              width={56}
+              height={56}
+              className="h-12 w-12 invert"
+            />
+            <h3 className="mt-7 max-w-xl text-3xl font-bold leading-tight sm:text-4xl">
+              Come by. Ask too many questions.
+            </h3>
+            <p className="mt-5 max-w-lg text-sm leading-7 text-white/55 sm:text-base">
+              Discord is where plans happen. The Cage is where things get built.
+              Pick a project, meet the people, and start with something small.
+            </p>
+            <div className="mt-9">
+              <MovingBorderButton
+                as="a"
+                href={currentInfo.contact.discordHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                ariaLabel="Join the STAR Discord"
+                animate={!reducedMotion}
+                borderRadius="0px"
+                containerClassName="w-full max-w-sm"
+                className="justify-between px-6 font-bold"
+              >
+                Join Discord
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </MovingBorderButton>
+            </div>
+          </div>
+
+          <div className="flex flex-col">
+            <div className="flex flex-1 items-start gap-4 border-b border-white/15 px-6 py-8 sm:px-9">
+              <CalendarClock className="mt-1 h-5 w-5 shrink-0 text-red-300" aria-hidden="true" />
+              <div>
+                <p className="font-bold">{currentInfo.term}: {currentInfo.meetings.status}</p>
+                <p className="mt-2 text-sm leading-6 text-white/50">
+                  Usual location: {currentInfo.meetings.usualLocation}. {currentInfo.meetings.locationNote}.
+                </p>
+              </div>
+            </div>
+            <div className="px-6 py-8 sm:px-9">
+              <p className="text-sm leading-6 text-white/55">
+                {currentInfo.recruitment.eligibility}. {currentInfo.recruitment.prerequisites}.
+                Commitment {currentInfo.recruitment.commitment.toLowerCase()}.
+              </p>
+              <a
+                href={currentInfo.contact.emailHref}
+                className="mt-6 inline-flex min-h-11 items-center gap-3 font-bold underline decoration-white/25 underline-offset-4"
+              >
+                <Mail className="h-4 w-4 text-red-300" aria-hidden="true" />
+                Email a real person
+              </a>
+            </div>
           </div>
         </div>
-        <div className="grid sm:grid-cols-2">
-          <a
-            href={currentInfo.contact.discordHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex min-h-16 items-center justify-between bg-white px-6 font-bold text-black transition-colors hover:bg-red-200"
-          >
-            Join Discord
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-          <a
-            href={currentInfo.contact.emailHref}
-            className="flex min-h-16 items-center justify-between border-x border-b border-white/15 px-6 font-bold text-white sm:border-l-0 sm:border-r-0 sm:border-t-0"
-          >
-            Email STAR
-            <Mail className="h-5 w-5 text-white/50" aria-hidden="true" />
-          </a>
-        </div>
-        <p className="flex items-start gap-3 px-5 py-5 text-sm leading-6 text-white/55 sm:px-7">
-          <CalendarClock className="mt-0.5 h-4 w-4 shrink-0 text-red-300" aria-hidden="true" />
-          <span><strong className="text-white">{currentInfo.term}: {currentInfo.meetings.status}.</strong> Usual location: {currentInfo.meetings.usualLocation}. {currentInfo.meetings.locationNote}.</span>
-        </p>
-        <p className="border-t border-white/10 px-5 py-3 text-xs leading-5 text-white/40 sm:px-7">
-          {currentInfo.recruitment.prerequisites}. Commitment {currentInfo.recruitment.commitment.toLowerCase()}.
-        </p>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default JoinUsSection;

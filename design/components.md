@@ -4,7 +4,8 @@
 Library: **shadcn (new-york style)** over Radix primitives. Owns: `components`, radius, shadow,
 and the neutral oklch chrome ramp (see tokens.md). Bespoke on top: **Aceternity / magicui**
 visual effects (StarsBackground, ShootingStars, WavyBackground, FlipWords,
-TextHoverEffect, HoverBorderGradient, Globe). Effects are decorative layers — keep them behind
+TextHoverEffect, HoverBorderGradient, MovingBorderButton, GlowingEffect, Spotlight, WobbleCard,
+Globe). Effects are decorative layers — keep them behind
 `prefers-reduced-motion` and don't let them capture pointer/focus (they use `pointer-events-none`
 / are non-interactive).
 Do not invent a parallel component set; extend shadcn primitives in `src/components/ui/`.
@@ -43,24 +44,25 @@ Rejected: true per-pixel clash detection (sampling rendered pixels — incl. the
 — every scroll frame) as fragile + expensive; the scroll-state underlay solves it robustly.
 
 ## Cards / Surfaces
-ProjectCard: icon-led editorial panel with permanent title, short purpose, two facts, and CTA;
-project accent appears as a restrained top rule + atmospheric glow. Cards keep deliberate
-desktop height/negative space instead of compressing into dashboard summaries, while mobile is
-capped at 280px. Accent atmosphere is CSS-only; do not add WebGL or canvas effects to card hover.
-E-board: circular red-ringed photo + name + role. Sponsor logos: inverted PNGs with hover-blur
+ProjectCard: equal-size icon-led studio boards with a visual field above permanent title, short
+purpose, two facts, and CTA. The three cards always have equal rendered dimensions and prominence.
+Project accent is limited to labels and a pointer-responsive GlowingEffect border.
+E-board: equal rectangular WobbleCard portraits, grayscale-to-color hover, role, name, and major.
+Sponsor/program logos: a border-y relationship rail with visible relationship labels and hover-blur
 siblings.
 
 Home Join flow: one open, full-width atmospheric composition, not a stack of nested cards. Use
 an editorial two-column composition, one short invitation, primary Discord + secondary email
-actions, and a single meeting-status line. A restrained radio mark replaces the oversized Discord
-illustration. STAR red, hairline borders, mono labels, and generous negative space connect it to
+actions, and a single meeting-status line. Use the Discord mark directly, not a generic radio symbol. STAR red, hairline borders, mono labels, and generous negative space connect it to
 the project-page mission-dossier language.
 
 ## Home hierarchy (set 19)
 The recruiting sequence is Hero → current status → Projects → proof/About → Join → current
 missions → FAQ → leadership → partners. Projects must appear before extended organizational
 context. The hero owns the only `<h1>` and states the concrete value proposition; every major
-section owns one visible `<h2>`. Use `SectionHeading` for the shared eyebrow/rule/title treatment.
+section owns one semantic `<h2>`. Selected studio sections use `HomeSectionTitle`, pairing a
+screen-reader heading with an aria-hidden outlined TextHoverEffect display; informational sections
+may retain `SectionHeading`.
 Decorative SVG text is `aria-hidden` and must not substitute for semantic headings. Keep the
 globe inside an aspect-ratio frame; never create vertical rhythm with fixed spacer margins.
 
@@ -124,4 +126,7 @@ stars, globe spin, flip-words, and shimmer. Canvas/WebGL work must also stop whe
 offscreen or the page is hidden. Use responsive rendering budgets: 1x DPR and lower density on
 mobile, a maximum 1.5x DPR on larger screens, and a 30fps cap for ambient waves. Keep one global
 shooting-star layer. New decorative motion must use `usePrefersReducedMotion` and an explicit
-visibility lifecycle.
+visibility lifecycle. The global Navbar exposes an explicit motion toggle on desktop and mobile.
+Its `star-reduce-motion` preference persists in localStorage and composes with the OS preference:
+either source requesting reduced motion stops continuous effects, and the OS preference disables
+the override control.

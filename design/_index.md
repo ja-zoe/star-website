@@ -62,3 +62,7 @@ tokens.md.
   Set 20 user feedback. Direction is a polished university organization plus experimental
   creative studio, Space Mono, student-written voice, Aceternity visual components, and
   noticeable motion with user/OS opt-out. Final component treatments remain pending lab review.
+- 2026-08-29 — Resolved the Set 20 production selection: Signal hero, equal Studio Board
+  projects, Open Frequency Discord join, People First leadership, and Relationship Rail
+  organizations. Registered production Aceternity patterns and a persistent Navbar motion
+  preference that composes with the operating-system preference.

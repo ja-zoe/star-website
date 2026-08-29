@@ -1,73 +1,93 @@
-import { ArrowDown, ArrowUpRight, Satellite, Wind, Wrench } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
+import { HoverBorderGradient } from "../../components/ui/hover-border-gradient";
+import { Spotlight } from "../../components/ui/spotlight-new";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
+import roverIcon from "/rover-icon.png";
+import satelliteIcon from "/satellite-icon.png";
+import weatherBalloonIcon from "/weather-balloon-icon.png";
 
 const programs = [
-  { label: "CubeSat", Icon: Satellite, accent: "text-amber-300" },
-  { label: "Robotics", Icon: Wrench, accent: "text-emerald-300" },
-  { label: "Weather Balloon", Icon: Wind, accent: "text-sky-300" },
+  { label: "Robotics", href: "/robotics", icon: roverIcon },
+  { label: "Weather Balloon", href: "/weather-balloon", icon: weatherBalloonIcon },
+  { label: "CubeSat", href: "/cubesat", icon: satelliteIcon },
 ];
 
-const HeroSection = () => (
-  <section
-    id="HeroPage"
-    className="relative flex min-h-[88svh] w-full items-center overflow-hidden border-b border-white/10 px-5 pb-16 pt-32 md:px-10 md:pt-36"
-  >
-    <div
-      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_42%,rgba(157,38,38,0.24),transparent_28%),linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:auto,56px_56px,56px_56px] [mask-image:linear-gradient(to_bottom,black,transparent_92%)]"
-      aria-hidden="true"
-    />
-    <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
-      <div>
-        <p className="text-xs font-bold uppercase tracking-[0.28em] text-red-300">
-          Space Technology Association of Rutgers
-        </p>
-        <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-          Build space systems at Rutgers.
-        </h1>
-        <p className="mt-7 max-w-2xl text-base leading-7 text-white/65 md:text-lg md:leading-8">
-          STAR brings students together to engineer a CubeSat, an autonomous
-          rover, and high-altitude balloon missions. All majors are welcome.
-        </p>
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a
-            href="#JoinUsSection"
-            className="inline-flex min-h-12 items-center justify-center gap-3 bg-white px-6 font-bold text-black transition-colors hover:bg-red-200"
-          >
-            Join STAR
-            <ArrowDown className="h-4 w-4" aria-hidden="true" />
-          </a>
-          <a
-            href="#ProjectsSection"
-            className="inline-flex min-h-12 items-center justify-center gap-3 border border-white/25 px-6 font-bold text-white transition-colors hover:border-white/60 hover:bg-white/5"
-          >
-            Explore projects
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-        </div>
-      </div>
+const HeroSection = () => {
+  const reducedMotion = usePrefersReducedMotion();
 
-      <div className="relative mx-auto w-full max-w-lg" aria-label="STAR project programs">
-        <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-red-300/25 shadow-[0_0_100px_rgba(157,38,38,0.28)] sm:h-96 sm:w-96" />
-        <div className="relative grid gap-3 py-8 sm:py-14">
-          {programs.map(({ label, Icon, accent }, index) => (
+  return (
+    <section
+      id="HeroPage"
+      className="relative flex min-h-[90svh] w-full items-center overflow-hidden border-b border-white/10 px-5 pb-16 pt-32 md:px-10 md:pt-36"
+    >
+      <Spotlight
+        animate={!reducedMotion}
+        gradientFirst="radial-gradient(68% 68% at 55% 31%, rgba(248,113,113,.17), rgba(157,38,38,.035) 55%, transparent 80%)"
+        gradientSecond="radial-gradient(50% 50% at 50% 50%, rgba(56,189,248,.07), transparent 82%)"
+      />
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="relative z-10">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-red-300">
+            Space Technology Association of Rutgers
+          </p>
+          <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+            We build things that leave the ground.
+          </h1>
+          <p className="mt-7 max-w-2xl text-base leading-7 text-white/65 md:text-lg md:leading-8">
+            A Rutgers student team figuring out satellites, rovers, and
+            near-space missions together. You do not need to arrive knowing how.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center gap-4">
+            <HoverBorderGradient
+              as="a"
+              href="#JoinUsSection"
+              animate={!reducedMotion}
+              containerClassName="rounded-full"
+              className="bg-black px-5 py-2.5 font-bold"
+            >
+              Join STAR
+            </HoverBorderGradient>
+            <a
+              href="#ProjectsSection"
+              className="inline-flex min-h-11 items-center gap-2 px-3 text-sm font-bold underline decoration-white/30 underline-offset-4 transition-colors hover:text-red-200"
+            >
+              See what we build
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <nav className="relative z-10 space-y-2" aria-label="STAR project programs">
+          <p className="mb-5 text-[0.6rem] font-bold uppercase tracking-[0.24em] text-white/35">
+            Current programs
+          </p>
+          {programs.map((program, index) => (
             <Link
-              key={label}
-              to={index === 0 ? "/cubesat" : index === 1 ? "/robotics" : "/weather-balloon"}
-              className={`group flex min-h-20 items-center justify-between border border-white/15 bg-black/80 px-5 backdrop-blur-sm transition-transform hover:translate-x-2 hover:border-white/40 ${index === 1 ? "sm:ml-16" : index === 2 ? "sm:ml-7" : "sm:mr-9"}`}
+              key={program.href}
+              to={program.href}
+              className="group flex min-h-20 items-center justify-between border-b border-white/20 px-2 transition-colors hover:bg-white/[0.035] sm:px-5"
             >
               <span className="flex items-center gap-4">
-                <Icon className={`h-6 w-6 ${accent}`} aria-hidden="true" />
-                <span className="font-bold">{label}</span>
+                <img
+                  src={program.icon}
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="h-9 w-9 invert opacity-85"
+                />
+                <span className="font-bold">{program.label}</span>
               </span>
-              <span className="text-[0.6rem] uppercase tracking-[0.22em] text-white/40">
-                Project 0{index + 1}
+              <span className="flex items-center gap-3 text-[0.6rem] uppercase tracking-[0.2em] text-white/35">
+                0{index + 1}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </span>
             </Link>
           ))}
-        </div>
+        </nav>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default HeroSection;
