@@ -10,9 +10,10 @@ export interface StarStatProps {
   headline: string;
   className?: string;
   stat: string | number;
+  compact?: boolean;
 }
 
-const StarStat = ({ headline, stat, className, Icon }: StarStatProps) => {
+const StarStat = ({ headline, stat, className, Icon, compact = false }: StarStatProps) => {
   return (
     <Tilt
       tiltReverse
@@ -23,14 +24,18 @@ const StarStat = ({ headline, stat, className, Icon }: StarStatProps) => {
       tiltMaxAngleY={5}
     >
       <div
-        className={`flex flex-col gap-3 text-center items-center justify-center w-72 border py-10 border-white/20 rounded-lg ${className}`}
+        className={`flex flex-col items-center justify-center border border-white/20 text-center ${
+          compact
+            ? "min-h-36 w-full gap-2 px-2 py-5"
+            : "w-72 gap-3 rounded-lg py-10"
+        } ${className}`}
       >
-        <div className="rounded-full p-3 border-white/30 border">
-          <Icon className="w-10 h-auto" />
+        <div className={`rounded-full border border-white/30 ${compact ? "p-2" : "p-3"}`}>
+          <Icon className={compact ? "h-5 w-5 sm:h-7 sm:w-7" : "h-auto w-10"} />
         </div>
         <div className="px-3">
-          <p className="text-3xl">{stat}</p>
-          <p className="text-white/70">{headline}</p>
+          <p className={compact ? "text-xl font-bold sm:text-2xl" : "text-3xl"}>{stat}</p>
+          <p className={compact ? "mt-1 text-[0.6rem] uppercase tracking-wider text-white/55 sm:text-xs" : "text-white/70"}>{headline}</p>
         </div>
       </div>
     </Tilt>

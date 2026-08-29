@@ -51,9 +51,18 @@ E-board: circular red-ringed photo + name + role. Sponsor logos: inverted PNGs w
 siblings.
 
 Home Join flow: one open, full-width atmospheric composition, not a stack of nested cards. Use
-an orbit/communications visual, one short invitation, primary Discord + secondary email actions,
-a lightweight three-step rail, and a single meeting-status line. STAR red, hairline borders, mono
-labels, and generous negative space connect it to the project-page mission-dossier language.
+an editorial two-column composition, one short invitation, primary Discord + secondary email
+actions, and a single meeting-status line. A restrained radio mark replaces the oversized Discord
+illustration. STAR red, hairline borders, mono labels, and generous negative space connect it to
+the project-page mission-dossier language.
+
+## Home hierarchy (set 19)
+The recruiting sequence is Hero → current status → Projects → proof/About → Join → current
+missions → FAQ → leadership → partners. Projects must appear before extended organizational
+context. The hero owns the only `<h1>` and states the concrete value proposition; every major
+section owns one visible `<h2>`. Use `SectionHeading` for the shared eyebrow/rule/title treatment.
+Decorative SVG text is `aria-hidden` and must not substitute for semantic headings. Keep the
+globe inside an aspect-ratio frame; never create vertical rhythm with fixed spacer margins.
 
 ## Project page kit (added 2026-06-29 — set 10)
 The three project pages (CubeSat, Robotics, Weather Balloon) share ONE editorial "mission

@@ -1,4 +1,4 @@
-import { TextHoverEffect } from "../../components/ui/text-hover-effect";
+import SectionHeading from "../../components/SectionHeading";
 import { UserRound } from "lucide-react";
 import julian from "/eboard/julian.webp";
 import praneeth from "/eboard/praneeth.webp";
@@ -88,13 +88,16 @@ const EboardSection = () => {
   ];
 
   return (
-    <div id="EboardSection" className="flex w-full scroll-mt-24 flex-col pb-20 pt-10">
-      <TextHoverEffect text="MEET E-BOARD" />
-      <div className="flex flex-col gap-10 items-center px-10">
-        <div className="flex flex-wrap gap-24 justify-center">
+    <section id="EboardSection" className="w-full scroll-mt-24 px-5 py-20 md:px-10 md:py-28">
+      <div className="mx-auto w-full max-w-7xl">
+        <SectionHeading
+          eyebrow="Leadership"
+          title="Meet the team behind the teams."
+        />
+        <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-14">
           {eboard.map((member) => (
-            <div key={member.name} className="space-y-5">
-              <div className="rounded-full overflow-hidden w-60 h-60 border-3 border-red-400 box-shado box-shadow-red-400">
+            <article key={member.name} className="space-y-4">
+              <div className="mx-auto aspect-square w-full max-w-44 overflow-hidden rounded-full border-2 border-red-400 shadow-[0_0_35px_rgba(248,113,113,0.16)]">
                 {member.picture ? (
                   <img
                     className={cn(
@@ -114,20 +117,20 @@ const EboardSection = () => {
                     className="flex items-center justify-center w-full h-full bg-white/5"
                     aria-hidden
                   >
-                    <UserRound className="w-28 h-28 text-white/40" />
+                    <UserRound className="h-20 w-20 text-white/30" />
                   </div>
                 )}
               </div>
 
               <div className="text-center space-y-1">
-                <p className="text-2xl font-bold">{member.name}</p>
-                <p className="text-white/70">{member.position}</p>
+                <h3 className="text-base font-bold sm:text-lg">{member.name}</h3>
+                <p className="text-xs leading-5 text-white/60 sm:text-sm">{member.position}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
