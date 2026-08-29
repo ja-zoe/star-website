@@ -1,13 +1,8 @@
 "use client";
-import { cn } from "../../lib/utils";
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  RefObject,
-  useCallback,
-} from "react";
+
+import { useCallback, useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
+import { cn } from "../../lib/utils";
 
 interface StarProps {
   x: number;
@@ -26,23 +21,25 @@ interface StarBackgroundProps {
   className?: string;
 }
 
-export const StarsBackground: React.FC<StarBackgroundProps> = ({
+export const StarsBackground = ({
   starDensity = 0.00015,
   allStarsTwinkle = true,
   twinkleProbability = 0.7,
   minTwinkleSpeed = 0.5,
   maxTwinkleSpeed = 1,
   className,
-}) => {
+}: StarBackgroundProps) => {
   const [stars, setStars] = useState<StarProps[]>([]);
-  const canvasRef: RefObject<HTMLCanvasElement | null> =
-    useRef<HTMLCanvasElement>(null);
+  const [pageVisible, setPageVisible] = useState(
+    () => typeof document === "undefined" || document.visibilityState === "visible",
+  );
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const generateStars = useCallback(
     (width: number, height: number): StarProps[] => {
-      const area = width * height;
-      const numStars = Math.floor(area * starDensity);
+      const mobileMultiplier = width < 640 ? 0.65 : 1;
+      const numStars = Math.floor(width * height * starDensity * mobileMultiplier);
       return Array.from({ length: numStars }, () => {
         const shouldTwinkle =
           allStarsTwinkle || Math.random() < twinkleProbability;
@@ -59,73 +56,53 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
       });
     },
     [
-      starDensity,
       allStarsTwinkle,
-      twinkleProbability,
-      minTwinkleSpeed,
       maxTwinkleSpeed,
-    ]
+      minTwinkleSpeed,
+      starDensity,
+      twinkleProbability,
+    ],
   );
-
-  useEffect(() => {
-    const updateStars = () => {
-      if (canvasRef.current) {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
-
-        const { width, height } = canvas.getBoundingClientRect();
-        canvas.width = width;
-        canvas.height = height;
-        setStars(generateStars(width, height));
-      }
-    };
-
-    updateStars();
-
-    const resizeObserver = new ResizeObserver(updateStars);
-    if (canvasRef.current) {
-      resizeObserver.observe(canvasRef.current);
-    }
-
-    return () => {
-      if (canvasRef.current) {
-        resizeObserver.unobserve(canvasRef.current);
-      }
-    };
-  }, [
-    starDensity,
-    allStarsTwinkle,
-    twinkleProbability,
-    minTwinkleSpeed,
-    maxTwinkleSpeed,
-    generateStars,
-  ]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationFrameId: number;
-
-    const paintStars = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach((star) => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
-        ctx.fill();
-      });
+    const updateStars = () => {
+      const { width, height } = canvas.getBoundingClientRect();
+      canvas.width = Math.max(1, Math.round(width));
+      canvas.height = Math.max(1, Math.round(height));
+      setStars(generateStars(width, height));
     };
 
-    // Reduced motion: paint a static starfield once, no twinkle RAF loop.
-    if (prefersReducedMotion) {
-      paintStars();
-      return;
-    }
+    const resizeObserver = new ResizeObserver(updateStars);
+    resizeObserver.observe(canvas);
+    updateStars();
+    return () => resizeObserver.disconnect();
+  }, [generateStars]);
+
+  useEffect(() => {
+    const onVisibilityChange = () =>
+      setPageVisible(document.visibilityState === "visible");
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", onVisibilityChange);
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d");
+    if (!canvas || !context) return;
+
+    let animationFrame = 0;
+    const paintStars = () => {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach((star) => {
+        context.beginPath();
+        context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        context.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        context.fill();
+      });
+    };
 
     const render = () => {
       paintStars();
@@ -136,21 +113,23 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
             Math.abs(Math.sin((Date.now() * 0.001) / star.twinkleSpeed) * 0.5);
         }
       });
-
-      animationFrameId = requestAnimationFrame(render);
+      animationFrame = requestAnimationFrame(render);
     };
 
-    render();
+    if (pageVisible && !prefersReducedMotion) render();
+    else paintStars();
 
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [stars, prefersReducedMotion]);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [pageVisible, prefersReducedMotion, stars]);
+
+  const running = pageVisible && !prefersReducedMotion;
 
   return (
     <canvas
       ref={canvasRef}
-      className={cn("h-full w-full absolute inset-0 pointer-events-none", className)}
+      className={cn("absolute inset-0 h-full w-full pointer-events-none", className)}
+      aria-hidden="true"
+      data-stars-running={running ? "true" : "false"}
     />
   );
 };

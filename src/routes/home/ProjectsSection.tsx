@@ -10,8 +10,7 @@ import {
 } from "../../components/project/projectConfig";
 
 // Cards are sourced from the same projectConfig that themes the project pages,
-// so a card's hover reveal (dots = accentRgb, backdrop = cardRevealBg) matches
-// its page's signature accent. Order matches the existing visual layout.
+// so each permanent accent atmosphere matches its destination route.
 const cards = [
   {
     href: "/robotics",
@@ -57,8 +56,6 @@ const ProjectsSection = () => {
             purpose={purpose}
             facts={config.stats}
             accent={config.accent}
-            colors={[config.accentRgb]}
-            revealBg={config.cardRevealBg}
           />
         ))}
       </div>
