@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../components/ui/accordion";
+import { currentInfo } from "../../content/currentInfo";
 
 const FAQSection = () => {
   return (
@@ -82,9 +83,9 @@ const FAQSection = () => {
           <AccordionItem value="item-7">
             <AccordionTrigger>When and where does STAR meet?</AccordionTrigger>
             <AccordionContent>
-              Most meetings are held in The Cage, STAR's dedicated workspace.
-              However, meeting locations may vary depending on the subteam and
-              are determined by the team leads.
+              For {currentInfo.term}, the {currentInfo.meetings.status.toLowerCase()}.
+              {" "}{currentInfo.meetings.usualLocation} is the usual workspace,
+              but {currentInfo.meetings.locationNote.toLowerCase()}.
             </AccordionContent>
           </AccordionItem>
 

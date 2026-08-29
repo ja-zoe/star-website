@@ -1,4 +1,5 @@
 import { Satellite, Bot, Wind, type LucideIcon } from "lucide-react";
+import type { ProjectId } from "../../content/currentInfo";
 
 export interface ProjectStat {
   /** Big accent value, e.g. "8" or "80,000+ ft". */
@@ -8,6 +9,7 @@ export interface ProjectStat {
 }
 
 export interface ProjectConfig {
+  id: ProjectId;
   /** Mono eyebrow over the title, e.g. "PROJECT 01 · CUBESAT". */
   eyebrow: string;
   /** Page <h1>. */
@@ -24,17 +26,13 @@ export interface ProjectConfig {
   mission: string[];
   /** Current-status line for the closing section. */
   statusBody: string;
-  /** Meeting/▸join note. */
-  meetingNote: string;
   ctaHref: string;
   ctaLabel: string;
 }
 
 const DISCORD = "https://discord.gg/vHa52wx9VK";
-const MEETING_NOTE =
-  "Meeting times will be posted here soon — check the Discord for the current schedule and to get plugged into a subteam.";
-
 export const cubesatConfig: ProjectConfig = {
+  id: "cubesat",
   eyebrow: "PROJECT 01 · CUBE SATELLITE",
   name: "Cube Satellite",
   tagline:
@@ -53,12 +51,12 @@ export const cubesatConfig: ProjectConfig = {
   ],
   statusBody:
     "An engineering model is already in testing as the mission progresses toward flight readiness.",
-  meetingNote: MEETING_NOTE,
   ctaHref: DISCORD,
   ctaLabel: "Join the mission on Discord",
 };
 
 export const roboticsConfig: ProjectConfig = {
+  id: "robotics",
   eyebrow: "PROJECT 02 · ROBOTICS",
   name: "Robotics",
   tagline:
@@ -76,12 +74,12 @@ export const roboticsConfig: ProjectConfig = {
   ],
   statusBody:
     "The team competes in NASA's annual Lunabotics Challenge, iterating the rover season over season.",
-  meetingNote: MEETING_NOTE,
   ctaHref: DISCORD,
   ctaLabel: "Join the mission on Discord",
 };
 
 export const weatherBalloonConfig: ProjectConfig = {
+  id: "weather-balloon",
   eyebrow: "PROJECT 03 · WEATHER BALLOON",
   name: "Weather Balloon",
   tagline:
@@ -99,7 +97,6 @@ export const weatherBalloonConfig: ProjectConfig = {
   ],
   statusBody:
     "The team designs and launches a new high-altitude payload every academic semester.",
-  meetingNote: MEETING_NOTE,
   ctaHref: DISCORD,
   ctaLabel: "Join the mission on Discord",
 };
