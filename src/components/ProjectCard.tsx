@@ -25,7 +25,7 @@ const ProjectCard = ({
   return (
     <Link
       to={href}
-      className="group/card block h-[17.5rem] w-full max-w-[375px] md:h-[25rem]"
+      className="group/card block h-[17.5rem] w-full md:h-[25rem]"
     >
       <article
         className="relative flex h-full min-w-[250px] flex-col overflow-hidden border border-white/25 bg-black/80 p-5 transition-colors duration-300 group-hover/card:border-white/60 group-focus-visible/card:border-white md:p-8"
@@ -61,9 +61,9 @@ const ProjectCard = ({
             />
           </div>
 
-          <h2 className="mt-3 text-2xl font-bold text-white md:mt-8 md:text-4xl">
+          <h3 className="mt-3 text-2xl font-bold text-white md:mt-8 md:text-4xl">
             {title}
-          </h2>
+          </h3>
           <p className="mt-2 max-w-xs text-sm leading-5 text-white/65 md:mt-3 md:text-base md:leading-6">
             {purpose}
           </p>

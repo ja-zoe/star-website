@@ -1,7 +1,7 @@
 # Design System — Index
 
 **Tier:** system
-**Last resolved:** 2026-06-29
+**Last resolved:** 2026-08-29
 Source of truth: `config.md` (input) → these files (output). Tokens live in `tokens.md`; real
 CSS/Tailwind/theme config is derived FROM tokens, never the reverse. Resolved in `auto` mode
 (config → autodetect → default; no questionnaire — autonomous session).
@@ -51,3 +51,6 @@ tokens.md.
   provenance → **config** (user-directed). P0 content remains always accessible, but project
   cards now preserve desktop negative space and the join flow uses one atmospheric composition
   instead of dense nested dashboard panels. Removed stale `moveJawn` motion references.
+- 2026-08-29 — Re-resolve `spacing-layout`, `components`, and `motion` for Set 19 P1. Added the
+  semantic home hierarchy, `SectionHeading`, bounded editorial grids, stable globe framing, and
+  explicit offscreen/hidden canvas lifecycle. Removed Inter and canvas card-reveal guidance.

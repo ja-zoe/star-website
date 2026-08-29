@@ -1,4 +1,4 @@
-import { TextHoverEffect } from "../../components/ui/text-hover-effect";
+import SectionHeading from "../../components/SectionHeading";
 import {
   Accordion,
   AccordionContent,
@@ -8,10 +8,14 @@ import {
 
 const FAQSection = () => {
   return (
-    <div id="FAQSection" className="relative flex w-full scroll-mt-24 flex-col py-10">
-      <TextHoverEffect text="FAQ" />
-      <div className="flex justify-center items-center px-20">
-        <Accordion type="single" collapsible className="w-full max-w-4xl z-20">
+    <section id="FAQSection" className="relative w-full scroll-mt-24 border-b border-white/10 px-5 py-20 md:px-10 md:py-28">
+      <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
+        <SectionHeading
+          eyebrow="Before launch"
+          title="Questions, answered."
+          description="The short version: you can show up as you are and learn with the team."
+        />
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger>What is STAR?</AccordionTrigger>
             <AccordionContent>
@@ -110,7 +114,7 @@ const FAQSection = () => {
           </AccordionItem>
         </Accordion>
       </div>
-    </div>
+    </section>
   );
 };
 export default FAQSection;
