@@ -35,9 +35,9 @@ const JoinUsSection = () => {
               <NoiseBackground
                 animating={!reducedMotion}
                 gradientColors={["#9D2626", "#38BDF8", "#F5A524"]}
-                noiseIntensity={0.38}
+                noiseIntensity={0.72}
                 speed={0.08}
-                containerClassName="w-full max-w-sm rounded-none bg-transparent p-[2px]"
+                containerClassName="w-full max-w-sm rounded-none bg-neutral-950 p-[6px]"
                 className="rounded-none"
               >
                 <a
