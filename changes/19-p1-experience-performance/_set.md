@@ -13,7 +13,7 @@ UI/UX and feature audit. Set 19 starts from deployed P0 commit `a4d8ffe`.
 - [x] R19.2 — Home information hierarchy — rebuild the recruiting sequence, semantic headings, and vertical rhythm
 - [x] R19.3 — Interaction accessibility — repair focus semantics, touch targets, dialogs, and mobile navigation labels
 - [x] R19.4 — Current information and partner credibility — add dated logistics fallbacks and relationship labels
-- [ ] R19.5 — Green quality gate — resolve all repository-wide ESLint errors and warnings
+- [t] R19.5 — Green quality gate — resolve all repository-wide ESLint errors and warnings
 
 ## Open questions / decisions before implementing
 1. **Meeting logistics:** RESOLVED for implementation — no authoritative STAR
@@ -46,3 +46,6 @@ None. (Static SPA; current information is a typed local content module.)
   dated logistics fallback, recruitment context, contact paths, current mission
   snapshot, clarified organization labels, no overflow, and no console errors.
 - 2026-08-29 — R19.4 merged into the Set 19 integration branch.
+- 2026-08-29 — R19.5 verification passed: zero-warning lint, production build,
+  full desktop/mobile route smoke, CLS 0.00, static reduced motion, refreshed
+  screenshots, and Lighthouse mobile performance 83 (up from audit baseline 68).
