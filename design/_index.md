@@ -47,3 +47,7 @@ tokens.md.
   the scroll-aware **navigation bar** pattern to components.md: transparent at the top, a solid
   blurred underlay fades in once scrolled — keeps the transparent look while fixing legibility
   clashes. No token changes.
+- 2026-08-28 — Re-resolve `spacing-layout` + home card/join component guidance (set 18 review),
+  provenance → **config** (user-directed). P0 content remains always accessible, but project
+  cards now preserve desktop negative space and the join flow uses one atmospheric composition
+  instead of dense nested dashboard panels. Removed stale `moveJawn` motion references.

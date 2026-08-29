@@ -79,8 +79,8 @@ stroke, 24px grid. Social/brand glyphs that lucide lacks ship as inverted PNGs i
 app root). shadcn light-mode tokens exist in `:root` but are not exercised. No light mode.
 
 ## Motion
-Library: framer-motion (`motion`). Custom CSS keyframes: `shimmer` (CTA), `moveJawn` (Join Us
-discord), plus stars/shooting-stars/globe canvas loops and flip-words.
+Library: framer-motion (`motion`). Custom CSS keyframes: `shimmer` (CTA), plus
+stars/shooting-stars/globe canvas loops and flip-words.
 Standing rule (set 1, R1.4): **all continuous motion is gated by `prefers-reduced-motion`** via
 `usePrefersReducedMotion` + the `@media (prefers-reduced-motion: reduce)` block in App.css.
 Animate transform/opacity; keep the stars aesthetic visible even when reduced.

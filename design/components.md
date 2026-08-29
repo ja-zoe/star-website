@@ -43,9 +43,18 @@ Rejected: true per-pixel clash detection (sampling rendered pixels — incl. the
 — every scroll frame) as fragile + expensive; the scroll-state underlay solves it robustly.
 
 ## Cards / Surfaces
-ProjectCard: bordered black panel (`border-white/30`), corner ticks, line icon → title on hover,
-with a lazy three.js CanvasRevealEffect (loads on hover; set 2 R2.2). E-board: circular
-red-ringed photo + name + role. Sponsor logos: inverted PNGs with hover-blur siblings.
+ProjectCard: icon-led editorial panel with permanent title, short purpose, two facts, and CTA;
+project accent appears as a restrained top rule + atmospheric glow. Cards keep deliberate
+desktop height/negative space instead of compressing into dashboard summaries, while mobile is
+capped at 280px. The lazy three.js CanvasRevealEffect is optional fine-pointer hover enhancement
+only; it never replaces or obscures core content and is never requested on touch-only input.
+E-board: circular red-ringed photo + name + role. Sponsor logos: inverted PNGs with hover-blur
+siblings.
+
+Home Join flow: one open, full-width atmospheric composition, not a stack of nested cards. Use
+an orbit/communications visual, one short invitation, primary Discord + secondary email actions,
+a lightweight three-step rail, and a single meeting-status line. STAR red, hairline borders, mono
+labels, and generous negative space connect it to the project-page mission-dossier language.
 
 ## Project page kit (added 2026-06-29 — set 10)
 The three project pages (CubeSat, Robotics, Weather Balloon) share ONE editorial "mission
@@ -93,6 +102,6 @@ Keep red to these shared elements only; do not red-wash the accent-owned, projec
 ## Motion (see tokens › Motion)
 Animate: opacity + transform (framer), plus the canvas/SVG decorative loops. Never animate
 layout-affecting properties on scroll. Reduced-motion: stars paint statically, shooting stars /
-globe spin / flip-words / shimmer / moveJawn all stop (set 1 R1.4) — the look is preserved, the
+globe spin / flip-words / shimmer all stop (set 1 R1.4) — the look is preserved, the
 continuous motion is removed. New project-page reveals (if any) must also gate on
 `usePrefersReducedMotion`.
