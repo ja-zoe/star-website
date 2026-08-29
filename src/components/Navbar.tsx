@@ -10,6 +10,8 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu, ChevronDown } from "lucide-react";
@@ -52,7 +54,7 @@ const Navbar = () => {
       <Link
         to="/"
         aria-label="STAR home"
-        className="w-24 sm:absolute sm:left-[2%] lg:left-28 col-start-1"
+        className="col-start-1 inline-flex min-h-11 w-24 items-center sm:absolute sm:left-[2%] lg:left-28"
       >
         <img
           src="/star-image.png"
@@ -70,7 +72,7 @@ const Navbar = () => {
             <button
               type="button"
               aria-label="Open navigation menu"
-              className={cn("text-white cursor-pointer rounded-lg p-1", underlay)}
+              className={cn("flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded-lg text-white", underlay)}
             >
               <Menu size={40} />
             </button>
@@ -79,6 +81,10 @@ const Navbar = () => {
             side="top"
             className="bg-neutral-950 border-neutral-800 pt-12 pb-10"
           >
+            <SheetTitle className="sr-only">STAR navigation</SheetTitle>
+            <SheetDescription className="sr-only">
+              Navigate the STAR website and explore project teams.
+            </SheetDescription>
             <nav className="flex flex-col items-center gap-2 text-lg">
               <SheetClose asChild>
                 <Link
@@ -91,7 +97,10 @@ const Navbar = () => {
 
               <div className="flex flex-col items-center w-full">
                 <button
+                  type="button"
                   onClick={() => setProjectsOpen((o) => !o)}
+                  aria-expanded={projectsOpen}
+                  aria-controls="mobile-project-links"
                   className="w-full flex items-center justify-center gap-1 text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   Projects
@@ -101,7 +110,7 @@ const Navbar = () => {
                   />
                 </button>
                 {projectsOpen && (
-                  <div className="flex flex-col items-center w-full mt-1 mb-1 gap-1">
+                  <div id="mobile-project-links" className="flex flex-col items-center w-full mt-1 mb-1 gap-1">
                     <SheetClose asChild>
                       <Link
                         to="/cubesat"
@@ -165,28 +174,28 @@ const Navbar = () => {
         <NavigationMenuList className={cn("rounded-full px-3 py-1.5", underlay)}>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link to="/#AboutStarSection">About STAR</Link>
+              <Link className="inline-flex min-h-11 items-center" to="/#AboutStarSection">About STAR</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent">
+            <NavigationMenuTrigger className="min-h-11 bg-transparent">
               Projects
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="w-96">
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link to="/cubesat">Cube Satellite</Link>
+                    <Link className="inline-flex min-h-11 w-full items-center" to="/cubesat">Cube Satellite</Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link to="/robotics">Robotics</Link>
+                    <Link className="inline-flex min-h-11 w-full items-center" to="/robotics">Robotics</Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link to="/weather-balloon">Weather Balloon</Link>
+                    <Link className="inline-flex min-h-11 w-full items-center" to="/weather-balloon">Weather Balloon</Link>
                   </NavigationMenuLink>
                 </li>
               </ul>
@@ -194,17 +203,17 @@ const Navbar = () => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link to="/#FAQSection">FAQ</Link>
+              <Link className="inline-flex min-h-11 items-center" to="/#FAQSection">FAQ</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link to="/#JoinUsSection">Join Us</Link>
+              <Link className="inline-flex min-h-11 items-center" to="/#JoinUsSection">Join Us</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link to="/#EboardSection">Eboard</Link>
+              <Link className="inline-flex min-h-11 items-center" to="/#EboardSection">Eboard</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>

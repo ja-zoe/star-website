@@ -54,3 +54,5 @@ tokens.md.
 - 2026-08-29 — Re-resolve `spacing-layout`, `components`, and `motion` for Set 19 P1. Added the
   semantic home hierarchy, `SectionHeading`, bounded editorial grids, stable globe framing, and
   explicit offscreen/hidden canvas lifecycle. Removed Inter and canvas card-reveal guidance.
+- 2026-08-29 — Re-resolve `accessibility` for Set 19 P1. Standardized 44px interaction targets,
+  named Radix dialogs, disclosure state wiring, and single-control tooltip links.
