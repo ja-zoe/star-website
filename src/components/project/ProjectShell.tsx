@@ -37,7 +37,6 @@ const ProjectShell = ({
     motifIcon: Motif,
     stats,
     mission,
-    statusBody,
     ctaHref,
     ctaLabel,
   } = config;
@@ -124,8 +123,7 @@ const ProjectShell = ({
         <div className="flex justify-center">
           <SectionLabel index="03">Status &amp; Join</SectionLabel>
         </div>
-        <p className="mt-8 text-xl text-white/90">{statusBody}</p>
-        <p className="mx-auto mt-3 max-w-xl text-sm text-[var(--accent)]">
+        <p className="mx-auto mt-8 max-w-xl text-xl text-white/90">
           {projectCurrent.status}
         </p>
         <dl className="mx-auto mt-8 grid max-w-2xl border-y border-white/15 text-left sm:grid-cols-3 sm:divide-x sm:divide-white/15">

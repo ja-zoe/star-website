@@ -13,8 +13,9 @@ Loaded once per session. Holds invariants NOT obvious from the code.
 - **Icons: lucide-react only.** Do not introduce another icon set. (`@tabler/icons-react` is
   a transitive/legacy dep — do not add new Tabler usage; prefer lucide.)
 - **Keep the visual identity — refine, don't gut it.** Dark space/stars aesthetic IS the
-  brand: black background, white text, red-400 accent, Space Mono font, animated
-  stars/shooting-stars background, three.js/cobe globe, tsparticles sparkles, framer-motion.
+  brand: black background, white text, red-400 accent, Space Mono font, restrained
+  stars/shooting-stars background, cobe globe, tsparticles sparkles, framer-motion. Continuous
+  effects must pause offscreen/hidden and become static under reduced motion.
 
 ## Stack
 - React 19 + Vite 6 + TypeScript + Tailwind v4 (`@tailwindcss/vite`) + shadcn (new-york).
@@ -27,8 +28,10 @@ Loaded once per session. Holds invariants NOT obvious from the code.
 ## Layout notes
 - `src/routes/<area>/` per route; home sections in `src/routes/home/*Section.tsx`.
 - Reusable Aceternity/shadcn primitives in `src/components/ui/`.
-- Global chrome (`Navbar`, `Footer`, `StarsBackground`, two `ShootingStars`) lives in
+- Global chrome (`Navbar`, `Footer`, `StarsBackground`, one `ShootingStars`) lives in
   `src/App.tsx`, outside `<Routes>`.
+- Current recruiting, meeting, and per-project schedule fallbacks live only in
+  `src/content/currentInfo.ts`; preserve the term and last-updated provenance.
 - Static assets in `public/` are referenced by absolute path (`/foo.png`) or imported.
 
 ## Branching convention
