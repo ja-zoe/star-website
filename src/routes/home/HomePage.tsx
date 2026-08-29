@@ -5,6 +5,9 @@ import FAQSection from "./FAQSection";
 import JoinUsSection from "./JoinUsSection";
 import EboardSection from "./EboardSection";
 import Seo from "../../components/Seo";
+import CurrentStatusStrip from "./CurrentStatusStrip";
+import CurrentMissionsSection from "./CurrentMissionsSection";
+import PartnersSection from "./PartnersSection";
 
 const HomePage = () => {
   return (
@@ -15,11 +18,14 @@ const HomePage = () => {
         path="/"
       />
       <HeroSection />
+      <CurrentStatusStrip />
       <ProjectsSection />
       <AboutStarSection />
       <JoinUsSection />
+      <CurrentMissionsSection />
       <FAQSection />
       <EboardSection />
+      <PartnersSection />
     </div>
   );
 };

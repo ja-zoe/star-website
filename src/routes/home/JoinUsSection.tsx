@@ -1,5 +1,6 @@
 import { ArrowUpRight, CalendarClock, Mail, Radio } from "lucide-react";
 import SectionHeading from "../../components/SectionHeading";
+import { currentInfo } from "../../content/currentInfo";
 
 const JoinUsSection = () => (
   <section
@@ -24,12 +25,12 @@ const JoinUsSection = () => (
           </span>
           <div>
             <p className="font-bold">Membership channel is open</p>
-            <p className="mt-1 text-sm text-white/50">Every Rutgers student is welcome.</p>
+            <p className="mt-1 text-sm text-white/50">{currentInfo.recruitment.eligibility}.</p>
           </div>
         </div>
         <div className="grid sm:grid-cols-2">
           <a
-            href="https://discord.gg/vHa52wx9VK"
+            href={currentInfo.contact.discordHref}
             target="_blank"
             rel="noopener noreferrer"
             className="flex min-h-16 items-center justify-between bg-white px-6 font-bold text-black transition-colors hover:bg-red-200"
@@ -38,7 +39,7 @@ const JoinUsSection = () => (
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </a>
           <a
-            href="mailto:rutgersstar@gmail.com?subject=STAR%20Fall%202026%20meeting%20details"
+            href={currentInfo.contact.emailHref}
             className="flex min-h-16 items-center justify-between border-x border-b border-white/15 px-6 font-bold text-white sm:border-l-0 sm:border-r-0 sm:border-t-0"
           >
             Email STAR
@@ -47,7 +48,10 @@ const JoinUsSection = () => (
         </div>
         <p className="flex items-start gap-3 px-5 py-5 text-sm leading-6 text-white/55 sm:px-7">
           <CalendarClock className="mt-0.5 h-4 w-4 shrink-0 text-red-300" aria-hidden="true" />
-          <span><strong className="text-white">Fall 2026 schedule pending.</strong> Usual location: The Cage. Confirm details by email or Discord.</span>
+          <span><strong className="text-white">{currentInfo.term}: {currentInfo.meetings.status}.</strong> Usual location: {currentInfo.meetings.usualLocation}. {currentInfo.meetings.locationNote}.</span>
+        </p>
+        <p className="border-t border-white/10 px-5 py-3 text-xs leading-5 text-white/40 sm:px-7">
+          {currentInfo.recruitment.prerequisites}. Commitment {currentInfo.recruitment.commitment.toLowerCase()}.
         </p>
       </div>
     </div>

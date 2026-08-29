@@ -1,9 +1,10 @@
 import type { CSSProperties, ReactNode } from "react";
-import { Star } from "lucide-react";
+import { CalendarClock, CheckCircle2, Clock3, Star } from "lucide-react";
 import { WavyBackground } from "../ui/wavy-background";
 import SectionLabel from "./SectionLabel";
 import type { ProjectConfig } from "./projectConfig";
 import { AccentContext } from "./accentContext";
+import { currentInfo } from "../../content/currentInfo";
 
 // STAR brand thread (design/tokens.md › --brand). Woven through the shared chrome
 // of every project page so the three read as one branded family, alongside each
@@ -28,6 +29,7 @@ const ProjectShell = ({
   children: ReactNode;
 }) => {
   const {
+    id,
     eyebrow,
     name,
     tagline,
@@ -36,10 +38,10 @@ const ProjectShell = ({
     stats,
     mission,
     statusBody,
-    meetingNote,
     ctaHref,
     ctaLabel,
   } = config;
+  const projectCurrent = currentInfo.projects[id];
 
   const ctaClass =
     "inline-flex items-center justify-center rounded-full border border-[var(--accent)] px-6 py-2.5 font-medium text-[var(--accent)] transition-colors hover:bg-[var(--accent)] hover:text-black";
@@ -123,15 +125,51 @@ const ProjectShell = ({
           <SectionLabel index="03">Status &amp; Join</SectionLabel>
         </div>
         <p className="mt-8 text-xl text-white/90">{statusBody}</p>
-        <p className="mx-auto mt-4 max-w-xl text-white/60">{meetingNote}</p>
+        <p className="mx-auto mt-3 max-w-xl text-sm text-[var(--accent)]">
+          {projectCurrent.status}
+        </p>
+        <dl className="mx-auto mt-8 grid max-w-2xl border-y border-white/15 text-left sm:grid-cols-3 sm:divide-x sm:divide-white/15">
+          <div className="px-4 py-4">
+            <dt className="flex items-center gap-2 text-[0.6rem] uppercase tracking-wider text-white/45">
+              <CheckCircle2 className="h-3.5 w-3.5 text-[var(--accent)]" aria-hidden="true" /> Recruitment
+            </dt>
+            <dd className="mt-2 text-sm">{currentInfo.recruitment.status}</dd>
+            <dd className="mt-1 text-xs text-white/45">{currentInfo.recruitment.prerequisites}</dd>
+          </div>
+          <div className="border-t border-white/15 px-4 py-4 sm:border-t-0">
+            <dt className="flex items-center gap-2 text-[0.6rem] uppercase tracking-wider text-white/45">
+              <Clock3 className="h-3.5 w-3.5 text-[var(--accent)]" aria-hidden="true" /> Team schedule
+            </dt>
+            <dd className="mt-2 text-sm">{projectCurrent.schedule}</dd>
+          </div>
+          <div className="border-t border-white/15 px-4 py-4 sm:border-t-0">
+            <dt className="flex items-center gap-2 text-[0.6rem] uppercase tracking-wider text-white/45">
+              <CalendarClock className="h-3.5 w-3.5 text-[var(--accent)]" aria-hidden="true" /> Term
+            </dt>
+            <dd className="mt-2 text-sm">{currentInfo.term}</dd>
+          </div>
+        </dl>
+        <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-white/60">
+          {currentInfo.meetings.usualLocation} is the usual workspace. {currentInfo.meetings.locationNote}.
+          Commitment {currentInfo.recruitment.commitment.toLowerCase()}.
+        </p>
         <a
-          href={ctaHref}
+          href={currentInfo.contact.discordHref || ctaHref}
           target="_blank"
           rel="noopener noreferrer"
           className={`mt-8 ${ctaClass}`}
         >
           {ctaLabel}
         </a>
+        <a
+          href={currentInfo.contact.emailHref}
+          className="ml-0 mt-3 inline-flex min-h-11 items-center justify-center px-4 text-sm font-bold text-white/65 underline decoration-white/25 underline-offset-4 hover:text-white sm:ml-3 sm:mt-8"
+        >
+          Confirm by email
+        </a>
+        <p className="mt-4 text-[0.65rem] uppercase tracking-wider text-white/35">
+          Last updated <time dateTime={currentInfo.lastUpdatedISO}>{currentInfo.lastUpdatedLabel}</time>
+        </p>
       </section>
 
       {/* STAR brand tie — the consistent sign-off on every project page. */}

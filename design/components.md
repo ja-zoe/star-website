@@ -64,6 +64,16 @@ section owns one visible `<h2>`. Use `SectionHeading` for the shared eyebrow/rul
 Decorative SVG text is `aria-hidden` and must not substitute for semantic headings. Keep the
 globe inside an aspect-ratio frame; never create vertical rhythm with fixed spacer margins.
 
+Current-information surfaces read from `src/content/currentInfo.ts`. Every logistics claim carries
+the active term and a last-updated date. If an exact meeting date/time/room is unpublished, state
+that the schedule is being finalized, name only the usual location, and provide email + Discord
+confirmation paths. Never replace an unknown with an estimate.
+
+The home organization section is titled “Partners, programs & supporters,” not “Sponsors.” Each
+logo has a visible relationship label (institution, chapter network, program, competition
+organizer, governance, or software) and one tooltip-trigger anchor. Keep the sponsor inquiry CTA
+separate from the organization links.
+
 ## Project page kit (added 2026-06-29 — set 10)
 The three project pages (CubeSat, Robotics, Weather Balloon) share ONE editorial "mission
 dossier" skeleton so they read as a cohesive series; each is differentiated only by its

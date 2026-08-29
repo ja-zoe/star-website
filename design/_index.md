@@ -56,3 +56,5 @@ tokens.md.
   explicit offscreen/hidden canvas lifecycle. Removed Inter and canvas card-reveal guidance.
 - 2026-08-29 — Re-resolve `accessibility` for Set 19 P1. Standardized 44px interaction targets,
   named Radix dialogs, disclosure state wiring, and single-control tooltip links.
+- 2026-08-29 — Re-resolve home content surfaces for Set 19 P1. Registered dated logistics
+  fallbacks, current mission rows, and relationship-labeled organization presentation.
