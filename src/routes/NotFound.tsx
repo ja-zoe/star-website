@@ -3,7 +3,7 @@ import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 
 const NotFound = () => {
   return (
-    <div className="relative z-10 min-h-[60vh] flex flex-col items-center justify-center gap-6 px-6 pt-40 pb-20 text-center">
+    <div className="relative z-10 flex min-h-screen flex-col items-center justify-center gap-6 bg-black px-6 pb-20 pt-40 text-center text-white">
       <Seo title="Page not found — STAR" path="/404" />
       <h1 className="text-6xl font-bold">404</h1>
       <p className="text-lg max-w-md text-white/80">
