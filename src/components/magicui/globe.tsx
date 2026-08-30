@@ -8,6 +8,7 @@ import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import { cn } from "../../lib/utils";
 
 const MOVEMENT_DAMPING = 1400;
+const PAUSED_PHI = 0;
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
@@ -24,6 +25,7 @@ const GLOBE_CONFIG: COBEOptions = {
   markerColor: [251 / 255, 100 / 255, 21 / 255],
   glowColor: [1, 1, 1],
   markers: [{ location: [40.521983, -74.462832], size: 0.1 }],
+  context: { preserveDrawingBuffer: true },
 };
 
 export function Globe({
@@ -35,10 +37,13 @@ export function Globe({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null);
   const phiRef = useRef(0);
   const widthRef = useRef(0);
   const pointerInteracting = useRef<number | null>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const reducedMotionRef = useRef(prefersReducedMotion);
+  reducedMotionRef.current = prefersReducedMotion;
   const [inView, setInView] = useState(false);
   const [pageVisible, setPageVisible] = useState(
     () => typeof document === "undefined" || document.visibilityState === "visible",
@@ -101,6 +106,12 @@ export function Globe({
 
     const mobile = widthRef.current < 640;
     const pixelRatio = mobile ? 1 : Math.min(window.devicePixelRatio, 1.5);
+
+    if (reducedMotionRef.current) {
+      phiRef.current = PAUSED_PHI;
+      rotation.set(0);
+    }
+
     const globe = createGlobe(canvas, {
       ...config,
       devicePixelRatio: pixelRatio,
@@ -110,26 +121,50 @@ export function Globe({
       width: widthRef.current * pixelRatio,
       height: widthRef.current * pixelRatio,
       onRender: (state) => {
-        if (!pointerInteracting.current && !prefersReducedMotion) {
-          phiRef.current += 0.005;
+        if (reducedMotionRef.current) {
+          state.phi = PAUSED_PHI;
+          state.markers = [];
+        } else {
+          if (!pointerInteracting.current) {
+            phiRef.current += 0.005;
+          }
+          state.phi = phiRef.current + springRotation.get();
+          state.markers = config.markers;
         }
-        state.phi = phiRef.current + springRotation.get();
         state.width = widthRef.current * pixelRatio;
         state.height = widthRef.current * pixelRatio;
       },
     });
+    globeRef.current = globe;
 
     canvas.style.opacity = "1";
-    const staticFrameTimer = prefersReducedMotion
-      ? window.setTimeout(() => globe.destroy(), 100)
+    const initialPauseTimer = reducedMotionRef.current
+      ? window.setTimeout(() => globe.toggle(false), 1000)
       : undefined;
 
     return () => {
-      if (staticFrameTimer !== undefined) window.clearTimeout(staticFrameTimer);
+      if (initialPauseTimer !== undefined) window.clearTimeout(initialPauseTimer);
+      if (globeRef.current === globe) globeRef.current = null;
       globe.destroy();
       resizeObserver.disconnect();
     };
-  }, [config, inView, pageVisible, prefersReducedMotion, springRotation]);
+  }, [config, inView, pageVisible, rotation, springRotation]);
+
+  useEffect(() => {
+    const globe = globeRef.current;
+    if (!globe) return;
+
+    if (!prefersReducedMotion) {
+      globe.toggle(true);
+      return;
+    }
+
+    phiRef.current = PAUSED_PHI;
+    rotation.set(0);
+    globe.toggle(true);
+    const pauseTimer = window.setTimeout(() => globe.toggle(false), 1000);
+    return () => window.clearTimeout(pauseTimer);
+  }, [prefersReducedMotion, rotation]);
 
   const running = inView && pageVisible && !prefersReducedMotion;
 
@@ -142,6 +177,13 @@ export function Globe({
       )}
       data-globe-running={running ? "true" : "false"}
     >
+      {prefersReducedMotion && (
+        <span
+          data-globe-paused-marker
+          className="pointer-events-none absolute left-[61%] top-[31%] z-10 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-red-200 bg-red-500 shadow-[0_0_0_5px_rgba(157,38,38,0.24),0_0_18px_rgba(248,113,113,0.75)]"
+          aria-hidden="true"
+        />
+      )}
       <canvas
         className="size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
         ref={canvasRef}
