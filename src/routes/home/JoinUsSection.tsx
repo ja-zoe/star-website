@@ -34,13 +34,13 @@ const JoinUsSection = () => {
             <div className="mt-9">
               <NoiseBackground
                 animating={!reducedMotion}
-                containerClassName="relative isolate z-[60] w-full max-w-sm bg-neutral-800"
+                containerClassName="relative isolate z-[60] w-full max-w-sm rounded-3xl"
               >
                 <a
                   href={currentInfo.contact.discordHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-14 w-full items-center justify-between rounded-xl bg-neutral-950 px-6 text-sm font-bold text-white"
+                  className="flex min-h-14 w-full items-center justify-between rounded-2xl bg-neutral-950 px-6 text-sm font-bold text-white"
                 >
                   Join Discord
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
