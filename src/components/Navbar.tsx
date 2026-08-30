@@ -19,10 +19,12 @@ import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { Link } from "react-router";
 import { useMotionPreferenceControl } from "../hooks/usePrefersReducedMotion";
+import { useActiveNavigation } from "../hooks/useActiveNavigation";
 
 const Navbar = () => {
   const [projectsOpen, setProjectsOpen] = useState(false);
   const { motionEnabled, systemReduced, toggleMotion } = useMotionPreferenceControl();
+  const activeNavigation = useActiveNavigation();
   // Scroll-aware underlay: transparent over the hero, solid blurred backdrop once
   // page content scrolls under the bar (design/components.md › Navigation bar).
   const [scrolled, setScrolled] = useState(false);
@@ -51,7 +53,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="fixed top-0 flex justify-between md:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20">
+    <header data-scroll-aware-navigation className="fixed top-0 flex justify-between md:justify-center items-center w-screen z-30 h-20 px-10 pt-5 gap-20">
       {/* Star logo */}
       <Link
         to="/"
@@ -91,6 +93,8 @@ const Navbar = () => {
               <SheetClose asChild>
                 <Link
                   to="/#AboutStarSection"
+                  data-navigation-target
+                  aria-current={activeNavigation === "about" ? "location" : undefined}
                   className="w-full text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   About STAR
@@ -100,6 +104,8 @@ const Navbar = () => {
               <div className="flex flex-col items-center w-full">
                 <button
                   type="button"
+                  data-navigation-target
+                  aria-current={activeNavigation === "projects" ? "location" : undefined}
                   onClick={() => setProjectsOpen((o) => !o)}
                   aria-expanded={projectsOpen}
                   aria-controls="mobile-project-links"
@@ -144,6 +150,8 @@ const Navbar = () => {
               <SheetClose asChild>
                 <Link
                   to="/#FAQSection"
+                  data-navigation-target
+                  aria-current={activeNavigation === "faq" ? "location" : undefined}
                   className="w-full text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   FAQ
@@ -152,6 +160,8 @@ const Navbar = () => {
               <SheetClose asChild>
                 <Link
                   to="/#JoinUsSection"
+                  data-navigation-target
+                  aria-current={activeNavigation === "join" ? "location" : undefined}
                   className="w-full text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   Join Us
@@ -161,6 +171,8 @@ const Navbar = () => {
               <SheetClose asChild>
                 <Link
                   to="/#EboardSection"
+                  data-navigation-target
+                  aria-current={activeNavigation === "eboard" ? "location" : undefined}
                   className="w-full block text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   Eboard
@@ -185,12 +197,12 @@ const Navbar = () => {
       <NavigationMenu className="text-white hidden md:inline">
         <NavigationMenuList className={cn("rounded-full px-3 py-1.5", underlay)}>
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link className="inline-flex items-center" to="/#AboutStarSection">About STAR</Link>
+            <NavigationMenuLink asChild className="rounded-full">
+              <Link data-navigation-target aria-current={activeNavigation === "about" ? "location" : undefined} className="inline-flex items-center" to="/#AboutStarSection">About STAR</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent">
+            <NavigationMenuTrigger data-navigation-target aria-current={activeNavigation === "projects" ? "location" : undefined} className="bg-transparent rounded-full">
               Projects
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -214,18 +226,18 @@ const Navbar = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link className="inline-flex items-center" to="/#FAQSection">FAQ</Link>
+            <NavigationMenuLink asChild className="rounded-full">
+              <Link data-navigation-target aria-current={activeNavigation === "faq" ? "location" : undefined} className="inline-flex items-center" to="/#FAQSection">FAQ</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link className="inline-flex items-center" to="/#JoinUsSection">Join Us</Link>
+            <NavigationMenuLink asChild className="rounded-full">
+              <Link data-navigation-target aria-current={activeNavigation === "join" ? "location" : undefined} className="inline-flex items-center" to="/#JoinUsSection">Join Us</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link className="inline-flex items-center" to="/#EboardSection">Eboard</Link>
+            <NavigationMenuLink asChild className="rounded-full">
+              <Link data-navigation-target aria-current={activeNavigation === "eboard" ? "location" : undefined} className="inline-flex items-center" to="/#EboardSection">Eboard</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
