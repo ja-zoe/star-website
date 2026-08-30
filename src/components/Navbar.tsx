@@ -149,22 +149,22 @@ const Navbar = () => {
 
               <SheetClose asChild>
                 <Link
-                  to="/#FAQSection"
-                  data-navigation-target
-                  aria-current={activeNavigation === "faq" ? "location" : undefined}
-                  className="w-full text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
-                >
-                  FAQ
-                </Link>
-              </SheetClose>
-              <SheetClose asChild>
-                <Link
                   to="/#JoinUsSection"
                   data-navigation-target
                   aria-current={activeNavigation === "join" ? "location" : undefined}
                   className="w-full text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
                   Join Us
+                </Link>
+              </SheetClose>
+              <SheetClose asChild>
+                <Link
+                  to="/#FAQSection"
+                  data-navigation-target
+                  aria-current={activeNavigation === "faq" ? "location" : undefined}
+                  className="w-full text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
+                >
+                  FAQ
                 </Link>
               </SheetClose>
 
@@ -227,12 +227,12 @@ const Navbar = () => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild className="rounded-full">
-              <Link data-navigation-target aria-current={activeNavigation === "faq" ? "location" : undefined} className="inline-flex items-center" to="/#FAQSection">FAQ</Link>
+              <Link data-navigation-target aria-current={activeNavigation === "join" ? "location" : undefined} className="inline-flex items-center" to="/#JoinUsSection">Join Us</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild className="rounded-full">
-              <Link data-navigation-target aria-current={activeNavigation === "join" ? "location" : undefined} className="inline-flex items-center" to="/#JoinUsSection">Join Us</Link>
+              <Link data-navigation-target aria-current={activeNavigation === "faq" ? "location" : undefined} className="inline-flex items-center" to="/#FAQSection">FAQ</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
