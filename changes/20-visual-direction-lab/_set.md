@@ -11,7 +11,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 - [x] R20.5 — Preserve the Rutgers-facing globe when motion is paused
 - [x] R20.6 — Prototype an interactive exploded CubeSat in the hero
 - [x] R20.7 — Keep navbar focus/open states in the red glow system
-- [t] R20.8 — Match navbar order and eliminate sticky pointer selection
+- [x] R20.8 — Match navbar order and eliminate sticky pointer selection
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,
