@@ -9,7 +9,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 - [t] R20.3 — Refine selected production details after visual review
 - [x] R20.4 — Add scroll-aware navbar section state
 - [x] R20.5 — Preserve the Rutgers-facing globe when motion is paused
-- [ ] R20.6 — Prototype an interactive exploded CubeSat in the hero
+- [t] R20.6 — Prototype an interactive exploded CubeSat in the hero
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,

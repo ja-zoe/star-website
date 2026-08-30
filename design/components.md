@@ -87,6 +87,15 @@ use an even four-column desktop/two-column mobile grid. The Air Force relationsh
 The global Footer is transparent over the one app-level StarsBackground. Do not add a separate
 footer starfield or an opaque footer fill.
 
+## Hero hardware study (set 20)
+The hero's right track may lead with the interactive exploded CubeSat study, followed immediately
+by the three equal-prominence program links. The model is a stylized hardware explainer, not a
+flight-design claim: central bus/frame, payload and avionics faces, antenna module, and paired solar
+arrays. It starts exploded, supports pointer inspection plus one keyboard-accessible Assemble/Explode
+control, and keeps annotations sparse. Preserve a fixed-height fallback to prevent CLS. Load React
+Three Fiber/Three.js after the initial interface, stop its render loop offscreen/hidden, and use a
+static exploded frame whenever site or system motion is reduced.
+
 ## Project page kit (added 2026-06-29 — set 10)
 The three project pages (CubeSat, Robotics, Weather Balloon) share ONE editorial "mission
 dossier" skeleton so they read as a cohesive series; each is differentiated only by its
