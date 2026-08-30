@@ -34,7 +34,7 @@ const JoinUsSection = () => {
             <div className="mt-9">
               <NoiseBackground
                 animating={!reducedMotion}
-                containerClassName="w-full max-w-sm bg-neutral-800"
+                containerClassName="relative isolate z-[60] w-full max-w-sm bg-neutral-800"
               >
                 <a
                   href={currentInfo.contact.discordHref}

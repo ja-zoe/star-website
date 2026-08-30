@@ -57,7 +57,8 @@ Home Join flow: one open, full-width atmospheric composition, not a stack of nes
 an editorial two-column composition, one short invitation, primary Discord + secondary email
 actions, and a single meeting-status line. Use the Discord mark directly, not a generic radio
 symbol. The Discord CTA uses NoiseBackground as an opaque 8px textured edge with the component's
-native gradients and noise, never as a large surface.
+native gradients and noise, never as a large surface. Its isolated layer stays above the global
+star effects so the page stars do not paint through the CTA.
 STAR red, hairline borders, mono labels, and generous negative space connect it to the project-page
 mission-dossier language.
 
