@@ -10,7 +10,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 - [x] R20.4 — Add scroll-aware navbar section state
 - [x] R20.5 — Preserve the Rutgers-facing globe when motion is paused
 - [x] R20.6 — Prototype an interactive exploded CubeSat in the hero
-- [t] R20.7 — Keep navbar focus/open states in the red glow system
+- [x] R20.7 — Keep navbar focus/open states in the red glow system
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,
