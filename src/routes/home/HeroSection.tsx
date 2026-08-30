@@ -1,3 +1,4 @@
+import { lazy, Suspense, useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 import { HoverBorderGradient } from "../../components/ui/hover-border-gradient";
@@ -13,8 +14,16 @@ const programs = [
   { label: "CubeSat", href: "/cubesat", icon: satelliteIcon },
 ];
 
+const ExplodedCubeSat = lazy(() => import("../../components/hero/ExplodedCubeSat"));
+
 const HeroSection = () => {
   const reducedMotion = usePrefersReducedMotion();
+  const [hardwareReady, setHardwareReady] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setHardwareReady(true), 350);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   return (
     <section
@@ -58,33 +67,40 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <nav className="relative z-10 space-y-2" aria-label="STAR project programs">
-          <p className="mb-5 text-[0.6rem] font-bold uppercase tracking-[0.24em] text-white/35">
-            Current programs
-          </p>
-          {programs.map((program, index) => (
-            <Link
-              key={program.href}
-              to={program.href}
-              className="group flex min-h-20 items-center justify-between border-b border-white/20 px-2 transition-colors hover:bg-white/[0.035] sm:px-5"
-            >
-              <span className="flex items-center gap-4">
-                <img
-                  src={program.icon}
-                  alt=""
-                  width={48}
-                  height={48}
-                  className="h-9 w-9 invert opacity-85"
-                />
-                <span className="font-bold">{program.label}</span>
-              </span>
-              <span className="flex items-center gap-3 text-[0.6rem] uppercase tracking-[0.2em] text-white/35">
-                0{index + 1}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </span>
-            </Link>
-          ))}
-        </nav>
+        <div className="relative z-10 space-y-7">
+          <Suspense
+            fallback={<div className="h-56 border border-white/10 bg-white/[0.015] sm:h-[19rem]" aria-hidden="true" />}
+          >
+            {hardwareReady ? <ExplodedCubeSat /> : <div className="h-56 border border-white/10 bg-white/[0.015] sm:h-[19rem]" aria-hidden="true" />}
+          </Suspense>
+          <nav className="space-y-2" aria-label="STAR project programs">
+            <p className="mb-5 text-[0.6rem] font-bold uppercase tracking-[0.24em] text-white/35">
+              Current programs
+            </p>
+            {programs.map((program, index) => (
+              <Link
+                key={program.href}
+                to={program.href}
+                className="group flex min-h-20 items-center justify-between border-b border-white/20 px-2 transition-colors hover:bg-white/[0.035] sm:px-5"
+              >
+                <span className="flex items-center gap-4">
+                  <img
+                    src={program.icon}
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="h-9 w-9 invert opacity-85"
+                  />
+                  <span className="font-bold">{program.label}</span>
+                </span>
+                <span className="flex items-center gap-3 text-[0.6rem] uppercase tracking-[0.2em] text-white/35">
+                  0{index + 1}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </section>
   );
