@@ -73,9 +73,9 @@ function NavigationMenuTrigger({
       className={cn(navigationMenuTriggerStyle(), "group", className)}
       {...props}
     >
-      <span className="-translate-y-1">{children}</span>{" "}
+      {children}{" "}
       <ChevronDownIcon
-        className="absolute right-3 top-[calc(50%-4px)] size-3 -translate-y-1/2 transition duration-300 group-data-[state=open]:rotate-180"
+        className="absolute right-3 top-1/2 size-3 -translate-y-1/2 transition duration-300 group-data-[state=open]:rotate-180"
         aria-hidden="true"
       />
     </NavigationMenuPrimitive.Trigger>

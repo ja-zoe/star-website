@@ -186,28 +186,28 @@ const Navbar = () => {
         <NavigationMenuList className={cn("rounded-full px-3 py-1.5", underlay)}>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link className="inline-flex min-h-11 items-center" to="/#AboutStarSection">About STAR</Link>
+              <Link className="inline-flex items-center" to="/#AboutStarSection">About STAR</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="min-h-11 bg-transparent">
+            <NavigationMenuTrigger className="bg-transparent">
               Projects
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="w-96">
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link className="inline-flex min-h-11 w-full items-center" to="/cubesat">Cube Satellite</Link>
+                    <Link className="inline-flex w-full items-center" to="/cubesat">Cube Satellite</Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link className="inline-flex min-h-11 w-full items-center" to="/robotics">Robotics</Link>
+                    <Link className="inline-flex w-full items-center" to="/robotics">Robotics</Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link className="inline-flex min-h-11 w-full items-center" to="/weather-balloon">Weather Balloon</Link>
+                    <Link className="inline-flex w-full items-center" to="/weather-balloon">Weather Balloon</Link>
                   </NavigationMenuLink>
                 </li>
               </ul>
@@ -215,17 +215,17 @@ const Navbar = () => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link className="inline-flex min-h-11 items-center" to="/#FAQSection">FAQ</Link>
+              <Link className="inline-flex items-center" to="/#FAQSection">FAQ</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link className="inline-flex min-h-11 items-center" to="/#JoinUsSection">Join Us</Link>
+              <Link className="inline-flex items-center" to="/#JoinUsSection">Join Us</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild>
-              <Link className="inline-flex min-h-11 items-center" to="/#EboardSection">Eboard</Link>
+              <Link className="inline-flex items-center" to="/#EboardSection">Eboard</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
