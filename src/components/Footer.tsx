@@ -5,12 +5,13 @@ import { Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-black w-full py-5 flex flex-col sm:flex-row flex-wrap justify-center gap-20 z-30 items-center border-t-2 border-white/30">
+    <footer className="relative z-20 flex w-full items-center justify-center gap-5 border-t border-white/20 bg-transparent px-5 py-5 sm:gap-8">
       <a
         href="https://discord.gg/vHa52wx9VK"
         target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Join the STAR Discord"
+      rel="noopener noreferrer"
+      aria-label="Join the STAR Discord"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/10"
       >
         <img
           src={DiscordLogo}
@@ -25,8 +26,9 @@ const Footer = () => {
       <a
         href="https://www.instagram.com/ruspacetech/?hl=en"
         target="_blank"
-        rel="noopener noreferrer"
-        aria-label="STAR on Instagram"
+      rel="noopener noreferrer"
+      aria-label="STAR on Instagram"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/10"
       >
         <img
           src={InstagramLogo}
@@ -41,8 +43,9 @@ const Footer = () => {
       <a
         href="https://www.linkedin.com/company/spacetechru/"
         target="_blank"
-        rel="noopener noreferrer"
-        aria-label="STAR on LinkedIn"
+      rel="noopener noreferrer"
+      aria-label="STAR on LinkedIn"
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/10"
       >
         <img
           src={LinkedinLogo}
@@ -54,8 +57,8 @@ const Footer = () => {
           className="w-8 h-8 invert"
         />
       </a>
-      <a href="mailto:rutgersstar@gmail.com" aria-label="Email STAR">
-        <Mail className="w-10 h-10" aria-hidden="true" />
+      <a href="mailto:rutgersstar@gmail.com" aria-label="Email STAR" className="inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-white/10">
+        <Mail className="h-7 w-7" aria-hidden="true" />
       </a>
     </footer>
   );

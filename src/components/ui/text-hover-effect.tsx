@@ -46,6 +46,8 @@ export const TextHoverEffect = ({
       onMouseLeave={() => setHovered(false)}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
       className="select-none z-10"
+      aria-hidden="true"
+      focusable="false"
     >
       <defs>
         <linearGradient id={gradientId} gradientUnits="userSpaceOnUse" cx="50%" cy="50%" r="25%">

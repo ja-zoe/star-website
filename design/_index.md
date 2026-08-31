@@ -1,7 +1,7 @@
 # Design System — Index
 
 **Tier:** system
-**Last resolved:** 2026-06-29
+**Last resolved:** 2026-08-29
 Source of truth: `config.md` (input) → these files (output). Tokens live in `tokens.md`; real
 CSS/Tailwind/theme config is derived FROM tokens, never the reverse. Resolved in `auto` mode
 (config → autodetect → default; no questionnaire — autonomous session).
@@ -51,3 +51,22 @@ tokens.md.
   provenance → **config** (user-directed). P0 content remains always accessible, but project
   cards now preserve desktop negative space and the join flow uses one atmospheric composition
   instead of dense nested dashboard panels. Removed stale `moveJawn` motion references.
+- 2026-08-29 — Re-resolve `spacing-layout`, `components`, and `motion` for Set 19 P1. Added the
+  semantic home hierarchy, `SectionHeading`, bounded editorial grids, stable globe framing, and
+  explicit offscreen/hidden canvas lifecycle. Removed Inter and canvas card-reveal guidance.
+- 2026-08-29 — Re-resolve `accessibility` for Set 19 P1. Standardized 44px interaction targets,
+  named Radix dialogs, disclosure state wiring, and single-control tooltip links.
+- 2026-08-29 — Re-resolve home content surfaces for Set 19 P1. Registered dated logistics
+  fallbacks, current mission rows, and relationship-labeled organization presentation.
+- 2026-08-29 — Re-resolve vibe, voice, typography, component library, and motion from direct
+  Set 20 user feedback. Direction is a polished university organization plus experimental
+  creative studio, Space Mono, student-written voice, Aceternity visual components, and
+  noticeable motion with user/OS opt-out. Final component treatments remain pending lab review.
+- 2026-08-29 — Resolved the Set 20 production selection: Signal hero, equal Studio Board
+  projects, Open Frequency Discord join, People First leadership, and Relationship Rail
+  organizations. Registered production Aceternity patterns and a persistent Navbar motion
+  preference that composes with the operating-system preference.
+- 2026-08-29 — Refined the selected Set 20 production direction after review: restored the
+  lazy CanvasRevealEffect, switched the Discord CTA to NoiseBackground, centered navigation and
+  the eight-item network, retained color portraits, and extended the global starfield through the
+  transparent footer.

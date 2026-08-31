@@ -1,155 +1,55 @@
-import { TextHoverEffect } from "../../components/ui/text-hover-effect";
+import { BookCopy, UsersRound, Wrench } from "lucide-react";
 import { Globe } from "../../components/magicui/globe";
+import SectionHeading from "../../components/SectionHeading";
 import StarStat from "../../components/StarStat";
-import { Wrench, UsersRound, BookCopy } from "lucide-react";
-import { ChevronDown } from "lucide-react";
-import AnsysLogo from "/ansys-logo.png";
-import NasaLogo from "/nasa-logo.png";
-import EGCLogo from "/egc-logo-w-trans.png";
-import RutgersLogo from "/rutgers-logo.png";
-import SedsLogo from "/seds-logo.png";
-import UNPLogo from "/unp-logo.png";
-import DassaultLogo from "/dassault-systemes-logo.png";
-import HoverBlurCards from "../../components/HoverBlurCards";
 
-const sponsors = [
-  {
-    itemName: "Ansys",
-    alt: "Ansys Logo",
-    logo: AnsysLogo,
-    tooltipContent: "The creators of STK software",
-    link: "https://www.ansys.com/",
-  },
-  {
-    itemName: "Rutgers Engineering Governing Council",
-    alt: "Rutgers EGC Logo",
-    logo: EGCLogo,
-    tooltipContent:
-      "The student-run governing council of the Rutgers School of Engineering",
-    link: "https://egc.rutgers.edu/",
-  },
-  {
-    itemName: "NASA",
-    alt: "NASA Logo",
-    logo: NasaLogo,
-    tooltipContent: "The U.S. National Aeronautics and Space Administration.",
-    link: "https://www.nasa.gov/",
-  },
-  {
-    itemName: "Rutgers University",
-    alt: "Rutgers University Logo",
-    logo: RutgersLogo,
-    tooltipContent: "The State University of New Jersey",
-    link: "https://www.rutgers.edu/",
-  },
-  {
-    itemName: "Students for the Exploration and Development of Space",
-    alt: "SEDS Logo",
-    logo: SedsLogo,
-    tooltipContent:
-      "A student-run organization empowering the next generation of space explorers through projects, education, and advocacy.",
-    link: "https://seds.org/space-for-all/",
-  },
-  {
-    itemName: "University Nanosatellite Program",
-    alt: "UNP Logo",
-    logo: UNPLogo,
-    tooltipContent: `A competitive U.S. Air Force and Space Force program supporting student teams in designing and building small satellites for space missions.`,
-    link: "https://universitynanosat.org/",
-  },
-  {
-    itemName: "Dassault Systèmes",
-    alt: "Dassault Systèmes Logo",
-    logo: DassaultLogo,
-    tooltipContent: "The creators of SOLIDWORKS CAD software",
-    link: "https://www.3ds.com/",
-  },
-];
-
-const AboutStarSection = () => {
-  return (
-    <div
-      id="AboutStarSection"
-      className="relative flex w-screen scroll-mt-24 flex-col items-center justify-center gap-4 pt-20"
-    >
-      <div className="w-full relative flex flex-col items-center">
-        <TextHoverEffect text="WELCOME" />
-        <a href="#AboutStarSection" className="cursor-default">
-          <ChevronDown className="absolute z-40 -bottom-3 sm:bottom-0 md:bottom-1 base:bottom-4 lg:bottom-6 xl:bottom-8 animate-pulse h-auto" />
-        </a>
+const AboutStarSection = () => (
+  <section
+    id="AboutStarSection"
+    className="relative w-full scroll-mt-24 overflow-hidden border-b border-white/10 px-5 py-20 md:px-10 md:py-28"
+  >
+    <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+      <div>
+        <SectionHeading
+          eyebrow="Why STAR"
+          title="Learn by building beyond the classroom."
+          description="You can just show up. Seriously. Most members learned the tools after joining. STAR is Rutgers' student-led SEDS chapter, and every major has a way into the work."
+        />
+        <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-5">
+          <StarStat
+            stat="3"
+            headline="Projects"
+            Icon={Wrench}
+            compact
+            className="bg-radial from-red-400/20 to-transparent"
+          />
+          <StarStat
+            stat="90+"
+            headline="Members"
+            Icon={UsersRound}
+            compact
+            className="bg-radial from-blue-400/20 to-transparent"
+          />
+          <StarStat
+            stat="10+"
+            headline="Majors"
+            Icon={BookCopy}
+            compact
+            className="bg-radial from-red-400/20 to-transparent"
+          />
+        </div>
       </div>
-      <div className="relative w-full flex flex-col gap-5 justify-center items-center px-5 text-center z-10">
-        <p className="md:px-10 max-w-3xl">
-          STAR (Space Technology Association of Rutgers) is a student-led
-          chapter of SEDS (Students for the Exploration and Development of
-          Space).
+
+      <div className="relative mx-auto aspect-square w-full max-w-[31rem]" aria-label="Earth with a marker at Rutgers University">
+        <div className="absolute inset-[8%] rounded-full border border-white/10" aria-hidden="true" />
+        <div className="absolute inset-[18%] rounded-full border border-dashed border-red-300/20" aria-hidden="true" />
+        <Globe className="max-w-[31rem]" />
+        <p className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.6rem] font-bold uppercase tracking-[0.24em] text-white/40">
+          Located in New Brunswick, New Jersey
         </p>
-
-        <div className="mt-10">
-          <p className="mb-8">Here's a little bit about us</p>
-          <div className="w-full flex flex-col gap-10 md:gap-8 sm:flex-row items-center justify-center">
-            <StarStat
-              stat={"3"}
-              headline="Projects"
-              Icon={Wrench}
-              className="bg-radial from-red-400/20 to-transparent"
-            />
-            <StarStat
-              stat="90+"
-              headline="Active Members"
-              Icon={UsersRound}
-              className="bg-radial from-blue-400/20 to-transparent"
-            />
-            <StarStat
-              stat="10+"
-              headline="Majors Represented"
-              Icon={BookCopy}
-              className="bg-radial from-red-400/20 to-transparent"
-            />
-          </div>
-          <p className="mt-14 md:px-10 max-w-3xl mx-auto">
-            Our mission is to inspire and equip students to push the boundaries
-            of innovation. Through hands-on projects, industry connections, and
-            a driven community, we turn curiosity into capability and ideas into
-            impact.
-          </p>
-        </div>
-
-        <a
-          href="#JoinUsSection"
-          className="mt-8 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
-        >
-          Become a Member
-        </a>
-
-        <div className="flex flex-col mt-10 w-full mb-[700px]">
-          <p className="text-lg">Oh, and we plan on orbiting Earth</p>
-          <div className="relative flex justify-center items-center w-full">
-            <Globe className="w-full min-w-72 max-w-[700px]" />
-          </div>
-        </div>
-
-        <div className="w-full flex flex-col gap-4 justify-center items-center text-center px-10">
-          <p className="text-2xl">Why STAR?</p>
-          <p className="leading-8 max-w-3xl">
-            Because space is not just the final frontier—it is the next, and we
-            are leading the way. At STAR, we are engineers, innovators, and
-            problem-solvers committed to advancing space exploration. From
-            launching weather balloons to designing CubeSats, we transform
-            vision into reality. If you look to the stars and see opportunity,
-            you belong here. Let’s build the future of space—together.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-5 items-center">
-          <p className="max-w-3xl">
-            Did You Know STAR is Sponsored by 7 Different Organizations?
-          </p>
-          <HoverBlurCards items={sponsors} />
-        </div>
       </div>
     </div>
-  );
-};
+  </section>
+);
 
 export default AboutStarSection;

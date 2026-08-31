@@ -1,4 +1,5 @@
 import { Satellite, Bot, Wind, type LucideIcon } from "lucide-react";
+import type { ProjectId } from "../../content/currentInfo";
 
 export interface ProjectStat {
   /** Big accent value, e.g. "8" or "80,000+ ft". */
@@ -8,6 +9,7 @@ export interface ProjectStat {
 }
 
 export interface ProjectConfig {
+  id: ProjectId;
   /** Mono eyebrow over the title, e.g. "PROJECT 01 · CUBESAT". */
   eyebrow: string;
   /** Page <h1>. */
@@ -16,37 +18,24 @@ export interface ProjectConfig {
   tagline: string;
   /** Signature accent (design/tokens.md › Project signature accents). */
   accent: string;
-  /** Accent as RGB for the home ProjectCard CanvasRevealEffect dots. */
-  accentRgb: [number, number, number];
-  /** Tailwind bg class for the home card's hover reveal backdrop — a deep tint
-   *  of the accent so the bright accent dots pop (not full-bright). */
-  cardRevealBg: string;
   /** Faint backdrop motif (lucide). */
   motifIcon: LucideIcon;
   /** At-a-glance stat band — verifiable facts only. */
   stats: ProjectStat[];
   /** "The mission" prose, paragraph by paragraph (existing page copy). */
   mission: string[];
-  /** Current-status line for the closing section. */
-  statusBody: string;
-  /** Meeting/▸join note. */
-  meetingNote: string;
   ctaHref: string;
   ctaLabel: string;
 }
 
 const DISCORD = "https://discord.gg/vHa52wx9VK";
-const MEETING_NOTE =
-  "Meeting times will be posted here soon — check the Discord for the current schedule and to get plugged into a subteam.";
-
 export const cubesatConfig: ProjectConfig = {
+  id: "cubesat",
   eyebrow: "PROJECT 01 · CUBE SATELLITE",
   name: "Cube Satellite",
   tagline:
     "SPICEsat — Rutgers' first student-built satellite, engineered to study fuel slosh in microgravity.",
   accent: "#F5A524",
-  accentRgb: [245, 165, 36],
-  cardRevealBg: "bg-[#2b1d02]",
   motifIcon: Satellite,
   stats: [
     { value: "8", label: "Subteams" },
@@ -58,21 +47,17 @@ export const cubesatConfig: ProjectConfig = {
     "The CubeSat project is developing SPICEsat, Rutgers University's first student-built satellite. This mission is part of the prestigious University Nanosatellite Program, under mentorship from faculty and guidance from industry professionals. The satellite's primary scientific objective is to investigate fluid sloshing dynamics in microgravity, a critical problem in spacecraft fuel management. By characterizing slosh behavior and testing active control stabilization algorithms in orbit, SPICEsat aims to advance the state of onboard fuel modeling and control strategies beyond what passive systems allow.",
     "Students on the team are directly involved in the complete satellite lifecycle—from mission conceptualization and payload integration to subsystem testing and full-system validation. SPICEsat uses a combination of COTS components and custom hardware, offering students exposure to real-world spacecraft design and interdisciplinary systems engineering. With an engineering model already in testing, the mission is rapidly progressing toward flight readiness and serves as a launchpad for the next generation of space systems engineers.",
   ],
-  statusBody:
-    "An engineering model is already in testing as the mission progresses toward flight readiness.",
-  meetingNote: MEETING_NOTE,
   ctaHref: DISCORD,
   ctaLabel: "Join the mission on Discord",
 };
 
 export const roboticsConfig: ProjectConfig = {
+  id: "robotics",
   eyebrow: "PROJECT 02 · ROBOTICS",
   name: "Robotics",
   tagline:
     "An autonomous excavation rover engineered for NASA's Lunabotics challenge.",
   accent: "#34D399",
-  accentRgb: [52, 211, 153],
-  cardRevealBg: "bg-[#06291f]",
   motifIcon: Bot,
   stats: [
     { value: "3", label: "Subteams" },
@@ -83,21 +68,17 @@ export const roboticsConfig: ProjectConfig = {
   mission: [
     "The Robotics project is designing and building a fully autonomous lunar rover for NASA's annual Lunabotics Challenge, a national competition where university teams simulate real lunar surface operations by constructing a robot capable of excavating and transporting regolith — moon-like soil — while navigating a competition arena that mimics the lunar environment. The team's rover is developed entirely in-house, with student-led subsystems spanning mechanical design, embedded systems, autonomy, perception, and control, featuring terrain-adaptive locomotion, regolith excavation tools, and autonomous navigation algorithms optimized for excavation throughput and energy efficiency. By engineering under stringent NASA competition rules and real lunar mission constraints — resource limitation, autonomous decision-making, and dust mitigation — members gain hands-on experience in planetary robotics, systems integration, and mission-driven problem solving, preparing them for careers in aerospace, robotics, and beyond.",
   ],
-  statusBody:
-    "The team competes in NASA's annual Lunabotics Challenge, iterating the rover season over season.",
-  meetingNote: MEETING_NOTE,
   ctaHref: DISCORD,
   ctaLabel: "Join the mission on Discord",
 };
 
 export const weatherBalloonConfig: ProjectConfig = {
+  id: "weather-balloon",
   eyebrow: "PROJECT 03 · WEATHER BALLOON",
   name: "Weather Balloon",
   tagline:
     "High-altitude payloads carrying experiments to the edge of space — launched every semester.",
   accent: "#38BDF8",
-  accentRgb: [56, 189, 248],
-  cardRevealBg: "bg-[#06222e]",
   motifIcon: Wind,
   stats: [
     { value: "80,000+ ft", label: "Peak altitude" },
@@ -108,9 +89,6 @@ export const weatherBalloonConfig: ProjectConfig = {
   mission: [
     "The Weather Balloon Team designs, fabricates, and launches high-altitude experimental payloads each academic semester. These systems routinely reach altitudes exceeding 80,000 feet via high-altitude balloon platforms, enabling near-space data collection and flight system validation in low-pressure, low-temperature environments.",
   ],
-  statusBody:
-    "The team designs and launches a new high-altitude payload every academic semester.",
-  meetingNote: MEETING_NOTE,
   ctaHref: DISCORD,
   ctaLabel: "Join the mission on Discord",
 };

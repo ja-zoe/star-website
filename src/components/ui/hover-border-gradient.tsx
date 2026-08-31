@@ -2,8 +2,21 @@ import React, { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
+import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 type Direction = "TOP" | "LEFT" | "BOTTOM" | "RIGHT";
+const DIRECTIONS: Direction[] = ["TOP", "LEFT", "BOTTOM", "RIGHT"];
+
+const rotateDirection = (
+  currentDirection: Direction,
+  clockwise: boolean,
+): Direction => {
+  const currentIndex = DIRECTIONS.indexOf(currentDirection);
+  const nextIndex = clockwise
+    ? (currentIndex - 1 + DIRECTIONS.length) % DIRECTIONS.length
+    : (currentIndex + 1) % DIRECTIONS.length;
+  return DIRECTIONS[nextIndex];
+};
 
 export function HoverBorderGradient({
   children,
@@ -12,6 +25,7 @@ export function HoverBorderGradient({
   as: Tag = "button",
   duration = 1,
   clockwise = true,
+  animate = true,
   ...props
 }: React.PropsWithChildren<
   {
@@ -20,21 +34,15 @@ export function HoverBorderGradient({
     className?: string;
     duration?: number;
     clockwise?: boolean;
+    animate?: boolean;
     /** Forwarded to the rendered tag when used as an anchor (as="a"). */
     href?: string;
   } & React.HTMLAttributes<HTMLElement>
 >) {
   const [hovered, setHovered] = useState<boolean>(false);
   const [direction, setDirection] = useState<Direction>("TOP");
-
-  const rotateDirection = (currentDirection: Direction): Direction => {
-    const directions: Direction[] = ["TOP", "LEFT", "BOTTOM", "RIGHT"];
-    const currentIndex = directions.indexOf(currentDirection);
-    const nextIndex = clockwise
-      ? (currentIndex - 1 + directions.length) % directions.length
-      : (currentIndex + 1) % directions.length;
-    return directions[nextIndex];
-  };
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const motionAllowed = animate && !prefersReducedMotion;
 
   const movingMap: Record<Direction, string> = {
     TOP: "radial-gradient(20.7% 50% at 50% 0%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
@@ -49,13 +57,13 @@ export function HoverBorderGradient({
     "radial-gradient(75% 181.15942028985506% at 50% 50%, #3275F8 0%, rgba(255, 255, 255, 0) 100%)";
 
   useEffect(() => {
-    if (!hovered) {
+    if (!hovered && motionAllowed) {
       const interval = setInterval(() => {
-        setDirection((prevState) => rotateDirection(prevState));
+        setDirection((prevState) => rotateDirection(prevState, clockwise));
       }, duration * 1000);
       return () => clearInterval(interval);
     }
-  }, [hovered]);
+  }, [clockwise, duration, hovered, motionAllowed]);
   return (
     <Tag
       onMouseEnter={() => {
@@ -92,7 +100,7 @@ export function HoverBorderGradient({
             ? [movingMap[direction], highlight]
             : movingMap[direction],
         }}
-        transition={{ ease: "linear", duration: duration ?? 1 }}
+        transition={{ ease: "linear", duration: motionAllowed ? duration : 0 }}
       />
       <div className="bg-black absolute z-1 flex-none inset-[2px] rounded-[100px]" />
     </Tag>

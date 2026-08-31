@@ -55,10 +55,19 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
   const [star, setStar] = useState<ShootingStar | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [pageVisible, setPageVisible] = useState(
+    () => typeof document === "undefined" || document.visibilityState === "visible",
+  );
 
   useEffect(() => {
-    // No continuous shooting stars when the user prefers reduced motion.
-    if (prefersReducedMotion) {
+    const onVisibilityChange = () =>
+      setPageVisible(document.visibilityState === "visible");
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", onVisibilityChange);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion || !pageVisible) {
       setStar(null);
       return;
     }
@@ -83,7 +92,7 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
     createStar();
 
     return () => clearTimeout(timeoutId);
-  }, [minSpeed, maxSpeed, minDelay, maxDelay, prefersReducedMotion]);
+  }, [minSpeed, maxSpeed, minDelay, maxDelay, pageVisible, prefersReducedMotion]);
 
   useEffect(() => {
     const moveStar = () => {
@@ -117,14 +126,16 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
       }
     };
 
-    const animationFrame = requestAnimationFrame(moveStar);
+    const animationFrame = pageVisible ? requestAnimationFrame(moveStar) : 0;
     return () => cancelAnimationFrame(animationFrame);
-  }, [star]);
+  }, [pageVisible, star]);
 
   return (
     <svg
       ref={svgRef}
       className={cn("fixed top-0 left-0 w-screen h-screen pointer-events-none z-50", className)}
+      aria-hidden="true"
+      data-shooting-stars="true"
     >
       {star && (
         <rect

@@ -1,17 +1,14 @@
+import HomeSectionTitle from "../../components/HomeSectionTitle";
 import ProjectCard from "../../components/ProjectCard";
+import {
+  cubesatConfig,
+  roboticsConfig,
+  weatherBalloonConfig,
+} from "../../components/project/projectConfig";
 import roverIcon from "/rover-icon.png";
 import satelliteIcon from "/satellite-icon.png";
 import weatherBalloonIcon from "/weather-balloon-icon.png";
-import { TextHoverEffect } from "../../components/ui/text-hover-effect";
-import {
-  roboticsConfig,
-  weatherBalloonConfig,
-  cubesatConfig,
-} from "../../components/project/projectConfig";
 
-// Cards are sourced from the same projectConfig that themes the project pages,
-// so a card's hover reveal (dots = accentRgb, backdrop = cardRevealBg) matches
-// its page's signature accent. Order matches the existing visual layout.
 const cards = [
   {
     href: "/robotics",
@@ -39,14 +36,18 @@ const cards = [
   },
 ];
 
-const ProjectsSection = () => {
-  return (
-    <div
-      id="ProjectsSection"
-      className="relative flex w-screen scroll-mt-24 flex-col items-center justify-center gap-0 pb-20 pt-10"
-    >
-      <TextHoverEffect text="OUR PROJECTS" />
-      <div className="z-20 flex w-full max-w-7xl flex-wrap items-center justify-center gap-6 px-5 lg:gap-8">
+const ProjectsSection = () => (
+  <section
+    id="ProjectsSection"
+    className="relative w-full scroll-mt-24 border-b border-white/10 px-5 py-20 md:px-10 md:py-28"
+  >
+    <div className="mx-auto w-full max-w-7xl">
+      <HomeSectionTitle
+        title="Our projects"
+        display="OUR PROJECTS"
+        description="Three teams with equal room to learn, contribute, and build something real."
+      />
+      <div className="mt-12 grid items-stretch gap-5 md:grid-cols-3 lg:gap-7">
         {cards.map(({ href, index, title, purpose, icon, config }) => (
           <ProjectCard
             key={href}
@@ -57,12 +58,11 @@ const ProjectsSection = () => {
             purpose={purpose}
             facts={config.stats}
             accent={config.accent}
-            colors={[config.accentRgb]}
-            revealBg={config.cardRevealBg}
           />
         ))}
       </div>
     </div>
-  );
-};
+  </section>
+);
+
 export default ProjectsSection;

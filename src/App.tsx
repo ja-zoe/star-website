@@ -6,9 +6,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ShootingStars } from "./components/ui/shooting-stars";
 
-// Route-level code splitting: each page (and its heavy deps — three.js on the
-// home page via canvas-reveal, simplex-noise WavyBackground on project pages) is
-// fetched on demand instead of riding in the single initial chunk.
+// Route-level code splitting keeps project-specific content and visual modules
+// out of the initial route bundle.
 const MainPage = lazy(() => import("./routes/home/HomePage"));
 const CubesatPage = lazy(() => import("./routes/cubesat/CubesatPage"));
 const RoboticsPage = lazy(() => import("./routes/robotics/RoboticsPage"));
@@ -16,6 +15,20 @@ const WeatherBalloonPage = lazy(
   () => import("./routes/weatherBalloon/WeatherBalloonPage"),
 );
 const NotFound = lazy(() => import("./routes/NotFound"));
+
+const RouteFallback = () => (
+  <div
+    className="flex min-h-[100svh] items-center justify-center bg-black px-6"
+    aria-hidden="true"
+  >
+    <div className="w-full max-w-5xl animate-pulse space-y-6">
+      <div className="h-3 w-32 bg-white/15" />
+      <div className="h-14 w-3/4 max-w-2xl bg-white/10" />
+      <div className="h-4 w-full max-w-xl bg-white/[0.07]" />
+      <div className="h-4 w-2/3 max-w-md bg-white/[0.07]" />
+    </div>
+  </div>
+);
 
 const HashScroll = () => {
   const { pathname, hash } = useLocation();
@@ -61,11 +74,8 @@ function App() {
       {/* Global Navbar */}
       <Navbar />
 
-      <main id="main-content" className="flex-1">
-        {/* Fallback is null: the global StarsBackground + Footer stay mounted
-            below, so the screen keeps its black/stars look during chunk fetch
-            (no white flash, no spinner noise). */}
-        <Suspense fallback={null}>
+      <main id="main-content" className="min-h-[100svh] flex-1">
+        <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="cubesat" element={<CubesatPage />} />
@@ -80,7 +90,6 @@ function App() {
       {/* Global Footer and shooting star background */}
       <Footer />
       <StarsBackground />
-      <ShootingStars />
       <ShootingStars />
     </div>
   );

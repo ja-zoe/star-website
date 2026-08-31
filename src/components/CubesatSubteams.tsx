@@ -8,6 +8,7 @@ import {
   Compass,
   FlaskConical,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -18,7 +19,7 @@ import {
 } from "../components/ui/dialog";
 
 interface SubteamInfo {
-  icon: any;
+  icon: LucideIcon;
   team: string;
   name: string;
   description: string;
