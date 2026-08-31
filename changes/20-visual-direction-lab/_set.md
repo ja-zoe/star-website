@@ -15,6 +15,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 - [x] R20.10 — Build three full-potential hero visual comparisons
 - [x] R20.11 — Float the selected constellation visual into the hero
 - [x] R20.12 — Ship the selected constellation on the production homepage
+- [t] R20.13 — Remove design-lab routes before production deployment
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,
