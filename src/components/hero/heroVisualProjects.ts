@@ -7,6 +7,7 @@ export type HeroProjectId = "robotics" | "weather-balloon" | "cubesat";
 export interface HeroProject {
   id: HeroProjectId;
   label: string;
+  href: string;
   number: string;
   accent: string;
   dimAccent: string;
@@ -18,6 +19,7 @@ export const heroProjects: HeroProject[] = [
   {
     id: "robotics",
     label: "Robotics",
+    href: "/robotics",
     number: "01",
     accent: "#34D399",
     dimAccent: "rgba(52, 211, 153, 0.18)",
@@ -27,6 +29,7 @@ export const heroProjects: HeroProject[] = [
   {
     id: "weather-balloon",
     label: "Weather Balloon",
+    href: "/weather-balloon",
     number: "02",
     accent: "#38BDF8",
     dimAccent: "rgba(56, 189, 248, 0.18)",
@@ -36,6 +39,7 @@ export const heroProjects: HeroProject[] = [
   {
     id: "cubesat",
     label: "CubeSat",
+    href: "/cubesat",
     number: "03",
     accent: "#F5A524",
     dimAccent: "rgba(245, 165, 36, 0.18)",

@@ -1,6 +1,10 @@
 import { AnimatePresence, motion, useMotionTemplate, useMotionValue, useSpring } from "motion/react";
-import { getHeroProject, type HeroProjectId, type HeroVisualProps } from "./shared";
-import { useVisualActivity } from "./useVisualActivity";
+import {
+  getHeroProject,
+  type HeroProjectId,
+  type HeroVisualProps,
+} from "../../../components/hero/heroVisualProjects";
+import { useVisualActivity } from "../../../hooks/useVisualActivity";
 
 interface FlightProfile {
   eyebrow: string;

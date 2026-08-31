@@ -1,8 +1,8 @@
 import { Pause, Play } from "lucide-react";
+import KineticStarConstellation from "../../components/hero/KineticStarConstellation";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 import FlightPathInstrument from "./heroVisuals/FlightPathInstrument";
 import HeroVisualPrototype from "./heroVisuals/HeroVisualPrototype";
-import KineticStarConstellation from "./heroVisuals/KineticStarConstellation";
 import ReactiveMissionBoard from "./heroVisuals/ReactiveMissionBoard";
 
 const concepts = [

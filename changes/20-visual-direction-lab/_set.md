@@ -14,6 +14,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 - [x] R20.8 — Match navbar order and eliminate sticky pointer selection
 - [x] R20.10 — Build three full-potential hero visual comparisons
 - [x] R20.11 — Float the selected constellation visual into the hero
+- [t] R20.12 — Ship the selected constellation on the production homepage
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,

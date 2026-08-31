@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { getHeroProject, type HeroProjectId, type HeroVisualProps } from "./shared";
-import { useVisualActivity } from "./useVisualActivity";
+import { useVisualActivity } from "../../hooks/useVisualActivity";
+import { getHeroProject, type HeroProjectId, type HeroVisualProps } from "./heroVisualProjects";
 
 interface Particle {
   x: number;
@@ -310,23 +310,6 @@ const KineticStarConstellation = ({ activeProject, motionEnabled }: HeroVisualPr
         aria-label={`Kinetic STAR constellation transmitting the ${project.label} signal`}
         className="absolute inset-0 h-full w-full"
       />
-      <div className="pointer-events-none absolute inset-x-4 top-4 z-10 flex items-start justify-between gap-6">
-        <div>
-          <p className="text-[0.55rem] font-bold uppercase tracking-[0.22em] text-white/50">
-            STAR constellation / responsive field
-          </p>
-          <p className="mt-1 text-[0.48rem] uppercase tracking-[0.18em] text-white/25">
-            move through the mark / it reforms
-          </p>
-        </div>
-        <p className="text-right text-[0.5rem] font-bold uppercase tracking-[0.18em]" style={{ color: project.accent }}>
-          signal {project.number}<br />{project.label}
-        </p>
-      </div>
-      <div className="pointer-events-none absolute bottom-3 left-4 z-10 flex items-center gap-3 text-[0.48rem] uppercase tracking-[0.18em] text-white/28">
-        <span className="h-px w-8" style={{ backgroundColor: project.accent }} />
-        one organization / three build paths
-      </div>
     </figure>
   );
 };
