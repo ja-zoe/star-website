@@ -18,6 +18,9 @@ const NotFound = lazy(() => import("./routes/NotFound"));
 const VisualDirectionLab = lazy(
   () => import("./routes/designLab/VisualDirectionLab"),
 );
+const HeroVisualComparisonLab = lazy(
+  () => import("./routes/designLab/HeroVisualComparisonLab"),
+);
 
 const RouteFallback = () => (
   <div
@@ -85,6 +88,7 @@ function App() {
             <Route path="robotics" element={<RoboticsPage />} />
             <Route path="weather-balloon" element={<WeatherBalloonPage />} />
             <Route path="design-lab" element={<VisualDirectionLab />} />
+            <Route path="design-lab/hero-visuals" element={<HeroVisualComparisonLab />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <HashScroll />
