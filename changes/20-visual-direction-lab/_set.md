@@ -4,9 +4,9 @@ Source: user review of Set 19 P1 on 2026-08-29.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [t] R20.1 — Build an isolated Aceternity visual direction lab
-- [t] R20.2 — Apply the selected direction to the production homepage
-- [t] R20.3 — Refine selected production details after visual review
+- [x] R20.1 — Build an isolated Aceternity visual direction lab
+- [x] R20.2 — Apply the selected direction to the production homepage
+- [x] R20.3 — Refine selected production details after visual review
 - [x] R20.4 — Add scroll-aware navbar section state
 - [x] R20.5 — Preserve the Rutgers-facing globe when motion is paused
 - [x] R20.6 — Prototype an interactive exploded CubeSat in the hero
@@ -15,7 +15,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 - [x] R20.10 — Build three full-potential hero visual comparisons
 - [x] R20.11 — Float the selected constellation visual into the hero
 - [x] R20.12 — Ship the selected constellation on the production homepage
-- [t] R20.13 — Remove design-lab routes before production deployment
+- [x] R20.13 — Remove design-lab routes before production deployment
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,
