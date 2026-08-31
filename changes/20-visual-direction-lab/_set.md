@@ -42,3 +42,6 @@ Source: user review of Set 19 P1 on 2026-08-29.
   prominence, personal student voice, Discord join, photo-led leadership, a
   relationship rail, and persistent motion control. Current Missions was preserved.
 - 2026-08-29 — Lint, build, desktop/mobile visual, motion, overflow, console, and CLS gates passed.
+- 2026-08-31 — Final constellation direction approved; public design-lab routes removed from the
+  deployable app before release.
+- 2026-08-31 — Set 20 complete. Merged `feat/set20-visual-direction-lab` to `main`.
