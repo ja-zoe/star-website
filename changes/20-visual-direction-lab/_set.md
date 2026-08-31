@@ -13,7 +13,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 - [x] R20.7 — Keep navbar focus/open states in the red glow system
 - [x] R20.8 — Match navbar order and eliminate sticky pointer selection
 - [x] R20.10 — Build three full-potential hero visual comparisons
-- [t] R20.11 — Float the selected constellation visual into the hero
+- [x] R20.11 — Float the selected constellation visual into the hero
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,
