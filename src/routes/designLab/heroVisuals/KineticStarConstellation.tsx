@@ -302,7 +302,7 @@ const KineticStarConstellation = ({ activeProject, motionEnabled }: HeroVisualPr
       onPointerLeave={() => {
         pointerRef.current.active = false;
       }}
-      className="relative h-64 overflow-hidden border border-white/15 bg-[#020203] sm:h-[19rem]"
+      className="relative h-64 sm:h-[19rem]"
     >
       <canvas
         ref={canvasRef}
