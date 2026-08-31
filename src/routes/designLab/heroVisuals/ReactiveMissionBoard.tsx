@@ -5,9 +5,13 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import {
+  getHeroProject,
+  type HeroProjectId,
+  type HeroVisualProps,
+} from "../../../components/hero/heroVisualProjects";
 import { GlowingEffect } from "../../../components/ui/glowing-effect";
-import { getHeroProject, type HeroProjectId, type HeroVisualProps } from "./shared";
-import { useVisualActivity } from "./useVisualActivity";
+import { useVisualActivity } from "../../../hooks/useVisualActivity";
 
 const routes: Record<HeroProjectId, { path: string; x: number; y: number; port: string }> = {
   robotics: {

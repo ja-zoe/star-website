@@ -1,7 +1,10 @@
 import { useState, type ComponentType } from "react";
 import { ArrowRight } from "lucide-react";
-import type { HeroProjectId, HeroVisualProps } from "./shared";
-import { heroProjects } from "./shared";
+import {
+  heroProjects,
+  type HeroProjectId,
+  type HeroVisualProps,
+} from "../../../components/hero/heroVisualProjects";
 
 interface HeroVisualPrototypeProps {
   option: "A" | "B" | "C";

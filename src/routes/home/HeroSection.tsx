@@ -1,29 +1,18 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router";
+import KineticStarConstellation from "../../components/hero/KineticStarConstellation";
+import {
+  heroProjects,
+  type HeroProjectId,
+} from "../../components/hero/heroVisualProjects";
 import { HoverBorderGradient } from "../../components/ui/hover-border-gradient";
 import { Spotlight } from "../../components/ui/spotlight-new";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
-import roverIcon from "/rover-icon.png";
-import satelliteIcon from "/satellite-icon.png";
-import weatherBalloonIcon from "/weather-balloon-icon.png";
-
-const programs = [
-  { label: "Robotics", href: "/robotics", icon: roverIcon },
-  { label: "Weather Balloon", href: "/weather-balloon", icon: weatherBalloonIcon },
-  { label: "CubeSat", href: "/cubesat", icon: satelliteIcon },
-];
-
-const ExplodedCubeSat = lazy(() => import("../../components/hero/ExplodedCubeSat"));
 
 const HeroSection = () => {
   const reducedMotion = usePrefersReducedMotion();
-  const [hardwareReady, setHardwareReady] = useState(false);
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => setHardwareReady(true), 350);
-    return () => window.clearTimeout(timer);
-  }, []);
+  const [activeProject, setActiveProject] = useState<HeroProjectId>("cubesat");
 
   return (
     <section
@@ -68,19 +57,22 @@ const HeroSection = () => {
         </div>
 
         <div className="relative z-10 space-y-7">
-          <Suspense
-            fallback={<div className="h-56 border border-white/10 bg-white/[0.015] sm:h-[19rem]" aria-hidden="true" />}
-          >
-            {hardwareReady ? <ExplodedCubeSat /> : <div className="h-56 border border-white/10 bg-white/[0.015] sm:h-[19rem]" aria-hidden="true" />}
-          </Suspense>
+          <KineticStarConstellation
+            activeProject={activeProject}
+            motionEnabled={!reducedMotion}
+          />
           <nav className="space-y-2" aria-label="STAR project programs">
             <p className="mb-5 text-[0.6rem] font-bold uppercase tracking-[0.24em] text-white/35">
               Current programs
             </p>
-            {programs.map((program, index) => (
+            {heroProjects.map((program, index) => (
               <Link
                 key={program.href}
                 to={program.href}
+                data-hero-project={program.id}
+                data-active={program.id === activeProject ? "true" : "false"}
+                onPointerEnter={() => setActiveProject(program.id)}
+                onFocus={() => setActiveProject(program.id)}
                 className="group flex min-h-20 items-center justify-between border-b border-white/20 px-2 transition-colors hover:bg-white/[0.035] sm:px-5"
               >
                 <span className="flex items-center gap-4">

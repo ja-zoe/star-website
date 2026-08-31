@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+const VISUAL_ROOT_MARGIN = "120px";
+
 export const useVisualActivity = (motionEnabled: boolean) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(true);
@@ -13,7 +15,7 @@ export const useVisualActivity = (motionEnabled: boolean) => {
 
     const observer = new IntersectionObserver(
       ([entry]) => setInView(entry.isIntersecting),
-      { rootMargin: "120px" },
+      { rootMargin: VISUAL_ROOT_MARGIN },
     );
     observer.observe(container);
     return () => observer.disconnect();
