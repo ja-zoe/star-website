@@ -1,6 +1,6 @@
 # R20.10 — Full-potential hero visual comparison
 
-**Status:** tests passing
+**Status:** done
 **Files:** `src/App.tsx`, `src/routes/designLab/HeroVisualComparisonLab.tsx`,
 `src/routes/designLab/heroVisuals/*`, this feature directory's review artifacts
 

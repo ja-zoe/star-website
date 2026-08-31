@@ -12,3 +12,5 @@
   warnings. Reviewed captures are stored in `screenshots/`.
 - 2026-08-31 — `pnpm lint`, `pnpm build`, and `git diff --check` passed. The existing production
   `HeroSection` and `ExplodedCubeSat` were not modified.
+- 2026-08-31 — Merged `feat/set20/R20.10-hero-visual-comparison` into
+  `feat/set20-visual-direction-lab` after the feature test scheme passed.
