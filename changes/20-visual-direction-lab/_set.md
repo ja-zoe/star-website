@@ -12,6 +12,7 @@ Source: user review of Set 19 P1 on 2026-08-29.
 - [x] R20.6 — Prototype an interactive exploded CubeSat in the hero
 - [x] R20.7 — Keep navbar focus/open states in the red glow system
 - [x] R20.8 — Match navbar order and eliminate sticky pointer selection
+- [ ] R20.9 — Integrate the user-authored CubeSat model when it is ready (deferred)
 
 ## Locked direction
 - Keep Space Mono, outlined TextHoverEffect headings, animated gradients,
