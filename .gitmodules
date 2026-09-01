@@ -1,3 +1,6 @@
 [submodule ".claude/skills/spec-driven-dev"]
 	path = .claude/skills/spec-driven-dev
 	url = git@github.com:ja-zoe/agent-skill-spec-driven-dev.git
+[submodule ".agents/skills/spec-driven-dev"]
+	path = .agents/skills/spec-driven-dev
+	url = https://github.com/ja-zoe/agent-skill-spec-driven-dev.git
