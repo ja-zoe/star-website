@@ -4,18 +4,18 @@ import { Binary } from "lucide-react";
 const subteam: Subteam = {
   name: "Software",
   discipline: "Autonomy",
-  lead: "Taha Touil",
+  lead: "Julian Vilfort",
   leadLabel: "Lead",
   icon: Binary,
   summary:
     "Software turns sensing into motion — the autonomy and teleop stack that digs under contest constraints.",
   responsibilities: [
-    { title: "Perception & localization", body: "Fuse IMU, odometry, and LiDAR/vision for pose, terrain, and dust-robust detection." },
-    { title: "Planning & control", body: "Build planners, obstacle avoidance, and trajectory tracking for traction and manipulators." },
-    { title: "Autonomy & teleop", body: "Manage modes, failover between autonomous and RC, and safe state transitions." },
-    { title: "Middleware", body: "Define messaging, logging, and parameters (ROS2-style) for deterministic, fast iteration." },
-    { title: "Fault recovery", body: "Run watchdogs, heartbeats, and graceful degradation when hardware misbehaves." },
-    { title: "Sim & testing", body: "Validate in high-fidelity sim with unit, integration, and replay tooling before the field." },
+    { title: "Sensing & position", body: "Combine motion sensors, wheel measurements, and laser/camera data to estimate position, terrain, and dust-obscured obstacles." },
+    { title: "Planning & control", body: "Build route planning, obstacle avoidance, and motion tracking for traction and digging tools." },
+    { title: "Autonomy & teleop", body: "Manage autonomous and driver-controlled modes, switching between them safely during a run." },
+    { title: "Robot communications", body: "Define the messages, logs, and settings that let the rover's computers exchange information reliably." },
+    { title: "Fault recovery", body: "Run health checks and automatic safeguards when hardware misbehaves." },
+    { title: "Simulation & testing", body: "Validate in a realistic virtual rover environment with unit, integration, and replay tests before field trials." },
   ],
 };
 

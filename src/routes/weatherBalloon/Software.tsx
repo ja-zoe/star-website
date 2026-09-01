@@ -10,10 +10,10 @@ const subteam: Subteam = {
   summary:
     "Software runs the payload in flight — driving the sensors and getting data safely to the ground and back.",
   responsibilities: [
-    { title: "Flight software", body: "Write the embedded code that runs the sensors, GPS, and comms modules." },
+    { title: "Flight software", body: "Write the onboard code that runs the sensors, location tracker, and communication hardware." },
     { title: "Data handling", body: "Collect readings, structure them, and store and transmit them reliably." },
-    { title: "Ground comms", body: "Build telemetry that streams position, altitude, and environment in real time." },
-    { title: "Fault tolerance", body: "Add watchdogs and safeguards that catch anomalies and recover mid-flight." },
+    { title: "Ground communications", body: "Build live status updates that stream position, altitude, and environmental readings to the ground." },
+    { title: "Fault tolerance", body: "Add health checks and safeguards that catch problems and recover during flight." },
     { title: "Analysis tools", body: "Build the pipelines that visualize and interpret data after recovery." },
   ],
 };

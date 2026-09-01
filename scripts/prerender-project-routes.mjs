@@ -13,10 +13,10 @@ const projects = [
     eyebrow: "PROJECT 01 · SPICESAT",
     accent: "#F5A524",
     description:
-      "STAR's CubeSat team is engineering Rutgers' first student-built satellite across eight technical subteams, with a mission focused on fuel slosh in microgravity.",
+      "STAR's CubeSat team is engineering Rutgers' first student-built satellite across eight technical subteams, with a mission focused on propellant slosh characterization and active control in microgravity.",
     tagline: [
       "Rutgers' first student-built satellite.",
-      "Fuel-slosh science. Eight technical subteams.",
+      "Propellant slosh characterization. Eight technical subteams.",
     ],
   },
   {

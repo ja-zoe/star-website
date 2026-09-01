@@ -171,13 +171,13 @@ const ProjectShell = ({
               <h3 className="mt-3 max-w-3xl text-2xl font-bold sm:text-3xl">{artifact.title}</h3>
               <p className="mt-4 max-w-3xl text-sm leading-7 text-white/65">{artifact.description}</p>
               <p className="mt-6 text-[0.6rem] uppercase tracking-wider text-white/40 lg:hidden">Swipe or use arrow keys to trace the sequence</p>
-              <ol aria-label={`${name} mission sequence`} tabIndex={0} className="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-3 focus-visible:outline-offset-4 lg:mt-8 lg:grid lg:grid-cols-5 lg:overflow-visible lg:pb-0">
+              <ol aria-label={`${name} mission sequence`} tabIndex={0} className="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-3 focus-visible:outline-offset-4 lg:mt-8 lg:grid lg:grid-cols-5 lg:gap-8 lg:overflow-visible lg:pb-0">
                 {artifact.steps.map((step, index) => (
-                  <li key={step.label} className="relative min-w-[15rem] snap-start border border-white/10 bg-black/45 p-4 lg:min-w-0">
+                  <li key={step.label} className="relative min-w-[15rem] snap-start overflow-visible border border-white/10 bg-black/45 p-4 lg:min-w-0">
                     <div className="flex items-center justify-between gap-3">
                       <span className="text-xs tabular-nums text-[var(--accent)]">{String(index + 1).padStart(2, "0")}</span>
                       {index < artifact.steps.length - 1 && (
-                        <ArrowRight className="h-4 w-4 text-white/25 lg:absolute lg:-right-5 lg:top-1/2 lg:z-10 lg:-translate-y-1/2" aria-hidden="true" />
+                        <ArrowRight className="h-4 w-4 text-white/25 lg:absolute lg:-right-6 lg:top-1/2 lg:z-10 lg:-translate-y-1/2" aria-hidden="true" />
                       )}
                     </div>
                     <h4 className="mt-5 font-bold">{step.label}</h4>
@@ -201,7 +201,7 @@ const ProjectShell = ({
                 {currentInfo.recruitment.eligibility}. {currentInfo.recruitment.prerequisites}. Open a subteam to see responsibilities and useful starting interests.
               </p>
             </div>
-            <div className="mt-10 grid w-full grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:items-stretch sm:justify-center sm:gap-8">
+            <div className="mt-10 flex w-full flex-wrap items-stretch justify-center gap-4">
               {children}
             </div>
           </div>

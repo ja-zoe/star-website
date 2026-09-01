@@ -65,11 +65,11 @@ const SubteamModal = ({ subteam }: { subteam: Subteam }) => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger
-        id={slug}
-        aria-label={`View ${name} subteam details`}
-        className="h-full w-full scroll-mt-28 cursor-pointer sm:w-auto"
-      >
+        <DialogTrigger
+          id={slug}
+          aria-label={`View ${name} subteam details`}
+          className="h-full w-full max-w-[22rem] scroll-mt-28 cursor-pointer sm:w-[calc(50%-0.5rem)] xl:w-[calc(33.333%-0.667rem)]"
+        >
         <StarStat
           stat={name}
           Icon={Icon}

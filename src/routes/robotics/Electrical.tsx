@@ -10,12 +10,12 @@ const subteam: Subteam = {
   summary:
     "Electrical is the rover's power and control backbone — built to survive dust, shock, and big current swings.",
   responsibilities: [
-    { title: "Power architecture", body: "Design batteries, protection, and DC–DC regulation to hold stable rails under peak load." },
-    { title: "Motor control", body: "Spec drivers, current sensing, and feedback for drive, steering, and excavation." },
-    { title: "Sensor & I/O", body: "Wire encoders, IMUs, LiDAR/cameras, and telemetry with dust-resistant connectors." },
-    { title: "EMC & reliability", body: "Ground, filter, and route cabling to keep signals clean next to high-current paths." },
+    { title: "Power architecture", body: "Design batteries and protection circuits, and convert voltage as needed to keep each part powered during peak demand." },
+    { title: "Motor control", body: "Choose motor controllers and feedback sensors for driving, steering, and excavation." },
+    { title: "Sensors & connections", body: "Wire wheel sensors, motion sensors, laser scanners/cameras, and status data with dust-resistant connectors." },
+    { title: "Electrical noise & reliability", body: "Ground, filter, and route cabling to keep signals clean next to high-current paths." },
     { title: "Safety & fault tolerance", body: "Add e-stops, fusing, and health monitoring against thermal or actuation runaway." },
-    { title: "Test & diagnostics", body: "Run power budgets, load steps, and HIL checks before trials on simulant." },
+    { title: "Test & diagnostics", body: "Check power needs, test sudden changes in demand, and test connected hardware before trials on simulated lunar soil." },
   ],
 };
 
