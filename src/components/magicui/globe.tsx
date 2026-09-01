@@ -9,6 +9,43 @@ import { cn } from "../../lib/utils";
 
 const MOVEMENT_DAMPING = 1400;
 const PAUSED_PHI = 0;
+const ORBIT_FRAME_MS = 1000 / 30;
+const STATIC_ORBIT_PROGRESS = 0.25;
+
+interface OrbitPlane {
+  radius: number;
+  inclination: number;
+  rotation: number;
+}
+
+const LEO_ORBIT: OrbitPlane = { radius: 44, inclination: 58, rotation: -18 };
+
+const projectOrbitPoint = (orbit: OrbitPlane, progress: number) => {
+  const angle = progress * Math.PI * 2;
+  const inclination = (orbit.inclination * Math.PI) / 180;
+  const rotation = (orbit.rotation * Math.PI) / 180;
+  const planeX = orbit.radius * Math.cos(angle);
+  const planeY = orbit.radius * Math.sin(angle) * Math.cos(inclination);
+  const depth = Math.sin(angle) * Math.sin(inclination);
+  const perspective = 1 + depth * 0.08;
+
+  return {
+    x: 50 + (planeX * Math.cos(rotation) - planeY * Math.sin(rotation)) * perspective,
+    y: 50 + (planeX * Math.sin(rotation) + planeY * Math.cos(rotation)) * perspective,
+    depth,
+  };
+};
+
+const LEO_VISIBLE_SEGMENTS = Array.from({ length: 64 }, (_, index) => {
+  const start = projectOrbitPoint(LEO_ORBIT, index / 128);
+  const end = projectOrbitPoint(LEO_ORBIT, (index + 1) / 128);
+  const normalizedDepth = Math.max(0, (start.depth + end.depth) / 2);
+
+  return {
+    d: `M${start.x.toFixed(2)} ${start.y.toFixed(2)} L${end.x.toFixed(2)} ${end.y.toFixed(2)}`,
+    opacity: Math.pow(normalizedDepth, 1.7) * 0.46,
+  };
+});
 
 const GLOBE_CONFIG: COBEOptions = {
   width: 800,
@@ -22,7 +59,7 @@ const GLOBE_CONFIG: COBEOptions = {
   mapSamples: 30000,
   mapBrightness: 1.2,
   baseColor: [1, 1, 1],
-  markerColor: [251 / 255, 100 / 255, 21 / 255],
+  markerColor: [56 / 255, 189 / 255, 248 / 255],
   glowColor: [1, 1, 1],
   markers: [{ location: [40.521983, -74.462832], size: 0.1 }],
   context: { preserveDrawingBuffer: true },
@@ -45,6 +82,7 @@ export function Globe({
   const reducedMotionRef = useRef(prefersReducedMotion);
   reducedMotionRef.current = prefersReducedMotion;
   const [inView, setInView] = useState(false);
+  const [orbitProgress, setOrbitProgress] = useState(STATIC_ORBIT_PROGRESS);
   const [pageVisible, setPageVisible] = useState(
     () => typeof document === "undefined" || document.visibilityState === "visible",
   );
@@ -166,7 +204,33 @@ export function Globe({
     return () => window.clearTimeout(pauseTimer);
   }, [prefersReducedMotion, rotation]);
 
+  useEffect(() => {
+    if (!inView || !pageVisible || prefersReducedMotion) {
+      setOrbitProgress(STATIC_ORBIT_PROGRESS);
+      return;
+    }
+
+    let animationFrame = 0;
+    let lastFrame = performance.now();
+    let progress = STATIC_ORBIT_PROGRESS;
+
+    const animateOrbit = (now: number) => {
+      animationFrame = requestAnimationFrame(animateOrbit);
+      if (now - lastFrame < ORBIT_FRAME_MS) return;
+
+      progress = (progress + (now - lastFrame) / 18000) % 1;
+      lastFrame = now;
+      setOrbitProgress(progress);
+    };
+
+    animationFrame = requestAnimationFrame(animateOrbit);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [inView, pageVisible, prefersReducedMotion]);
+
   const running = inView && pageVisible && !prefersReducedMotion;
+  const tracer = projectOrbitPoint(LEO_ORBIT, orbitProgress);
+  const tracerVisibility = Math.max(0, Math.min(1, tracer.depth / 0.16));
+  const tracerScale = 0.72 + Math.max(0, tracer.depth) * 0.32;
 
   return (
     <div
@@ -180,12 +244,12 @@ export function Globe({
       {prefersReducedMotion && (
         <span
           data-globe-paused-marker
-          className="pointer-events-none absolute left-[61%] top-[31%] z-10 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-red-200 bg-red-500 shadow-[0_0_0_5px_rgba(157,38,38,0.24),0_0_18px_rgba(248,113,113,0.75)]"
+          className="pointer-events-none absolute left-[61%] top-[31%] z-30 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-sky-100 bg-sky-400 shadow-[0_0_0_5px_rgba(56,189,248,0.24),0_0_18px_rgba(125,211,252,0.8)]"
           aria-hidden="true"
         />
       )}
       <canvas
-        className="size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
+        className="relative z-10 size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]"
         ref={canvasRef}
         aria-hidden="true"
         onPointerDown={(event) => updatePointerInteraction(event.clientX)}
@@ -196,6 +260,38 @@ export function Globe({
           event.touches[0] && updateMovement(event.touches[0].clientX)
         }
       />
+      <svg
+        className="pointer-events-none absolute inset-[2%] z-20 size-[96%] overflow-visible"
+        viewBox="0 0 100 100"
+        role="img"
+        aria-label="The camera-facing half of a low Earth orbit around the globe"
+      >
+        <defs>
+          <radialGradient id="globe-orbit-dot-glow">
+            <stop offset="0" stopColor="#ffffff" stopOpacity="1" />
+            <stop offset="0.14" stopColor="#ffffff" stopOpacity="1" />
+            <stop offset="0.3" stopColor="#BAE6FD" stopOpacity="0.92" />
+            <stop offset="0.58" stopColor="#38BDF8" stopOpacity="0.4" />
+            <stop offset="1" stopColor="#38BDF8" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <g fill="none" strokeLinecap="round">
+          {LEO_VISIBLE_SEGMENTS.map((segment) => (
+            <g key={segment.d}>
+              <path d={segment.d} stroke="#38BDF8" strokeWidth="1.5" opacity={segment.opacity * 0.14} />
+              <path d={segment.d} stroke="#7DD3FC" strokeWidth="0.46" opacity={segment.opacity} />
+            </g>
+          ))}
+        </g>
+        <g
+          data-orbit-tracer
+          transform={`translate(${tracer.x} ${tracer.y}) scale(${tracerScale})`}
+          opacity={tracerVisibility}
+        >
+          <circle r="4.1" fill="url(#globe-orbit-dot-glow)" />
+          <circle r="0.48" fill="#ffffff" />
+        </g>
+      </svg>
     </div>
   );
 }
