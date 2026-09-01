@@ -3,6 +3,7 @@ import { Layers } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Sys Integration",
+  discipline: "Systems",
   lead: "Amrik Krishnakumar & Parth Patel",
   leadLabel: "Leads",
   icon: Layers,

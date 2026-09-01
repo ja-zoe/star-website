@@ -107,16 +107,27 @@ Shared section order (top → bottom), all driven by a per-project config object
 on the page root (`style={{ ['--accent']: '#…' }}`; accent usages read `var(--accent)` so the
 whole page re-themes from one value):
 1. **Hero** — mono eyebrow ("PROJECT 01 · CUBESAT"), big `<h1>`, one-line mission tagline,
-   accent CTA → `#mission`. Backdrop: the existing `WavyBackground` recolored to
-   `[--accent, #000]`-ish, kept subtle. A large faint accent motif icon (lucide) sits behind.
+   dual CTAs to current mission and recruitment, plus a compact phase/update signal. The hero is
+   shorter than one viewport so useful facts arrive sooner. Backdrop: the existing
+   `WavyBackground` recolored to `[--accent, #000]`-ish, kept subtle. A large faint accent motif
+   icon (lucide) sits behind.
 2. **Stat band** — 3–4 at-a-glance facts (number/word + label), accent numerals, hairline
    dividers. Only verifiable facts (subteam counts, "80,000+ ft", "NASA Lunabotics", "UNP-backed").
-3. **Mission** (`id="mission"`) — section label ("01 / THE MISSION"), the overview prose set in
-   a comfortable measure (max-w prose, left-aligned, not centered), accent rule.
-4. **Subteams** — section label + the existing interactive `StarStat`→`SubteamModal` cards,
-   restyled to theme their radial wash + hover ring from `--accent` (keep the modal content).
-5. **Status / Join** — current-status line (from existing copy) + meeting-times note + an accent
-   CTA to Discord. Replaces the bare "Meeting times" block.
+3. **Current mission** (`id="current-mission"`) — public phase, latest published state, current
+   focus, next checkpoint, per-project update date, and content owner. Unconfirmed dates/results
+   are labeled rather than invented.
+4. **Mission** (`id="mission"`) — three newcomer-friendly blocks: why/challenge, what the team is
+   building, and what members do.
+5. **Mission artifact** — a project-specific accessible systems/sequence visual driven by config:
+   SPICEsat data flow, rover excavation loop, or balloon flight lifecycle. It stays typographic and
+   diagrammatic, not photographic.
+6. **Subteams** (`id="subteams"`) — `StarStat`→`SubteamModal` cards with discipline, visible
+   details affordance, recruiting context, useful starting interests, and project-specific contact.
+   Cards become compact rows on mobile. Every trigger has a stable hash and direct hashes open the
+   correct dialog while preserving browser history.
+7. **Recruitment / first step** (`id="join"`) — project-specific Discord/email actions, honest
+   schedule state, capacity caveat, term, location, commitment, update date, and content owner.
+8. **Related projects** — two equal links to the other STAR missions before the shared sign-off.
 
 Conventions for the kit: section labels are mono, uppercase, `text-white/50`, with a leading
 accent tick; numerals/keywords use `text-[var(--accent)]`; dividers `border-[var(--accent)]/30`;
@@ -146,7 +157,8 @@ stars, globe spin, flip-words, and shimmer. Canvas/WebGL work must also stop whe
 offscreen or the page is hidden. Use responsive rendering budgets: 1x DPR and lower density on
 mobile, a maximum 1.5x DPR on larger screens, and a 30fps cap for ambient waves. Keep one global
 shooting-star layer. New decorative motion must use `usePrefersReducedMotion` and an explicit
-visibility lifecycle. The global Navbar exposes an explicit motion toggle on desktop and mobile.
+visibility lifecycle. Costly ambient canvases use static frames on compact/coarse-pointer devices;
+desktop keeps the authored animation. The global Navbar exposes an explicit motion toggle on desktop and mobile.
 Its `star-reduce-motion` preference persists in localStorage and composes with the OS preference:
 either source requesting reduced motion stops continuous effects, and the OS preference disables
 the override control.

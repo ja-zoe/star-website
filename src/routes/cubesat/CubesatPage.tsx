@@ -15,8 +15,9 @@ const CubesatPage = () => {
     <>
       <Seo
         title="CubeSat — STAR"
-        description="STAR's CubeSat team is engineering Rutgers' first student-built satellite — tackling fuel slosh, attitude control, and microgravity experimentation across eight technical subteams."
+        description="STAR's CubeSat team is engineering Rutgers' first student-built satellite across eight technical subteams, with a mission focused on fuel slosh in microgravity."
         path="/cubesat"
+        image="/og/cubesat.png"
       />
       <ProjectShell config={cubesatConfig}>
         <Structures />

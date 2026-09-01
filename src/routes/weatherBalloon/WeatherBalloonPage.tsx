@@ -9,8 +9,9 @@ const WeatherBalloonPage = () => {
     <>
       <Seo
         title="Weather Balloon — STAR"
-        description="STAR's Weather Balloon team designs and launches high-altitude payloads every semester, capturing near-space data and imagery on the edge of the atmosphere."
+        description="STAR's Weather Balloon team develops recoverable high-altitude payloads, flight software, telemetry, and experiments for near-space conditions."
         path="/weather-balloon"
+        image="/og/weather-balloon.png"
       />
       <ProjectShell config={weatherBalloonConfig}>
         <Software />

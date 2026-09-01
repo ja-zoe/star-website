@@ -3,6 +3,7 @@ import { Boxes } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Mechanical",
+  discipline: "Hardware",
   lead: "Matt Leighton, Thomas Kamyszek & Kanika Syal",
   leadLabel: "Leads",
   icon: Boxes,

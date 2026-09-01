@@ -3,6 +3,7 @@ import { Compass } from "lucide-react";
 
 const subteam: Subteam = {
   name: "ADCS",
+  discipline: "Guidance & controls",
   lead: "Julian Vilfort",
   leadLabel: "Lead",
   icon: Compass,

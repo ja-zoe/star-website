@@ -3,6 +3,7 @@ import { Boxes } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Structures",
+  discipline: "Mechanical",
   lead: "Aidan McLendon",
   leadLabel: "Lead",
   icon: Boxes,

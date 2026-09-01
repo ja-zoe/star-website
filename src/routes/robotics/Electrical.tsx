@@ -3,6 +3,7 @@ import { Zap } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Electrical",
+  discipline: "Power & controls",
   lead: "Bhanavi Senthil",
   leadLabel: "Lead",
   icon: Zap,

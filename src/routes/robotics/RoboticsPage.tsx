@@ -12,6 +12,7 @@ const RoboticsPage = () => {
         title="Robotics — STAR"
         description="STAR's Robotics team builds an autonomous excavation rover for NASA's Lunabotics challenge, spanning mechanical, electrical, and software subteams."
         path="/robotics"
+        image="/og/robotics.png"
       />
       <ProjectShell config={roboticsConfig}>
         <Mechanical />

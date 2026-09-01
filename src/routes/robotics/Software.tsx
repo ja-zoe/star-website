@@ -3,6 +3,7 @@ import { Binary } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Software",
+  discipline: "Autonomy",
   lead: "Taha Touil",
   leadLabel: "Lead",
   icon: Binary,

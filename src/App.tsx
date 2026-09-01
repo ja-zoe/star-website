@@ -1,7 +1,7 @@
 import "./App.css";
 import { StarsBackground } from "./components/ui/stars-background";
 import { Routes, Route, useLocation } from "react-router";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ShootingStars } from "./components/ui/shooting-stars";
@@ -63,6 +63,37 @@ const HashScroll = () => {
   return null;
 };
 
+const PathScrollReset = () => {
+  const { pathname, hash } = useLocation();
+  const previousPathname = useRef(pathname);
+
+  useLayoutEffect(() => {
+    const changedRoute = previousPathname.current !== pathname;
+    previousPathname.current = pathname;
+    if (!changedRoute || hash) return;
+
+    const reset = () => {
+      const root = document.documentElement;
+      const previousBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      window.scrollTo({ top: 0, behavior: "auto" });
+      root.style.scrollBehavior = previousBehavior;
+    };
+    reset();
+    const frame = requestAnimationFrame(reset);
+    const settle = window.setInterval(reset, 100);
+    const stop = window.setTimeout(() => window.clearInterval(settle), 600);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.clearInterval(settle);
+      window.clearTimeout(stop);
+    };
+  }, [hash, pathname]);
+
+  return null;
+};
+
 function App() {
   return (
     <div className="relative flex min-h-screen flex-col overflow-hidden bg-black text-white space-mono">
@@ -75,6 +106,7 @@ function App() {
       <Navbar />
 
       <main id="main-content" className="min-h-[100svh] flex-1">
+        <PathScrollReset />
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<MainPage />} />

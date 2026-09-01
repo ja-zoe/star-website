@@ -3,6 +3,7 @@ import { RadioTower } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Communications",
+  discipline: "Electrical",
   lead: "Miguel Pagador",
   leadLabel: "Lead",
   icon: RadioTower,

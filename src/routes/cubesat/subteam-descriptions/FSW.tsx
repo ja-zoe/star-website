@@ -3,6 +3,7 @@ import { Binary } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Flight Software",
+  discipline: "Software",
   lead: "Seth Caskey",
   leadLabel: "Lead",
   icon: Binary,

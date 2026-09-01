@@ -1,10 +1,20 @@
 import { createContext } from "react";
+import type { ProjectId } from "../../content/currentInfo";
 
 /**
- * Carries the active project's --accent to descendants that render into a
- * portal (e.g. the Radix Dialog in SubteamModal, which mounts at document.body
- * and therefore escapes the CSS variable set on the ProjectShell root). React
- * context is not DOM-scoped, so it reaches the portal where a CSS cascade can't.
- * Defaults to white (no project context → neutral).
+ * Carries the active project identity to descendants that render into a portal
+ * (e.g. the Radix Dialog in SubteamModal, which mounts at document.body and
+ * therefore escapes the ProjectShell DOM cascade). The accent re-themes the
+ * portal; the project id/name support project-specific contact actions.
  */
-export const AccentContext = createContext<string>("#ffffff");
+export interface ProjectContextValue {
+  accent: string;
+  projectId: ProjectId;
+  projectName: string;
+}
+
+export const AccentContext = createContext<ProjectContextValue>({
+  accent: "#ffffff",
+  projectId: "cubesat",
+  projectName: "STAR",
+});

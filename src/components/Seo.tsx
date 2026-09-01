@@ -18,6 +18,8 @@ type SeoProps = {
   description?: string;
   /** Route path, used to build the absolute og:url (e.g. "/robotics"). */
   path?: string;
+  /** Route-specific 1200×630 share image, generated into dist at build time. */
+  image?: string;
 };
 
 /** Find an existing meta tag by attribute, or create + append one to <head>. */
@@ -33,7 +35,43 @@ function upsertMeta(attr: "name" | "property", key: string, content: string) {
   el.setAttribute("content", content);
 }
 
-const Seo = ({ title, description, path = "/" }: SeoProps) => {
+function upsertCanonical(href: string) {
+  let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement("link");
+    link.rel = "canonical";
+    document.head.appendChild(link);
+  }
+  link.href = href;
+}
+
+function updateRouteStructuredData(title: string, description: string | undefined, path: string) {
+  const id = "star-route-structured-data";
+  const existing = document.getElementById(id);
+  const projectPaths = new Set(["/cubesat", "/robotics", "/weather-balloon"]);
+  if (!projectPaths.has(path)) {
+    existing?.remove();
+    return;
+  }
+
+  const script = existing ?? document.createElement("script");
+  script.id = id;
+  script.setAttribute("type", "application/ld+json");
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: title.replace(/ — STAR$/, ""),
+    description,
+    url: `${window.location.origin}${path}`,
+    isPartOf: {
+      "@type": "Organization",
+      name: "STAR — Space Technology Association of Rutgers",
+    },
+  });
+  if (!existing) document.head.appendChild(script);
+}
+
+const Seo = ({ title, description, path = "/", image = "/og-image.png" }: SeoProps) => {
   useEffect(() => {
     document.title = title;
 
@@ -48,8 +86,12 @@ const Seo = ({ title, description, path = "/" }: SeoProps) => {
 
     if (typeof window !== "undefined") {
       upsertMeta("property", "og:url", `${window.location.origin}${path}`);
+      upsertMeta("property", "og:image", `${window.location.origin}${image}`);
+      upsertMeta("name", "twitter:image", `${window.location.origin}${image}`);
+      upsertCanonical(`${window.location.origin}${path}`);
+      updateRouteStructuredData(title, description, path);
     }
-  }, [title, description, path]);
+  }, [title, description, image, path]);
 
   return null;
 };

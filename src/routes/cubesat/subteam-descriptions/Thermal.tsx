@@ -3,6 +3,7 @@ import { ThermometerSun } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Thermal",
+  discipline: "Mechanical",
   lead: "Timothy Wilburn",
   leadLabel: "Lead",
   icon: ThermometerSun,

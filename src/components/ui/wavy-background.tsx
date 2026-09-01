@@ -10,6 +10,7 @@ import {
 } from "react";
 import { createNoise3D } from "simplex-noise";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { cn } from "../../lib/utils";
 
 const DEFAULT_COLORS = ["#38bdf8", "#818cf8", "#c084fc", "#e879f9", "#22d3ee"];
@@ -44,6 +45,7 @@ export const WavyBackground = ({
   const noise = useMemo(() => createNoise3D(), []);
   const palette = useMemo(() => colors ?? DEFAULT_COLORS, [colors]);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const staticOnCompactViewport = useMediaQuery("(max-width: 639px), (pointer: coarse)");
   const [inView, setInView] = useState(false);
   const [pageVisible, setPageVisible] = useState(
     () => typeof document === "undefined" || document.visibilityState === "visible",
@@ -139,7 +141,7 @@ export const WavyBackground = ({
     resizeObserver.observe(container);
     resize();
 
-    if (inView && pageVisible && !prefersReducedMotion) {
+    if (inView && pageVisible && !prefersReducedMotion && !staticOnCompactViewport) {
       animationFrame = requestAnimationFrame(render);
     }
 
@@ -156,6 +158,7 @@ export const WavyBackground = ({
     palette,
     prefersReducedMotion,
     speed,
+    staticOnCompactViewport,
     waveOpacity,
     waveWidth,
   ]);
@@ -164,7 +167,7 @@ export const WavyBackground = ({
     typeof navigator !== "undefined" &&
     navigator.userAgent.includes("Safari") &&
     !navigator.userAgent.includes("Chrome");
-  const running = inView && pageVisible && !prefersReducedMotion;
+  const running = inView && pageVisible && !prefersReducedMotion && !staticOnCompactViewport;
 
   return (
     <div
