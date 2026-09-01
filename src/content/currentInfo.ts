@@ -3,6 +3,14 @@ export type ProjectId = "cubesat" | "robotics" | "weather-balloon";
 interface ProjectCurrentInfo {
   status: string;
   schedule: string;
+  phase: string;
+  latestPublished: string;
+  latestNote: string;
+  nextCheckpoint: string;
+  nextNote: string;
+  lastUpdatedISO: string;
+  lastUpdatedLabel: string;
+  contentOwner: string;
 }
 
 interface CurrentInfo {
@@ -51,16 +59,40 @@ export const currentInfo: CurrentInfo = {
   },
   projects: {
     cubesat: {
-      status: "Team focus: SPICEsat systems engineering and testing",
+      status: "Team focus: design review, ground-test integration, and spacecraft orientation-control testing",
       schedule: "CubeSat team schedule being finalized",
+      phase: "Design review & subsystem integration",
+      latestPublished: "Summer 2026 development underway",
+      latestNote: "Structures, power, orientation control, flight software, and experiment-computer interfaces are being advanced for ground testing and spacecraft integration.",
+      nextCheckpoint: "Design review and ground-system integration",
+      nextNote: "Current work includes electrical power system validation, reaction-wheel bench testing, and verification between the main spacecraft computer and experiment computer.",
+      lastUpdatedISO: "2026-08-29",
+      lastUpdatedLabel: "August 29, 2026",
+      contentOwner: "STAR CubeSat leadership",
     },
     robotics: {
       status: "Team focus: autonomous rover development for NASA Lunabotics",
       schedule: "Robotics team schedule being finalized",
+      phase: "Rover development & integration",
+      latestPublished: "Active autonomous rover development",
+      latestNote: "The current season milestone and field-test date are awaiting team confirmation.",
+      nextCheckpoint: "Next field-test checkpoint being confirmed",
+      nextNote: "Ask the Robotics lead for the current build and test plan.",
+      lastUpdatedISO: "2026-08-29",
+      lastUpdatedLabel: "August 29, 2026",
+      contentOwner: "STAR Robotics leadership",
     },
     "weather-balloon": {
       status: "Team focus: high-altitude payload development",
       schedule: "Weather Balloon team schedule being finalized",
+      phase: "High-altitude payload development",
+      latestPublished: "80,000+ ft published peak altitude",
+      latestNote: "The supporting flight date and payload manifest are awaiting team confirmation.",
+      nextCheckpoint: "Next flight window being confirmed",
+      nextNote: "Ask the Weather Balloon lead for the current payload and launch plan.",
+      lastUpdatedISO: "2026-08-29",
+      lastUpdatedLabel: "August 29, 2026",
+      contentOwner: "STAR Weather Balloon leadership",
     },
   },
 };

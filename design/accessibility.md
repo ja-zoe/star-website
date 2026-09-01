@@ -23,6 +23,11 @@ Dialogs: every Radix Sheet/Dialog needs a programmatic title and description. Vi
 text is acceptable for utility navigation. Disclosure buttons expose `aria-expanded` and
 `aria-controls`; the controlled region owns the matching stable `id`.
 
+Project subteam dialogs are URL-addressable by a stable hash. Direct navigation opens the matching
+named dialog, close removes the hash without jumping to the top, and browser Back closes a dialog
+opened from the page. Project-page horizontal mission/sequence tracks are labeled, keyboard-focusable
+scroll regions; their full content remains semantic HTML rather than a canvas-only diagram.
+
 Motion: honor `prefers-reduced-motion` — drop all continuous/decorative animation, keep the
 static visual identity (set 1 R1.4). The Navbar also provides a persistent 44px motion control;
 its local preference stops the same effects, while an OS reduced-motion preference always wins

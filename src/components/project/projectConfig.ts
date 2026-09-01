@@ -2,53 +2,88 @@ import { Satellite, Bot, Wind, type LucideIcon } from "lucide-react";
 import type { ProjectId } from "../../content/currentInfo";
 
 export interface ProjectStat {
-  /** Big accent value, e.g. "8" or "80,000+ ft". */
   value: string;
-  /** Small uppercase caption under it. */
   label: string;
+}
+
+export interface MissionSection {
+  title: string;
+  body: string;
+}
+
+export interface MissionArtifactStep {
+  label: string;
+  detail: string;
+}
+
+export interface MissionArtifact {
+  kicker: string;
+  title: string;
+  description: string;
+  steps: MissionArtifactStep[];
+  note: string;
 }
 
 export interface ProjectConfig {
   id: ProjectId;
-  /** Mono eyebrow over the title, e.g. "PROJECT 01 · CUBESAT". */
   eyebrow: string;
-  /** Page <h1>. */
   name: string;
-  /** One-line mission tagline. */
   tagline: string;
-  /** Signature accent (design/tokens.md › Project signature accents). */
   accent: string;
-  /** Faint backdrop motif (lucide). */
   motifIcon: LucideIcon;
-  /** At-a-glance stat band — verifiable facts only. */
   stats: ProjectStat[];
-  /** "The mission" prose, paragraph by paragraph (existing page copy). */
-  mission: string[];
+  mission: MissionSection[];
+  artifact: MissionArtifact;
   ctaHref: string;
   ctaLabel: string;
 }
 
 const DISCORD = "https://discord.gg/vHa52wx9VK";
+
 export const cubesatConfig: ProjectConfig = {
   id: "cubesat",
-  eyebrow: "PROJECT 01 · CUBE SATELLITE",
-  name: "Cube Satellite",
+  eyebrow: "PROJECT 01 · CUBESAT",
+  name: "CubeSat",
   tagline:
-    "SPICEsat — Rutgers' first student-built satellite, engineered to study fuel slosh in microgravity.",
+    "SPICEsat — Rutgers' first student-built satellite, designed to characterize propellant slosh in microgravity and test active control.",
   accent: "#F5A524",
   motifIcon: Satellite,
   stats: [
-    { value: "8", label: "Subteams" },
-    { value: "UNP", label: "Nanosat program" },
+    { value: "8", label: "Technical subteams" },
+    { value: "UNP", label: "University Nanosatellite Program" },
     { value: "Microgravity", label: "Science focus" },
-    { value: "Rutgers 1st", label: "Student satellite" },
+    { value: "Rutgers' first", label: "Student satellite" },
   ],
   mission: [
-    "The CubeSat project is developing SPICEsat, Rutgers University's first student-built satellite. This mission is part of the prestigious University Nanosatellite Program, under mentorship from faculty and guidance from industry professionals. The satellite's primary scientific objective is to investigate fluid sloshing dynamics in microgravity, a critical problem in spacecraft fuel management. By characterizing slosh behavior and testing active control stabilization algorithms in orbit, SPICEsat aims to advance the state of onboard fuel modeling and control strategies beyond what passive systems allow.",
-    "Students on the team are directly involved in the complete satellite lifecycle—from mission conceptualization and payload integration to subsystem testing and full-system validation. SPICEsat uses a combination of COTS components and custom hardware, offering students exposure to real-world spacecraft design and interdisciplinary systems engineering. With an engineering model already in testing, the mission is rapidly progressing toward flight readiness and serves as a launchpad for the next generation of space systems engineers.",
+    {
+      title: "Why it matters",
+      body: "SPICEsat is a student-developed 6U (six-unit) CubeSat investigating liquid sloshing in microgravity. Propellant motion can create forces and torques that affect spacecraft pointing and orientation control, especially when propellant is a substantial share of the spacecraft mass.",
+    },
+    {
+      title: "What we are building",
+      body: "An instrumented fluid experiment and controlled spacecraft maneuvers will characterize low-gravity slosh and evaluate active reduction of fluid settling time. Flight data will help validate improved slosh models and control strategies for future spacecraft.",
+    },
+    {
+      title: "What members do",
+      body: "The team is preparing for a major design review while updating structural analyses for the revised tank and spacecraft configuration, validating the electrical power system and ground-test equipment, integrating the reaction wheel with the onboard flight software, and defining the command, data, timing, and control handoff between the main and experiment computers.",
+    },
   ],
+  artifact: {
+    kicker: "System view",
+    title: "How SPICEsat works",
+    description:
+      "The spacecraft is both the experiment apparatus and the thing under test. It disturbs its own propellant on command, measures the response, and then tries to damp it out.",
+    steps: [
+      { label: "Excite", detail: "Command the internal spinning reaction wheel through defined maneuvers to intentionally disturb the experiment fluid." },
+      { label: "Measure", detail: "Use experiment sensors and spacecraft orientation data to record how the fluid and spacecraft respond during each maneuver." },
+      { label: "Characterize", detail: "Process the measurements onboard and on the ground to study the relationship between spacecraft motion and fluid behavior." },
+      { label: "Mitigate", detail: "Run a control algorithm that commands the spacecraft response with the goal of reducing slosh and fluid settling time." },
+      { label: "Compare", detail: "Compare flight measurements with analytical and numerical slosh models to improve low-gravity fluid predictions." },
+    ],
+    note: "Structures, thermal, power, communications, and systems integration support every step of the closed loop.",
+  },
   ctaHref: DISCORD,
-  ctaLabel: "Join the mission on Discord",
+  ctaLabel: "Join CubeSat on Discord",
 };
 
 export const roboticsConfig: ProjectConfig = {
@@ -60,16 +95,41 @@ export const roboticsConfig: ProjectConfig = {
   accent: "#34D399",
   motifIcon: Bot,
   stats: [
-    { value: "3", label: "Subteams" },
+    { value: "3", label: "Technical subteams" },
     { value: "NASA", label: "Lunabotics" },
-    { value: "Autonomous", label: "Excavation" },
-    { value: "Lunar", label: "Regolith ops" },
+    { value: "Autonomous", label: "Excavation goal" },
+    { value: "Lunar", label: "Soil simulant" },
   ],
   mission: [
-    "The Robotics project is designing and building a fully autonomous lunar rover for NASA's annual Lunabotics Challenge, a national competition where university teams simulate real lunar surface operations by constructing a robot capable of excavating and transporting regolith — moon-like soil — while navigating a competition arena that mimics the lunar environment. The team's rover is developed entirely in-house, with student-led subsystems spanning mechanical design, embedded systems, autonomy, perception, and control, featuring terrain-adaptive locomotion, regolith excavation tools, and autonomous navigation algorithms optimized for excavation throughput and energy efficiency. By engineering under stringent NASA competition rules and real lunar mission constraints — resource limitation, autonomous decision-making, and dust mitigation — members gain hands-on experience in planetary robotics, systems integration, and mission-driven problem solving, preparing them for careers in aerospace, robotics, and beyond.",
+    {
+      title: "The challenge",
+      body: "NASA Lunabotics asks university teams to excavate and transport simulated lunar soil while navigating a competition arena under strict mission constraints.",
+    },
+    {
+      title: "What we are building",
+      body: "The team develops its competition rover in-house, combining terrain-aware mobility, excavation hardware, electrical power and controls, perception, planning, and autonomous operation.",
+    },
+    {
+      title: "What members do",
+      body: "Members design, fabricate, wire, program, integrate, and field-test the rover. The work connects mechanical design, embedded systems, autonomy, safety, and mission-driven iteration.",
+    },
   ],
+  artifact: {
+    kicker: "Excavation cycle",
+    title: "One autonomous run, three subteams",
+    description:
+      "A competition run can be teleop or autonomous, and the team can switch modes in the middle of the run. Fully autonomous operation earns more points, so the rover must keep the same sensing, planning, control, and safety loop working without driver input.",
+    steps: [
+      { label: "Perceive", detail: "Use onboard sensors to understand pose, terrain, and obstacles." },
+      { label: "Plan", detail: "Choose a safe route and excavation sequence within competition constraints." },
+      { label: "Drive", detail: "Turn motion commands into controlled wheel and actuator behavior." },
+      { label: "Excavate", detail: "Collect, carry, and deposit simulated lunar soil with the mechanical system." },
+      { label: "Verify", detail: "Monitor health, log results, and recover safely when conditions change." },
+    ],
+    note: "Mechanical, Electrical, and Software own different parts of the loop and test the complete cycle together.",
+  },
   ctaHref: DISCORD,
-  ctaLabel: "Join the mission on Discord",
+  ctaLabel: "Join Robotics on Discord",
 };
 
 export const weatherBalloonConfig: ProjectConfig = {
@@ -77,18 +137,49 @@ export const weatherBalloonConfig: ProjectConfig = {
   eyebrow: "PROJECT 03 · WEATHER BALLOON",
   name: "Weather Balloon",
   tagline:
-    "High-altitude payloads carrying experiments to the edge of space — launched every semester.",
+    "Recoverable high-altitude experiment packages carrying student experiments to near-space conditions.",
   accent: "#38BDF8",
   motifIcon: Wind,
   stats: [
-    { value: "80,000+ ft", label: "Peak altitude" },
-    { value: "2", label: "Subteams" },
-    { value: "Every sem.", label: "Launch cadence" },
-    { value: "Near-space", label: "Flight regime" },
+    { value: "80,000+ ft", label: "Published peak" },
+    { value: "2", label: "Technical subteams" },
+    { value: "Semester", label: "Target cadence" },
+    { value: "Near-space", label: "Flight environment" },
   ],
   mission: [
-    "The Weather Balloon Team designs, fabricates, and launches high-altitude experimental payloads each academic semester. These systems routinely reach altitudes exceeding 80,000 feet via high-altitude balloon platforms, enabling near-space data collection and flight system validation in low-pressure, low-temperature environments.",
+    {
+      title: "The environment",
+      body: "High-altitude balloon flights expose student experiment packages to low pressure and low temperature while enabling measurements far above normal ground-test conditions.",
+    },
+    {
+      title: "What we are building",
+      body: "The team designs a recoverable experiment enclosure, integrates sensors and flight electronics, writes onboard and ground software, and prepares the system for launch and tracking.",
+    },
+    {
+      title: "What members do",
+      body: "Members take a mission from experiment planning through fabrication, software, launch preparation, live status data, recovery, and post-flight analysis.",
+    },
   ],
+  artifact: {
+    kicker: "Flight profile",
+    title: "An experiment package's path from bench to recovery",
+    description:
+      "The flight is only one part of the mission. Useful results depend on preparation before launch and careful recovery and analysis afterward.",
+    steps: [
+      { label: "Build", detail: "Integrate the enclosure, sensors, power, flight computer, and recovery hardware." },
+      { label: "Launch", detail: "Complete final checks and begin live position and health tracking." },
+      { label: "Ascent", detail: "Record environmental and experiment data through near-space conditions." },
+      { label: "Descent", detail: "Track the experiment package after balloon burst while the recovery system slows the return." },
+      { label: "Recover", detail: "Retrieve the experiment package, validate stored data, and document what to change next." },
+    ],
+    note: "Public flight dates, payload manifests, and results will appear here once confirmed by the team.",
+  },
   ctaHref: DISCORD,
-  ctaLabel: "Join the mission on Discord",
+  ctaLabel: "Join Weather Balloon on Discord",
 };
+
+export const projectConfigs: ProjectConfig[] = [
+  cubesatConfig,
+  roboticsConfig,
+  weatherBalloonConfig,
+];

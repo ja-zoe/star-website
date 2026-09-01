@@ -17,12 +17,13 @@ import {
 import { Menu, ChevronDown, Pause, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { useMotionPreferenceControl } from "../hooks/usePrefersReducedMotion";
 import { useActiveNavigation } from "../hooks/useActiveNavigation";
 
 const Navbar = () => {
   const [projectsOpen, setProjectsOpen] = useState(false);
+  const { pathname } = useLocation();
   const { motionEnabled, systemReduced, toggleMotion } = useMotionPreferenceControl();
   const activeNavigation = useActiveNavigation();
   // Scroll-aware underlay: transparent over the hero, solid blurred backdrop once
@@ -122,15 +123,17 @@ const Navbar = () => {
                     <SheetClose asChild>
                       <Link
                         to="/cubesat"
-                        className="w-full text-center text-neutral-400 px-6 py-2.5 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white text-base"
+                        aria-current={pathname === "/cubesat" ? "page" : undefined}
+                        className={cn("w-full rounded-lg px-6 py-2.5 text-center text-base text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-white", pathname === "/cubesat" && "bg-neutral-800 text-white")}
                       >
-                        Cube Satellite
+                        CubeSat
                       </Link>
                     </SheetClose>
                     <SheetClose asChild>
                       <Link
                         to="/robotics"
-                        className="w-full text-center text-neutral-400 px-6 py-2.5 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white text-base"
+                        aria-current={pathname === "/robotics" ? "page" : undefined}
+                        className={cn("w-full rounded-lg px-6 py-2.5 text-center text-base text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-white", pathname === "/robotics" && "bg-neutral-800 text-white")}
                       >
                         Robotics
                       </Link>
@@ -138,7 +141,8 @@ const Navbar = () => {
                     <SheetClose asChild>
                       <Link
                         to="/weather-balloon"
-                        className="w-full text-center text-neutral-400 px-6 py-2.5 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white text-base"
+                        aria-current={pathname === "/weather-balloon" ? "page" : undefined}
+                        className={cn("w-full rounded-lg px-6 py-2.5 text-center text-base text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-white", pathname === "/weather-balloon" && "bg-neutral-800 text-white")}
                       >
                         Weather Balloon
                       </Link>
@@ -209,17 +213,17 @@ const Navbar = () => {
               <ul className="w-96">
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link className="inline-flex w-full items-center" to="/cubesat">Cube Satellite</Link>
+                    <Link aria-current={pathname === "/cubesat" ? "page" : undefined} className={cn("inline-flex w-full items-center", pathname === "/cubesat" && "bg-white/10 text-white")} to="/cubesat">CubeSat</Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link className="inline-flex w-full items-center" to="/robotics">Robotics</Link>
+                    <Link aria-current={pathname === "/robotics" ? "page" : undefined} className={cn("inline-flex w-full items-center", pathname === "/robotics" && "bg-white/10 text-white")} to="/robotics">Robotics</Link>
                   </NavigationMenuLink>
                 </li>
                 <li>
                   <NavigationMenuLink asChild>
-                    <Link className="inline-flex w-full items-center" to="/weather-balloon">Weather Balloon</Link>
+                    <Link aria-current={pathname === "/weather-balloon" ? "page" : undefined} className={cn("inline-flex w-full items-center", pathname === "/weather-balloon" && "bg-white/10 text-white")} to="/weather-balloon">Weather Balloon</Link>
                   </NavigationMenuLink>
                 </li>
               </ul>

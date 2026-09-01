@@ -1,5 +1,8 @@
 {
     "rewrites":  [
+      {"source": "/cubesat", "destination": "/cubesat.html"},
+      {"source": "/robotics", "destination": "/robotics.html"},
+      {"source": "/weather-balloon", "destination": "/weather-balloon.html"},
       {"source": "/(.*)", "destination": "/"}
     ]
-  }
+}
