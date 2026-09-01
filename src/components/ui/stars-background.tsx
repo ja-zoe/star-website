@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { cn } from "../../lib/utils";
 
 interface StarProps {
@@ -35,6 +36,7 @@ export const StarsBackground = ({
   );
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const staticOnCompactViewport = useMediaQuery("(max-width: 639px), (pointer: coarse)");
 
   const generateStars = useCallback(
     (width: number, height: number): StarProps[] => {
@@ -116,13 +118,13 @@ export const StarsBackground = ({
       animationFrame = requestAnimationFrame(render);
     };
 
-    if (pageVisible && !prefersReducedMotion) render();
+    if (pageVisible && !prefersReducedMotion && !staticOnCompactViewport) render();
     else paintStars();
 
     return () => cancelAnimationFrame(animationFrame);
-  }, [pageVisible, prefersReducedMotion, stars]);
+  }, [pageVisible, prefersReducedMotion, stars, staticOnCompactViewport]);
 
-  const running = pageVisible && !prefersReducedMotion;
+  const running = pageVisible && !prefersReducedMotion && !staticOnCompactViewport;
 
   return (
     <canvas

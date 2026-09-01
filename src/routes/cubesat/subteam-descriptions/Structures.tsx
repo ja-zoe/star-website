@@ -3,17 +3,18 @@ import { Boxes } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Structures",
+  discipline: "Mechanical",
   lead: "Aidan McLendon",
   leadLabel: "Lead",
   icon: Boxes,
   summary:
     "Structures builds the frame that holds SPICEsat together and keeps it alive — through the violence of launch and years in vacuum.",
   responsibilities: [
-    { title: "Chassis & CAD", body: "Model the chassis, brackets, and deployables to hit CubeSat form-factor limits and payload constraints." },
-    { title: "Material selection", body: "Pick lightweight alloys and composites that take launch loads, thermal cycling, and radiation." },
-    { title: "Integration & interfaces", body: "Lay out mounts for avionics, payload, power, and comms so the satellite assembles and services cleanly." },
-    { title: "Structural analysis", body: "Run FEA against vibration, shock, and load cases to prove the frame survives the ride up." },
-    { title: "Test & validate", body: "Vibe-test, thermal-test, and fit-check the build to confirm it holds through every mission phase." },
+    { title: "Chassis & 3D design", body: "Model the chassis, brackets, and deployable parts to fit CubeSat size limits and experiment requirements." },
+    { title: "Material selection", body: "Pick lightweight alloys and composites that withstand launch forces, repeated temperature changes, and radiation." },
+    { title: "Integration & interfaces", body: "Lay out mounts for computers, experiment hardware, power, and communications so the satellite assembles and can be serviced cleanly." },
+    { title: "Structural analysis", body: "Use computer simulations for vibration, shock, and launch loads to prove the frame survives the ride up." },
+    { title: "Test & validate", body: "Test vibration, temperature, and fit to confirm the build holds together through every mission phase." },
   ],
 };
 

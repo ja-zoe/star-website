@@ -3,6 +3,7 @@ import { Boxes } from "lucide-react";
 
 const subteam: Subteam = {
   name: "Structures",
+  discipline: "Flight hardware",
   lead: "Ihsan Balik",
   leadLabel: "Lead",
   icon: Boxes,
