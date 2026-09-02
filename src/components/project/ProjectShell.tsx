@@ -135,7 +135,7 @@ const ProjectShell = ({
             <div className="min-w-[82%] snap-start border-l border-white/15 px-4 py-5 md:min-w-0 md:border-l-0">
               <dt className="text-[0.6rem] uppercase tracking-[0.18em] text-white/45">Working now</dt>
               <dd className="mt-3 font-bold">{projectCurrent.status.replace("Team focus: ", "")}</dd>
-              <dd className="mt-2 text-xs leading-5 text-white/50">Current public focus; detailed internal tasks change by subteam.</dd>
+              <dd className="mt-2 text-xs leading-5 text-white/50">{projectCurrent.workingNowNote}</dd>
             </div>
             <div className="min-w-[82%] snap-start border-l border-white/15 px-4 py-5 md:min-w-0 md:border-l-0">
               <dt className="text-[0.6rem] uppercase tracking-[0.18em] text-white/45">Next checkpoint</dt>

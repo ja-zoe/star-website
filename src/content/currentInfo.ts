@@ -6,6 +6,7 @@ interface ProjectCurrentInfo {
   phase: string;
   latestPublished: string;
   latestNote: string;
+  workingNowNote: string;
   nextCheckpoint: string;
   nextNote: string;
   lastUpdatedISO: string;
@@ -59,12 +60,13 @@ export const currentInfo: CurrentInfo = {
   },
   projects: {
     cubesat: {
-      status: "Team focus: design review, ground-test integration, and spacecraft orientation-control testing",
+      status: "Team focus: subsystem development toward FlatSat integration and spacecraft orientation-control testing",
       schedule: "CubeSat team schedule being finalized",
-      phase: "Design review & subsystem integration",
+      phase: "Subsystem development & FlatSat integration",
       latestPublished: "Summer 2026 development underway",
-      latestNote: "Structures, power, orientation control, flight software, and experiment-computer interfaces are being advanced for ground testing and spacecraft integration.",
-      nextCheckpoint: "Design review and ground-system integration",
+      latestNote: "Structures, power, orientation control, flight software, and experiment-computer interfaces are being advanced toward a unified FlatSat for ground testing.",
+      workingNowNote: "Structures, power, orientation control, flight software, and experiment-computer interfaces are advancing in parallel toward FlatSat integration.",
+      nextCheckpoint: "Design review and FlatSat integration",
       nextNote: "Current work includes electrical power system validation, reaction-wheel bench testing, and verification between the main spacecraft computer and experiment computer.",
       lastUpdatedISO: "2026-08-29",
       lastUpdatedLabel: "August 29, 2026",
@@ -76,6 +78,7 @@ export const currentInfo: CurrentInfo = {
       phase: "Rover development & integration",
       latestPublished: "Active autonomous rover development",
       latestNote: "The current season milestone and field-test date are awaiting team confirmation.",
+      workingNowNote: "The chassis, electrical, and software subteams are developing their systems in parallel.",
       nextCheckpoint: "Next field-test checkpoint being confirmed",
       nextNote: "Ask the Robotics lead for the current build and test plan.",
       lastUpdatedISO: "2026-08-29",
@@ -88,6 +91,7 @@ export const currentInfo: CurrentInfo = {
       phase: "High-altitude payload development",
       latestPublished: "80,000+ ft published peak altitude",
       latestNote: "The supporting flight date and payload manifest are awaiting team confirmation.",
+      workingNowNote: "The team is developing the high-altitude payload while preparing the next flight and launch plan.",
       nextCheckpoint: "Next flight window being confirmed",
       nextNote: "Ask the Weather Balloon lead for the current payload and launch plan.",
       lastUpdatedISO: "2026-08-29",

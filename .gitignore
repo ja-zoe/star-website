@@ -27,3 +27,4 @@ deploy.sh
 # Browser-automation + agent tooling artifacts (not project source)
 .playwright-cli/
 .claude/skills/
+.agents/skills/spec-driven-dev/
