@@ -16,7 +16,7 @@ Core:
 
 Brand accents:
 - `--color-starred`            = `#9D2626`  (STAR red — WavyBackground, headings accent)
-- `red-400`                    = `#f87171`  (brighter UI red — eboard portrait ring; coexists with #9D2626, kept intentionally)
+- `red-400`                    = `#f87171`  (brighter UI red — team share-card accent and active nav glow; coexists with #9D2626, kept intentionally)
 - `--color-wb` / `--color-starblue` = `#0091ff`  (weather-balloon blue)
 - robotics green               = `#03d011`  (RoboticsPage WavyBackground / ProjectCard reveal)
 

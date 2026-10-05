@@ -49,7 +49,11 @@ purpose, two facts, and CTA. The three cards always have equal rendered dimensio
 The visual field restores the dot-matrix CanvasRevealEffect on pointer/focus while permanent card
 content remains visible. Three.js stays behind a lazy boundary and must not enter the initial home
 chunk. Project accent also appears in labels and a pointer-responsive GlowingEffect border.
-E-board: equal rectangular WobbleCard color portraits with role, name, and major.
+People: every listing of a person (home e-board, project Leadership band, `/team`) uses the shared
+`PersonTile` (`src/components/people/`): an equal rectangular WobbleCard with a uniform 4:5
+portrait (or a lucide `UserRound` placeholder), a role eyebrow that reserves two lines so names
+align across a row, name, optional major, and a "+N roles" hint. Eyebrows are red-300, or the
+page `--accent` on project pages. The whole tile links to the person's profile dialog.
 Sponsor/program logos: a border-y relationship rail with visible relationship labels and hover-blur
 siblings.
 

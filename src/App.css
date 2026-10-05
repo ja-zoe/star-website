@@ -53,7 +53,9 @@
   box-shadow: none;
 }
 
-[data-scroll-aware-navigation] [data-navigation-target][aria-current="location"] {
+/* "location" marks the home section in view; "page" marks a link to the current route (Team). */
+[data-scroll-aware-navigation] [data-navigation-target][aria-current="location"],
+[data-scroll-aware-navigation] [data-navigation-target][aria-current="page"] {
   color: white;
   background-color: rgb(157 38 38 / 0.18);
   box-shadow:
