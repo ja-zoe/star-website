@@ -8,7 +8,7 @@ import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 /**
  * Rectangular portrait card used wherever a person is listed (home e-board, project
- * leadership, team page). The whole card links to the person's profile dialog.
+ * managers and chief engineers, team page). The whole card links to the person's profile dialog.
  */
 const PersonTile = ({
   person,

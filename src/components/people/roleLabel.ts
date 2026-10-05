@@ -6,7 +6,7 @@ const projectName = (id: string) => projectConfigs.find((config) => config.id ==
 
 /**
  * Display label for a role. `withProject: false` drops the project prefix where the page
- * already names the project (the leadership band on a project page).
+ * already names the project (the project managers and chief engineers on a project page).
  */
 export const roleLabel = (role: Role, { withProject = true } = {}) => {
   switch (role.kind) {
