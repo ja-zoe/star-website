@@ -35,6 +35,7 @@ re-sourced from the people model instead of a second name list.
 - [x] R23.3 - Project leadership band on each project page, derived from the model
 - [x] R23.4 - Person profile dialog: every person card opens a deep-linkable profile listing all roles
 - [x] R23.5 - Team page: `/team` lists everyone once with role filters; navbar "Eboard" becomes "Team"
+- [x] R23.6 - Role wording: no "lead"/"leadership" for project managers and chief engineers; new /team description
 
 ## Open questions / decisions before implementing
 All resolved by the user on 2026-10-05:
@@ -82,3 +83,4 @@ None. Static SPA; all data is local TypeScript.
   `changes/CONTEXT.md` (routes, people module), `design/components.md` (PersonTile),
   `design/tokens.md` (stale "eboard portrait ring"). Set 23 complete; awaiting user approval
   to merge to `main`.
+- 2026-10-05 - User feedback on wording handled in R23.6 and merged into the set branch.

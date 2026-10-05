@@ -45,7 +45,7 @@ const TeamPage = () => {
           </p>
           <h1 className="text-5xl font-bold md:text-7xl">The team</h1>
           <p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">
-            The e-board, project leadership, and subteam leads. Open anyone to see everything they do.
+            Click or press on anyone to see their profile.
           </p>
         </header>
 

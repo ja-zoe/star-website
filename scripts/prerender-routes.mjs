@@ -59,7 +59,7 @@ const routes = [
       "Meet the students who run STAR: the e-board, project managers and chief engineers, and the leads of every CubeSat, Robotics, and Weather Balloon subteam.",
     tagline: [
       "The students who run STAR.",
-      "E-board. Project leadership. Subteam leads.",
+      "E-board. Project managers. Chief engineers. Subteam leads.",
     ],
   },
 ];
