@@ -81,6 +81,7 @@ None. Static SPA; all data is local TypeScript.
 - 2026-10-05 - Spec approved with the decisions above; R23.5 added for the `/team` page.
 - 2026-10-05 - R23.1 to R23.5 implemented, verified, and merged into the set branch. Docs updated:
   `changes/CONTEXT.md` (routes, people module), `design/components.md` (PersonTile),
-  `design/tokens.md` (stale "eboard portrait ring"). Set 23 complete; awaiting user approval
-  to merge to `main`.
+  `design/tokens.md` (stale "eboard portrait ring"). Set 23 complete.
 - 2026-10-05 - User feedback on wording handled in R23.6 and merged into the set branch.
+- 2026-10-05 - User approved. Merged `feat/set23-people-profiles` into `main` (`1bdee02`) and pushed
+  to origin, together with 10 earlier unpushed main commits (sets 21-22), also approved.
