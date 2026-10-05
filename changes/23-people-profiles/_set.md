@@ -34,7 +34,7 @@ re-sourced from the people model instead of a second name list.
 - [x] R23.2 - Portraits: five new photos, id-named files under `public/people/`, consistent framing across the grid
 - [x] R23.3 - Project leadership band on each project page, derived from the model
 - [x] R23.4 - Person profile dialog: every person card opens a deep-linkable profile listing all roles
-- [~] R23.5 - Team page: `/team` lists everyone once with role filters; navbar "Eboard" becomes "Team"
+- [x] R23.5 - Team page: `/team` lists everyone once with role filters; navbar "Eboard" becomes "Team"
 
 ## Open questions / decisions before implementing
 All resolved by the user on 2026-10-05:
@@ -55,8 +55,12 @@ All resolved by the user on 2026-10-05:
 
 ## Unrelated issues noticed (not fixed in this set)
 - `pnpm build` warns that `canvas-reveal-effect` is an 857 kB chunk (pre-existing on main).
-- Mobile CLS is 0.015-0.022 on home and all project pages, not the 0 R19.5 recorded. The
-  hero canvas, headline, and CTA row move about 28 px during load, identically on main. This is within "good" (< 0.1); worth a
+- Mobile CLS is 0.015-0.022 on every page (home, projects, /team), not the 0 R19.5 recorded,
+  identically on main. Root cause verified: Space Mono loads from Google Fonts with
+  `display=swap` (`index.html:36`), so text first renders in the fallback font and reflows when
+  the web font arrives. With font requests blocked, mobile CLS drops to 0.0004 on /team,
+  /robotics, and home. Fix candidates for a later performance set: self-host and preload the
+  font, or use a size-adjusted fallback (`size-adjust` / `ascent-override`). This is within "good" (< 0.1); worth a
   look in a later performance set.
 - The navbar motion toggle only affects JS-driven motion. CSS animations and transitions
   (dialog open/close, card hover) still run when a visitor turns motion off; only the OS
@@ -74,3 +78,7 @@ None. Static SPA; all data is local TypeScript.
 - 2026-10-05 - Set 23 scaffolded off `main` (`feat/set23-people-profiles`). Baseline on main:
   `pnpm lint` exit 0 (no findings), `pnpm build` exit 0 (chunk-size warning only).
 - 2026-10-05 - Spec approved with the decisions above; R23.5 added for the `/team` page.
+- 2026-10-05 - R23.1 to R23.5 implemented, verified, and merged into the set branch. Docs updated:
+  `changes/CONTEXT.md` (routes, people module), `design/components.md` (PersonTile),
+  `design/tokens.md` (stale "eboard portrait ring"). Set 23 complete; awaiting user approval
+  to merge to `main`.

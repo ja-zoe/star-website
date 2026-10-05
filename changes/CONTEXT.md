@@ -20,7 +20,8 @@ Loaded once per session. Holds invariants NOT obvious from the code.
 ## Stack
 - React 19 + Vite 6 + TypeScript + Tailwind v4 (`@tailwindcss/vite`) + shadcn (new-york).
 - Routing: `react-router` v7 (`BrowserRouter`, client-side). Routes: `/`, `/cubesat`,
-  `/robotics`, `/weather-balloon`. Home is section-anchored (`#AboutStarSection`, etc.).
+  `/robotics`, `/weather-balloon`, `/team`. Home is section-anchored (`#AboutStarSection`, etc.).
+  Any route can open a person's profile via the hash `#person/<person-id>` (set 23).
 - Path alias `@/` → `src/` (vite-tsconfig-paths).
 - React 19 hoists `<title>`/`<meta>`/`<link>` rendered anywhere in the tree into `<head>` —
   use this for per-route SEO instead of adding react-helmet (keeps it dependency-free + static).
@@ -32,6 +33,11 @@ Loaded once per session. Holds invariants NOT obvious from the code.
   `src/App.tsx`, outside `<Routes>`.
 - Current recruiting, meeting, and per-project schedule fallbacks live only in
   `src/content/currentInfo.ts`; preserve the term and last-updated provenance.
+- People (e-board, project leadership, subteam leads) live only in `src/content/people.ts`, one
+  record per person with typed roles; subteam names live in `src/content/subteams.ts`. Never
+  hard-code a person's name in a component. Portraits: add the source JPEG and a face box to
+  `scripts/optimize-images.mjs`, run `pnpm optimize:images`, then set `photo` on the person.
+  Discord handles are shown only for people who opted in; bios are never invented.
 - Static assets in `public/` are referenced by absolute path (`/foo.png`) or imported.
 
 ## Branching convention
