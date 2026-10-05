@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { RadioTower } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Communications",
+  id: "cubesat/communications",
   discipline: "Electrical",
-  lead: "Miguel Pagador",
-  leadLabel: "Lead",
   icon: RadioTower,
   summary:
     "Communications is SPICEsat's link home — sending data down and taking commands up across the void.",

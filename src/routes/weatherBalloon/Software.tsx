@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../components/SubteamModal";
 import { Binary } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Software",
+  id: "weather-balloon/software",
   discipline: "Flight software",
-  lead: "Victoria Santiago",
-  leadLabel: "Lead",
   icon: Binary,
   summary:
     "Software runs the payload in flight — driving the sensors and getting data safely to the ground and back.",

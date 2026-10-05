@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { Compass } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Guidance & Controls",
+  id: "cubesat/guidance-and-controls",
   discipline: "Guidance & controls",
-  lead: "Julian Vilfort",
-  leadLabel: "Lead",
   icon: Compass,
   summary:
     "Guidance and controls points the satellite — keeping its orientation steady so communications, power, and the experiment can do their jobs.",

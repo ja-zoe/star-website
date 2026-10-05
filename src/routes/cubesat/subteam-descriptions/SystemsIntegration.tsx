@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { Layers } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Systems Integration",
+  id: "cubesat/systems-integration",
   discipline: "Systems",
-  lead: "Amrik Krishnakumar & Parth Patel",
-  leadLabel: "Leads",
   icon: Layers,
   summary:
     "Systems Integration is the connective tissue — turning eight technical systems into one flight-ready spacecraft.",

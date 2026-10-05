@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { FlaskConical } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Payload",
+  id: "cubesat/payload",
   discipline: "Payload",
-  lead: "Christian Metchenko",
-  leadLabel: "Lead",
   icon: FlaskConical,
   summary:
     "The Experiment team runs SPICEsat's core investigation — measuring fuel slosh in microgravity and owning everything from the sensors to the control algorithms that fly it.",

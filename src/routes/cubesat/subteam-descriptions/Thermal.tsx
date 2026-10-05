@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { ThermometerSun } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Thermal",
+  id: "cubesat/thermal",
   discipline: "Mechanical",
-  lead: "Timothy Wilburn",
-  leadLabel: "Lead",
   icon: ThermometerSun,
   summary:
     "Thermal keeps every component in its safe temperature range — from the cold of orbital shadow to the heat of direct sunlight.",

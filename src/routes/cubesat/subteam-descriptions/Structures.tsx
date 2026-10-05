@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { Boxes } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Structures",
+  id: "cubesat/structures",
   discipline: "Mechanical",
-  lead: "Aidan McLendon",
-  leadLabel: "Lead",
   icon: Boxes,
   summary:
     "Structures builds the frame that holds SPICEsat together and keeps it alive — through the violence of launch and years in vacuum.",
