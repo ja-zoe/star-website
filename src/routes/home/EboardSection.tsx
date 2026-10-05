@@ -1,7 +1,7 @@
 import HomeSectionTitle from "../../components/HomeSectionTitle";
 import { WobbleCard } from "../../components/ui/wobble-card";
 import { UserRound } from "lucide-react";
-import { eboard, eboardPosition } from "../../content/people";
+import { PORTRAIT_SIZE, eboard, eboardPosition } from "../../content/people";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 const EboardSection = () => {
@@ -29,12 +29,11 @@ const EboardSection = () => {
               <div className="aspect-[4/5] w-full overflow-hidden border-b border-white/10 bg-white/[0.025]">
                 {member.photo ? (
                   <img
-                    className="h-full w-full scale-125 object-cover transition-transform duration-500 group-hover:scale-[1.28]"
-                    style={{ objectPosition: member.photo.position }}
-                    src={member.photo.src}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    src={member.photo}
                     alt={member.name + ", " + position}
-                    width={member.photo.width}
-                    height={member.photo.height}
+                    width={PORTRAIT_SIZE.width}
+                    height={PORTRAIT_SIZE.height}
                     loading="lazy"
                     decoding="async"
                   />
