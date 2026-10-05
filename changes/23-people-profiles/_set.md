@@ -34,28 +34,26 @@ re-sourced from the people model instead of a second name list.
 - [ ] R23.2 - Portraits: five new photos, id-named files under `public/people/`, consistent framing across the grid
 - [ ] R23.3 - Project leadership band on each project page, derived from the model
 - [ ] R23.4 - Person profile dialog: every person card opens a deep-linkable profile listing all roles
+- [ ] R23.5 - Team page: `/team` lists everyone once with role filters; navbar "Eboard" becomes "Team"
 
 ## Open questions / decisions before implementing
-1. **Discord handles are public?** Set 14 recorded "never render Discord usernames". Proposed:
-   the model has an optional `discord` field that renders in the profile only when set, and it
-   is set only for people who agreed to show it. No handles are populated in this set.
-2. **Profile surface.** Proposed: a dialog opened from any person card (home e-board grid and
-   project leadership band), deep-linkable by URL hash, reusing the existing Radix dialog and
-   the SubteamModal hash pattern. A dedicated `/team` page is a reasonable later step once more
-   photos exist; it would reuse the same model and profile component.
-3. **Set 17 roster still current?** Joseph Field (CubeSat Chief Engineer) and Ihsan Balik
-   (Weather Balloon Project Manager) were confirmed 2026-07-06 and are not in today's request.
+All resolved by the user on 2026-10-05:
+1. **Discord handles: opt-in only.** This replaces set 14's "never render Discord usernames". The
+   model has an optional `discord` field that renders in the profile only when set, and it is set
+   only for people who agreed to show it. No handles are populated in this set.
+2. **Profile surface: both now.** There is a profile dialog from every person card (R23.4) and a
+   dedicated `/team` page (R23.5), both on the same model and profile component.
+3. **Set 17 roster still current.** Joseph Field (CubeSat Chief Engineer) and Ihsan Balik
+   (Weather Balloon Project Manager) stay, with placeholder photos.
 4. **Descriptions.** The model gets an optional `bio`. None are written in this set; the profile
    omits the block when absent. Bios are never invented.
-5. **Where project executives appear.** Proposed: on their project page (set 17 design), not
-   on the home page. The home section stays "Meet E-board".
+5. **Where project executives appear.** Their project page (set 17 design), the profile, and
+   `/team`. The home section stays "Meet E-board".
+6. **Dead code: delete.** `src/routes/designLab/` (unrouted since R20.13, imports e-board photos)
+   and `src/components/CubesatSubteams.tsx` (imported nowhere) are removed in R23.1, before the
+   photo files move. Git history keeps them.
 
 ## Unrelated issues noticed (not fixed in this set)
-- `src/routes/designLab/` (VisualDirectionLab, HeroVisualComparisonLab, heroVisuals/) is
-  unreachable since R20.13 removed its routes, but still imports e-board photos. R23.2 repoints
-  the imports so it keeps type-checking; deleting the directory needs the user's OK.
-- `src/components/CubesatSubteams.tsx` is imported nowhere (superseded by the subteam modals).
-  Deletion likewise needs the user's OK.
 - `pnpm build` warns that `canvas-reveal-effect` is an 857 kB chunk (pre-existing on main).
 
 ## DB changes in this set
@@ -64,3 +62,4 @@ None. Static SPA; all data is local TypeScript.
 ## Log
 - 2026-10-05 - Set 23 scaffolded off `main` (`feat/set23-people-profiles`). Baseline on main:
   `pnpm lint` exit 0 (no findings), `pnpm build` exit 0 (chunk-size warning only).
+- 2026-10-05 - Spec approved with the decisions above; R23.5 added for the `/team` page.
