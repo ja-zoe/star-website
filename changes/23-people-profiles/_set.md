@@ -33,7 +33,7 @@ re-sourced from the people model instead of a second name list.
 - [x] R23.1 - People model: `src/content/people.ts` is the single source of names and roles; e-board grid and subteam leads derive from it (no visual change)
 - [x] R23.2 - Portraits: five new photos, id-named files under `public/people/`, consistent framing across the grid
 - [x] R23.3 - Project leadership band on each project page, derived from the model
-- [ ] R23.4 - Person profile dialog: every person card opens a deep-linkable profile listing all roles
+- [x] R23.4 - Person profile dialog: every person card opens a deep-linkable profile listing all roles
 - [ ] R23.5 - Team page: `/team` lists everyone once with role filters; navbar "Eboard" becomes "Team"
 
 ## Open questions / decisions before implementing
@@ -58,6 +58,11 @@ All resolved by the user on 2026-10-05:
 - Mobile CLS is 0.015-0.022 on home and all project pages, not the 0 R19.5 recorded. The
   hero canvas, headline, and CTA row move about 28 px during load, identically on main. This is within "good" (< 0.1); worth a
   look in a later performance set.
+- The navbar motion toggle only affects JS-driven motion. CSS animations and transitions
+  (dialog open/close, card hover) still run when a visitor turns motion off; only the OS
+  `prefers-reduced-motion` setting stops them (`App.css`). This is pre-existing (subteam dialogs
+  behave the same). A fix would mirror the toggle into a root class that the reduced-motion CSS
+  block also matches.
 - Design note, not a defect: on mobile the transparent navbar logo overlays content when you
   scroll (for example the e-board photos). This is by design since R13.2, which limits the
   backdrop to the nav pill and menu chip. Worth revisiting if it bothers you.
