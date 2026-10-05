@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../components/SubteamModal";
 import { Binary } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Software",
+  id: "robotics/software",
   discipline: "Autonomy",
-  lead: "Julian Vilfort",
-  leadLabel: "Lead",
   icon: Binary,
   summary:
     "Software turns sensing into motion — the autonomy and teleop stack that digs under contest constraints.",

@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../components/SubteamModal";
 import { Boxes } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Mechanical",
+  id: "robotics/mechanical",
   discipline: "Hardware",
-  lead: "Thomas Kamyszek & Kanika Syal",
-  leadLabel: "Leads",
   icon: Boxes,
   summary:
     "Mechanical builds the rover that digs — a chassis, drivetrain, and excavation system tuned for simulated lunar soil.",

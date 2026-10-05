@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../components/SubteamModal";
 import { Boxes } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Structures",
+  id: "weather-balloon/structures",
   discipline: "Flight hardware",
-  lead: "Ihsan Balik",
-  leadLabel: "Lead",
   icon: Boxes,
   summary:
     "Structures builds the payload that comes home intact — housing the electronics through ascent, near-space, and landing.",

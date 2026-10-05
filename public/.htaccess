@@ -1,8 +1,8 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
-# Serve route-specific HTML so project metadata is available before JavaScript.
-RewriteRule ^(cubesat|robotics|weather-balloon)/?$ $1.html [L]
+# Serve route-specific HTML so route metadata is available before JavaScript.
+RewriteRule ^(cubesat|robotics|weather-balloon|team)/?$ $1.html [L]
 
 # SPA fallback — serve index.html for any route that isn't a real file or directory
 RewriteCond %{REQUEST_FILENAME} !-f

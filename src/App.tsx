@@ -1,10 +1,11 @@
 import "./App.css";
 import { StarsBackground } from "./components/ui/stars-background";
 import { Routes, Route, useLocation } from "react-router";
-import { lazy, Suspense, useEffect, useLayoutEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ShootingStars } from "./components/ui/shooting-stars";
+import { personIdFromHash } from "./components/people/personHash";
 
 // Route-level code splitting keeps project-specific content and visual modules
 // out of the initial route bundle.
@@ -14,7 +15,9 @@ const RoboticsPage = lazy(() => import("./routes/robotics/RoboticsPage"));
 const WeatherBalloonPage = lazy(
   () => import("./routes/weatherBalloon/WeatherBalloonPage"),
 );
+const TeamPage = lazy(() => import("./routes/team/TeamPage"));
 const NotFound = lazy(() => import("./routes/NotFound"));
+const PersonProfileDialog = lazy(() => import("./components/people/PersonProfileDialog"));
 
 const RouteFallback = () => (
   <div
@@ -61,6 +64,20 @@ const HashScroll = () => {
   }, [pathname, hash]);
 
   return null;
+};
+
+// Loads the profile dialog the first time a `#person/<id>` hash appears, then keeps it
+// mounted so it can animate closed and hand focus back to the card that opened it.
+const PersonProfileHost = () => {
+  const { hash } = useLocation();
+  const [needed, setNeeded] = useState(false);
+  if (!needed && personIdFromHash(hash)) setNeeded(true);
+  if (!needed) return null;
+  return (
+    <Suspense fallback={null}>
+      <PersonProfileDialog />
+    </Suspense>
+  );
 };
 
 const PathScrollReset = () => {
@@ -113,11 +130,14 @@ function App() {
             <Route path="cubesat" element={<CubesatPage />} />
             <Route path="robotics" element={<RoboticsPage />} />
             <Route path="weather-balloon" element={<WeatherBalloonPage />} />
+            <Route path="team" element={<TeamPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <HashScroll />
         </Suspense>
       </main>
+
+      <PersonProfileHost />
 
       {/* Global Footer and shooting star background */}
       <Footer />

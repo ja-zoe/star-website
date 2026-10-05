@@ -5,7 +5,10 @@ import sharp from "sharp";
 const DIST_DIR = path.resolve("dist");
 const SITE_URL = (process.env.SITE_URL ?? "").replace(/\/$/, "");
 
-const projects = [
+// Routes that get their own prerendered HTML (title, meta, canonical, share card) so crawlers
+// and link previews see route-specific metadata before the SPA boots. Project routes also get
+// CreativeWork structured data.
+const routes = [
   {
     route: "cubesat",
     title: "CubeSat — STAR",
@@ -43,6 +46,20 @@ const projects = [
     tagline: [
       "Student payloads for near-space conditions.",
       "Build. Launch. Track. Recover. Learn.",
+    ],
+  },
+  {
+    route: "team",
+    title: "Team — STAR",
+    name: "Team",
+    eyebrow: "STAR · PEOPLE",
+    accent: "#F87171",
+    structuredData: false,
+    description:
+      "Meet the students who run STAR: the e-board, project managers and chief engineers, and the leads of every CubeSat, Robotics, and Weather Balloon subteam.",
+    tagline: [
+      "The students who run STAR.",
+      "E-board. Project managers. Chief engineers. Subteam leads.",
     ],
   },
 ];
@@ -90,7 +107,7 @@ const createShareCard = async (project) => {
 
 const baseHtml = await readFile(path.join(DIST_DIR, "index.html"), "utf8");
 
-for (const project of projects) {
+for (const project of routes) {
   const routePath = `/${project.route}`;
   const imagePath = `${SITE_URL}/og/${project.route}.png`;
   const canonicalUrl = `${SITE_URL}${routePath}`;
@@ -118,9 +135,13 @@ for (const project of projects) {
       name: "STAR — Space Technology Association of Rutgers",
     },
   };
+  const structuredData =
+    project.structuredData === false
+      ? ""
+      : `    <script type="application/ld+json">${JSON.stringify(projectJsonLd).replaceAll("<", "\\u003c")}</script>\n`;
   html = html.replace(
     "</head>",
-    `    <link rel="canonical" href="${canonicalUrl}" />\n    <script type="application/ld+json">${JSON.stringify(projectJsonLd).replaceAll("<", "\\u003c")}</script>\n  </head>`,
+    `    <link rel="canonical" href="${canonicalUrl}" />\n${structuredData}  </head>`,
   );
   html = html.replace(
     '<div id="root"></div>',
@@ -132,7 +153,7 @@ for (const project of projects) {
 }
 
 if (SITE_URL) {
-  const urls = ["/", ...projects.map((project) => `/${project.route}`)];
+  const urls = ["/", ...routes.map((route) => `/${route.route}`)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((route) => `  <url><loc>${SITE_URL}${route}</loc></url>`).join("\n")}\n</urlset>\n`;
   await writeFile(path.join(DIST_DIR, "sitemap.xml"), sitemap);
   const robotsPath = path.join(DIST_DIR, "robots.txt");
@@ -140,4 +161,4 @@ if (SITE_URL) {
   await writeFile(robotsPath, `${robots.trim()}\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 }
 
-console.log(`Generated ${projects.length} project HTML entries and share cards.`);
+console.log(`Generated ${routes.length} route HTML entries and share cards.`);

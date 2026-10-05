@@ -174,12 +174,12 @@ const Navbar = () => {
 
               <SheetClose asChild>
                 <Link
-                  to="/#EboardSection"
+                  to="/team"
                   data-navigation-target
-                  aria-current={activeNavigation === "eboard" ? "location" : undefined}
+                  aria-current={activeNavigation === "team" ? "page" : undefined}
                   className="w-full block text-center text-neutral-200 px-6 py-3 rounded-lg transition-colors hover:bg-neutral-800 hover:text-white"
                 >
-                  Eboard
+                  Team
                 </Link>
               </SheetClose>
               <button
@@ -241,7 +241,7 @@ const Navbar = () => {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink asChild className="rounded-full">
-              <Link data-navigation-target aria-current={activeNavigation === "eboard" ? "location" : undefined} className="inline-flex items-center" to="/#EboardSection">Eboard</Link>
+              <Link data-navigation-target aria-current={activeNavigation === "team" ? "page" : undefined} className="inline-flex items-center" to="/team">Team</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>

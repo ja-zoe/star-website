@@ -1,0 +1,86 @@
+# Revision Set 23 - People profiles
+
+Bootstrap: read `changes/CONTEXT.md` first for project invariants.
+This file is the index and roll-up log for set 23. Per-feature specs live in the
+sibling `R23.*` files; load only the feature(s) you are working on.
+
+User request (2026-10-05): add new e-board and project executive photos. Because one person
+can hold several roles in the org (Kanika is President and a Robotics Mechanical lead; Thomas is
+Robotics Chief Engineer and a Mechanical lead), replace the per-section name lists with **one
+profile per person**, tagged with any number of roles, plus description, Discord handle, and an
+optional picture. Photos exist for five people today; the goal is photos for everyone, project
+leads included, over time.
+
+New photos (iPhone HEIC from the team Google Drive, converted locally, see R23.2):
+
+| Source file | Person | Roles |
+|---|---|---|
+| IMG_4660 | Sasho Petrov | Treasurer |
+| IMG_4662 | Thomas Kamyszek | Robotics Chief Engineer; Robotics Mechanical lead |
+| IMG_4667 | Natalia Rabinovich | CubeSat Project Manager |
+| IMG_4671 | Kanika Syal | President; Robotics Mechanical lead (replaces her old photo) |
+| IMG_4673 | Jordan Gopez | Robotics Project Manager (Internal) |
+| (none yet) | Devon De Sanctis | Robotics Project Manager (External) |
+
+**Supersedes set 17.** `feat/set17-project-leadership` (2026-07-06) added a project-page
+"Leadership" band but was never merged, and `ProjectShell` has since been restructured (sets
+18-22), so it no longer applies. Its user-confirmed roster and design decisions (red-400 ring,
+band placed after Subteams, "Project Manager · Internal/External" labels) carry into R23.3,
+re-sourced from the people model instead of a second name list.
+
+## Status
+<!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
+- [x] R23.1 - People model: `src/content/people.ts` is the single source of names and roles; e-board grid and subteam leads derive from it (no visual change)
+- [x] R23.2 - Portraits: five new photos, id-named files under `public/people/`, consistent framing across the grid
+- [x] R23.3 - Project leadership band on each project page, derived from the model
+- [x] R23.4 - Person profile dialog: every person card opens a deep-linkable profile listing all roles
+- [x] R23.5 - Team page: `/team` lists everyone once with role filters; navbar "Eboard" becomes "Team"
+- [x] R23.6 - Role wording: no "lead"/"leadership" for project managers and chief engineers; new /team description
+
+## Open questions / decisions before implementing
+All resolved by the user on 2026-10-05:
+1. **Discord handles: opt-in only.** This replaces set 14's "never render Discord usernames". The
+   model has an optional `discord` field that renders in the profile only when set, and it is set
+   only for people who agreed to show it. No handles are populated in this set.
+2. **Profile surface: both now.** There is a profile dialog from every person card (R23.4) and a
+   dedicated `/team` page (R23.5), both on the same model and profile component.
+3. **Set 17 roster still current.** Joseph Field (CubeSat Chief Engineer) and Ihsan Balik
+   (Weather Balloon Project Manager) stay, with placeholder photos.
+4. **Descriptions.** The model gets an optional `bio`. None are written in this set; the profile
+   omits the block when absent. Bios are never invented.
+5. **Where project executives appear.** Their project page (set 17 design), the profile, and
+   `/team`. The home section stays "Meet E-board".
+6. **Dead code: delete.** `src/routes/designLab/` (unrouted since R20.13, imports e-board photos)
+   and `src/components/CubesatSubteams.tsx` (imported nowhere) are removed in R23.1, before the
+   photo files move. Git history keeps them.
+
+## Unrelated issues noticed (not fixed in this set)
+- `pnpm build` warns that `canvas-reveal-effect` is an 857 kB chunk (pre-existing on main).
+- Mobile CLS is 0.015-0.022 on every page (home, projects, /team), not the 0 R19.5 recorded,
+  identically on main. Root cause verified: Space Mono loads from Google Fonts with
+  `display=swap` (`index.html:36`), so text first renders in the fallback font and reflows when
+  the web font arrives. With font requests blocked, mobile CLS drops to 0.0004 on /team,
+  /robotics, and home. Fix candidates for a later performance set: self-host and preload the
+  font, or use a size-adjusted fallback (`size-adjust` / `ascent-override`). This is within "good" (< 0.1); worth a
+  look in a later performance set.
+- The navbar motion toggle only affects JS-driven motion. CSS animations and transitions
+  (dialog open/close, card hover) still run when a visitor turns motion off; only the OS
+  `prefers-reduced-motion` setting stops them (`App.css`). This is pre-existing (subteam dialogs
+  behave the same). A fix would mirror the toggle into a root class that the reduced-motion CSS
+  block also matches.
+- Design note, not a defect: on mobile the transparent navbar logo overlays content when you
+  scroll (for example the e-board photos). This is by design since R13.2, which limits the
+  backdrop to the nav pill and menu chip. Worth revisiting if it bothers you.
+
+## DB changes in this set
+None. Static SPA; all data is local TypeScript.
+
+## Log
+- 2026-10-05 - Set 23 scaffolded off `main` (`feat/set23-people-profiles`). Baseline on main:
+  `pnpm lint` exit 0 (no findings), `pnpm build` exit 0 (chunk-size warning only).
+- 2026-10-05 - Spec approved with the decisions above; R23.5 added for the `/team` page.
+- 2026-10-05 - R23.1 to R23.5 implemented, verified, and merged into the set branch. Docs updated:
+  `changes/CONTEXT.md` (routes, people module), `design/components.md` (PersonTile),
+  `design/tokens.md` (stale "eboard portrait ring"). Set 23 complete; awaiting user approval
+  to merge to `main`.
+- 2026-10-05 - User feedback on wording handled in R23.6 and merged into the set branch.

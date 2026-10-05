@@ -15,6 +15,9 @@ import SectionLabel from "./SectionLabel";
 import { projectConfigs, type ProjectConfig } from "./projectConfig";
 import { AccentContext } from "./accentContext";
 import { currentInfo } from "../../content/currentInfo";
+import { projectLeadership } from "../../content/people";
+import PersonTile from "../people/PersonTile";
+import { roleLabel } from "../people/roleLabel";
 
 const BRAND = "#9D2626";
 
@@ -38,6 +41,15 @@ const ProjectShell = ({
     ctaHref,
     ctaLabel,
   } = config;
+  // Named literally after the roles it holds (not "leadership"): subteam leads are the
+  // project's leads, and these roles are not ranked above them.
+  const management = projectLeadership(id);
+  const countOf = (position: string) => management.filter(({ role }) => role.position === position).length;
+  const managementTitles = (["Project Manager", "Chief Engineer"] as const)
+    .filter((position) => countOf(position) > 0)
+    .map((position) => `${position.toLowerCase()}${countOf(position) > 1 ? "s" : ""}`)
+    .join(" & ");
+  const managementLabel = managementTitles.charAt(0).toUpperCase() + managementTitles.slice(1);
   const projectCurrent = currentInfo.projects[id];
   const relatedProjects = projectConfigs.filter((project) => project.id !== id);
   const projectEmailHref = `${currentInfo.contact.emailHref.split("?")[0]}?subject=${encodeURIComponent(`Interested in STAR ${name}`)}`;
@@ -207,9 +219,26 @@ const ProjectShell = ({
           </div>
         </section>
 
+        <section id="project-management" className="w-full scroll-mt-24 px-6 py-12 md:py-20">
+          <div className="mx-auto max-w-5xl">
+            <SectionLabel index="05">{managementLabel}</SectionLabel>
+            <ul className="mt-10 flex flex-wrap justify-center gap-3 sm:gap-5">
+              {management.map(({ person, role }) => (
+                <li key={`${person.id}-${role.position}`} className="w-[calc(50%-0.375rem)] sm:w-60">
+                  <PersonTile
+                    person={person}
+                    role={roleLabel(role, { withProject: false })}
+                    projectAccent
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section id="join" className="mx-auto w-full max-w-3xl scroll-mt-24 px-6 py-12 text-center md:py-24">
           <div className="flex justify-center">
-            <SectionLabel index="05">Recruitment &amp; first step</SectionLabel>
+            <SectionLabel index="06">Recruitment &amp; first step</SectionLabel>
           </div>
           <h3 className="mx-auto mt-8 max-w-xl text-2xl font-bold">Interested in building with {name}?</h3>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/65">
