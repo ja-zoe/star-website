@@ -34,7 +34,7 @@ re-sourced from the people model instead of a second name list.
 - [x] R23.2 - Portraits: five new photos, id-named files under `public/people/`, consistent framing across the grid
 - [x] R23.3 - Project leadership band on each project page, derived from the model
 - [x] R23.4 - Person profile dialog: every person card opens a deep-linkable profile listing all roles
-- [ ] R23.5 - Team page: `/team` lists everyone once with role filters; navbar "Eboard" becomes "Team"
+- [~] R23.5 - Team page: `/team` lists everyone once with role filters; navbar "Eboard" becomes "Team"
 
 ## Open questions / decisions before implementing
 All resolved by the user on 2026-10-05:

@@ -15,6 +15,7 @@ const RoboticsPage = lazy(() => import("./routes/robotics/RoboticsPage"));
 const WeatherBalloonPage = lazy(
   () => import("./routes/weatherBalloon/WeatherBalloonPage"),
 );
+const TeamPage = lazy(() => import("./routes/team/TeamPage"));
 const NotFound = lazy(() => import("./routes/NotFound"));
 const PersonProfileDialog = lazy(() => import("./components/people/PersonProfileDialog"));
 
@@ -129,6 +130,7 @@ function App() {
             <Route path="cubesat" element={<CubesatPage />} />
             <Route path="robotics" element={<RoboticsPage />} />
             <Route path="weather-balloon" element={<WeatherBalloonPage />} />
+            <Route path="team" element={<TeamPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <HashScroll />

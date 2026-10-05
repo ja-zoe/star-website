@@ -1,5 +1,5 @@
 import type { ProjectId } from "./currentInfo";
-import { SUBTEAM_NAMES, type SubteamId } from "./subteams";
+import { SUBTEAM_NAMES, subteamProject, type SubteamId } from "./subteams";
 import kanikaPhoto from "/people/kanika-syal.webp";
 import praneethPhoto from "/people/praneeth-damarla.webp";
 import sashoPhoto from "/people/sasho-petrov.webp";
@@ -247,6 +247,53 @@ export const subteamLeads = (subteam: SubteamId) =>
       person.roles.some((role) => role.kind === "subteam-lead" && role.subteam === subteam),
     )
     .sort(byFamilyName);
+
+/** Display order for projects wherever people are grouped by project. */
+export const PROJECT_ORDER = ["cubesat", "robotics", "weather-balloon"] as const satisfies readonly ProjectId[];
+
+/** Team page filter: everyone, the e-board, or one project's people. */
+export type TeamGroup = "all" | "eboard" | ProjectId;
+
+const SUBTEAM_ORDER = Object.keys(SUBTEAM_NAMES) as SubteamId[];
+
+const roleProject = (role: Role) =>
+  role.kind === "project" ? role.project : role.kind === "subteam-lead" ? subteamProject(role.subteam) : null;
+
+/** Sort key: e-board in hierarchy order, then project leadership, then subteam leads. */
+const roleRank = (role: Role): number[] => {
+  switch (role.kind) {
+    case "eboard":
+      return [0, EBOARD_ORDER.indexOf(role.position)];
+    case "project":
+      return [1, PROJECT_ORDER.indexOf(role.project), leadershipRank(role)];
+    case "subteam-lead":
+      return [2, PROJECT_ORDER.indexOf(subteamProject(role.subteam)), SUBTEAM_ORDER.indexOf(role.subteam)];
+  }
+};
+
+const compareRanks = (a: number[], b: number[]) => {
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    const difference = (a[i] ?? 0) - (b[i] ?? 0);
+    if (difference) return difference;
+  }
+  return 0;
+};
+
+const inGroup = (role: Role, group: TeamGroup) =>
+  group === "all" || (group === "eboard" ? role.kind === "eboard" : roleProject(role) === group);
+
+/** The role that best represents a person within a group (their highest-ranked one in it). */
+export const primaryRole = (person: Person, group: TeamGroup = "all") =>
+  person.roles
+    .filter((role) => inGroup(role, group))
+    .sort((a, b) => compareRanks(roleRank(a), roleRank(b)))[0] as Role | undefined;
+
+/** Everyone in a group, each once, ordered by their primary role in it. */
+export const teamMembers = (group: TeamGroup = "all") =>
+  people
+    .map((person) => ({ person, role: primaryRole(person, group) }))
+    .filter((entry): entry is { person: Person; role: Role } => entry.role !== undefined)
+    .sort((a, b) => compareRanks(roleRank(a.role), roleRank(b.role)) || byFamilyName(a.person, b.person));
 
 if (import.meta.env.DEV) {
   const problems: string[] = [];

@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 
-export type ActiveNavigation = "about" | "projects" | "faq" | "join" | "eboard";
+export type ActiveNavigation = "about" | "projects" | "faq" | "join" | "team";
 
-const homeSections: Array<{ id: string; navigation: ActiveNavigation }> = [
+// The e-board section maps to no item: the Team link goes to /team, and leaving the
+// section in the list keeps "Join Us" from staying lit while it is in view.
+const homeSections: Array<{ id: string; navigation: ActiveNavigation | null }> = [
   { id: "AboutStarSection", navigation: "about" },
   { id: "ProjectsSection", navigation: "projects" },
   { id: "FAQSection", navigation: "faq" },
   { id: "JoinUsSection", navigation: "join" },
-  { id: "EboardSection", navigation: "eboard" },
+  { id: "EboardSection", navigation: null },
 ];
 
 const projectPaths = new Set(["/cubesat", "/robotics", "/weather-balloon"]);
@@ -20,6 +22,11 @@ export const useActiveNavigation = (): ActiveNavigation | null => {
   useEffect(() => {
     if (projectPaths.has(pathname)) {
       setActiveNavigation("projects");
+      return;
+    }
+
+    if (pathname === "/team") {
+      setActiveNavigation("team");
       return;
     }
 
