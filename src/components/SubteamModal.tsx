@@ -14,6 +14,8 @@ import {
 } from "../components/ui/dialog";
 import { AccentContext } from "./project/accentContext";
 import { currentInfo } from "../content/currentInfo";
+import { subteamLeads } from "../content/people";
+import { SUBTEAM_NAMES, type SubteamId } from "../content/subteams";
 
 export interface SubteamResponsibility {
   title: string;
@@ -21,10 +23,8 @@ export interface SubteamResponsibility {
 }
 
 export interface Subteam {
-  name: string;
+  id: SubteamId;
   discipline: string;
-  lead: string;
-  leadLabel: "Lead" | "Leads";
   icon: LucideIcon;
   summary: string;
   responsibilities: SubteamResponsibility[];
@@ -38,15 +38,11 @@ const toSlug = (value: string) =>
     .replace(/(^-|-$)/g, "");
 
 const SubteamModal = ({ subteam }: { subteam: Subteam }) => {
-  const {
-    name,
-    discipline,
-    lead,
-    leadLabel,
-    icon: Icon,
-    summary,
-    responsibilities,
-  } = subteam;
+  const { id, discipline, icon: Icon, summary, responsibilities } = subteam;
+  const name = SUBTEAM_NAMES[id];
+  const leads = subteamLeads(id);
+  const lead = leads.map((person) => person.name).join(" & ");
+  const leadLabel = leads.length === 1 ? "Lead" : "Leads";
   const { accent, projectName } = useContext(AccentContext);
   const location = useLocation();
   const navigate = useNavigate();

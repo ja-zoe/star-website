@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { Binary } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Flight Software",
+  id: "cubesat/flight-software",
   discipline: "Software",
-  lead: "Seth Caskey",
-  leadLabel: "Lead",
   icon: Binary,
   summary:
     "Flight Software is SPICEsat's brain — the onboard code that runs the mission and answers the ground.",

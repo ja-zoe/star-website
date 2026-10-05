@@ -30,7 +30,7 @@ re-sourced from the people model instead of a second name list.
 
 ## Status
 <!-- markers: [ ] not started · [~] in progress · [t] tests passing, awaiting merge · [x] merged -->
-- [ ] R23.1 - People model: `src/content/people.ts` is the single source of names and roles; e-board grid and subteam leads derive from it (no visual change)
+- [x] R23.1 - People model: `src/content/people.ts` is the single source of names and roles; e-board grid and subteam leads derive from it (no visual change)
 - [ ] R23.2 - Portraits: five new photos, id-named files under `public/people/`, consistent framing across the grid
 - [ ] R23.3 - Project leadership band on each project page, derived from the model
 - [ ] R23.4 - Person profile dialog: every person card opens a deep-linkable profile listing all roles

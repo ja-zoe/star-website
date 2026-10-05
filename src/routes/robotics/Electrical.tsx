@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../components/SubteamModal";
 import { Zap } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Electrical",
+  id: "robotics/electrical",
   discipline: "Power & controls",
-  lead: "Bhanavi Senthil",
-  leadLabel: "Lead",
   icon: Zap,
   summary:
     "Electrical is the rover's power and control backbone — built to survive dust, shock, and big current swings.",

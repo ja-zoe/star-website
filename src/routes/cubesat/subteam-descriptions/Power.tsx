@@ -2,10 +2,8 @@ import SubteamModal, { type Subteam } from "../../../components/SubteamModal";
 import { Zap } from "lucide-react";
 
 const subteam: Subteam = {
-  name: "Power",
+  id: "cubesat/power",
   discipline: "Electrical",
-  lead: "Ahmadh Hassan",
-  leadLabel: "Lead",
   icon: Zap,
   summary:
     "Power generates, stores, and routes every watt SPICEsat needs — through orbital shadow and sudden demand alike.",
