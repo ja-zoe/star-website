@@ -1,10 +1,14 @@
 import type { ProjectId } from "./currentInfo";
 import { SUBTEAM_NAMES, type SubteamId } from "./subteams";
-import julianPhoto from "/eboard/julian.webp";
-import praneethPhoto from "/eboard/praneeth.webp";
-import aayushiPhoto from "/eboard/aayushi.webp";
-import nilaPhoto from "/eboard/nila.webp";
-import kanikaPhoto from "/eboard/kanika.webp";
+import kanikaPhoto from "/people/kanika-syal.webp";
+import praneethPhoto from "/people/praneeth-damarla.webp";
+import sashoPhoto from "/people/sasho-petrov.webp";
+import nilaPhoto from "/people/nila-anbumani.webp";
+import aayushiPhoto from "/people/aayushi-mallik.webp";
+import julianPhoto from "/people/julian-vilfort.webp";
+import nataliaPhoto from "/people/natalia-rabinovich.webp";
+import jordanPhoto from "/people/jordan-gopez.webp";
+import thomasPhoto from "/people/thomas-kamyszek.webp";
 
 /** E-board positions in display (hierarchy) order. */
 export const EBOARD_ORDER = [
@@ -30,29 +34,23 @@ export type Role =
     }
   | { kind: "subteam-lead"; subteam: SubteamId };
 
-export interface PersonPhoto {
-  src: string;
-  width: number;
-  height: number;
-  /** CSS object-position used to frame the face inside the card crop. */
-  position?: string;
-}
+/** Every portrait is cropped by scripts/optimize-images.mjs to this 4:5 head-and-shoulders
+ *  frame, so all cards and avatars share one layout. */
+export const PORTRAIT_SIZE = { width: 720, height: 900 } as const;
 
 export interface Person {
   /** Kebab-case full name; also the photo file name and the profile URL hash. */
   id: string;
   name: string;
   roles: Role[];
-  /** Absent until the person has a portrait; cards show a placeholder icon. */
-  photo?: PersonPhoto;
+  /** Portrait URL; absent until the person has one, and cards show a placeholder icon. */
+  photo?: string;
   major?: string;
   /** Written by the person; never invented. */
   bio?: string;
   /** Shown publicly only for people who agreed to it. */
   discord?: string;
 }
-
-const LEGACY_PHOTO = { width: 964, height: 640 };
 
 export const people: Person[] = [
   {
@@ -62,33 +60,34 @@ export const people: Person[] = [
       { kind: "eboard", position: "President" },
       { kind: "subteam-lead", subteam: "robotics/mechanical" },
     ],
-    photo: { src: kanikaPhoto, ...LEGACY_PHOTO, position: "55%" },
+    photo: kanikaPhoto,
     major: "Mechanical Engineering",
   },
   {
     id: "praneeth-damarla",
     name: "Praneeth Damarla",
     roles: [{ kind: "eboard", position: "Vice President" }],
-    photo: { src: praneethPhoto, ...LEGACY_PHOTO, position: "75% 20px" },
+    photo: praneethPhoto,
     major: "Electrical and Computer Engineering",
   },
   {
     id: "sasho-petrov",
     name: "Sasho Petrov",
     roles: [{ kind: "eboard", position: "Treasurer" }],
+    photo: sashoPhoto,
   },
   {
     id: "nila-anbumani",
     name: "Nila Anbumani",
     roles: [{ kind: "eboard", position: "Outreach Coordinator" }],
-    photo: { src: nilaPhoto, ...LEGACY_PHOTO },
+    photo: nilaPhoto,
     major: "Math and Computer Science",
   },
   {
     id: "aayushi-mallik",
     name: "Aayushi Mallik",
     roles: [{ kind: "eboard", position: "Social Media Coordinator" }],
-    photo: { src: aayushiPhoto, ...LEGACY_PHOTO },
+    photo: aayushiPhoto,
     major: "Aerospace Engineering",
   },
   {
@@ -99,7 +98,7 @@ export const people: Person[] = [
       { kind: "subteam-lead", subteam: "cubesat/guidance-and-controls" },
       { kind: "subteam-lead", subteam: "robotics/software" },
     ],
-    photo: { src: julianPhoto, ...LEGACY_PHOTO, position: "65% 25px" },
+    photo: julianPhoto,
     major: "Electrical and Computer Engineering",
   },
   {
@@ -116,6 +115,7 @@ export const people: Person[] = [
     id: "natalia-rabinovich",
     name: "Natalia Rabinovich",
     roles: [{ kind: "project", project: "cubesat", position: "Project Manager" }],
+    photo: nataliaPhoto,
   },
   {
     id: "joseph-field",
@@ -128,6 +128,7 @@ export const people: Person[] = [
     roles: [
       { kind: "project", project: "robotics", position: "Project Manager", scope: "Internal" },
     ],
+    photo: jordanPhoto,
   },
   {
     id: "devon-de-sanctis",
@@ -143,6 +144,7 @@ export const people: Person[] = [
       { kind: "project", project: "robotics", position: "Chief Engineer" },
       { kind: "subteam-lead", subteam: "robotics/mechanical" },
     ],
+    photo: thomasPhoto,
   },
   {
     id: "ihsan-balik",
